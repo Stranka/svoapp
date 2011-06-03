@@ -1,0 +1,1 @@
+rails generate scaffold Product shorttext:string description:text producer:string price:decimal special_price:decimal product_features:string weight:decimal unit_of_weight:string unit_of_quantity:string tax_percentage:integer image_url:string specification_sheet:string

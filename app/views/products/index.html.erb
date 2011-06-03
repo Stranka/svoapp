@@ -1,0 +1,47 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="8">
+	Listing products
+    </td>                
+  </tr> 
+
+  <% if flash[:notice]%> 
+    <tr class="tablelineerror">
+      <td colspan="5">
+        <%= flash[:notice] %>
+      </td>
+    </tr> 
+  <% end %>
+  
+  <tr class="tablelineheader">
+
+    <td>Shorttext</td>
+    <td>Price</td>
+    <td>Product features</td>
+    <td>Weight</td>
+    <td>Unit of weight</td>
+    <td>Unit of quantity</td>
+    <td>Tax percentage</td>
+    <td></td>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td><%= product.shorttext %></td>
+    <td><%= number_to_currency(product.price) %></td>
+    <td><%= product.product_features %></td>
+    <td><%= product.weight %></td>
+    <td><%= product.unit_of_weight %></td>
+    <td><%= product.unit_of_quantity %></td>
+    <td><%= product.tax_percentage %></td>
+    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt =>'Anzeigen', :title => 'Anzeigen'), product %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt =>'Ändern', :title => 'Ändern'), edit_product_path(product) %>
+    <%= link_to image_tag("delete.png", :border=>0, :alt =>'Löschen', :title => 'Löschen'), product, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+
+
+  <tr class="tablelinemain">
+    <td colspan="8">
+	<%= link_to 'New Product', new_product_path %>
+    </td>
+  </tr>

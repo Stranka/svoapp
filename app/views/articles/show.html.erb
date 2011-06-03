@@ -1,0 +1,63 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+      <%= t '.show_article' %>
+    </td>                
+  </tr> 
+  <tr class="tablelinemain">
+    <td colspan="2">
+      <%= notice %>
+    </td>
+  </tr> 
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+  	 <%= t('.name') %>
+    </td>
+    <td>
+  	<%= @article.name %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	 <%= t('.content') %>
+    </td>
+    <td>
+  	<%= raw(RedCloth.new(@article.content).to_html) %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	 <%= t '.format' %>
+    </td>
+    <td>
+  	<%= @article.format %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	 <%= t '.authlevel' %>
+    </td>
+    <td>
+  	<%= @article.auth_level %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+      <%= t '.authlevel_edit' %>
+    </td>
+    <td>
+    <%= @article.auth_level_edit %>
+    </td>
+  </tr>
+ 
+
+  <tr class="tablelinemain">
+    <td colspan="2">
+	<%= link_to 'Edit', edit_article_path(@article) %> |
+	<%= link_to 'Back', articles_path %>
+    </td>
+  </tr>

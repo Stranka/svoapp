@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+1:
+  name: Bücher
+  parent_id: 0
+  picture: 
+  position: 1
+
+2:
+  name: DVDs
+  parent_id: 0
+  picture: 
+  position: 2

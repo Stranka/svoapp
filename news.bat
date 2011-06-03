@@ -1,0 +1,1 @@
+rails generate scaffold News title:string date:date notice:string format:string auth_level:integer auth_level_edit:integer

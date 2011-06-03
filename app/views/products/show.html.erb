@@ -1,0 +1,149 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+      Show product
+    </td>                
+  </tr> 
+  <tr class="tablelinemain">
+    <td colspan="2">
+      <%= notice %>
+    </td>
+  </tr> 
+
+
+    <tr class="tableline<%= cycle('1', '2') %>">
+      <td width ="20%">
+        <%= image_tag ("product/"+@product.image_url), :height => '250' %>
+      </td>
+      <td>
+        <%= raw(@product.description) %>
+      </td>
+    </tr>        
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Shorttext
+    </td>
+    <td>
+  	<%= @product.shorttext %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Producer
+    </td>
+    <td>
+  	<%= @product.producer %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+    Productclass
+    </td>
+    <td>
+    <%= @product.productclass.name %>
+    </td>
+  </tr>
+  
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Price
+    </td>
+    <td>
+  	<%= number_to_currency(@product.price) %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Special price
+    </td>
+    <td>
+  	<%= number_to_currency(@product.special_price) %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Product features
+    </td>
+    <td>
+  	<%= @product.product_features %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Weight
+    </td>
+    <td>
+  	<%= @product.weight %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Unit of weight
+    </td>
+    <td>
+  	<%= @product.unit_of_weight %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Unit of quantity
+    </td>
+    <td>
+  	<%= @product.unit_of_quantity %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Tax percentage
+    </td>
+    <td>
+  	<%= @product.tax_percentage %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Image url
+    </td>
+    <td>
+  	<%= @product.image_url %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Specification sheet
+    </td>
+    <td>
+      <% if @product.specification_sheet != nil %>
+        <%= link_to('Anzeigen', {
+              :controller => 'products', 
+              :action => 'show_specification_sheet', 
+              :id => @product.id,  
+              :mode => 'show'},
+              {:target => "_blank"}) %> / 
+        <%= link_to 'Download', 
+              :controller => 'products', 
+              :action => 'show_specification_sheet', 
+              :id => @product.id,  
+              :mode => 'download' %>
+      <% else %>
+        nicht vorhanden
+      <% end %> 
+    </td>
+  </tr>
+
+  <tr class="tablelinemain">
+    <td colspan="2">
+	<%= link_to 'Edit', edit_product_path(@product) %> |
+	<%= link_to 'Back', products_path %>
+    </td>
+  </tr>

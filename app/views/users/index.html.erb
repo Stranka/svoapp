@@ -1,0 +1,49 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="7">
+	Listing users
+    </td>                
+  </tr> 
+
+  <% if flash[:notice]%> 
+    <tr class="tablelineerror">
+      <td colspan="5">
+        <%= flash[:notice] %>
+      </td>
+    </tr> 
+  <% end %>
+
+  <tr class="tablelineheader">
+
+    <td>Login</td>
+    <td>Lastname</td>
+    <td>Email</td>
+    <td>Auth Show</td>
+    <td>Auth Edit</td>  
+    <td>Last login at</td>
+    <td></td>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td><%= user.login %></td>
+    <td><%= user.lastname %></td>
+    <td><%= user.email %></td>
+    <td><%= user.auth_level %></td>
+    <td><%= user.auth_level_edit %></td>
+    <% if user.last_login_at %>      
+      <td><%= l user.last_login_at, :format => :long_all %></td>
+    <% else %>
+      <td></td>
+    <% end %>
+    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt =>'Anzeigen', :title => 'Anzeigen'), user %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt =>'Ändern', :title => 'Ändern'), edit_user_path(user) %>
+    <%= link_to image_tag("delete.png", :border=>0, :alt =>'Löschen', :title => 'Löschen'), user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+
+
+  <tr class="tablelinemain">
+    <td colspan="7">
+  <%= link_to 'New User', new_user_path %>
+    </td>
+  </tr>

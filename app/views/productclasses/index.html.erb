@@ -1,0 +1,43 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="4">
+	Listing productclasses
+    </td>                
+  </tr> 
+  
+  <% if flash[:notice]%>
+    <tr class="tablelineerror">
+      <td colspan="5">
+        <%= flash[:notice] %>
+      </td>
+    </tr> 
+  <% end %>
+  
+  <tr class="tablelineheader">
+
+    <td>Name</td>
+    <td>Parent</td>
+    <td>Picture</td>
+    <td></td>
+  </tr>
+
+<% @productclasses.each do |productclass| %>
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td><%= productclass.name %></td>
+    <% if productclass.parent %>
+      <td><%= productclass.parent.name %></td>
+    <% else %>
+      <td></td>
+    <% end %>
+    <td><%= productclass.picture %></td>
+    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt =>'Anzeigen', :title => 'Anzeigen'), productclass %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt =>'Ändern', :title => 'Ändern'), edit_productclass_path(productclass) %>
+    <%= link_to image_tag("delete.png", :border=>0, :alt =>'Löschen', :title => 'Löschen'), productclass, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+
+
+  <tr class="tablelinemain">
+    <td colspan="4">
+	<%= link_to 'New Productclass', new_productclass_path %>
+    </td>
+  </tr>

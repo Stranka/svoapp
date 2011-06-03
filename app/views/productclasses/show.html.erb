@@ -1,0 +1,53 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+      Show productclass
+    </td>                
+  </tr> 
+  <tr class="tablelinemain">
+    <td colspan="2">
+      <%= notice %>
+    </td>
+  </tr> 
+    
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width ="20%" colspan="2">
+      <%= image_tag (@productclass.picture), :height => '150' %>
+    </td>
+
+  </tr> 
+    
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+  	Name
+    </td>
+    <td>
+  	<%= @productclass.name %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Parent
+    </td>
+    <td>
+      <% if @productclass.parent %>
+  	   <%= @productclass.parent.name %>
+  	  <% end %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Picture
+    </td>
+    <td>
+  	<%= @productclass.picture %>
+    </td>
+  </tr>
+
+  <tr class="tablelinemain">
+    <td colspan="2">
+	<%= link_to 'Edit', edit_productclass_path(@productclass) %> |
+	<%= link_to 'Back', productclasses_path %>
+    </td>
+  </tr>

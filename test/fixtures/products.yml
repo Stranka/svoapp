@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+1:
+  shorttext: MyString
+  description: MyText
+  producer: MyString
+  price: 9.99
+  special_price: 9.99
+  product_features: MyString
+  weight: 9.99
+  unit_of_weight: MyString
+  unit_of_quantity: MyString
+  tax_percentage: 1
+  image_url: MyString
+  specification_sheet: MyString
+
+2:
+  shorttext: MyString
+  description: MyText
+  producer: MyString
+  price: 9.99
+  special_price: 9.99
+  product_features: MyString
+  weight: 9.99
+  unit_of_weight: MyString
+  unit_of_quantity: MyString
+  tax_percentage: 1
+  image_url: MyString
+  specification_sheet: MyString

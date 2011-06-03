@@ -1,0 +1,23 @@
+
+<% zahl = 1 + rand(14) %>
+
+  
+    <tr class= "tableline2">
+      <td>
+        <table width="100%" class="tablecontent">
+          <tr>
+            <td>
+              <img src="/images/insert<%= zahl.to_s %>.jpg" width="40" height="40" />
+            </td>
+            <td>
+              <%= l news.date %>
+            </td>
+          </tr>
+          <tr class= "tableline1">
+            <td colspan="2">
+              <%= news.notice %>
+            </td>
+          </tr>
+        </table>
+      </td>     
+    </tr>

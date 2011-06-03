@@ -1,0 +1,12 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+1:
+  block_left: true
+  block_left_width: 20
+  block_right: false
+  block_right_width: 1
+  pagewidth: 80
+  block_headerline: true
+  position_logo: left
+  topimage: false
+  articles_name: Herzlich Willkommen

@@ -1,0 +1,49 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="5">
+	Listing blocks
+    </td>                
+  </tr> 
+  
+  
+  
+  <tr class="tableline<%= cycle('1', '2') %>">
+    
+<% for attribute in Block.columns() -%>
+
+    <td>
+    <%= attribute.human_name %>
+    </td>
+
+<% end -%>
+
+ </tr>
+
+
+
+  <tr class="tablelineheader">
+
+    <td>Name</td>
+    <td>Position</td>
+    <td>Order</td>
+    <td>Active</td>
+    <td><%= @blocks.length() %></td>
+  </tr>
+
+<% @blocks.each do |block, index| %>
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td><%= block.name %></td>
+    <td><%= block.position %></td>
+    <td><%= block.fieldorder %></td>
+    <td><%= block.active %></td>
+    <td align="right"><%= link_to image_tag("true.png", :border=>0, :alt =>'Anzeigen', :title => 'Anzeigen'), block %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt =>'Ändern', :title => 'Ändern'), edit_block_path(block) %>
+    <%= link_to image_tag("delete.png", :border=>0, :alt =>'Löschen', :title => 'Löschen'), block, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+
+
+  <tr class="tablelinemain">
+    <td colspan="5">
+	<%= link_to 'New Block', new_block_path %>
+    </td>
+  </tr>

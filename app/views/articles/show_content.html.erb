@@ -1,0 +1,23 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+      <%= @showarticle.name %>
+    </td>                
+  </tr> 
+  <% if flash[:notice]%>
+    <tr class="tablelineerror">
+      <td colspan="5">
+        <%= flash[:notice] %>
+      </td>
+    </tr> 
+  <% end %>
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td colspan="2">
+  	<%= raw(RedCloth.new(@showarticle.content).to_html) %>
+    </td>
+  </tr>
+
+  <tr class="tablelinemain">
+    <td colspan="2">
+	   &nbsp;
+    </td>
+  </tr>

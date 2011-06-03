@@ -1,0 +1,89 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+      Show block
+    </td>                
+  </tr> 
+  <tr class="tablelinemain">
+    <td colspan="2">
+      <%= notice %>
+    </td>
+  </tr> 
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+  	Name
+    </td>
+    <td>
+  	<%= @block.name %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Headerline
+    </td>
+    <td>
+  	<%= @block.headerline %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Position
+    </td>
+    <td>
+  	<%= @block.position %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Fieldorder
+    </td>
+    <td>
+  	<%= @block.fieldorder %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Blockid
+    </td>
+    <td>
+  	<%= @block.blockid %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Active
+    </td>
+    <td>
+  	<%= @block.active %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+    Authlevel Show
+    </td>
+    <td>
+    <%= @block.auth_level %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+    Authlevel Edit
+    </td>
+    <td>
+    <%= @block.auth_level_edit %>
+    </td>
+  </tr>
+ 
+  <tr class="tablelinemain">
+    <td colspan="2">
+	<%= link_to 'Edit', edit_block_path(@block) %> |
+	<%= link_to 'Back', blocks_path %>
+    </td>
+  </tr>

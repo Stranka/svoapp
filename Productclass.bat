@@ -1,0 +1,1 @@
+rails generate scaffold Productclass name:string parent_id:integer picture:string position:integer

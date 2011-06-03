@@ -1,0 +1,45 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="7">
+	Listing blocks
+    </td>                
+  </tr> 
+
+  <% if flash[:notice]%>
+    <tr class="tablelineerror">
+      <td colspan="5">
+        <%= flash[:notice] %>
+      </td>
+    </tr> 
+  <% end %>
+  
+  <tr class="tablelineheader">
+
+    <td>Name</td>
+    <td>Headerline</td>
+    <td>Position</td>
+    <td>Fieldorder</td>
+    <td>Blockid</td>
+    <td>Active</td>
+    <td></td>
+  </tr>
+
+<% @blocks.each do |block| %>
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td><%= block.name %></td>
+    <td><%= block.headerline %></td>
+    <td><%= block.position %></td>
+    <td><%= block.fieldorder %></td>
+    <td><%= block.blockid %></td>
+    <td><%= block.active %></td>
+    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt =>'Anzeigen', :title => 'Anzeigen'), block %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt =>'Ändern', :title => 'Ändern'), edit_block_path(block) %>
+    <%= link_to image_tag("delete.png", :border=>0, :alt =>'Löschen', :title => 'Löschen'), block, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+
+
+  <tr class="tablelinemain">
+    <td colspan="7">
+	<%= link_to 'New Block', new_block_path %>
+    </td>
+  </tr>

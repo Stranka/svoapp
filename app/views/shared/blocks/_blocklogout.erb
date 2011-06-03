@@ -1,0 +1,18 @@
+
+    <tr class= "tableline<%= cycle('1', '2') %>">
+      <td>
+        Angemeldet als 
+      </td>
+    </tr>
+    
+    <tr class= "tableline<%= cycle('1', '2') %>">
+      <td>
+        <b><%= current_user.login %></b>
+      </td>
+    </tr>
+                    
+    <tr class= "tableline<%= cycle('1', '2') %>">
+      <td>
+        <%= link_to "Abmelden", logout_path %>
+      </td>
+    </tr>

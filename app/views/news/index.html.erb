@@ -1,0 +1,39 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="4">
+	Listing news
+    </td>                
+  </tr> 
+
+  <% if flash[:notice]%> 
+    <tr class="tablelineerror">
+      <td colspan="5">
+        <%= flash[:notice] %>
+      </td>
+    </tr> 
+  <% end %>
+  
+  <tr class="tablelineheader">
+
+    <td>Title</td>
+    <td>Date</td>
+    <td>Notice</td>
+    <td></td>
+  </tr>
+
+<% @news.each do |news| %>
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td><%= news.title %></td>
+    <td><%= l news.date %></td>
+    <td><%= truncate(news.notice, :length => 100) %></td>
+    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt =>'Anzeigen', :title => 'Anzeigen'), news %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt =>'Ändern', :title => 'Ändern'), edit_news_path(news) %>
+    <%= link_to image_tag("delete.png", :border=>0, :alt =>'Löschen', :title => 'Löschen'), news, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+
+
+  <tr class="tablelinemain">
+    <td colspan="4">
+	<%= link_to 'New News', new_news_path %>
+    </td>
+  </tr>

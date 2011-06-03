@@ -1,0 +1,147 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+      Show user
+    </td>                
+  </tr> 
+  <tr class="tablelinemain">
+    <td colspan="2">
+      <%= notice %>
+    </td>
+  </tr> 
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+  	Login
+    </td>
+    <td>
+  	<%= @user.login %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Firstname
+    </td>
+    <td>
+  	<%= @user.firstname %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Lastname
+    </td>
+    <td>
+  	<%= @user.lastname %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Authlevel Show
+    </td>
+    <td>
+  	<%= @user.auth_level %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+    Authlevel Edit
+    </td>
+    <td>
+    <%= @user.auth_level_edit %>
+    </td>
+  </tr>
+ 
+ <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Email
+    </td>
+    <td>
+  	<%= @user.email %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Login count
+    </td>
+    <td>
+  	<%= @user.login_count %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Failed login count
+    </td>
+    <td>
+  	<%= @user.failed_login_count %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Last request at
+    </td>
+    <% if @user.last_request_at %>
+      <td>
+    	 <%= l @user.last_request_at, :format => :long_all %>
+      </td>
+    <% else %>
+      <td></td>
+    <% end %>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Current login at
+    </td>
+    <% if @user.current_login_at %>
+      <td>
+       <%= l @user.current_login_at, :format => :long_all %>
+      </td>
+    <% else %>
+      <td></td>
+    <% end %>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Last login at
+    </td>
+    
+    <% if @user.last_login_at %>
+      <td>
+       <%= l @user.last_login_at, :format => :long_all %>
+      </td>
+    <% else %>
+      <td></td>
+    <% end %>    
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Current login ip
+    </td>
+    <td>
+  	<%= @user.current_login_ip %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Last login ip
+    </td>
+    <td>
+  	<%= @user.last_login_ip %>
+    </td>
+  </tr>
+
+  <tr class="tablelinemain">
+    <td colspan="2">
+	<%= link_to 'Edit', edit_user_path(@user) %> |
+	<%= link_to 'Back', users_path %>
+    </td>
+  </tr>

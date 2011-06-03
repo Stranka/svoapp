@@ -1,0 +1,30 @@
+ <% @ebene_productclass += 1 %>
+    <tr class= "tableline<%= cycle('1', '2') %>">
+      <td>
+        <% if productclass.parent %>
+          <% @ebene_productclass.times do %>
+            &nbsp 
+          <% end %>
+        <% end %>
+        
+        <% if not productclass.children.length() == 0 %>
+          <% if check_tree('productclass', productclass.id) == 'open' %>
+            <%= link_to image_tag("plus.png", :border=>0, :alt =>'plus'), :controller => 'productclasses', :action => 'click', :id => productclass.id, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
+          <% else %>
+            <%= link_to image_tag("minus.png", :border=>0, :alt =>'minus'), :controller => 'productclasses', :action => 'click', :id => productclass.id, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
+          <% end %>
+          <%= productclass.name %>
+        <% else %>
+          <img src="/images/dot.png" alt="nix"> <%= link_to productclass.name, :controller => 'products', :action => 'show_products_productclass', :id => productclass.id %>
+        <% end %>
+        <% if @auth_edit >= 80 and @config.manage_tree == true %>
+          <%= link_to '++', :controller => 'productclasses',:action => 'up', :id => productclass, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %> 
+          <%= link_to '--', :controller => 'productclasses', :action => 'down', :id => productclass, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
+        <% end %>   
+        <% if check_tree('productclass', productclass.id) == 'close'%>
+          <% @children = productclass.children %>
+          <%= render :partial => "shared/blocks/productclass", :collection => @children, :as => :productclass %>
+        <% end %>
+      </td>
+    </tr>
+ <% @ebene_productclass -= 1 %>

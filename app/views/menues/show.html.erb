@@ -1,0 +1,109 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+      Show menue
+    </td>                
+  </tr> 
+  <tr class="tablelinemain">
+    <td colspan="2">
+      <%= notice %>
+    </td>
+  </tr> 
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+  	Name
+    </td>
+    <td>
+  	<%= @menue.name %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	The url
+    </td>
+    <td>
+  	<%= @menue.the_url %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	The controller
+    </td>
+    <td>
+  	<%= @menue.the_controller %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	The action
+    </td>
+    <td>
+  	<%= @menue.the_action %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+    Artikel
+    </td>
+    <td>
+    <%= @menue.the_id %>
+    </td>
+  </tr>
+  
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Berechtigung
+    </td>
+    <td>
+  	<%= @menue.auth_level %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+    Authlevel Edit
+    </td>
+    <td>
+    <%= @menue.auth_level_edit %>
+    </td>
+  </tr>
+  
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Parent
+    </td>
+    <% if @menue.parent != nil %>
+      <td><%= @menue.parent.name %></td>
+    <% else %>
+      <td>      </td>
+    <% end %>      
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Ontop
+    </td>
+    <td>
+  	<%= @menue.ontop %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Active
+    </td>
+    <td>
+  	<%= @menue.active %>
+    </td>
+  </tr>
+
+  <tr class="tablelinemain">
+    <td colspan="2">
+	<%= link_to 'Edit', edit_menue_path(@menue) %> |
+	<%= link_to 'Back', menues_path %>
+    </td>
+  </tr>

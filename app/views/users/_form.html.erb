@@ -1,0 +1,93 @@
+<tr class="tablelinemain">
+  <td colspan="2">
+    <%= form_for(@user) do |f| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </td>
+  </tr> 
+      
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :login %>
+    </td>
+    <td>
+        <%= f.text_field :login %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :firstname %>
+    </td>
+    <td>
+        <%= f.text_field :firstname %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :lastname %>
+    </td>
+    <td>
+        <%= f.text_field :lastname %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :auth_level %>
+    </td>
+    <td>
+        <%= f.text_field :auth_level %>
+    </td>
+  </tr>
+
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :auth_level_edit %>
+    </td>
+    <td>
+        <%= f.text_field :auth_level_edit %>
+    </td>
+  </tr>  
+  
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :email %>
+    </td>
+    <td>
+        <%= f.text_field :email %>
+    </td>
+  </tr>
+  <% if current_page?(:controller => 'users', :action => 'new') %>
+    <tr class= "tableline<%= cycle('1', '2') %>">
+      <td>
+          <%= f.label :password %>
+      </td>
+      <td>
+          <%= f.password_field :password %>
+      </td>
+    </tr>
+    <tr class= "tableline<%= cycle('1', '2') %>">
+      <td>
+          <%= f.label :password_confirmation %>
+      </td>
+      <td>
+          <%= f.password_field :password_confirmation %>
+      </td>
+    </tr> 
+  <% end %>
+  
+  <tr>
+    <td></td>
+    <td>
+      <%= f.submit %>
+    </td>
+  </tr>
+<% end %>

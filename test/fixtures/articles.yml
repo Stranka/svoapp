@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: Herzlich Willkommen
+  content: Startseite
+  format: textile
+  auth_level: 0
+  auth_level_edit: 0  
+

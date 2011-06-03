@@ -1,0 +1,68 @@
+<tr class="tablelinemain">
+  <td colspan="2">
+    <%= form_for(@article) do |f| %>
+      <% if @article.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+    
+          <ul>
+          <% @article.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </td>
+  </tr> 
+      
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :name %>
+    </td>
+    <td>
+        <%= f.text_field :name %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :content %>
+    </td>
+    <td>
+        <%= textile_editor :article, :content, :cols => 85, :rows => 30 %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :format %>
+    </td>
+    <td>
+        <%= f.select :format, Article::FORMAT %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :auth_level %>
+    </td>
+    <td>
+        <%= f.text_field :auth_level %>
+    </td>
+  </tr>
+
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :auth_level_edit %>
+    </td>
+    <td>
+        <%= f.text_field :auth_level_edit %>
+    </td>
+  </tr>
+   
+      <tr>
+    <td></td>
+    <td>
+      <%= f.submit %>
+    </td>
+  </tr>
+  <%# textile_editor_button 'Hello', :onclick => "alert('Hello!')" %>
+  <%= raw(textile_editor_initialize) %>  
+    <% end %>

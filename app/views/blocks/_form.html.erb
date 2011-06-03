@@ -1,0 +1,90 @@
+<tr class="tablelinemain">
+  <td colspan="2">
+    <%= form_for(@block) do |f| %>
+      <% if @block.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@block.errors.count, "error") %> prohibited this block from being saved:</h2>
+    
+          <ul>
+          <% @block.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </td>
+  </tr> 
+      
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :name %>
+    </td>
+    <td>
+        <%= f.text_field :name %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :headerline %>
+    </td>
+    <td>
+        <%= f.text_field :headerline %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :position %>
+    </td>
+    <td>
+        <%= f.select :position, Block::POSITION %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :fieldorder %>
+    </td>
+    <td>
+        <%= f.text_field :fieldorder %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :blockid %>
+    </td>
+    <td>
+        <%= f.text_field :blockid %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :active %>
+    </td>
+    <td>
+        <%= f.check_box :active %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :auth_level %>
+    </td>
+    <td>
+        <%= f.text_field :auth_level %>
+    </td>
+  </tr>  
+
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :auth_level_edit %>
+    </td>
+    <td>
+        <%= f.text_field :auth_level_edit %>
+    </td>
+  </tr>
+   
+      <tr>
+    <td></td>
+    <td>
+      <%= f.submit %>
+    </td>
+  </tr>
+    <% end %>

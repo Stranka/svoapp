@@ -1,0 +1,11 @@
+<li>
+  <% if menue.the_controller? %>
+    <% if menue.the_id? %>
+      <%= link_to_unless_current( menue.name, {:controller => menue.the_controller, :action => menue.the_action, :id => menue.the_id}) do %> <div class='current'><%= menue.name %></div> <% end %>      
+    <% else %>
+      <%= link_to menue.name, :controller => menue.the_controller, :action => menue.the_action %>
+    <% end %>
+  <% else %>
+      <%= link_to menue.name, menue.the_url , :target => "_blank" %>
+  <% end %>
+</li>

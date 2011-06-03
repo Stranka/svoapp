@@ -1,0 +1,39 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="<%=attributes.length() + 1 %>">
+	Listing <%= plural_table_name %>
+    </td>                
+  </tr> 
+
+  <%% if flash[:notice]%> 
+    <tr class="tablelineerror">
+      <td colspan="5">
+        <%%= flash[:notice] %>
+      </td>
+    </tr> 
+  <%% end %>
+  
+  <tr class="tablelineheader">
+
+<% for attribute in attributes -%>
+    <td><%= attribute.human_name %></td>
+<% end -%>
+    <td></td>
+  </tr>
+
+<%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+  <tr class= "tableline<%%= cycle('1', '2') %>">
+<% for attribute in attributes -%>
+    <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+<% end -%>
+    <td align="right"><%%= link_to image_tag("show.png", :border=>0, :alt =>'Anzeigen', :title => 'Anzeigen'), <%= singular_table_name %> %>
+    <%%= link_to image_tag("edit.png", :border=>0, :alt =>'Ändern', :title => 'Ändern'), edit_<%= singular_table_name %>_path(<%= singular_table_name %>) %>
+    <%%= link_to image_tag("delete.png", :border=>0, :alt =>'Löschen', :title => 'Löschen'), <%= singular_table_name %>, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<%% end %>
+
+
+  <tr class="tablelinemain">
+    <td colspan="<%=attributes.length() + 1 %>">
+	<%%= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path %>
+    </td>
+  </tr>

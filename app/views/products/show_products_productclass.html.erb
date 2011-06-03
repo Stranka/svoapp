@@ -1,0 +1,32 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="8">
+	   <%= t('Listing products') %>
+    </td>                
+  </tr> 
+
+  <% if flash[:notice]%> 
+    <tr class="tablelineerror">
+      <td colspan="5">
+        <%= flash[:notice] %>
+      </td>
+    </tr> 
+  <% end %>
+  
+  <tr class="tablelineheader">
+
+    <td><%= t 'Picture' %></td>
+    <td><%= t 'Shorttext' %></td>
+    <td><%= t 'Price' %></td>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td width="5%"><%= image_tag ("product/"+product.image_url), :height => '150' %></td>
+    <td width ="35%">
+      <%= product.shorttext %></br></br>
+      <%= truncate(raw(product.description), :length => 500) %>
+    </td>
+    <td><%= number_to_currency(product.price) %></td>
+  </tr>
+<% end %>
+

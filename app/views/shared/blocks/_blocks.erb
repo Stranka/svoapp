@@ -1,0 +1,45 @@
+
+  <table id=<%= block.name %> width="100%" align="center" cellspacing="0" cellpadding="0" class="tablecontent">
+    <tr>
+      <td class="myTitle" width="100%">
+        <%=  block.name %>
+      </td>
+    </tr>
+    <%if @config.block_headerline == true %>
+      <tr class="tablelinemain">
+        <td>
+          <%= block.headerline? ? block.headerline : block.name  %>
+        </td>
+      </tr>
+    <% end %>
+    
+    <% case block.blockid %>    
+      <% when 'menue' %>
+        <%= render :partial => "shared/blocks/blockmenue", :collection => read_menue, :as => :menue %>
+      
+      <% when 'login' %>
+        <% if current_user %>
+          <%= render :partial => "shared/blocks/blocklogout" %>
+        <% else %>
+          <%= render :partial => "shared/blocks/blocklogin" %>
+        <% end %>
+        
+      <% when 'productclass' %>
+        <%= render :partial => "shared/blocks/productclass", :collection => read_productclass, :as => :productclass %>
+      
+      <% when 'news' %>
+        <%= render :partial => "shared/blocks/news", :collection => read_news, :as => :news %>
+
+      <% when 'referenzen' %>
+        <%= render :partial => "shared/blocks/article", :collection => read_article('Referenzen'), :as => :article %>
+
+      <% when 'kundenmeinungen' %>
+        <%= render :partial => "shared/blocks/article", :collection => read_article('Kundenmeinungen'), :as => :article %>
+          
+      
+      <% else %>
+
+    <% end %>
+            
+  </table>
+

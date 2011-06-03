@@ -1,0 +1,109 @@
+<tr class="tablelinemain">
+  <td colspan="2">
+    <%= form_for(@menue) do |f| %>
+      <% if @menue.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@menue.errors.count, "error") %> prohibited this menue from being saved:</h2>
+    
+          <ul>
+          <% @menue.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </td>
+  </tr> 
+      
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :name %>
+    </td>
+    <td>
+        <%= f.text_field :name %>
+    </td>
+  </tr>
+
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :the_url %>
+    </td>
+    <td>
+        <%= f.text_field :the_url %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :the_controller %>
+    </td>
+    <td>
+        <%= f.text_field :the_controller %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :the_action %>
+    </td>
+    <td>
+        <%= f.text_field :the_action %>
+    </td>
+  </tr>
+
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :the_id %>
+    </td>
+    <td>
+        <%= f.collection_select :the_id, @articles, :id, :name, :prompt => "Bitte wählen" %>
+    </td>
+  </tr>
+    
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :auth_level %>
+    </td>
+    <td>
+        <%= f.text_field :auth_level %>
+    </td>
+  </tr>
+
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :auth_level_edit %>
+    </td>
+    <td>
+        <%= f.text_field :auth_level_edit %>
+    </td>
+  </tr>
+ 
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :parent_id %>
+    </td>
+    <td>
+        <%= f.collection_select :parent_id, @men, :id, :name, :include_blank => true, :prompt => "Bitte wählen" %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :ontop %>
+    </td>
+    <td>
+        <%= f.check_box :ontop %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :active %>
+    </td>
+    <td>
+        <%= f.check_box :active %>
+    </td>
+  </tr>
+      <tr>
+    <td></td>
+    <td>
+      <%= f.submit %>
+    </td>
+  </tr>
+    <% end %>

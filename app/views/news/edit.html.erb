@@ -1,0 +1,13 @@
+
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+      Editing news
+    </td>                
+  </tr> 
+  <%= render 'form' %>
+  <tr class="tablelinemain">
+    <td colspan="2">
+      <%= link_to 'Show', @news %> |
+      <%= link_to 'Back', news_index_path %>
+    </td>
+  </tr>

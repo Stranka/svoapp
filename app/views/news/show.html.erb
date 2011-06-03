@@ -1,0 +1,71 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+      Show news
+    </td>                
+  </tr> 
+  <tr class="tablelinemain">
+    <td colspan="2">
+      <%= notice %>
+    </td>
+  </tr> 
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+  	Title
+    </td>
+    <td>
+  	<%= @news.title %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+  	Date
+    </td>
+    <td>
+  	<%= @news.date %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+  	Notice
+    </td>
+    <td>
+  	<%= @news.notice %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+  	Format
+    </td>
+    <td>
+  	<%= @news.format %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+  	Auth level
+    </td>
+    <td>
+  	<%= @news.auth_level %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+  	Auth level edit
+    </td>
+    <td>
+  	<%= @news.auth_level_edit %>
+    </td>
+  </tr>
+
+  <tr class="tablelinemain">
+    <td colspan="2">
+	<%= link_to 'Edit', edit_news_path(@news) %> |
+	<%= link_to 'Back', news_index_path %>
+    </td>
+  </tr>

@@ -1,0 +1,49 @@
+<tr class="tablelinemain">
+  <td colspan="2">
+    <%= form_for(@productclass, :html => { :multipart => true }) do |f| %>
+      <% if @productclass.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@productclass.errors.count, "error") %> prohibited this productclass from being saved:</h2>
+    
+          <ul>
+          <% @productclass.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </td>
+  </tr> 
+      
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :name %>
+    </td>
+    <td>
+        <%= f.text_field :name %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :parent_id %>
+    </td>
+    <td>
+        <%= f.collection_select :parent_id, @prclasses, :id, :name, :include_blank => true, :prompt => "Bitte wählen"  %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :picture %>
+    </td>
+    <td>
+        <%= f.file_field :picture_field %>
+    </td>
+  </tr>
+
+      <tr>
+    <td></td>
+    <td>
+      <%= f.submit %>
+    </td>
+  </tr>
+    <% end %>

@@ -1,0 +1,41 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+1:
+  name: Menü
+  headerline: Usermenü
+  position: links
+  fieldorder: 3
+  blockid: Menue
+  active: true
+  auth_level: 0
+  auth_level_edit: 50
+
+2:
+  name: Menü
+  headerline: Adminmenü
+  position: links
+  fieldorder: 2
+  blockid: MenueAdmin
+  active: true
+  auth_level: 50
+  auth_level_edit: 50
+  
+3:
+  name: Menü
+  headerline: SuperUser
+  position: links
+  fieldorder: 1
+  blockid: MenueSuperAdmin
+  active: true
+  auth_level: 100
+  auth_level_edit: 100
+
+4:
+  name: Anmeldung
+  headerline: Login
+  position: rechts
+  fieldorder: 1
+  blockid: Login
+  active: true
+  auth_level: 0
+  auth_level_edit: 50

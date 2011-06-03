@@ -1,0 +1,107 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+      Show configuration
+    </td>                
+  </tr> 
+  <tr class="tablelinemain">
+    <td colspan="2">
+      <%= notice %>
+    </td>
+  </tr> 
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+  	Block left
+    </td>
+    <td>
+  	<%= @configuration.block_left %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Block left width
+    </td>
+    <td>
+  	<%= @configuration.block_left_width %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Block right
+    </td>
+    <td>
+  	<%= @configuration.block_right %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Block right width
+    </td>
+    <td>
+  	<%= @configuration.block_right_width %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Pagewidth
+    </td>
+    <td>
+  	<%= @configuration.pagewidth %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Block headerline
+    </td>
+    <td>
+  	<%= @configuration.block_headerline %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Position logo
+    </td>
+    <td>
+  	<%= @configuration.position_logo %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	Topimage
+    </td>
+    <td>
+  	<%= @configuration.topimage %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+    Manage Trees
+    </td>
+    <td>
+    <%= @configuration.manage_tree %>
+    </td>
+  </tr>
+  
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+    Artikelname
+    </td>
+    <td>
+    <%= @configuration.articles_name %>
+    </td>
+  </tr>
+  
+  <tr class="tablelinemain">
+    <td colspan="2">
+	<%= link_to 'Edit', edit_configuration_path(@configuration) %> |
+	<%= link_to 'Back', configurations_path %>
+    </td>
+  </tr>

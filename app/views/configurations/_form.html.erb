@@ -1,0 +1,105 @@
+<tr class="tablelinemain">
+  <td colspan="2">
+    <%= form_for(@configuration) do |f| %>
+      <% if @configuration.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@configuration.errors.count, "error") %> prohibited this configuration from being saved:</h2>
+    
+          <ul>
+          <% @configuration.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </td>
+  </tr> 
+      
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :block_left %>
+    </td>
+    <td>
+        <%= f.check_box :block_left %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :block_left_width %>
+    </td>
+    <td>
+        <%= f.text_field :block_left_width %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :block_right %>
+    </td>
+    <td>
+        <%= f.check_box :block_right %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :block_right_width %>
+    </td>
+    <td>
+        <%= f.text_field :block_right_width %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :pagewidth %>
+    </td>
+    <td>
+        <%= f.text_field :pagewidth %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :block_headerline %>
+    </td>
+    <td>
+        <%= f.check_box :block_headerline %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :position_logo %>
+    </td>
+    <td>
+        <%= f.select :position_logo, Configuration::POSITION%>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :topimage %>
+    </td>
+    <td>
+        <%= f.check_box :topimage %>
+    </td>
+  </tr>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :manage_tree %>
+    </td>
+    <td>
+        <%= f.check_box :manage_tree %>
+    </td>
+  </tr>  
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :articles_name %>
+    </td>
+    <td>
+        <%= f.collection_select :articles_name, @articles, :id, :name, :prompt => "Bitte wählen" %>
+    </td>
+  </tr>  
+      <tr>
+    <td></td>
+    <td>
+      <%= f.submit %>
+    </td>
+  </tr>
+    <% end %>

@@ -1,0 +1,87 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+1:
+  name: Konfiguration
+  position: 10
+  the_url: 
+  the_controller: configurations
+  the_action: index
+  auth_level: 50
+  parent_id: 0
+  ontop: false
+  active: true
+  auth_level_edit: 50
+  
+2:
+  name: Blocks
+  position: 20
+  the_url: 
+  the_controller: blocks
+  the_action: index
+  auth_level: 50
+  parent_id: 0
+  ontop: false
+  active: true
+  auth_level_edit: 50
+  
+3:
+  name: Menü
+  position: 30
+  the_url: 
+  the_controller: menues
+  the_action: index
+  auth_level: 50
+  parent_id: 0
+  ontop: false
+  active: true
+  auth_level_edit: 50
+    
+4:
+  name: Benutzer
+  position: 40
+  the_url: 
+  the_controller: users
+  the_action: index
+  auth_level: 100
+  parent_id: 0
+  ontop: false
+  active: true
+  auth_level_edit: 50
+    
+5:
+  name: Artikel
+  position: 50
+  the_url: 
+  the_controller: articles
+  the_action: index
+  auth_level: 50
+  parent_id: 0
+  ontop: false
+  active: true
+  auth_level_edit: 50
+    
+6:
+  name: Home
+  position: 1
+  the_url: 
+  the_controller: articles
+  the_action: show_content
+  auth_level: 0
+  parent_id: 0
+  ontop: true
+  active: true
+  auth_level_edit: 50
+    
+7:
+  name: Über uns
+  position: 2
+  the_url: 
+  the_controller: articles
+  the_action: show_content
+  the_id: 6
+  auth_level: 0
+  parent_id: 0
+  ontop: true
+  active: true
+  auth_level_edit: 50
+    
