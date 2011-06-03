@@ -21,16 +21,16 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Shorttext
+  	<%= t('.shorttext') %>
     </td>
     <td>
-  	<%= @product.shorttext %>
+  	 <%= @product.shorttext %>
     </td>
   </tr>
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Producer
+  	 <%= t('.producer') %>
     </td>
     <td>
   	<%= @product.producer %>
@@ -39,7 +39,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-    Productclass
+      <%= t('.productclass_id') %>
     </td>
     <td>
     <%= @product.productclass.name %>
@@ -48,7 +48,7 @@
   
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Price
+  	 <%= t('.price') %>
     </td>
     <td>
   	<%= number_to_currency(@product.price) %>
@@ -57,7 +57,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Special price
+  	 <%= t('.special_price') %>
     </td>
     <td>
   	<%= number_to_currency(@product.special_price) %>
@@ -66,7 +66,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Product features
+  	 <%= t('.product_features') %>
     </td>
     <td>
   	<%= @product.product_features %>
@@ -75,7 +75,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Weight
+  	 <%= t('.weight') %>
     </td>
     <td>
   	<%= @product.weight %>
@@ -84,7 +84,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Unit of weight
+  	 <%= t('.unit_of_weight') %>
     </td>
     <td>
   	<%= @product.unit_of_weight %>
@@ -93,7 +93,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Unit of quantity
+  	 <%= t('.unit_of_quantity') %>
     </td>
     <td>
   	<%= @product.unit_of_quantity %>
@@ -102,7 +102,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Tax percentage
+  	 <%= t('.tax_percentage') %>
     </td>
     <td>
   	<%= @product.tax_percentage %>
@@ -111,7 +111,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Image url
+  	 <%= t('.image_url') %>
     </td>
     <td>
   	<%= @product.image_url %>
@@ -120,7 +120,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Specification sheet
+  	 <%= t('.specification_sheet') %>
     </td>
     <td>
       <% if @product.specification_sheet != nil %>

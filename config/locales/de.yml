@@ -1,10 +1,11 @@
 de:
-        
-  Calendar: "Eventkalender"  
+         
   block_left: "Blockstruktur links anzeigen"
   block_right: "Blockstruktur rechts anzeigen"
-  Hellp: "XYC"
-       
+  'Show Article': 'Artikeldetail'
+  'Editing menue': 'Bearbeiten Menüeintrag'
+  action: 'Aktion'
+         
   date:
     formats:
       default: "%d.%m.%Y"
@@ -123,15 +124,24 @@ de:
           other:  "Konnte {{model}} nicht speichern: {{count}} Fehler."
         body: "Bitte überprüfen Sie die folgenden Felder:"
 
-  articles:
+
+
+  products:
     show:
-      name: "Name"
-      format: 'Format'
-      content: 'Inhalt'
-      authlevel_edit: 'Berechtigung Ändern'
-      authlevel: 'Berechtigung Anzeigen'
-      show_article: 'Artikel anzeigen'
-      
+      shorttext: 'Kurztext'
+      description: 'Beschreibung'
+      producer: 'Hersteller'
+      productclass_id: 'Produktkategorie'
+      price: 'Preis'
+      special_price: 'Aktionspreis'
+      product_features: 'Produktmerkmale'
+      weight: 'Gewicht'
+      unit_of_weight: 'Gewichtseinhait'
+      unit_of_quantity: 'Mengeneinheit'
+      tax_percentage: 'Mehrwertsteuer %'
+      image_url: 'Bilddatei'
+      specification_sheet: 'Datenblatt'
+            
   activerecord:
     attributes: 
       article:
@@ -140,6 +150,30 @@ de:
         content: 'Inhalt'
         auth_level_edit: 'Berechtigung Ändern'
         auth_level: 'Berechtigung Anzeigen'
+
+      product:
+        shorttext: 'Kurztext'
+        description: 'Beschreibung'
+        producer: 'Hersteller'
+        productclass_id: 'Produktkategorie'
+        price: 'Preis'
+        special_price: 'Aktionspreis'
+        product_features: 'Produktmerkmale'
+        weight: 'Gewicht'
+        unit_of_weight: 'Gewichtseinheit'
+        unit_of_quantity: 'Mengeneinheit'
+        tax_percentage: 'Mehrwertsteuer %'
+        image_url: 'Bilddatei'
+        specification_sheet: 'Datenblatt'
+
+
+
+
+
+
+
+
+
         
     errors:
       template:

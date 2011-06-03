@@ -1,6 +1,6 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="2">
-      <%= t '.show_article' %>
+      <%= t 'Show Article' %>
     </td>                
   </tr> 
   <tr class="tablelinemain">
@@ -11,7 +11,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td width="20%">
-  	 <%= t('.name') %>
+  	 <%= Article.human_attribute_name('name') %>
     </td>
     <td>
   	<%= @article.name %>
@@ -20,7 +20,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	 <%= t('.content') %>
+      <%= Article.human_attribute_name('content')%>
     </td>
     <td>
   	<%= raw(RedCloth.new(@article.content).to_html) %>
@@ -29,7 +29,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	 <%= t '.format' %>
+  	 <%= Article.human_attribute_name('format') %>
     </td>
     <td>
   	<%= @article.format %>
@@ -38,7 +38,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	 <%= t '.authlevel' %>
+  	 <%= Article.human_attribute_name('auth_level') %>
     </td>
     <td>
   	<%= @article.auth_level %>
@@ -47,7 +47,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-      <%= t '.authlevel_edit' %>
+      <%= Article.human_attribute_name('auth_level_edit') %>
     </td>
     <td>
     <%= @article.auth_level_edit %>

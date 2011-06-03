@@ -1,5 +1,5 @@
   <tr>
-    <td class ="myTitle" width="100%" colspan="9">
+    <td class ="myTitle" width="100%" colspan="8">
 	Listing menues
     </td>                
   </tr> 
@@ -18,7 +18,6 @@
     <td>The url</td>
     <td>The controller</td>
     <td>The action</td>
-    <td>Berechtigung</td>
     <td>Parent</td>
     <td>Ontop</td>
     <td>Active</td>
@@ -31,11 +30,10 @@
     <td><%= menue.the_url %></td>
     <td><%= menue.the_controller %></td>
     <td><%= menue.the_action %></td>
-    <td><%= menue.auth_level %></td>
     <% if menue.parent != nil %>
       <td><%= menue.parent.name %></td>
     <% else %>
-      <td>      </td>
+      <td>&nbsp</td>
     <% end %>
     <td><%= menue.ontop %></td>
     <td><%= menue.active %></td>
@@ -47,7 +45,7 @@
 
 
   <tr class="tablelinemain">
-    <td colspan="9">
+    <td colspan="8">
   <%= link_to 'New Menue', new_menue_path %>
     </td>
   </tr>
