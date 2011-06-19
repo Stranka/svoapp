@@ -1,6 +1,6 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="8">
-	   <%= t('Listing products') %>
+	   <%= t('Listing ') + Product.human_name %>
     </td>                
   </tr> 
 
@@ -14,9 +14,9 @@
   
   <tr class="tablelineheader">
 
-    <td><%= t 'Picture' %></td>
-    <td><%= t 'Shorttext' %></td>
-    <td><%= t 'Price' %></td>
+    <td><%= Product.human_attribute_name('image_url') %></td>
+    <td><%= Product.human_attribute_name('shorttext') %></td>
+    <td><%= Product.human_attribute_name('price') %></td>
   </tr>
 
 <% @products.each do |product| %>

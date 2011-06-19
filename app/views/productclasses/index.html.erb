@@ -1,6 +1,6 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="4">
-	Listing productclasses
+	     <%= t('Listing ') + Productclass.human_name %>
     </td>                
   </tr> 
   
@@ -14,10 +14,10 @@
   
   <tr class="tablelineheader">
 
-    <td>Name</td>
-    <td>Parent</td>
-    <td>Picture</td>
-    <td></td>
+    <td><%= Productclass.human_attribute_name('name') %></td>
+    <td><%= Productclass.human_attribute_name('parent') %></td>
+    <td><%= Productclass.human_attribute_name('image_url') %></td>
+    <td><%= t 'action' %></td>
   </tr>
 
 <% @productclasses.each do |productclass| %>
@@ -29,15 +29,15 @@
       <td></td>
     <% end %>
     <td><%= productclass.picture %></td>
-    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt =>'Anzeigen', :title => 'Anzeigen'), productclass %>
-    <%= link_to image_tag("edit.png", :border=>0, :alt =>'Ändern', :title => 'Ändern'), edit_productclass_path(productclass) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt =>'Löschen', :title => 'Löschen'), productclass, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), productclass %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_productclass_path(productclass) %>
+    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), productclass, :confirm => t('Are you sure?'), :method => :delete %></td>
   </tr>
 <% end %>
 
 
   <tr class="tablelinemain">
     <td colspan="4">
-	<%= link_to 'New Productclass', new_productclass_path %>
+	<%= link_to t('New ') + Productclass.human_name, new_productclass_path %>
     </td>
   </tr>

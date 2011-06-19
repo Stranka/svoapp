@@ -1,45 +1,78 @@
 
-  <table id=<%= block.name %> width="100%" align="center" cellspacing="0" cellpadding="0" class="tablecontent">
-    <tr>
-      <td class="myTitle" width="100%">
-        <%=  block.name %>
-      </td>
-    </tr>
-    <%if @config.block_headerline == true %>
-      <tr class="tablelinemain">
-        <td>
-          <%= block.headerline? ? block.headerline : block.name  %>
+  <table id=<%= block.name %> width="100%" align="center" cellspacing="6" cellpadding="0" class="tablecontent">
+    <% if block.active == true %>
+      <tr>
+        <td class="myTitle" width="100%">
+          <%= block.name %>
         </td>
       </tr>
+      <%if @config.block_headerline == true %>
+        <tr class="tablelinemain">
+          <td>
+            <%= block.headerline? ? block.headerline : block.name  %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
-    
-    <% case block.blockid %>    
+
+    <% case block.blockid %>
       <% when 'menue' %>
         <%= render :partial => "shared/blocks/blockmenue", :collection => read_menue, :as => :menue %>
-      
+
       <% when 'login' %>
         <% if current_user %>
           <%= render :partial => "shared/blocks/blocklogout" %>
         <% else %>
           <%= render :partial => "shared/blocks/blocklogin" %>
         <% end %>
-        
+
       <% when 'productclass' %>
         <%= render :partial => "shared/blocks/productclass", :collection => read_productclass, :as => :productclass %>
-      
+
       <% when 'news' %>
-        <%= render :partial => "shared/blocks/news", :collection => read_news, :as => :news %>
+        <%= render :partial => "shared/blocks/news", :collection => read_block_news, :as => :news %>
 
       <% when 'referenzen' %>
         <%= render :partial => "shared/blocks/article", :collection => read_article('Referenzen'), :as => :article %>
 
       <% when 'kundenmeinungen' %>
         <%= render :partial => "shared/blocks/article", :collection => read_article('Kundenmeinungen'), :as => :article %>
-          
-      
+
+
+
+
+
+      <% when 'userblock1' %>
+        <%= render :partial => "shared/userblocks/userblock_1", :collection => read_userblock_1, :as => :userblock %>
+
+      <% when 'userblock2' %>
+        <%= render :partial => "shared/userblocks/userblock_2", :collection => read_userblock_2, :as => :userblock %>
+
+      <% when 'userblock3' %>
+        <%= render :partial => "shared/userblocks/userblock_3", :collection => read_userblock_3, :as => :userblock %>
+
+      <% when 'userblock4' %>
+        <%= render :partial => "shared/userblocks/userblock_4", :collection => read_userblock_4, :as => :userblock %>
+
+      <% when 'userblock5' %>
+        <%= render :partial => "shared/userblocks/userblock_5", :collection => read_userblock_5, :as => :userblock %>
+
+      <% when 'userblock6' %>
+        <%= render :partial => "shared/userblocks/userblock_6", :collection => read_userblock_6, :as => :userblock %>
+
+      <% when 'userblock7' %>
+        <%= render :partial => "shared/userblocks/userblock_7", :collection => read_userblock_7, :as => :userblock %>
+
+      <% when 'userblock8' %>
+        <%= render :partial => "shared/userblocks/userblock_8", :collection => read_userblock_8, :as => :userblock %>
+
+      <% when 'userblock9' %>
+        <%= render :partial => "shared/userblocks/userblock_9", :collection => read_userblock_9, :as => :userblock %>
+
+
       <% else %>
 
     <% end %>
-            
+
   </table>
 

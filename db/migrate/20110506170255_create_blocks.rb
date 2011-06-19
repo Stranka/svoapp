@@ -5,7 +5,7 @@ class CreateBlocks < ActiveRecord::Migration
       t.string :headerline
       t.string :position
       t.integer :fieldorder
-      t.integer :blockid
+      t.string :blockid
       t.boolean :active
 
       t.timestamps

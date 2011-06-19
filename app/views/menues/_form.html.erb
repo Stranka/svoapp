@@ -54,7 +54,7 @@
         <%= f.label :the_id %>
     </td>
     <td>
-        <%= f.collection_select :the_id, @articles, :id, :name, :prompt => "Bitte wählen" %>
+        <%= f.collection_select :the_id, @articles, :id, :name, :prompt => t('please select') %>
     </td>
   </tr>
     
@@ -81,7 +81,7 @@
         <%= f.label :parent_id %>
     </td>
     <td>
-        <%= f.collection_select :parent_id, @men, :id, :name, :include_blank => true, :prompt => "Bitte wählen" %>
+        <%= f.collection_select :parent_id, @men, :id, :name, :include_blank => true, :prompt => t('please select') %>
     </td>
   </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">

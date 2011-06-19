@@ -1,0 +1,46 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="7">
+      <%= t('Listing ') + Shipment.human_name %>
+    </td>                
+  </tr> 
+
+  <% if flash[:notice]%> 
+    <tr class="tablelineerror">
+      <td colspan="5">
+        <%= flash[:notice] %>
+      </td>
+    </tr> 
+  <% end %>
+  
+  <tr class="tablelineheader">
+    <td><%= Shipment.human_attribute_name('name') %></td>
+    <td><%= Shipment.human_attribute_name('weight_max') %></td>
+    <td><%= Shipment.human_attribute_name('lenght_max') %></td>
+    <td><%= Shipment.human_attribute_name('scale_id') %></td>
+    <td><%= Shipment.human_attribute_name('auth_level') %></td>
+    <td><%= Shipment.human_attribute_name('auth_level_edit') %></td>
+    <td><%= t('action') %></td>
+  </tr>
+
+  <% @shipments.each do |shipment| %>
+    <tr class= "tableline<%= cycle('1', '2') %>">
+      <td><%= shipment.name %></td>
+      <td><%= shipment.weight_max %></td>
+      <td><%= shipment.lenght_max %></td>
+      <td><%= shipment.scale_id %></td>
+      <td><%= shipment.auth_level %></td>
+      <td><%= shipment.auth_level_edit %></td>
+      <td align="right">
+        <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), shipment %>
+        <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_shipment_path(shipment) %>
+        <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), shipment, :confirm => t('Are you sure?'), :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+
+  <tr class="tablelinemain">
+    <td colspan="7">
+  <%= link_to t('New ') + Shipment.human_name, new_shipment_path %>
+    </td>
+  </tr>
+

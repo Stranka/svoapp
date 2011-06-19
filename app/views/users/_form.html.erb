@@ -14,13 +14,48 @@
       <% end %>
     </td>
   </tr> 
-      
+
+    <tr class='tablelinemain'><td><%=t('login data')%></td><td></td></tr>      
       <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :login %>
     </td>
     <td>
         <%= f.text_field :login %>
+    </td>
+  </tr>
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :email %>
+    </td>
+    <td>
+        <%= f.text_field :email %>
+    </td>
+  </tr>
+    <tr class= "tableline<%= cycle('1', '2') %>">
+      <td>
+          <%= f.label :password %>
+      </td>
+      <td>
+          <%= f.password_field :password %>
+      </td>
+    </tr>
+    <tr class= "tableline<%= cycle('1', '2') %>">
+      <td>
+          <%= f.label :password_confirmation %>
+      </td>
+      <td>
+          <%= f.password_field :password_confirmation %>
+      </td>
+    </tr> 
+
+    <tr class='tablelinemain'><td><%=t('personal info')%></td><td></td></tr> 
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :title %>
+    </td>
+    <td>
+        <%= f.text_field :title %>
     </td>
   </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
@@ -39,12 +74,77 @@
         <%= f.text_field :lastname %>
     </td>
   </tr>
+         <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :taxnumber %>
+    </td>
+    <td>
+        <%= f.text_field :taxnumber %>
+    </td>
+  </tr> 
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :wwwadress %>
+    </td>
+    <td>
+        <%= f.text_field :wwwadress %>
+    </td>
+  </tr>
+
+<%#= render :partial => "shared/new_address",:locals => {:f => f} %>
+    
+    
+      <%= f.fields_for :billingaddress do |a| %>
+        <tr class='tablelinemain'><td><%=t('billingaddress')%></td><td></td></tr>
+        <%= a.hidden_field :address_type, :value => "Rechnungsadresse" %>
+
+
+        <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label :street %></td><td><%= a.text_field :street %></td></tr>
+        <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label :zipcode %></td><td><%= a.text_field :zipcode %></td></tr>
+        <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label :city %></td><td><%= a.text_field :city %></td></tr>
+        <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label :country %></td><td><%= a.text_field :country %></td></tr>
+        <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label :telnr %></td><td><%= a.text_field :telnr %></td></tr>
+        <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label :mobil %></td><td><%= a.text_field :mobile %></td></tr>
+      <% end %>
+
+ 
+        <%= f.fields_for :deliveryaddress do |a| %>
+          <tr class='tablelinemain'><td><%=t('deliveryaddress')%></td><td></td></tr>
+          <%= a.hidden_field :address_type, :value => "Lieferadresse" %>
+
+
+          <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label :street %></td><td><%= a.text_field :street %></td></tr>
+          <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label :zipcode %></td><td><%= a.text_field :zipcode %></td></tr>
+          <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label :city %></td><td><%= a.text_field :city %></td></tr>
+          <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label :country %></td><td><%= a.text_field :country %></td></tr>
+          <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label :telnr %></td><td><%= a.text_field :telnr %></td></tr>
+          <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label :mobil %></td><td><%= a.text_field :mobile %></td></tr>
+        <% end %>
+
+  <% if @auth_edit > 50 %>
+    <tr class='tablelinemain'><td><%=t('administration')%></td><td></td></tr> 
+         <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :customernumber %>
+    </td>
+    <td>
+        <%= f.text_field :customernumber %>
+    </td>
+  </tr> 
+         <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :customergroup_id %>
+    </td>
+    <td>
+        <%= f.text_field :customergroup_id %>
+    </td>
+  </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :auth_level %>
     </td>
     <td>
-        <%= f.text_field :auth_level %>
+        <%= f.text_field :auth_level, :value => '0' %>
     </td>
   </tr>
 
@@ -53,37 +153,11 @@
         <%= f.label :auth_level_edit %>
     </td>
     <td>
-        <%= f.text_field :auth_level_edit %>
+        <%= f.text_field :auth_level_edit, :value => '0' %>
     </td>
-  </tr>  
-  
-  <tr class= "tableline<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :email %>
-    </td>
-    <td>
-        <%= f.text_field :email %>
-    </td>
-  </tr>
-  <% if current_page?(:controller => 'users', :action => 'new') %>
-    <tr class= "tableline<%= cycle('1', '2') %>">
-      <td>
-          <%= f.label :password %>
-      </td>
-      <td>
-          <%= f.password_field :password %>
-      </td>
-    </tr>
-    <tr class= "tableline<%= cycle('1', '2') %>">
-      <td>
-          <%= f.label :password_confirmation %>
-      </td>
-      <td>
-          <%= f.password_field :password_confirmation %>
-      </td>
-    </tr> 
+  </tr> 
   <% end %>
-  
+
   <tr>
     <td></td>
     <td>

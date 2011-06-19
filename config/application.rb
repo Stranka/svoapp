@@ -2,7 +2,6 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 require './lib/mysql_utf8'
-require 'redcloth'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
@@ -40,8 +39,9 @@ module RailsNuke
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-    
+
     I18n.default_locale = "de"
-    I18n.load_path += Dir.glob("config/locales/de.yml")      
+    I18n.load_path += Dir.glob("config/locales/de.yml")
   end
 end
+

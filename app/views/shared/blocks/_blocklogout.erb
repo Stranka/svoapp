@@ -1,7 +1,7 @@
 
     <tr class= "tableline<%= cycle('1', '2') %>">
       <td>
-        Angemeldet als 
+        <%= t('logged in as') %> 
       </td>
     </tr>
     
@@ -10,9 +10,16 @@
         <b><%= current_user.login %></b>
       </td>
     </tr>
-                    
+
     <tr class= "tableline<%= cycle('1', '2') %>">
       <td>
-        <%= link_to "Abmelden", logout_path %>
+        <%= link_to t('My Account'), customers_path %>
+      </td>
+    </tr>   
+                 
+    <tr class= "tableline<%= cycle('1', '2') %>">
+      <td>
+        <%= link_to t('Logout'), logout_path %>
       </td>
     </tr>
+

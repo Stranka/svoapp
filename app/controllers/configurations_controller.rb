@@ -50,7 +50,7 @@ class ConfigurationsController < ApplicationController
 
     respond_to do |format|
       if @configuration.save
-        format.html { redirect_to(@configuration, :notice => 'Configuration was successfully created.') }
+        format.html { redirect_to(@configuration, :notice => Configuration.human_name + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @configuration, :status => :created, :location => @configuration }
       else
         format.html { render :action => "new" }
@@ -66,7 +66,7 @@ class ConfigurationsController < ApplicationController
 
     respond_to do |format|
       if @configuration.update_attributes(params[:configuration])
-        format.html { redirect_to(@configuration, :notice => 'Configuration was successfully updated.') }
+        format.html { redirect_to(@configuration, :notice => Configuration.human_name + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -90,7 +90,7 @@ class ConfigurationsController < ApplicationController
 private
   def check_authlevel
     if @auth_edit < 100
-      flash[:notice] = "Keine Berechtigung"
+      flash[:notice] = t('access denied')
       redirect_to home_path
       return false      
     end

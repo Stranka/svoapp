@@ -2,4 +2,41 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  'block_left': "block_left"
+  'block_right': "block_right"
+  'Listing ': 'Listing '
+  'Show ': 'Show '
+  'Editing ': 'Editing '
+  'New ': 'New '
+  'Editing menue': 'Editing menue'
+  'action': 'action'
+  'Are you sure?': 'Are you sure?'
+  'show': 'show'
+  'Show': 'Show'
+  'edit': 'edit'
+  'Edit': 'Edit'
+  'delete': 'delete'
+  'Delete': 'Delete'
+  'back': 'back'
+  'Back': 'Back'
+  'Download': 'Download'
+  'Logout': 'Logout'
+  'login': 'Login'
+  'logged in as': 'logged in as'
+  'please select': 'please select'
+  'New Customer': 'New Customer'
+  'Editing Customer': 'Editing Customer'
+  'Show Customer': 'Show Customer'
+
+  'access denied': 'access denied'
+  'Sorry': 'Sorry'
+  'My Account': 'My Account'
+  'login data': 'Anmeldeinformationen'
+  'personal info': 'personal info'
+  'billingaddress': 'billingaddress'
+  'deliveryaddress': 'deliveryaddress'
+  'administration': 'administration'
+  'same as billingaddress': 'same as billingaddress'
+  'was successfully created': 'was successfully created'
+  'was successfully updated': 'was successfully updated'
+

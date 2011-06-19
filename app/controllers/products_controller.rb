@@ -1,11 +1,11 @@
 class ProductsController < ApplicationController
-  
+
   Mime::Type.register "application/pdf", :pdf
-    
+
   # GET /products
   # GET /products.xml
   def index
-    @products = Product.all
+    @products = Product.find(:all, :conditions => ['auth_level <= ?', @auth_show])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,13 +18,13 @@ class ProductsController < ApplicationController
   def show
     @productclasses = Productclass.all
     @product = Product.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
-    if @product 
+    if @product
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @product }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
 
@@ -33,16 +33,16 @@ class ProductsController < ApplicationController
   # GET /products/new
   # GET /products/new.xml
   def new
-    if @auth_edit >= 50    
+    if @auth_edit >= 50
       @product = Product.new
       @productclasses = Productclass.all
-      
+
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @product }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end
@@ -51,39 +51,41 @@ class ProductsController < ApplicationController
   def edit
     @productclasses = Productclass.all
     @product = Product.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
-    if @product 
+    if @product
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
-    end    
-    
+    end
+
   end
 
   # POST /products
   # POST /products.xml
   def create
+    debugger
     @product = Product.new(params[:product])
+    @product.update_attribute(:price, params[:product][:price].tr('.','').tr(',','.'))
 
     if params[:product][:image_file] != nil
       pic = params[:product][:image_file]
       @product.image_url = pic.original_filename
-      
-      complete_path = Rails.root.to_s + '/public/images/' + pic.original_filename    
+
+      complete_path = Rails.root.to_s + '/public/images/' + pic.original_filename
       FileUtils.copy(pic.tempfile.path, complete_path)
     end
 
     if params[:product][:specification_sheet_file] != nil
-      pdf = params[:product][:specification_sheet_file] 
+      pdf = params[:product][:specification_sheet_file]
       @product.specification_sheet = pdf.original_filename
-    
+
       complete_path = Rails.root.to_s + '/public/sheets/' + pdf.original_filename
       FileUtils.copy(pdf.tempfile.path, complete_path)
     end
-      
-      
+
+
     respond_to do |format|
       if @product.save
-        format.html { redirect_to(@product, :notice => 'Product was successfully created.') }
+        format.html { redirect_to(@product, :notice => Product.human_name + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @product, :status => :created, :location => @product }
       else
         format.html { render :action => "new" }
@@ -100,22 +102,24 @@ class ProductsController < ApplicationController
     if params[:product][:image_file] != nil
       pic = params[:product][:image_file]
       @product.image_url = pic.original_filename
-      
-      complete_path = Rails.root.to_s + '/public/images/' + pic.original_filename    
+
+      complete_path = Rails.root.to_s + '/public/images/' + pic.original_filename
       FileUtils.copy(pic.tempfile.path, complete_path)
     end
 
     if params[:product][:specification_sheet_file] != nil
-      pdf = params[:product][:specification_sheet_file] 
+      pdf = params[:product][:specification_sheet_file]
       @product.specification_sheet = pdf.original_filename
-    
+
       complete_path = Rails.root.to_s + '/public/sheets/' + pdf.original_filename
       FileUtils.copy(pdf.tempfile.path, complete_path)
     end
-        
+
     respond_to do |format|
+
       if @product.update_attributes(params[:product])
-        format.html { redirect_to(@product, :notice => 'Product was successfully updated.') }
+        @product.update_attribute(:price, params[:product][:price].tr('.','').tr(',','.'))
+        format.html { redirect_to(@product, :notice => Product.human_name + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -126,7 +130,7 @@ class ProductsController < ApplicationController
 
   # DELETE /products/1
   # DELETE /products/1.xml
-  def destroy   
+  def destroy
     @product = Product.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
     if @product
       @product.destroy
@@ -136,29 +140,30 @@ class ProductsController < ApplicationController
         format.xml  { head :ok }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end
-  
+
   def show_products_productclass
     @products = Product.find(:all, :conditions => ['productclass_id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
   end
 
   def show_specification_sheet
     @product = Product.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
-    if @product 
+    if @product
       if params[:mode] == 'show'
         send_file(Rails.root.to_s + '/public/sheets/' + @product.specification_sheet, :type => 'application/pdf', :disposition => 'inline')
-#      render :file => Rails.root.to_s + '/public/sheets/' + params[:file] 
+#      render :file => Rails.root.to_s + '/public/sheets/' + params[:file]
       else
         send_file(Rails.root.to_s + '/public/sheets/' + @product.specification_sheet, :type => 'application/pdf', :disposition => 'attachment')
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end
-  
+
 
 end
+

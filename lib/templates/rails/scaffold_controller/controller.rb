@@ -2,7 +2,8 @@ class <%= controller_class_name %>Controller < ApplicationController
   # GET <%= route_url %>
   # GET <%= route_url %>.xml
   def index
-    @<%= plural_table_name %> = <%= orm_class.all(class_name) %>
+#    @<%= plural_table_name %> = <%= orm_class.all(class_name) %>
+    @<%= plural_table_name %> = <%= class_name %>.find(:all, :conditions => ['auth_level <= ?', @auth_show])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -20,7 +21,7 @@ class <%= controller_class_name %>Controller < ApplicationController
         format.xml  { render :xml => @<%= singular_table_name %> }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
 
@@ -37,7 +38,7 @@ class <%= controller_class_name %>Controller < ApplicationController
         format.xml  { render :xml => @<%= singular_table_name %> }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end
@@ -47,7 +48,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     @<%= singular_table_name %> = <%= class_name %>.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
     if @<%= singular_table_name %> 
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end    
     
@@ -60,7 +61,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 
     respond_to do |format|
       if @<%= orm_instance.save %>
-        format.html { redirect_to(@<%= singular_table_name %>, :notice => '<%= human_name %> was successfully created.') }
+        format.html { redirect_to(@<%= singular_table_name %>, :notice => <%= human_name %>.human_name + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @<%= singular_table_name %>, :status => :created, :location => @<%= singular_table_name %> }
       else
         format.html { render :action => "new" }
@@ -76,7 +77,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 
     respond_to do |format|
       if @<%= orm_instance.update_attributes("params[:#{singular_table_name}]") %>
-        format.html { redirect_to(@<%= singular_table_name %>, :notice => '<%= human_name %> was successfully updated.') }
+        format.html { redirect_to(@<%= singular_table_name %>, :notice => <%= human_name %>.human_name + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -97,7 +98,7 @@ class <%= controller_class_name %>Controller < ApplicationController
         format.xml  { head :ok }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end

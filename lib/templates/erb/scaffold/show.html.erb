@@ -1,6 +1,6 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="2">
-      Show <%= singular_table_name %>
+      <%%= t('Show ') + <%= class_name %>.human_name %>
     </td>                
   </tr> 
   <tr class="tablelinemain">
@@ -12,17 +12,17 @@
 <% for attribute in attributes -%>
   <tr class="tableline<%%= cycle('1', '2') %>">
     <td width="20%">
-  	<%= model_name attribute.human_name %>
+      <%%= <%= class_name %>.human_attribute_name('<%= attribute.name %>') %>
     </td>
     <td>
-  	<%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+      <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
     </td>
   </tr>
 
 <% end -%>
   <tr class="tablelinemain">
     <td colspan="2">
-	<%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>) %> |
-	<%%= link_to 'Back', <%= index_helper %>_path %>
+  <%%= link_to t('Edit'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>) %> |
+  <%%= link_to t('Back'), <%= index_helper %>_path %>
     </td>
   </tr>

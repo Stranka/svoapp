@@ -1,13 +1,13 @@
 
   <tr>
     <td class ="myTitle" width="100%" colspan="2">
-      New menue
+      <%= t('New ') + Menue.human_name %>
     </td>                
   </tr> 
 <%= render 'form' %>
 
   <tr class="tablelinemain">
     <td colspan="2">
-      <%= link_to 'Back', menues_path %>
+      <%= link_to t('Back'), menues_path %>
     </td>
   </tr>

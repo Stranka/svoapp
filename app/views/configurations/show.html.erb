@@ -1,6 +1,6 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="2">
-      Show configuration
+      <%= t('Show ') + Configuration.human_name %>
     </td>                
   </tr> 
   <tr class="tablelinemain">
@@ -11,7 +11,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td width="20%">
-  	Block left
+  	 <%= Configuration.human_attribute_name('block_left') %>
     </td>
     <td>
   	<%= @configuration.block_left %>
@@ -20,7 +20,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Block left width
+  	 <%= Configuration.human_attribute_name('block_left_width') %>
     </td>
     <td>
   	<%= @configuration.block_left_width %>
@@ -29,7 +29,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Block right
+  	 <%= Configuration.human_attribute_name('block_right') %>
     </td>
     <td>
   	<%= @configuration.block_right %>
@@ -38,7 +38,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Block right width
+  	 <%= Configuration.human_attribute_name('block_right_width') %>
     </td>
     <td>
   	<%= @configuration.block_right_width %>
@@ -47,7 +47,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Pagewidth
+  	<%= Configuration.human_attribute_name('pagewidth') %>
     </td>
     <td>
   	<%= @configuration.pagewidth %>
@@ -56,7 +56,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Block headerline
+  	 <%= Configuration.human_attribute_name('block_headerline') %>
     </td>
     <td>
   	<%= @configuration.block_headerline %>
@@ -65,7 +65,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Position logo
+  	 <%= Configuration.human_attribute_name('position_logo') %>
     </td>
     <td>
   	<%= @configuration.position_logo %>
@@ -74,7 +74,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Topimage
+  	 <%= Configuration.human_attribute_name('topimage') %>
     </td>
     <td>
   	<%= @configuration.topimage %>
@@ -83,7 +83,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-    Manage Trees
+      <%= Configuration.human_attribute_name('manage_tree') %>
     </td>
     <td>
     <%= @configuration.manage_tree %>
@@ -92,7 +92,7 @@
   
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-    Artikelname
+      <%= Configuration.human_attribute_name('articles_name') %>
     </td>
     <td>
     <%= @configuration.articles_name %>
@@ -101,7 +101,7 @@
   
   <tr class="tablelinemain">
     <td colspan="2">
-	<%= link_to 'Edit', edit_configuration_path(@configuration) %> |
-	<%= link_to 'Back', configurations_path %>
+	<%= link_to t('Edit'), edit_configuration_path(@configuration) %> |
+	<%= link_to t('Back'), configurations_path %>
     </td>
   </tr>

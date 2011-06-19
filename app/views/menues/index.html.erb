@@ -1,6 +1,6 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="8">
-	Listing menues
+	   <%= t('Listing ') + Menue.human_name %>
     </td>                
   </tr> 
 
@@ -14,14 +14,14 @@
 
   <tr class="tablelineheader">
 
-    <td>Name</td>
-    <td>The url</td>
-    <td>The controller</td>
-    <td>The action</td>
-    <td>Parent</td>
-    <td>Ontop</td>
-    <td>Active</td>
-    <td></td>
+    <td><%= Menue.human_attribute_name('name') %></td>
+    <td><%= Menue.human_attribute_name('the_url') %></td>
+    <td><%= Menue.human_attribute_name('the_controller') %></td>
+    <td><%= Menue.human_attribute_name('the_action') %></td>
+    <td><%= Menue.human_attribute_name('parent') %></td>
+    <td><%= Menue.human_attribute_name('ontop') %></td>
+    <td><%= Menue.human_attribute_name('active') %></td>
+    <td><%= t 'action' %></td>
   </tr>
 
 <% @menues.each do |menue| %>
@@ -37,15 +37,15 @@
     <% end %>
     <td><%= menue.ontop %></td>
     <td><%= menue.active %></td>
-    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt =>'Anzeigen', :title => 'Anzeigen'), menue %>
-    <%= link_to image_tag("edit.png", :border=>0, :alt =>'Ändern', :title => 'Ändern'), edit_menue_path(menue) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt =>'Löschen', :title => 'Löschen'), menue, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), menue %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_menue_path(menue) %>
+    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), menue, :confirm => t('Are you sure?'), :method => :delete %></td>
   </tr>
 <% end %>
 
 
   <tr class="tablelinemain">
     <td colspan="8">
-  <%= link_to 'New Menue', new_menue_path %>
+  <%= link_to t('New ') + Menue.human_name, new_menue_path %>
     </td>
   </tr>

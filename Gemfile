@@ -8,10 +8,9 @@ gem 'rails', '3.0.5'
 gem 'mysql', :require => 'mysql'
 gem 'i18n'
 gem 'authlogic'
-gem 'RedCloth', '4.2.7', :require => 'redcloth'
 gem 'acts_as_tree'
 gem 'acts_as_list'
-
+gem 'amount_field_rails3', :require => 'amount_field'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -21,7 +20,8 @@ gem 'acts_as_list'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
-# gem 'ruby-debug19', :require => 'ruby-debug'
+ gem 'ruby-debug19', :require => 'ruby-debug'
+# gem 'linecache19'
 
 # Bundle the extra gems:
 # gem 'bj'
@@ -35,3 +35,4 @@ gem 'acts_as_list'
 # group :development, :test do
 #   gem 'webrat'
 # end
+

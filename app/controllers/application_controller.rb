@@ -8,7 +8,10 @@ class ApplicationController < ActionController::Base
   before_filter :get_blocks
   before_filter :require_user, :except => [:articles,:showme,:show_content,
                                            :products,:show_products_productclass,
-                                           :productclasses,:click]
+                                           :productclasses,:click,
+                                           :menues,:click,
+                                           :customers,:new,:create,
+                                           :user_sessions, :new]
 
   helper_method :current_user_session, :current_user  
   

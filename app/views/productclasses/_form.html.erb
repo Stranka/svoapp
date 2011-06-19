@@ -28,7 +28,7 @@
         <%= f.label :parent_id %>
     </td>
     <td>
-        <%= f.collection_select :parent_id, @prclasses, :id, :name, :include_blank => true, :prompt => "Bitte wählen"  %>
+        <%= collection_select('f',:parent_id, @prclasses, :id, :name, :include_blank => true, :prompt => t('please select')) %>
     </td>
   </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
@@ -39,7 +39,24 @@
         <%= f.file_field :picture_field %>
     </td>
   </tr>
+    
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :auth_level %>
+    </td>
+    <td>
+        <%= f.text_field :auth_level %>
+    </td>
+  </tr>
 
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :auth_level_edit %>
+    </td>
+    <td>
+        <%= f.text_field :auth_level_edit %>
+    </td>
+  </tr>
       <tr>
     <td></td>
     <td>

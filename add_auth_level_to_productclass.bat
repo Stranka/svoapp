@@ -1,0 +1,1 @@
+rails generate migration add_auth_level_to_productclass auth_level:integer auth_level_edit:integer

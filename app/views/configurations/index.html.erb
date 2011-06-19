@@ -1,20 +1,20 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="9">
-	Listing configurations
+	     <%= t('Listing ') + Configuration.human_name %>
     </td>                
   </tr> 
 
   <tr class="tablelineheader">
 
-    <td>Block left</td>
-    <td>Block left width</td>
-    <td>Block right</td>
-    <td>Block right width</td>
-    <td>Pagewidth</td>
-    <td>Block headerline</td>
-    <td>Position logo</td>
-    <td>Topimage</td>
-    <td></td>
+    <td><%= Configuration.human_attribute_name('block_left') %></td>
+    <td><%= Configuration.human_attribute_name('block_left_width') %></td>
+    <td><%= Configuration.human_attribute_name('block_right') %></td>
+    <td><%= Configuration.human_attribute_name('block_right_width') %></td>
+    <td><%= Configuration.human_attribute_name('pagewidth') %></td>
+    <td><%= Configuration.human_attribute_name('block_headerline') %></td>
+    <td><%= Configuration.human_attribute_name('position_logo') %></td>
+    <td><%= Configuration.human_attribute_name('topimage') %></td>
+    <td><%= t 'action' %></td>
   </tr>
 
 <% @configurations.each do |configuration| %>
@@ -27,15 +27,16 @@
     <td><%= configuration.block_headerline %></td>
     <td><%= configuration.position_logo %></td>
     <td><%= configuration.topimage %></td>
-    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt =>'Anzeigen', :title => 'Anzeigen'), configuration %>
-    <%= link_to image_tag("edit.png", :border=>0, :alt =>'Ändern', :title => 'Ändern'), edit_configuration_path(configuration) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt =>'Löschen', :title => 'Löschen'), configuration, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), configuration %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_configuration_path(configuration) %>
+    <%#= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), configuration, :confirm => t('Are you sure?'), :method => :delete %></td>
   </tr>
 <% end %>
 
 
   <tr class="tablelinemain">
     <td colspan="9">
-	<%= link_to 'New Configuration', new_configuration_path %>
+      &nbsp
+	<%#= link_to t('New ') + Configuration.human_name, new_configuration_path %>
     </td>
   </tr>

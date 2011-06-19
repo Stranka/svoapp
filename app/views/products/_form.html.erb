@@ -4,7 +4,7 @@
       <% if @product.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-    
+
           <ul>
           <% @product.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -13,8 +13,8 @@
         </div>
       <% end %>
     </td>
-  </tr> 
-      
+  </tr>
+
   <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :shorttext %>
@@ -44,7 +44,7 @@
         <%= f.label :productclass_id %>
     </td>
     <td>
-        <%= f.collection_select :productclass_id, @productclasses, :id, :name, :prompt => "Bitte wählen"  %>
+        <%= f.collection_select :productclass_id, @productclasses, :id, :name, :prompt => t('please select')  %>
     </td>
   </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
@@ -52,7 +52,8 @@
         <%= f.label :price %>
     </td>
     <td>
-        <%= f.text_field :price, :value => number_to_currency(@product.price, :unit=>"") %>
+        <%= f.text_field :price, :value => number_with_precision(@product.price, :delimiter => ".", :separator => ',' ) %>
+        <%#= f.amount_field :price %>
     </td>
   </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
@@ -60,7 +61,7 @@
         <%= f.label :special_price %>
     </td>
     <td>
-        <%= f.text_field :special_price, :value => number_to_currency(@product.special_price, :unit=>"") %>
+        <%= f.text_field :special_price, :value => number_to_currency(@product.special_price, :unit=>"", :locale => 'de') %>
     </td>
   </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
@@ -126,3 +127,4 @@
     </td>
   </tr>
     <% end %>
+

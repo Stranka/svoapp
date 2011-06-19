@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-
-  validates_presence_of :login, :email
   
   acts_as_authentic
   
@@ -11,7 +9,26 @@ class User < ActiveRecord::Base
 #
 #
 #  end                                          # the configuration block is optional
-  
+
+  has_one :billingaddress, :dependent => :destroy, :conditions => {:address_type => "Rechnungsadresse"}
+  has_one :deliveryaddress, :dependent => :destroy, :conditions => {:address_type => "Lieferadresse"}
+#  has_many :baskets, :dependent => :destroy
+  accepts_nested_attributes_for :billingaddress
+  accepts_nested_attributes_for :deliveryaddress, :reject_if => proc { |attributes| attributes['street'].blank? }
+#  accepts_nested_attributes_for :deliveryaddress
+
+  validates_presence_of :login, :firstname, :lastname, :email
+
+# ==== Values
+# Possible titles are: 
+# * "Frau": Mrs.
+# * "Frau Dr.": PhD, Mrs.
+# * "Herr": Mr.
+# * "Herr Dr.": PhD, Mr.
+# To be continued ...
+  TITLES = ["Frau", "Frau Dr.", "Herr", "Herr Dr."];   
+
+
 end
 
 

@@ -1,0 +1,13 @@
+
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+      <%= t('Editing ') + Address.human_name %>
+    </td>                
+  </tr> 
+  <%= render 'form' %>
+  <tr class="tablelinemain">
+    <td colspan="2">
+      <%= link_to t('Show'), @address %> |
+      <%= link_to t('Back'), addresses_path %>
+    </td>
+  </tr>

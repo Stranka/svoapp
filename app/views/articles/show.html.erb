@@ -1,13 +1,13 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="2">
-      <%= t 'Show Article' %>
-    </td>                
-  </tr> 
+      <%= t('Show ') + Article.human_name %>
+    </td>
+  </tr>
   <tr class="tablelinemain">
     <td colspan="2">
       <%= notice %>
     </td>
-  </tr> 
+  </tr>
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td width="20%">
@@ -23,7 +23,7 @@
       <%= Article.human_attribute_name('content')%>
     </td>
     <td>
-  	<%= raw(RedCloth.new(@article.content).to_html) %>
+      <%= raw(@article.content) %>
     </td>
   </tr>
 
@@ -53,11 +53,12 @@
     <%= @article.auth_level_edit %>
     </td>
   </tr>
- 
+
 
   <tr class="tablelinemain">
     <td colspan="2">
-	<%= link_to 'Edit', edit_article_path(@article) %> |
-	<%= link_to 'Back', articles_path %>
+	<%= link_to t('Edit'), edit_article_path(@article) %> |
+	<%= link_to t('Back'), articles_path %>
     </td>
   </tr>
+

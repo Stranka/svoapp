@@ -10,7 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110520061111) do
+ActiveRecord::Schema.define(:version => 20110611160232) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "street"
+    t.string   "city"
+    t.string   "zipcode"
+    t.string   "country"
+    t.string   "telnr"
+    t.string   "mobile"
+    t.string   "address_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "articles", :force => true do |t|
     t.string   "name"
@@ -81,12 +94,14 @@ ActiveRecord::Schema.define(:version => 20110520061111) do
   create_table "productclasses", :force => true do |t|
     t.string   "name"
     t.string   "url"
-    t.integer  "parent_id",  :default => 0, :null => false
+    t.integer  "parent_id",       :default => 0, :null => false
     t.string   "picture"
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ancestry"
+    t.integer  "auth_level",      :default => 0, :null => false
+    t.integer  "auth_level_edit", :default => 0, :null => false
   end
 
   add_index "productclasses", ["ancestry"], :name => "index_productclasses_on_ancestry"
@@ -95,17 +110,17 @@ ActiveRecord::Schema.define(:version => 20110520061111) do
     t.string   "shorttext"
     t.text     "description"
     t.string   "producer"
-    t.decimal  "price",               :precision => 10, :scale => 0, :default => 0, :null => false
-    t.decimal  "special_price",       :precision => 10, :scale => 0, :default => 0, :null => false
+    t.decimal  "price",               :precision => 10, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "special_price",       :precision => 10, :scale => 2, :default => 0.0, :null => false
     t.string   "product_features"
-    t.decimal  "weight",              :precision => 10, :scale => 0, :default => 0, :null => false
+    t.decimal  "weight",              :precision => 10, :scale => 0, :default => 0,   :null => false
     t.string   "unit_of_weight"
     t.string   "unit_of_quantity"
-    t.integer  "tax_percentage",                                     :default => 0, :null => false
+    t.integer  "tax_percentage",                                     :default => 0,   :null => false
     t.string   "image_url"
     t.string   "specification_sheet"
-    t.integer  "auth_level",                                         :default => 0, :null => false
-    t.integer  "auth_level_edit",                                    :default => 0, :null => false
+    t.integer  "auth_level",                                         :default => 0,   :null => false
+    t.integer  "auth_level_edit",                                    :default => 0,   :null => false
     t.integer  "productclass_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -120,6 +135,17 @@ ActiveRecord::Schema.define(:version => 20110520061111) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "shipments", :force => true do |t|
+    t.string   "name"
+    t.integer  "weight_max"
+    t.integer  "lenght_max"
+    t.integer  "scale_id"
+    t.integer  "auth_level"
+    t.integer  "auth_level_edit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "trees", :force => true do |t|
     t.string   "session_id"
@@ -158,6 +184,11 @@ ActiveRecord::Schema.define(:version => 20110520061111) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "auth_level_edit",     :default => 0, :null => false
+    t.string   "title"
+    t.string   "wwwadress"
+    t.string   "taxnumber"
+    t.string   "customernumber"
+    t.integer  "customergroup_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

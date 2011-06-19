@@ -21,7 +21,7 @@ class BlocksController < ApplicationController
         format.xml  { render :xml => @block }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
 
@@ -38,7 +38,7 @@ class BlocksController < ApplicationController
         format.xml  { render :xml => @block }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end      
   end
@@ -48,7 +48,7 @@ class BlocksController < ApplicationController
     @block = Block.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
     if @block 
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end
@@ -60,7 +60,7 @@ class BlocksController < ApplicationController
 
     respond_to do |format|
       if @block.save
-        format.html { redirect_to(@block, :notice => 'Block was successfully created.') }
+        format.html { redirect_to(@block, :notice => Block.human_name + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @block, :status => :created, :location => @block }
       else
         format.html { render :action => "new" }
@@ -76,7 +76,7 @@ class BlocksController < ApplicationController
 
     respond_to do |format|
       if @block.update_attributes(params[:block])
-        format.html { redirect_to(@block, :notice => 'Block was successfully updated.') }
+        format.html { redirect_to(@block, :notice => Block.human_name + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -97,7 +97,7 @@ class BlocksController < ApplicationController
         format.xml  { head :ok }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end

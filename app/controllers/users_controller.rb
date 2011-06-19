@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   # GET /users
   # GET /users.xml
   def index
@@ -13,14 +14,14 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
-    @user = User.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
+    @user = User.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])       
     if @user 
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @user }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
 
@@ -31,13 +32,15 @@ class UsersController < ApplicationController
   def new
     if @auth_edit >= 50    
       @user = User.new
-  
+      @user.build_billingaddress
+      @user.build_deliveryaddress
+      
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @user }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end
@@ -47,20 +50,26 @@ class UsersController < ApplicationController
     @user = User.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
     if @user 
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end    
-    
+    if @user.billingaddress.nil?
+      @user.build_billingaddress
+    end    
+    if @user.deliveryaddress.nil?
+      @user.build_deliveryaddress
+    end
   end
 
   # POST /users
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to(@user, :notice => 'User was successfully created.') }
+      if @user.save       
+        UserSessionsController::new
+        
+        format.html { redirect_to(@user, :notice => User.human_name + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -76,7 +85,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
+        format.html { redirect_to(@user, :notice => User.human_name + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -97,8 +106,29 @@ class UsersController < ApplicationController
         format.xml  { head :ok }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
+  end
+ 
+  # GET /customer/new
+  # GET /customers/new.xml
+  def new_customer
+    @user = User.new
+      @user.build_billingaddress
+      @user.build_deliveryaddress
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @user }
+    end
+  end
+  
+  def new_address
+    
+  end
+  
+  def del_address
+    
   end
 end

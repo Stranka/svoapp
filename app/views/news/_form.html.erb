@@ -4,7 +4,7 @@
       <% if @news.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h2>
-    
+
           <ul>
           <% @news.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -13,8 +13,8 @@
         </div>
       <% end %>
     </td>
-  </tr> 
-      
+  </tr>
+
   <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :title %>
@@ -36,7 +36,7 @@
         <%= f.label :notice %>
     </td>
     <td>
-        <%= f.text_field :notice %>
+        <%= f.text_area :notice %>
     </td>
   </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
@@ -70,3 +70,4 @@
     </td>
   </tr>
     <% end %>
+

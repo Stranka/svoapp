@@ -20,7 +20,7 @@ class NewsController < ApplicationController
         format.xml  { render :xml => @news }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
 
@@ -37,7 +37,7 @@ class NewsController < ApplicationController
         format.xml  { render :xml => @news }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end
@@ -47,7 +47,7 @@ class NewsController < ApplicationController
     @news = News.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
     if @news 
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end    
     
@@ -60,7 +60,7 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       if @news.save
-        format.html { redirect_to(@news, :notice => 'News was successfully created.') }
+        format.html { redirect_to(@news, :notice => News.human_name + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @news, :status => :created, :location => @news }
       else
         format.html { render :action => "new" }
@@ -76,7 +76,7 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       if @news.update_attributes(params[:news])
-        format.html { redirect_to(@news, :notice => 'News was successfully updated.') }
+        format.html { redirect_to(@news, :notice => News.human_name + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -97,7 +97,7 @@ class NewsController < ApplicationController
         format.xml  { head :ok }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end

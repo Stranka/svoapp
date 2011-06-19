@@ -1,18 +1,18 @@
 
   <tr>
     <td class ="myTitle" width="100%" colspan="3">
-	    <%= t 'Listing articles' %>
-    </td>                
-  </tr> 
-  
+	    <%= t('Listing ') + Article.human_name %>
+    </td>
+  </tr>
+
   <% if flash[:notice]%>
     <tr class="tablelineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
-    </tr> 
+    </tr>
   <% end %>
-  
+
   <tr class="tablelineheader">
 
     <td><%= Article.human_attribute_name('name') %></td>
@@ -23,16 +23,16 @@
 <% @articles.each do |article| %>
   <tr class= "tableline<%= cycle('1', '2') %>">
     <td><%= article.name %></td>
-    <td><%= truncate(article.content, :length => 100) %></td>
-    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => 'Anzeigen', :title => 'Anzeigen'), article %>
-    <%= link_to image_tag("edit.png", :border=>0, :alt => 'Ändern', :title => 'Ändern'), edit_article_path(article) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt => 'Löschen', :title => 'Löschen'), article, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= truncate(article.content, :length => 200) %></td>
+    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), article %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_article_path(article) %>
+    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), article, :confirm => t('Are you sure?'), :method => :delete %></td>
   </tr>
 <% end %>
 
-
   <tr class="tablelinemain">
     <td colspan="3">
-	   <%= link_to t('New Article'), new_article_path %>
+	   <%= link_to t('New ') + Article.human_name, new_article_path %>
     </td>
   </tr>
+

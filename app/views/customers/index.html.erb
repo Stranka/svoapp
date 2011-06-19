@@ -1,0 +1,38 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="5">
+	     <%= t('My Account')%>
+    </td>                
+  </tr> 
+
+  <% if flash[:notice]%> 
+    <tr class="tablelineerror">
+      <td colspan="5">
+        <%= flash[:notice] %>
+      </td>
+    </tr> 
+  <% end %>
+
+  <tr class="tablelineheader">
+
+    <td><%= Customer.human_attribute_name('login') %></td>
+    <td><%= Customer.human_attribute_name('firstname') %></td>
+    <td><%= Customer.human_attribute_name('lastname') %></td>
+    <td><%= Customer.human_attribute_name('email') %></td>
+    <td><%= t 'action' %></td>
+  </tr>
+
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td><%= @customer.login %></td>
+    <td><%= @customer.firstname %></td>
+    <td><%= @customer.lastname %></td>
+    <td><%= @customer.email %></td>
+     <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), @customer %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_customer_path(@customer) %>
+  </tr>
+
+
+  <tr class="tablelinemain">
+    <td colspan="5">
+      &nbsp;
+    </td>
+  </tr>

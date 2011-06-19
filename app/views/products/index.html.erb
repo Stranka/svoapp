@@ -1,6 +1,6 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="8">
-	Listing products
+	     <%= t('Listing ') + Product.human_name %>
     </td>                
   </tr> 
 
@@ -14,14 +14,14 @@
   
   <tr class="tablelineheader">
 
-    <td>Shorttext</td>
-    <td>Price</td>
-    <td>Product features</td>
-    <td>Weight</td>
-    <td>Unit of weight</td>
-    <td>Unit of quantity</td>
-    <td>Tax percentage</td>
-    <td></td>
+    <td><%= Product.human_attribute_name('shorttext') %></td>
+    <td><%= Product.human_attribute_name('price') %></td>
+    <td><%= Product.human_attribute_name('product_features') %></td>
+    <td><%= Product.human_attribute_name('weight') %></td>
+    <td><%= Product.human_attribute_name('unit_of_weight') %></td>
+    <td><%= Product.human_attribute_name('unit_of_quantity') %></td>
+    <td><%= Product.human_attribute_name('tax_percentage') %></td>
+    <td><%= t 'action' %></td>
   </tr>
 
 <% @products.each do |product| %>
@@ -33,15 +33,15 @@
     <td><%= product.unit_of_weight %></td>
     <td><%= product.unit_of_quantity %></td>
     <td><%= product.tax_percentage %></td>
-    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt =>'Anzeigen', :title => 'Anzeigen'), product %>
-    <%= link_to image_tag("edit.png", :border=>0, :alt =>'Ändern', :title => 'Ändern'), edit_product_path(product) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt =>'Löschen', :title => 'Löschen'), product, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), product %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_product_path(product) %>
+    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), product, :confirm => t('Are you sure?'), :method => :delete %></td>
   </tr>
 <% end %>
 
 
   <tr class="tablelinemain">
     <td colspan="8">
-	<%= link_to 'New Product', new_product_path %>
+	<%= link_to t('New ') + Product.human_name , new_product_path %>
     </td>
   </tr>

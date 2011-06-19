@@ -93,7 +93,7 @@
         <%= f.label :articles_name %>
     </td>
     <td>
-        <%= f.collection_select :articles_name, @articles, :id, :name, :prompt => "Bitte wählen" %>
+        <%= f.collection_select :articles_name, @articles, :id, :name, :prompt => t('please select') %>
     </td>
   </tr>  
       <tr>

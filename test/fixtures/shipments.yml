@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  weight_max: 1
+  lenght_max: 1
+  scale_id: 1
+  auth_level: 1
+  auth_level_edit: 1
+
+two:
+  name: MyString
+  weight_max: 1
+  lenght_max: 1
+  scale_id: 1
+  auth_level: 1
+  auth_level_edit: 1

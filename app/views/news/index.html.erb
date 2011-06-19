@@ -1,6 +1,6 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="4">
-	Listing news
+	   <%= t('Listing ') + News.human_name %>
     </td>                
   </tr> 
 
@@ -14,10 +14,10 @@
   
   <tr class="tablelineheader">
 
-    <td>Title</td>
-    <td>Date</td>
-    <td>Notice</td>
-    <td></td>
+    <td><%= News.human_attribute_name('title') %></td>
+    <td><%= News.human_attribute_name('date') %></td>
+    <td><%= News.human_attribute_name('notice') %></td>
+    <td><%= t 'action' %></td>
   </tr>
 
 <% @news.each do |news| %>
@@ -25,15 +25,15 @@
     <td><%= news.title %></td>
     <td><%= l news.date %></td>
     <td><%= truncate(news.notice, :length => 100) %></td>
-    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt =>'Anzeigen', :title => 'Anzeigen'), news %>
-    <%= link_to image_tag("edit.png", :border=>0, :alt =>'Ändern', :title => 'Ändern'), edit_news_path(news) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt =>'Löschen', :title => 'Löschen'), news, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), news %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_news_path(news) %>
+    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), news, :confirm => t('Are you sure?'), :method => :delete %></td>
   </tr>
 <% end %>
 
 
   <tr class="tablelinemain">
     <td colspan="4">
-	<%= link_to 'New News', new_news_path %>
+	<%= link_to t('New ') + News.human_name, new_news_path %>
     </td>
   </tr>

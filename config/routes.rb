@@ -1,5 +1,11 @@
 RailsNuke::Application.routes.draw do
 
+  resources :customers
+
+  resources :addresses
+
+  resources :shipments
+
   resources :news
 
   resources :products do
@@ -39,7 +45,7 @@ RailsNuke::Application.routes.draw do
   resources :user_sessions 
 
   resources :users 
-  
+    
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
 

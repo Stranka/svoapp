@@ -1,11 +1,43 @@
 de:
-         
-  block_left: "Blockstruktur links anzeigen"
-  block_right: "Blockstruktur rechts anzeigen"
-  'Show Article': 'Artikeldetail'
+
+  'block_left': "Blockstruktur links anzeigen"
+  'block_right': "Blockstruktur rechts anzeigen"
+  'Listing ': 'Auflistung '
+  'Show ': 'Details zu '
+  'Editing ': 'Ändern '
+  'New ': 'Hinzufügen '
   'Editing menue': 'Bearbeiten Menüeintrag'
-  action: 'Aktion'
-         
+  'action': 'Aktion'
+  'Are you sure?': 'Sind sie sicher?'
+  'show': 'Anzeigen'
+  'Show': 'Anzeigen'
+  'edit': 'Ändern'
+  'Edit': 'Ändern'
+  'delete': 'Löschen'
+  'Delete': 'Löschen'
+  'back': 'zurück'
+  'Back': 'zurück'
+  'Download': 'Download'
+  'Logout': 'Abmelden'
+  'login': 'Anmelden'
+  'logged in as': 'Angemeldet als'
+  'please select': 'Bitte wählen:'
+  'New Customer': 'Neuer Kunde'
+  'Editing Customer': 'Ändern Kunde'
+  'Show Customer': 'Details zu Kunde'
+
+  'access denied': 'Fehlende Berechtigung.'
+  'Sorry': 'Leider nein'
+  'My Account': 'Mein Konto'
+  'login data': 'Anmeldeinformationen'
+  'personal info': 'Persönliche Daten'
+  'billingaddress': 'Rechnungsadresse'
+  'deliveryaddress': 'Lieferadresse'
+  'administration': 'Administrative Einstellungen'
+  'same as billingaddress': 'siehe Rechnungsadresse'
+  'was successfully created': 'erfolgreich angelegt'
+  'was successfully updated': 'erfolgreich geändert'
+
   date:
     formats:
       default: "%d.%m.%Y"
@@ -18,13 +50,13 @@ de:
     month_names: [~, Jänner, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
     abbr_month_names: [~, Jän, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
     order: [ :day, :month, :year ]
-  
+
   time:
     formats:
       default: "%H:%M:%S Uhr"
       short: "%H:%M"
       long: "%H:%M:%S Uhr"
-      long_all: "%e. %B %Y %H:%M:%S Uhr"      
+      long_all: "%e. %B %Y %H:%M:%S Uhr"
       time: "%H:%M:%S"
     am: "vormittags"
     pm: "nachmittags"
@@ -84,13 +116,18 @@ de:
         format: '%n %u'
         separator: ","
         delimiter: "."
-        precision: 2          
+        precision: 2
+        significant: false
     percentage:
       format:
-        delimiter: ""
+        precision: 2
+        separator: ','
+        delimiter: '.'
     precision:
       format:
-        delimiter: ""
+        precision: 2
+        separator: ','
+        delimiter: '.'
     human:
       format:
         delimiter: ""
@@ -126,24 +163,24 @@ de:
 
 
 
-  products:
-    show:
-      shorttext: 'Kurztext'
-      description: 'Beschreibung'
-      producer: 'Hersteller'
-      productclass_id: 'Produktkategorie'
-      price: 'Preis'
-      special_price: 'Aktionspreis'
-      product_features: 'Produktmerkmale'
-      weight: 'Gewicht'
-      unit_of_weight: 'Gewichtseinhait'
-      unit_of_quantity: 'Mengeneinheit'
-      tax_percentage: 'Mehrwertsteuer %'
-      image_url: 'Bilddatei'
-      specification_sheet: 'Datenblatt'
-            
+
+
   activerecord:
-    attributes: 
+    models:
+      productclass: 'Produktkategorie'
+      product: 'Produkt'
+      menue: 'Menü'
+      configuration: 'Konfiguration'
+      article: 'Artikel'
+      block: 'Block'
+      news: 'News'
+      shipment: 'Versandart'
+      user: 'Benutzer'
+      customer: 'Kundenstamm'
+      billingaddress: 'Rechnungsadresse'
+      deliveryaddress: 'Lieferadresse'
+
+    attributes:
       article:
         name: "Name"
         format: 'Format'
@@ -165,16 +202,73 @@ de:
         tax_percentage: 'Mehrwertsteuer %'
         image_url: 'Bilddatei'
         specification_sheet: 'Datenblatt'
+        auth_level_edit: 'Berechtigung Ändern'
+        auth_level: 'Berechtigung Anzeigen'
+
+      block:
+        name: 'Name'
+        headerline: 'Kopfzeile'
+        position: 'Positon'
+        fieldorder: 'Sortierung'
+        blockid: 'Blockidentifikation'
+        active: 'Aktiv'
+        auth_level_edit: 'Berechtigung Ändern'
+        auth_level: 'Berechtigung Anzeigen'
+
+      configuration:
+        block_left: 'Blöcke links anzeigen'
+        block_left_width: 'Breite in %'
+        block_right: 'Blöcke rechts anzeigen'
+        block_right_width: 'Breite in %'
+        pagewidth: 'Gesamtseitenbreite in %'
+        block_headerline: 'Kopfzeile in Blöcken anzeigen'
+        position_logo: 'Logo Links oder Rechts'
+        topimage: 'Bilder auf Startseite anzeigen'
+        manage_tree: 'Menüeinträge sortieren'
+        articles_name: 'Name des Startartikels'
+        auth_level_edit: 'Berechtigung Ändern'
+        auth_level: 'Berechtigung Anzeigen'
+
+      user:
+        firstname: 'Vorname'
+        lastname: 'Nachname'
+        login: 'Anmeldename'
+        email: 'eMail'
+        password: 'Passwort'
+        password_confirmation: 'Passwort Wiederholung'
+        title: 'Anrede'
+        taxnumber: 'UID-Nummer'
+        wwwadress: 'WWW-Adresse'
+        customernumber: 'Kundennummer im Fremdsystem'
+        customergroup_id: 'Kundengruppe'
+        auth_level_edit: 'Berechtigung Ändern'
+        auth_level: 'Berechtigung Anzeigen'
+        login_count: 'Anzahl der Anmeldungen'
+        failed_login_count: 'Anzahl der fehlgeschlagenen Anmeldungen'
+        last_request_at: 'Letzte Anforderung'
+        current_login_at: 'aktuelle Anmeldung'
+        last_login_at: 'letzte Anmeldung'
+        current_login_ip: 'IP-Adresse der aktuellen Anmeldung'
+        last_login_ip: 'IP-Adresse der letzten Anmeldung'
+
+      billingaddress:
+        street: 'Straße'
+        zipcode: 'Postleitzahl'
+        city: 'Stadt'
+        country: 'Land'
+        telnr: 'Festnetz'
+        mobil: 'Mobil'
+
+      deliveryaddress:
+        street: 'Straße'
+        zipcode: 'Postleitzahl'
+        city: 'Stadt'
+        country: 'Land'
+        telnr: 'Festnetz'
+        mobil: 'Mobil'
 
 
 
-
-
-
-
-
-
-        
     errors:
       template:
         header:
@@ -202,8 +296,11 @@ de:
         less_than_or_equal_to: "muss kleiner oder gleich {{count}} sein"
         odd: "muss ungerade sein"
         even: "muss gerade sein"
-        record_invalid: "G�ltigkeitspr�fung ist fehlgeschlagen: {{errors}}"
+        record_invalid: "Gültigkeitsprüfung ist fehlgeschlagen: {{errors}}"
 
 
-
+  helpers:
+    submit:
+      create: "Hinzufügen %{model}"
+      update: "Ändern %{model}"
 

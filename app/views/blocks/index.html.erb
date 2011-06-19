@@ -1,6 +1,6 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="7">
-	Listing blocks
+	   <%= t('Listing ') + Block.human_name %>
     </td>                
   </tr> 
 
@@ -14,13 +14,13 @@
   
   <tr class="tablelineheader">
 
-    <td>Name</td>
-    <td>Headerline</td>
-    <td>Position</td>
-    <td>Fieldorder</td>
-    <td>Blockid</td>
-    <td>Active</td>
-    <td></td>
+    <td><%= Block.human_attribute_name('name') %></td>
+    <td><%= Block.human_attribute_name('headerline') %></td>
+    <td><%= Block.human_attribute_name('position') %></td>
+    <td><%= Block.human_attribute_name('fieldorder') %></td>
+    <td><%= Block.human_attribute_name('blockid') %></td>
+    <td><%= Block.human_attribute_name('active') %></td>
+    <td><%= t 'action' %></td>
   </tr>
 
 <% @blocks.each do |block| %>
@@ -31,15 +31,15 @@
     <td><%= block.fieldorder %></td>
     <td><%= block.blockid %></td>
     <td><%= block.active %></td>
-    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt =>'Anzeigen', :title => 'Anzeigen'), block %>
-    <%= link_to image_tag("edit.png", :border=>0, :alt =>'Ändern', :title => 'Ändern'), edit_block_path(block) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt =>'Löschen', :title => 'Löschen'), block, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), block %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_block_path(block) %>
+    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), block, :confirm => t('Are you sure?'), :method => :delete %></td>
   </tr>
 <% end %>
 
 
   <tr class="tablelinemain">
     <td colspan="7">
-	<%= link_to 'New Block', new_block_path %>
+	<%= link_to t('New ') + Block.human_name, new_block_path %>
     </td>
   </tr>

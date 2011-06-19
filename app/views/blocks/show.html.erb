@@ -1,6 +1,6 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="2">
-      Show block
+      <%= t('Show ') + Block.human_name %>
     </td>                
   </tr> 
   <tr class="tablelinemain">
@@ -11,7 +11,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td width="20%">
-  	Name
+  	 <%= Block.human_attribute_name('name') %>
     </td>
     <td>
   	<%= @block.name %>
@@ -20,7 +20,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Headerline
+  	 <%= Block.human_attribute_name('headerline') %>
     </td>
     <td>
   	<%= @block.headerline %>
@@ -29,7 +29,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Position
+  	 <%= Block.human_attribute_name('position') %>
     </td>
     <td>
   	<%= @block.position %>
@@ -38,7 +38,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Fieldorder
+  	 <%= Block.human_attribute_name('fieldorder') %>
     </td>
     <td>
   	<%= @block.fieldorder %>
@@ -47,7 +47,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Blockid
+  	 <%= Block.human_attribute_name('blockid') %>
     </td>
     <td>
   	<%= @block.blockid %>
@@ -56,7 +56,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	Active
+  	 <%= Block.human_attribute_name('active') %>
     </td>
     <td>
   	<%= @block.active %>
@@ -65,7 +65,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-    Authlevel Show
+      <%= Block.human_attribute_name('auth_level') %>
     </td>
     <td>
     <%= @block.auth_level %>
@@ -74,7 +74,7 @@
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-    Authlevel Edit
+      <%= Block.human_attribute_name('auth_level_edit') %>
     </td>
     <td>
     <%= @block.auth_level_edit %>
@@ -83,7 +83,7 @@
  
   <tr class="tablelinemain">
     <td colspan="2">
-	<%= link_to 'Edit', edit_block_path(@block) %> |
-	<%= link_to 'Back', blocks_path %>
+	<%= link_to t('Edit'), edit_block_path(@block) %> |
+	<%= link_to t('Back'), blocks_path %>
     </td>
   </tr>

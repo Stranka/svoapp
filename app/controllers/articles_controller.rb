@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
         format.xml  { render :xml => @article }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end
@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
         format.xml  { render :xml => @article }
       end
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end
@@ -46,7 +46,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
     if @article 
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end
@@ -58,7 +58,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to(@article, :notice => 'Article was successfully created.') }
+        format.html { redirect_to(@article, :notice => Article.human_name + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @article, :status => :created, :location => @article }
       else
         format.html { render :action => "new" }
@@ -74,7 +74,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
-        format.html { redirect_to(@article, :notice => 'Article was successfully updated.') }
+        format.html { redirect_to(@article, :notice => Article.human_name + ' ' +  t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -94,7 +94,7 @@ class ArticlesController < ApplicationController
         format.xml  { head :ok }
       end    
     else
-      flash[:notice] = 'Fehlende Berechtigung.'
+      flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end
@@ -105,8 +105,8 @@ class ArticlesController < ApplicationController
     @showarticle = Article.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
     if @showarticle == nil     
       @showarticle = Article.new
-      @showarticle.name = 'Leider nein'
-      @showarticle.content = 'Leider fehlt Ihnen die Berechtigung, um diesen Artikel zu sehen.'
+      @showarticle.name = t('Sorry')
+      @showarticle.content = t('access denied')
     end
     respond_to do |format|
       format.html # show_article.html.erb

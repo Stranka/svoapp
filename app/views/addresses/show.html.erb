@@ -1,0 +1,98 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+      <%= t('Show ') + Address.human_name %>
+    </td>                
+  </tr> 
+  <tr class="tablelinemain">
+    <td colspan="2">
+      <%= notice %>
+    </td>
+  </tr> 
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+      <%= Address.human_attribute_name('street') %>
+    </td>
+    <td>
+      <%= @address.street %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+      <%= Address.human_attribute_name('city') %>
+    </td>
+    <td>
+      <%= @address.city %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+      <%= Address.human_attribute_name('zipcode') %>
+    </td>
+    <td>
+      <%= @address.zipcode %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+      <%= Address.human_attribute_name('country') %>
+    </td>
+    <td>
+      <%= @address.country %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+      <%= Address.human_attribute_name('telnr') %>
+    </td>
+    <td>
+      <%= @address.telnr %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+      <%= Address.human_attribute_name('mobile') %>
+    </td>
+    <td>
+      <%= @address.mobile %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+      <%= Address.human_attribute_name('addressable_id') %>
+    </td>
+    <td>
+      <%= @address.addressable_id %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+      <%= Address.human_attribute_name('addressable_type') %>
+    </td>
+    <td>
+      <%= @address.addressable_type %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+      <%= Address.human_attribute_name('address_type') %>
+    </td>
+    <td>
+      <%= @address.address_type %>
+    </td>
+  </tr>
+
+  <tr class="tablelinemain">
+    <td colspan="2">
+  <%= link_to t('Edit'), edit_address_path(@address) %> |
+  <%= link_to t('Back'), addresses_path %>
+    </td>
+  </tr>

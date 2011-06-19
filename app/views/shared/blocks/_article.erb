@@ -1,6 +1,8 @@
 
     <tr class= "tableline1">
-      <td>  
-        <%= raw(RedCloth.new(article.content).to_html) %>
+      <td>
+        <%= raw(article.content) %>
+        <%#= raw(RedCloth.new(article.content).to_html) %>
       </td>
     </tr>
+
