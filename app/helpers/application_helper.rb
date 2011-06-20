@@ -23,7 +23,7 @@ module ApplicationHelper
     if @warenkorb.nil?
       @warenkorb = Basket.new
     end
-    @warenkorb
+    @warenkorb            #rückgabewert
   end
 
   def check_tree(model, model_id)

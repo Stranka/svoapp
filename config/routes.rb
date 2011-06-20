@@ -4,7 +4,7 @@ RailsNuke::Application.routes.draw do
 
   resources :baskets do
     member do
-      post 'add_to_basket'
+      put 'add_to_basket'
     end
   end
 
@@ -43,7 +43,7 @@ RailsNuke::Application.routes.draw do
   get "user_sessions/new"
 
   resources :menues do
-    collection do
+    collection  do
       get 'click'
       get 'up'
       get 'down'
@@ -57,7 +57,6 @@ RailsNuke::Application.routes.draw do
 
   resources :users
 
-#  match 'baskets/:id/add_to_basket', :controller => 'baskets', :action => 'add_to_basket'
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
 

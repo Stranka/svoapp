@@ -1,6 +1,6 @@
 class Basket < ActiveRecord::Base
 
-  validates_presence_of :session_id, :customer_id
+  validates_presence_of :session_id
 
   has_many :basketlines, :dependent => :destroy
 

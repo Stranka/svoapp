@@ -139,10 +139,10 @@ protected
   def create_basket
     @basket = Basket.new
     @basket.session_id = request.session_options[:id]
-    @basket.customer_id = current_user.id
+#    @basket.customer_id = current_user.id
     @basket.status = 'offen'
-    @basket.auth_level = current_user.auth_level
-    @basket.auth_level_edit = current_user.auth_level_edit
+#    @basket.auth_level = current_user.auth_level
+#    @basket.auth_level_edit = current_user.auth_level_edit
     @basket.save
     return @basket
   end

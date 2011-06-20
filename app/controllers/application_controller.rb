@@ -1,27 +1,28 @@
 # -*- encoding : utf-8 -*-
 class ApplicationController < ActionController::Base
-  
+
 
   protect_from_forgery
-  
+
   before_filter :get_config
   before_filter :get_blocks
   before_filter :require_user, :except => [:articles,:showme,:show_content,
                                            :products,:show_products_productclass,
+                                           :baskets,:add_to_basket,
                                            :productclasses,:click,
                                            :menues,:click,
                                            :customers,:new,:create,
                                            :user_sessions, :new]
 
-  helper_method :current_user_session, :current_user  
-  
-  
+  helper_method :current_user_session, :current_user
+
+
   def get_config
     @config = Configuration.find(:first)
     @ebene_productclass = -1
     @ebene_menue = -1
   end
-  
+
   def get_blocks
     if current_user == nil
       @auth_show = 0
@@ -30,7 +31,7 @@ class ApplicationController < ActionController::Base
       @auth_show = current_user.auth_level
       @auth_edit = current_user.auth_level_edit
     end
-    
+
     @lblocks = Block.find(:all, :conditions => ['position = ? and active = ? and auth_level <= ? ', 'links', true, @auth_show], :order => "fieldorder")
     @rblocks = Block.find(:all, :conditions => ['position = ? and active = ? and auth_level <= ?', 'rechts', true, @auth_show], :order => "fieldorder")
     @menue_top = Menue.find(:all, :conditions => ['ontop = ? and active = ? and auth_level <= ?', true, true, @auth_show], :order => 'position')
@@ -41,10 +42,10 @@ class ApplicationController < ActionController::Base
       @firstarticle.name = "Nicht gefunden"
       @firstarticle.content = "Ihr Startartikel wurde nicht gefunden, bitte prüfen sie die Konfiguration"
     end
-    
+
     @user_session = UserSession.new
   end
- 
+
 #  private
     def current_user_session
       logger.debug "ApplicationController::current_user_session"
@@ -88,3 +89,4 @@ class ApplicationController < ActionController::Base
     end
 
 end
+
