@@ -20,11 +20,10 @@ module ApplicationHelper
 
   def read_basket(session)
     @warenkorb = Basket.find_by_session_id(session)
-#      debugger
-#      if @warenkorb.nil?
-
-#      @warenkorb = Basket.new
-#    end
+    if @warenkorb.nil?
+      @warenkorb = Basket.new
+    end
+    @warenkorb
   end
 
   def check_tree(model, model_id)

@@ -15,7 +15,7 @@ class BasketsController < ApplicationController
   # GET /baskets/1.xml
   def show
     @basket = Basket.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
-    if @basket 
+    if @basket
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @basket }
@@ -30,9 +30,9 @@ class BasketsController < ApplicationController
   # GET /baskets/new
   # GET /baskets/new.xml
   def new
-    if @auth_edit >= 50    
+    if @auth_edit >= 50
       @basket = Basket.new
-  
+
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @basket }
@@ -46,12 +46,12 @@ class BasketsController < ApplicationController
   # GET /baskets/1/edit
   def edit
     @basket = Basket.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
-    if @basket 
+    if @basket
     else
       flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
-    end    
-    
+    end
+
   end
 
   # POST /baskets
@@ -88,7 +88,7 @@ class BasketsController < ApplicationController
 
   # DELETE /baskets/1
   # DELETE /baskets/1.xml
-  def destroy   
+  def destroy
     @basket = Basket.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
     if @basket
       @basket.destroy
@@ -102,4 +102,67 @@ class BasketsController < ApplicationController
       redirect_to(:action => 'index')
     end
   end
+
+  def add_to_basket
+    @product = Product.find(params[:id])
+
+#    @basket = Basket.find_by_session_id(request.session_options[:id])
+#    if @basket
+#      @basketline = Basketline.find(:first, :conditions => ['product_id = ? and basket_id <= ?', @product.id, @basket.id])
+#      if @basketline
+#        change_basketline_quantity
+#        @basketline.save
+#      else
+#        create_basketline
+#      end
+#    else
+#      create_basket
+#      create_basketline
+#    end
+
+    @basket = Basket.find_by_session_id(request.session_options[:id])
+    @basket ||= create_basket
+    @basketline = Basketline.find(:first, :conditions => ['product_id = ? and basket_id <= ?', @product.id, @basket.id])
+    @basketline ||= create_basketline
+    change_basketline_quantity
+    @basketline.save
+
+
+    @products = Product.find(:all, :conditions => ['productclass_id = ? and auth_level_edit <= ?', @product.productclass.id, @auth_edit])
+    redirect_to(:controller => 'products', :action => 'show_products_productclass', :id => @product.productclass.id)
+
+  end
+
+
+protected
+
+  def create_basket
+    @basket = Basket.new
+    @basket.session_id = request.session_options[:id]
+    @basket.customer_id = current_user.id
+    @basket.status = 'offen'
+    @basket.auth_level = current_user.auth_level
+    @basket.auth_level_edit = current_user.auth_level_edit
+    @basket.save
+    return @basket
+  end
+
+  def change_basketline_quantity
+    @basketline.quantity += params[:basketline][:quantity].to_i
+    @basketline.value = @basketline.quantity * @basketline.price
+  end
+
+  def create_basketline
+    @basketline = Basketline.new
+    @basketline.basket_id = @basket.id
+    @basketline.product_id = @product.id
+    @basketline.quantity = 0
+    @basketline.price = @product.price
+    @basketline.tax_percentage = @product.tax_percentage
+#    basketline.producer_number = @product.producer_number
+#    change_basketline_quantity
+#    @basketline.saves
+    return @basketline
+  end
 end
+

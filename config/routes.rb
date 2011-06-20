@@ -2,7 +2,11 @@ RailsNuke::Application.routes.draw do
 
   resources :basketlines
 
-  resources :baskets
+  resources :baskets do
+    member do
+      post 'add_to_basket'
+    end
+  end
 
   resources :customers
 
@@ -19,7 +23,6 @@ RailsNuke::Application.routes.draw do
     end
     member do
       get 'product_detail'
-      get 'add_to_basket'
     end
   end
 
@@ -54,7 +57,7 @@ RailsNuke::Application.routes.draw do
 
   resources :users
 
-  match 'products/:id/add_to_basket', :controller => 'products', :action => 'add_to_basket'
+#  match 'baskets/:id/add_to_basket', :controller => 'baskets', :action => 'add_to_basket'
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
 
