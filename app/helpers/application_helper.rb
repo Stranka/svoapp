@@ -18,6 +18,15 @@ module ApplicationHelper
     @article = Article.find(:all, :conditions => {:name => title})
   end
 
+  def read_basket(session)
+    @warenkorb = Basket.find_by_session_id(session)
+      debugger
+      if @warenkorb.nil?
+
+      @warenkorb = Basket.new
+    end
+  end
+
   def check_tree(model, model_id)
     @tree = Tree.find(:first, :conditions => ['session_id = ? and model = ? and model_id = ?', request.session_options[:id], model, model_id])
     if @tree == nil

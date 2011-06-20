@@ -1,0 +1,24 @@
+
+    <tr class= "tableline2">
+      <td>
+        <table width="100%" class="tablecontent">
+          <tr class= "tableline1">
+            <td>
+              <%= t ('Article in basket') %>
+            </td>
+            <td>
+              <%= basket.basketlines.count %>
+            </td>
+          </tr>
+          <tr class= "tableline2">
+            <td>
+              <%= t ('value') %>
+            </td>
+            <td>
+              <%= number_to_currency(basket.basketlines.sum(:value)) %>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+

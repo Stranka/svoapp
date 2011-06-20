@@ -1,17 +1,17 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="<%=attributes.length() + 1 %>">
       <%%= t('Listing ') + <%= class_name %>.human_name %>
-    </td>                
-  </tr> 
+    </td>
+  </tr>
 
-  <%% if flash[:notice]%> 
+  <%% if flash[:notice]%>
     <tr class="tablelineerror">
       <td colspan="5">
         <%%= flash[:notice] %>
       </td>
-    </tr> 
+    </tr>
   <%% end %>
-  
+
   <tr class="tablelineheader">
   <% for attribute in attributes -%>
   <td><%%= <%= class_name %>.human_attribute_name('<%= attribute.name %>') %></td>
@@ -34,7 +34,7 @@
 
   <tr class="tablelinemain">
     <td colspan="<%=attributes.length() + 1 %>">
-      <%%= link_to t('New ') + <%= class_name %>.human_name', new_<%= singular_table_name %>_path %>
+      <%%= link_to t('New ') + <%= class_name %>.human_name, new_<%= singular_table_name %>_path %>
     </td>
   </tr>
 

@@ -62,7 +62,6 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.xml
   def create
-    debugger
     @product = Product.new(params[:product])
     @product.update_attribute(:price, params[:product][:price].tr('.','').tr(',','.'))
 
@@ -164,6 +163,58 @@ class ProductsController < ApplicationController
     end
   end
 
+  def add_to_basket
+    @product = Product.find(params[:id])
 
+    @basket = Basket.find_by_session_id(request.session_options[:id])
+    if @basket
+      @basketline = Basketline.find(:first, :conditions => ['product_id = ? and basket_id <= ?', @product.id, @basket.id])
+      if @basketline
+        change_basketline_quantity(@basketline)
+      else
+        @basketline = Basketline.new
+        create_basketline(@basketline, @basket)
+        change_basketline_quantity(@basketline)
+      end
+      @basketline.save
+    else
+      @basket = Basket.new
+      create_basket(@basket)
+      @basket.save
+      @basketline = Basketline.new
+      create_basketline(@basketline, @basket)
+      change_basketline_quantity(@basketline)
+      @basketline.save
+    end
+
+    @products = Product.find(:all, :conditions => ['productclass_id = ? and auth_level_edit <= ?', @product.productclass.id, @auth_edit])
+    redirect_to(:action => 'show_products_productclass', :id => @product.productclass.id)
+
+  end
+
+
+protected
+
+  def create_basket(basket)
+    basket.session_id = request.session_options[:id]
+    basket.customer_id = current_user.id
+    basket.status = 'offen'
+    basket.auth_level = current_user.auth_level
+    basket.auth_level_edit = current_user.auth_level_edit
+  end
+
+  def change_basketline_quantity(basketline)
+    basketline.quantity += params[:basketline][:quantity].to_i
+    basketline.value = basketline.quantity * basketline.price
+  end
+
+  def create_basketline(basketline, basket)
+    basketline.basket_id = basket.id
+    basketline.product_id = @product.id
+    basketline.quantity = 0
+    basketline.price = @product.price
+    basketline.tax_percentage = @product.tax_percentage
+#    basketline.producer_number = @product.producer_number
+  end
 end
 

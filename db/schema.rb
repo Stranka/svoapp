@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110611160232) do
+ActiveRecord::Schema.define(:version => 20110620062955) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -32,6 +32,33 @@ ActiveRecord::Schema.define(:version => 20110611160232) do
     t.integer  "auth_level",      :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "auth_level_edit", :default => 0, :null => false
+  end
+
+  create_table "basketlines", :force => true do |t|
+    t.integer  "basket_id"
+    t.integer  "product_id"
+    t.integer  "quantity",                                       :default => 0,   :null => false
+    t.decimal  "value",           :precision => 10, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "price",           :precision => 10, :scale => 2, :default => 0.0, :null => false
+    t.integer  "tax_percentage",                                 :default => 0,   :null => false
+    t.string   "producer_number"
+    t.decimal  "weight",          :precision => 10, :scale => 2, :default => 0.0, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "baskets", :force => true do |t|
+    t.integer  "session_id"
+    t.integer  "customer_id"
+    t.string   "status"
+    t.string   "shipmentterms"
+    t.string   "paymentterms"
+    t.string   "order_number"
+    t.string   "store"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "auth_level",      :default => 0, :null => false
     t.integer  "auth_level_edit", :default => 0, :null => false
   end
 

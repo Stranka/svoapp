@@ -15,17 +15,17 @@ body {
   color: #4D4D4D;
 }
 
-.fadein { 
-  position:relative; height:200px; width:730px; 
+.fadein {
+  position:relative; height:200px; width:730px;
 }
 
-.fadein img { 
-  position:absolute; left:0; top:0; 
+.fadein img {
+  position:absolute; left:0; top:0;
 }
 
 .tabletoppage
 {
-    border: none; 
+    border: none;
     font-size: 80%;
     background-color: #E6E6E6;
     text-align: center;
@@ -33,7 +33,7 @@ body {
 }
 .tableheader
 {
-    border: none; 
+    border: none;
     font-size: 80%;
     background-color: #E6E6E6;
     text-align: center;
@@ -70,10 +70,10 @@ body {
 
 .myTitle
 {
-    padding:1px; 
-    border-right:1px none #4D4D4D; 
-    border-top:1px none #4D4D4D;     
-    border-left: 1px none #4D4D4D;    
+    padding:1px;
+    border-right:1px none #4D4D4D;
+    border-top:1px none #4D4D4D;
+    border-left: 1px none #4D4D4D;
     border-bottom: 1px solid #4D4D4D;
     font-weight: bolder;
     font-size: 95%;
@@ -89,7 +89,7 @@ body {
 {
     color: #000000;
     background-color: #BFBFBF;
-    text-align: left;    
+    text-align: left;
     font-size: 80%;
 }
 
@@ -178,13 +178,13 @@ body {
   background-color: #999999;
 /*  border: 3px solid;*/
   border-color: #f4fcf2;
-  padding: 0px; 
+  padding: 0px;
   border-spacing: 0px;
   font-size: 100%;
 }
 
 .tablenav td
-{  
+{
     padding-right: 3px;
     padding-left: 3px;
     padding-bottom: 3px;
@@ -200,7 +200,7 @@ body {
   display: inline;
   list-style-type: none;
   margin: 0;
-  padding: 0; 
+  padding: 0;
 }
 
 .tablenav  ul li a {
@@ -214,12 +214,12 @@ body {
   border-style: solid;
   border-width: 1px;
   color: #ffffff;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .tablenav  ul li a:hover {
   background-color: #E6E6E6;
-  color: #000000 
+  color: #000000
 }
 
 .tablenav ul li a:selected {
@@ -227,7 +227,7 @@ body {
   border: 1px solid;
   border-color: #4D4D4D;
   color: #000000;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 .current {
@@ -239,9 +239,9 @@ body {
   background-color: #E6E6E6;
   border-color: #4D4D4D;
   border-style: solid;
-  border-width: 1px; 
+  border-width: 1px;
   color: #000000;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .tablelinenav
@@ -267,7 +267,11 @@ body {
     background-color: #E6E6E6;
     text-align: center;
 }
+.basket_input {
+    border: 2px solid;
+    border-color: #9D1D14;
+    border-radius: 3px;
+    webkit-border-radius: 3 px;
+}
 /* #4D4D4D   #737373   #999999   #BFBFBF   #E6E6E6 */
-
-
 

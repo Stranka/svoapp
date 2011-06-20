@@ -37,6 +37,9 @@ de:
   'same as billingaddress': 'siehe Rechnungsadresse'
   'was successfully created': 'erfolgreich angelegt'
   'was successfully updated': 'erfolgreich geändert'
+  'Article in basket': 'Anzahl Artikel: '
+  'value': 'Wert: '
+
 
   date:
     formats:

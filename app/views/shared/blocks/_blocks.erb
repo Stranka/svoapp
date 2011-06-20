@@ -38,6 +38,8 @@
       <% when 'kundenmeinungen' %>
         <%= render :partial => "shared/blocks/article", :collection => read_article('Kundenmeinungen'), :as => :article %>
 
+      <% when 'basket' %>
+        <%= render :partial => "shared/blocks/basket", :object => read_basket(request.session_options[:id]), :as => :basket %>
 
 
 

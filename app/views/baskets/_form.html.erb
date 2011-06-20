@@ -1,0 +1,80 @@
+<tr class="tablelinemain">
+  <td colspan="2">
+    <%= form_for(@basket) do |f| %>
+      <% if @basket.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@basket.errors.count, "error") %> prohibited this basket from being saved:</h2>
+    
+          <ul>
+          <% @basket.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </td>
+  </tr> 
+      
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :session_id %>
+    </td>
+    <td>
+        <%= f.text_field :session_id %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :customer_id %>
+    </td>
+    <td>
+        <%= f.text_field :customer_id %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :status %>
+    </td>
+    <td>
+        <%= f.text_field :status %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :shipmentterms %>
+    </td>
+    <td>
+        <%= f.text_field :shipmentterms %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :paymentterms %>
+    </td>
+    <td>
+        <%= f.text_field :paymentterms %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :order_number %>
+    </td>
+    <td>
+        <%= f.text_field :order_number %>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :store %>
+    </td>
+    <td>
+        <%= f.text_field :store %>
+    </td>
+  </tr>
+      <tr>
+    <td></td>
+    <td>
+      <%= f.submit %>
+    </td>
+  </tr>
+    <% end %>

@@ -1,5 +1,9 @@
 RailsNuke::Application.routes.draw do
 
+  resources :basketlines
+
+  resources :baskets
+
   resources :customers
 
   resources :addresses
@@ -13,6 +17,10 @@ RailsNuke::Application.routes.draw do
       get 'show_products_productclass'
       get 'show_specification_sheet'
     end
+    member do
+      get 'product_detail'
+      get 'add_to_basket'
+    end
   end
 
   resources :productclasses do
@@ -22,8 +30,8 @@ RailsNuke::Application.routes.draw do
       get 'down'
     end
   end
-  
-  resources :articles do    
+
+  resources :articles do
     collection do
       get 'show_content'
     end
@@ -35,17 +43,18 @@ RailsNuke::Application.routes.draw do
     collection do
       get 'click'
       get 'up'
-      get 'down'      
+      get 'down'
     end
-  end 
-  
+  end
+
   resources :configurations
 
   resources :blocks
-  resources :user_sessions 
+  resources :user_sessions
 
-  resources :users 
-    
+  resources :users
+
+  match 'products/:id/add_to_basket', :controller => 'products', :action => 'add_to_basket'
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
 
@@ -108,3 +117,4 @@ RailsNuke::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+

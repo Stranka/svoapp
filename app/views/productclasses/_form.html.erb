@@ -4,7 +4,7 @@
       <% if @productclass.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@productclass.errors.count, "error") %> prohibited this productclass from being saved:</h2>
-    
+
           <ul>
           <% @productclass.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -13,8 +13,8 @@
         </div>
       <% end %>
     </td>
-  </tr> 
-      
+  </tr>
+
   <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :name %>
@@ -28,7 +28,8 @@
         <%= f.label :parent_id %>
     </td>
     <td>
-        <%= collection_select('f',:parent_id, @prclasses, :id, :name, :include_blank => true, :prompt => t('please select')) %>
+        <%#= collection_select('f',:parent_id, @prclasses, :id, :name, :include_blank => true, :prompt => t('please select')) %>
+        <%= f.collection_select :parent_id, @prclasses, :id, :name, :include_blank => true, :prompt => t('please select') %>
     </td>
   </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
@@ -39,7 +40,7 @@
         <%= f.file_field :picture_field %>
     </td>
   </tr>
-    
+
       <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :auth_level %>
@@ -64,3 +65,4 @@
     </td>
   </tr>
     <% end %>
+

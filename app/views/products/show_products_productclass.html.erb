@@ -1,32 +1,39 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="8">
 	   <%= t('Listing ') + Product.human_name %>
-    </td>                
-  </tr> 
+    </td>
+  </tr>
 
-  <% if flash[:notice]%> 
+  <% if flash[:notice]%>
     <tr class="tablelineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
-    </tr> 
+    </tr>
   <% end %>
-  
+
   <tr class="tablelineheader">
 
     <td><%= Product.human_attribute_name('image_url') %></td>
     <td><%= Product.human_attribute_name('shorttext') %></td>
     <td><%= Product.human_attribute_name('price') %></td>
+    <td><%= Product.human_attribute_name('quantity') %></td>
+    <td></td>
   </tr>
 
 <% @products.each do |product| %>
   <tr class= "tableline<%= cycle('1', '2') %>">
-    <td width="5%"><%= image_tag ("product/"+product.image_url), :height => '150' %></td>
+    <td width="5%"><%= link_to (image_tag ("product/"+product.image_url),:height => '150'), :controller => 'products', :action => 'product_detail', :id => product.id %></td>
     <td width ="35%">
-      <%= product.shorttext %></br></br>
-      <%= truncate(raw(product.description), :length => 500) %>
+      <%= link_to (product.shorttext), :controller => 'products', :action => 'product_detail', :id => product.id %></br></br>
+      <%= truncate(raw(product.description), :length => 200) %>
     </td>
     <td><%= number_to_currency(product.price) %></td>
+    <%= form_for product, :url => {:controller => 'products', :action => 'add_to_basket', :id => product.id} do |p| %>
+   	  <td><%= number_field(:basketline, :quantity, options = {:size => 5, :value => '1', :min => '1', :max => '99', :class => "basket_input"})%></td>
+      <%= p.hidden_field(:product_id, :value => product.id)%>
+      <td><%= image_submit_tag("/images/bestellen.png") %></td>
+    <% end %>
   </tr>
 <% end %>
 
