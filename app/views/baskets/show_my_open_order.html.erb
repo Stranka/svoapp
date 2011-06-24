@@ -1,0 +1,62 @@
+
+  <tr>
+    <td class ="myTitle" width="100%" colspan="6">
+      <%= t('Listing ') + Basket.human_name %>
+    </td>
+  </tr>
+
+  <% if flash[:notice]%>
+    <tr class="tablelineerror">
+      <td colspan="5">
+        <%= flash[:notice] %>
+      </td>
+    </tr>
+  <% end %>
+
+  <tr class="tablelineheader">
+    <td><%= Basket.human_attribute_name('order_number') %></td>
+    <td><%= Basket.human_attribute_name('customer_id') %></td>
+    <td><%= Basket.human_attribute_name('status') %></td>
+    <td><%= Basket.human_attribute_name('shipmentterms') %></td>
+    <td><%= Basket.human_attribute_name('paymentterms') %></td>
+    <td><%= Basket.human_attribute_name('store') %></td>
+  </tr>
+
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td><%= @basket.order_number %></td>
+    <td><%#= @basket.customer.firstname ||= ' ' + ' ' + @basket.customer.lastname ||= ' ' %></td>
+    <td><%= @basket.status %></td>
+    <td><%= @basket.shipmentterms %></td>
+    <td><%= @basket.paymentterms %></td>
+    <td><%= @basket.store %></td>
+
+  </tr>
+
+
+  <% @basket.basketlines.each do |b| %>
+    <tr class="tablelinemain">
+      <td><%= Product.human_attribute_name('image_url') %></td>
+      <td><%= Product.human_attribute_name('shorttext') %></td>
+      <td align ="right"><%= Product.human_attribute_name('quantity') %></td>
+      <td align ="right"><%= Product.human_attribute_name('price') %></td>
+      <td align ="right"><%= Product.human_attribute_name('value') %></td>
+      <td></td>
+    </tr>
+    <tr class= "tableline<%= cycle('1', '2') %>">
+      <td><%= image_tag ("product/"+b.product.image_url),:height => '50' %></td>
+      <td><%= b.product.shorttext %></td>
+      <td align ="right"><%= b.quantity %></td>
+      <td align ="right"><%= number_to_currency(b.price) %></td>
+      <td align="right"><%= number_to_currency(b.value) %></td>
+      <td></td>
+    </tr>
+  <% end %>
+  <tr class = "tablelinemain">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td align="right"><%= number_to_currency(@basket.basketlines.sum(:value)) %></td>
+    <td></td>
+  </tr>
+

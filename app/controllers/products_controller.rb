@@ -163,5 +163,29 @@ class ProductsController < ApplicationController
     end
   end
 
+  def product_detail
+
+    case params[:tab]
+
+      when 'general', nil
+        set_tab :general
+      when 'description'
+        set_tab :description
+      when 'picture'
+        set_tab :picture
+    end
+
+    @product = Product.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
+    if @product
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @product }
+      end
+    else
+      flash[:notice] = t('access denied')
+      redirect_to(:action => 'index')
+    end
+
+  end
 end
 

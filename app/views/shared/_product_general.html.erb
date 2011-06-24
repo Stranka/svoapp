@@ -1,16 +1,3 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="8">
-	   <%= t('Listing Catagory ') + @products.first.productclass.name %>
-    </td>
-  </tr>
-
-  <% if flash[:notice]%>
-    <tr class="tablelineerror">
-      <td colspan="5">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
-  <% end %>
 
   <tr class="tablelineheader">
 
@@ -21,7 +8,7 @@
     <td></td>
   </tr>
 
-<% @products.each do |product| %>
+
   <tr class= "tableline<%= cycle('1', '2') %>">
     <td width="5%"><%= link_to (image_tag ("product/"+product.image_url),:height => '150'), :controller => 'products', :action => 'product_detail', :id => product.id %></td>
     <td width ="35%">
@@ -40,5 +27,4 @@
       <td><%= image_submit_tag("/images/bestellen.png") %></td>
     <% end %>
   </tr>
-<% end %>
 

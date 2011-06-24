@@ -1,17 +1,17 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="7">
 	   <%= t('Listing ') + Block.human_name %>
-    </td>                
-  </tr> 
+    </td>
+  </tr>
 
   <% if flash[:notice]%>
     <tr class="tablelineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
-    </tr> 
+    </tr>
   <% end %>
-  
+
   <tr class="tablelineheader">
 
     <td><%= Block.human_attribute_name('name') %></td>
@@ -43,3 +43,4 @@
 	<%= link_to t('New ') + Block.human_name, new_block_path %>
     </td>
   </tr>
+

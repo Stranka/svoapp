@@ -11,6 +11,8 @@ gem 'authlogic'
 gem 'acts_as_tree'
 gem 'acts_as_list'
 gem 'amount_field_rails3', :require => 'amount_field'
+gem "tabs_on_rails"
+
 
 # Use unicorn as the web server
 # gem 'unicorn'

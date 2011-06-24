@@ -147,6 +147,7 @@ body {
     padding-bottom: 3px;
     padding-top: 3px;
 }
+
 .tablelineheader
 {
     font-size: 100%;
@@ -209,7 +210,7 @@ body {
   font-weight: normal;
   margin: 0;
   padding: 4px 8px 6px 8px;
-  background-color#999999;
+  background-color: #999999;
   border-color: #4D4D4D;
   border-style: solid;
   border-width: 1px;
@@ -230,7 +231,7 @@ body {
   font-weight: bold;
 }
 
-.current {
+.currenttopmenue {
   float: left;
   font-size: 120%;
   font-weight: normal;
@@ -274,4 +275,63 @@ body {
     webkit-border-radius: 3 px;
 }
 /* #4D4D4D   #737373   #999999   #BFBFBF   #E6E6E6 */
+
+.tablelinedetail
+{
+    font-size: 250%;
+    color: #ffffff;
+    text-indent: 2px;
+    background-color: #737373;
+    text-align: left;
+}
+.tablelinedetail a
+{
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.tablelinedetail td
+{
+    padding-right: 3px;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+.basket_input {
+    border: 2px solid;
+    border-color: #9D1D14;
+    border-radius: 3px;
+    webkit-border-radius: 3 px;
+}
+#tabbed_navigation{
+  border-bottom:1px
+  solid #ADADAD;
+  margin-bottom:15px;}
+#tabbed_navigation ul{
+  padding:0px;}
+#tabbed_navigation ul li{
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+  border:1px
+  solid #999999;
+  float:left;
+  font-size:110%;
+  font-weight:bold;
+  margin-left:3px;
+  padding:7px 10px;
+  position:relative;
+  text-decoration:none;
+  top:2px;}
+#tabbed_navigation ul li a{
+  float:left;
+  text-decoration:none;
+  color:#333333;}
+#tabbed_navigation ul li a:hover {
+  background-color: #999999; }
+#tabbed_navigation ul li.current{
+  border-bottom:1px;
+  solid #e6e6e6;
+  border-radius: 8px 8px 0px 0px;
+  background-color: #bfbfbf;}
 
