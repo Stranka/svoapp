@@ -1,6 +1,10 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="8">
-	   <%= t('Listing Catagory ') + @products.first.productclass.name %>
+      <% if @products.first != nil %>
+	      <%= t('Listing Catagory ') + @products.first.productclass.name %>
+	    <% else %>
+        <%= t('Listing ') + Product.human_name %>
+	    <% end %>
     </td>
   </tr>
 

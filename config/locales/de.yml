@@ -43,6 +43,8 @@ de:
   'description': 'Beschreibung'
   'pictures': 'Bilder'
   'Listing Catagory ': 'Produkte der Kategorie '
+  'My Order': 'Zum Warenkorb'
+  'not available': 'nicht vorhanden'
 
   date:
     formats:

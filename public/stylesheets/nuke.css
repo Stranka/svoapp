@@ -316,7 +316,7 @@ body {
   border:1px
   solid #999999;
   float:left;
-  font-size:110%;
+  font-size:80%;
   font-weight:bold;
   margin-left:3px;
   padding:7px 10px;
@@ -330,8 +330,7 @@ body {
 #tabbed_navigation ul li a:hover {
   background-color: #999999; }
 #tabbed_navigation ul li.current{
-  border-bottom:1px;
-  solid #e6e6e6;
+  border-bottom:1px solid #bfbfbf;
   border-radius: 8px 8px 0px 0px;
   background-color: #bfbfbf;}
 

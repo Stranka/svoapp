@@ -176,7 +176,7 @@ protected
     end
 
     @basketline.tax_percentage = @product.tax_percentage
-    @basketline.producer_number = @product.producer_number
+#    @basketline.producer_number = @product.producer_number
 
     return @basketline
   end
