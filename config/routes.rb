@@ -39,7 +39,7 @@ RailsNuke::Application.routes.draw do
   end
 
   resources :articles do
-    collection do
+    member do
       get 'show_content'
     end
   end
