@@ -24,6 +24,20 @@ class ArticlesController < ApplicationController
       redirect_to(:action => 'index')
     end
   end
+  
+  # GET /articles/1
+  # GET /articles/1.xml
+  def permalink
+    @showarticle = Article.find(:first, :conditions => ['name = ? and auth_level <= ?', params[:id], @auth_show])
+    begin
+    end while @showarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
+    if @showarticle == nil     
+      @showarticle = Article.new
+      @showarticle.name = t('Sorry')
+      @showarticle.content = t('access denied')
+    end
+    render "show_content"
+  end  
 
   # GET /articles/new
   # GET /articles/new.xml
@@ -103,6 +117,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1.xml
   def show_content   
     @showarticle = Article.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
+    begin
+    end while @showarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
     if @showarticle == nil     
       @showarticle = Article.new
       @showarticle.name = t('Sorry')
@@ -113,5 +129,4 @@ class ArticlesController < ApplicationController
       format.xml  { render :xml => @article }
     end
   end  
- 
-end
+ end

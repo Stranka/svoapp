@@ -35,7 +35,8 @@ RailsNuke::Application.routes.draw do
   end
 
   resources :articles do
-    collection do
+    member do
+      get 'permalink'
       get 'show_content'
     end
   end
@@ -51,10 +52,8 @@ RailsNuke::Application.routes.draw do
   end
 
   resources :configurations
-
   resources :blocks
-  resources :user_sessions
-
+  resources :user_sessions 
   resources :users
 
 #  match 'baskets/:id/add_to_basket', :controller => 'baskets', :action => 'add_to_basket'

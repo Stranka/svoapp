@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
      end
      @user_session = UserSession.new
    end
-  dfsdfsdfsdfsdfsdfsdfsdf
+
    def create
       @user_session = UserSession.new(params[:user_session])
       if @user_session.save
@@ -29,3 +29,4 @@ class UserSessionsController < ApplicationController
       redirect_to(home_path)
     end
 end
+
