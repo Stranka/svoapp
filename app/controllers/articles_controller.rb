@@ -12,9 +12,9 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1
   # GET /articles/1.xml
-  def show        
+  def show
     @article = Article.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
-    if @article 
+    if @article
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @article }
@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
   def new
     if @auth_edit >= 50
       @article = Article.new
-  
+
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @article }
@@ -56,9 +56,9 @@ class ArticlesController < ApplicationController
   end
 
   # GET /articles/1/edit
-  def edit    
+  def edit
     @article = Article.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
-    if @article 
+    if @article
     else
       flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
@@ -99,27 +99,31 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/1
   # DELETE /articles/1.xml
-  def destroy     
+  def destroy
     @article = Article.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
     if @article
       @article.destroy
       respond_to do |format|
         format.html { redirect_to(articles_url) }
         format.xml  { head :ok }
-      end    
+      end
     else
       flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
   end
-  
+
   # GET /articles/1
   # GET /articles/1.xml
-  def show_content   
+  def show_content
     @showarticle = Article.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
+<<<<<<< HEAD
     begin
     end while @showarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
     if @showarticle == nil     
+=======
+    if @showarticle == nil
+>>>>>>> 0821af8dde79d41ce47f7a1d3b07b6a870b98303
       @showarticle = Article.new
       @showarticle.name = t('Sorry')
       @showarticle.content = t('access denied')
@@ -128,5 +132,12 @@ class ArticlesController < ApplicationController
       format.html # show_article.html.erb
       format.xml  { render :xml => @article }
     end
+<<<<<<< HEAD
   end  
  end
+=======
+  end
+
+end
+
+>>>>>>> 0821af8dde79d41ce47f7a1d3b07b6a870b98303

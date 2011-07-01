@@ -3,6 +3,9 @@ RailsNuke::Application.routes.draw do
   resources :basketlines
 
   resources :baskets do
+    collection do
+      get 'show_my_open_order'
+    end
     member do
       post 'add_to_basket'
     end
@@ -23,6 +26,7 @@ RailsNuke::Application.routes.draw do
     end
     member do
       get 'product_detail'
+      get 'product_detail_general'
     end
   end
 

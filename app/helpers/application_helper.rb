@@ -63,6 +63,5 @@ module ApplicationHelper
     @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
   end
 
-
 end
 

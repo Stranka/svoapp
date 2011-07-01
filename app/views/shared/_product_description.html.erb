@@ -1,0 +1,31 @@
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width ="20%">
+      <%= image_tag ("product/"+product.image_url), :height => '250' %>
+    </td>
+    <td>
+      <%= raw(product.description) %>
+    </td>
+  </tr>
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+  	 <%= Product.human_attribute_name('specification_sheet') %>
+    </td>
+    <td>
+      <% if product.specification_sheet != nil %>
+        <%= link_to( t('show'), {
+              :controller => 'products',
+              :action => 'show_specification_sheet',
+              :id => product.id,
+              :mode => 'show'},
+              {:target => "_blank"}) %> /
+        <%= link_to t('Download'),
+              :controller => 'products',
+              :action => 'show_specification_sheet',
+              :id => product.id,
+              :mode => 'download' %>
+      <% else %>
+        <%= t('not available') %>
+      <% end %>
+    </td>
+  </tr>
+

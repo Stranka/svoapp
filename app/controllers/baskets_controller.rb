@@ -121,7 +121,7 @@ class BasketsController < ApplicationController
 #    end
 
     @basket = Basket.find_by_session_id(request.session_options[:id])
-    @basket ||= create_basket
+    @basket ||= create_basket       # || ist ein oder => gibt es @basket ok, wenn nicht führe create_basket aus
     @basketline = Basketline.find(:first, :conditions => ['product_id = ? and basket_id <= ?', @product.id, @basket.id])
     @basketline ||= create_basketline
     change_basketline_quantity
@@ -133,6 +133,18 @@ class BasketsController < ApplicationController
 
   end
 
+  def show_my_open_order
+    @basket = Basket.find(:first, :conditions => ['session_id = ? and status = ?', request.session_options[:id], 'offen'])
+    if @basket
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @basket }
+      end
+    else
+      flash[:notice] = t('access denied')
+      redirect_to(:action => 'index')
+    end
+  end
 
 protected
 
@@ -157,11 +169,15 @@ protected
     @basketline.basket_id = @basket.id
     @basketline.product_id = @product.id
     @basketline.quantity = 0
-    @basketline.price = @product.price
+    if @product.special_price > 0 and @product.special_price < @product.price
+      @basketline.price = @product.special_price
+    else
+      @basketline.price = @product.price
+    end
+
     @basketline.tax_percentage = @product.tax_percentage
-#    basketline.producer_number = @product.producer_number
-#    change_basketline_quantity
-#    @basketline.saves
+#    @basketline.producer_number = @product.producer_number
+
     return @basketline
   end
 end

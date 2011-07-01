@@ -39,7 +39,12 @@ de:
   'was successfully updated': 'erfolgreich geändert'
   'Article in basket': 'Anzahl Artikel: '
   'value': 'Wert: '
-
+  'general': 'Übersicht'
+  'description': 'Beschreibung'
+  'pictures': 'Bilder'
+  'Listing Catagory ': 'Produkte der Kategorie '
+  'My Order': 'Zum Warenkorb'
+  'not available': 'nicht vorhanden'
 
   date:
     formats:

@@ -14,8 +14,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
-    @user = User.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])       
-    if @user 
+    @user = User.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
+    if @user
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @user }
@@ -30,11 +30,11 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.xml
   def new
-    if @auth_edit >= 50    
+    if @auth_edit >= 50
       @user = User.new
       @user.build_billingaddress
       @user.build_deliveryaddress
-      
+
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @user }
@@ -48,14 +48,14 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
-    if @user 
+    if @user
     else
       flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
-    end    
+    end
     if @user.billingaddress.nil?
       @user.build_billingaddress
-    end    
+    end
     if @user.deliveryaddress.nil?
       @user.build_deliveryaddress
     end
@@ -65,10 +65,16 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
+    if @user.auth_level > @auth_show
+      @user.auth_level = @auth_show
+    end
+    if @user.auth_level_edit > @auth_edit
+      @user.auth_level_edit = @auth_edit
+    end
     respond_to do |format|
-      if @user.save       
+      if @user.save
         UserSessionsController::new
-        
+
         format.html { redirect_to(@user, :notice => User.human_name + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
@@ -96,7 +102,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   # DELETE /users/1.xml
-  def destroy   
+  def destroy
     @user = User.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
     if @user
       @user.destroy
@@ -110,25 +116,26 @@ class UsersController < ApplicationController
       redirect_to(:action => 'index')
     end
   end
- 
+
   # GET /customer/new
   # GET /customers/new.xml
   def new_customer
     @user = User.new
       @user.build_billingaddress
       @user.build_deliveryaddress
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @user }
     end
   end
-  
+
   def new_address
-    
+
   end
-  
+
   def del_address
-    
+
   end
 end
+
