@@ -18,7 +18,7 @@ require "uri"
     @article = Article.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
     if @article
       begin
-      end while @article.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
+      end while @article.fixinternallinks
     else
       flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
@@ -35,7 +35,7 @@ require "uri"
       @showarticle.content = t('access denied')
     else
       begin
-      end while @showarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
+      end while @showarticle.fixinternallinks
     end
     render "show_content"
   end
@@ -124,13 +124,13 @@ require "uri"
       @showarticle.content = t('access denied')
     else
       begin
-      end while @showarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
+      end while @showarticle.fixinternallinks
     end
   end
 
   def showme
       begin
-      end while @firstarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
+      end while @firstarticle.fixinternallinks
   end
 end
 
