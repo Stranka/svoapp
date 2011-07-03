@@ -1,0 +1,40 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+	     <%= t('upload files')%>
+    </td>
+  </tr>
+
+  <% if flash[:notice]%>
+    <tr class="tablelineerror">
+      <td colspan="5">
+        <%= flash[:notice] %>
+      </td>
+    </tr>
+  <% end %>
+  <% if params[:picture] != '' and params[:type] == 'image' %>
+    <tr class= "tableline<%= cycle('1', '2') %>">
+      <td>
+      </td>
+      <td>
+        <%= image_tag(params[:picture],:height => '150') %>
+      </td>
+    </tr>
+  <% end %>
+
+  <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+    <%= form_tag('', :multipart => true ) %>
+        <%= t('file') %>
+    </td>
+    <td>
+        <%= file_field_tag(:image_file, :style => "width: 30em") %>
+    </td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td>
+      <%= submit_tag (t('create')) %>
+    </td>
+  </tr>
+

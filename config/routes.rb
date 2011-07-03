@@ -1,13 +1,16 @@
 RailsNuke::Application.routes.draw do
 
+  resources :pictures
+
   resources :basketlines
 
   resources :baskets do
     collection do
       get 'show_my_open_order'
+      get 'checkout'
     end
     member do
-      post 'add_to_basket'
+      put 'add_to_basket'
     end
   end
 
@@ -57,7 +60,7 @@ RailsNuke::Application.routes.draw do
 
   resources :configurations
   resources :blocks
-  resources :user_sessions 
+  resources :user_sessions
   resources :users
 
 #  match 'baskets/:id/add_to_basket', :controller => 'baskets', :action => 'add_to_basket'

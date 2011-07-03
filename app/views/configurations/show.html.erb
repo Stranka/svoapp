@@ -1,13 +1,31 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="2">
       <%= t('Show ') + Configuration.human_name %>
-    </td>                
-  </tr> 
+    </td>
+  </tr>
   <tr class="tablelinemain">
     <td colspan="2">
       <%= notice %>
     </td>
-  </tr> 
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+  	 <%= Configuration.human_attribute_name('theme') %>
+    </td>
+    <td>
+  	<%= @configuration.theme %>
+    </td>
+  </tr>
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td width="20%">
+  	 <%= Configuration.human_attribute_name('title') %>
+    </td>
+    <td>
+  	<%= @configuration.title %>
+    </td>
+  </tr>
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td width="20%">
@@ -89,7 +107,16 @@
     <%= @configuration.manage_tree %>
     </td>
   </tr>
-  
+
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+      <%= Configuration.human_attribute_name('shop_active') %>
+    </td>
+    <td>
+    <%= @configuration.shop_active %>
+    </td>
+  </tr>
+
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
       <%= Configuration.human_attribute_name('articles_name') %>
@@ -98,10 +125,11 @@
     <%= @configuration.articles_name %>
     </td>
   </tr>
-  
+
   <tr class="tablelinemain">
     <td colspan="2">
 	<%= link_to t('Edit'), edit_configuration_path(@configuration) %> |
 	<%= link_to t('Back'), configurations_path %>
     </td>
   </tr>
+

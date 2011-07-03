@@ -109,7 +109,7 @@
         <%= f.label :image_url %>
     </td>
     <td>
-        <%= f.file_field :image_file %>
+        <%= f.file_field(:image_file, :style => "width: 30em") %>
     </td>
   </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
@@ -117,7 +117,7 @@
         <%= f.label :specification_sheet %>
     </td>
     <td>
-        <%= f.file_field :specification_sheet_file %>
+        <%= f.file_field(:specification_sheet_file, :style => "width: 30em") %>
     </td>
   </tr>
       <tr>

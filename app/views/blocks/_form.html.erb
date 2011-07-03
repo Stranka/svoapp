@@ -4,7 +4,7 @@
       <% if @block.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@block.errors.count, "error") %> prohibited this block from being saved:</h2>
-    
+
           <ul>
           <% @block.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -13,8 +13,8 @@
         </div>
       <% end %>
     </td>
-  </tr> 
-      
+  </tr>
+
       <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :name %>
@@ -52,7 +52,7 @@
         <%= f.label :blockid %>
     </td>
     <td>
-        <%= f.text_field :blockid %>
+        <%= f.select :blockid, Block::BLOCKID %>
     </td>
   </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
@@ -68,19 +68,19 @@
         <%= f.label :auth_level %>
     </td>
     <td>
-        <%= f.text_field :auth_level %>
+        <%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %>
     </td>
-  </tr>  
+  </tr>
 
       <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :auth_level_edit %>
     </td>
     <td>
-        <%= f.text_field :auth_level_edit %>
+        <%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %>
     </td>
   </tr>
-   
+
       <tr>
     <td></td>
     <td>
@@ -88,3 +88,4 @@
     </td>
   </tr>
     <% end %>
+

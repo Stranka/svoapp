@@ -1,0 +1,332 @@
+
+/* #4D4D4D   #737373   #999999   #BFBFBF   #E6E6E6 */
+/* bogner farben   #005bc3 #6699CC   #79B6F2   #80BFFF  */
+
+/* tableline1 #557fb2 tableline2 #456fa2 tablelineheader #366093 tablebackground #648ec1 */
+body {
+/*  font-family: verdana, arial, helvetica, sans-serif;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+  font-family: 'Lucia Grande', Verdana, Helvetica, sans-serif;*/
+  font-family: Verdana, 'Lucida Grande', Arial, Helvetica, sans-serif;
+  font-size:   100%;
+
+/*  line-height: 18px;*/
+  background-color: #FFFFFF;
+  color: #4D4D4D;
+}
+
+.fadein {
+  position:relative; height:200px; width:730px;
+}
+
+.fadein img {
+  position:absolute; left:0; top:0;
+}
+
+.tabletoppage
+{
+    border: none;
+    font-size: 80%;
+    background-color: #E6E6E6;
+    text-align: center;
+    font-size:   100%;
+}
+.tableheader
+{
+    border: none;
+    font-size: 80%;
+    background-color: #E6E6E6;
+    text-align: center;
+    font-size:   100%;
+}
+
+.tablecontainer
+{
+    border: none;
+    background-color: #E6E6E6;
+    text-align: left;
+    border-top: #4D4D4D 1px solid;
+    font-size: 100%;
+
+}
+.tablecontent
+{
+    border-right: #4D4D4D 1px solid;
+    border-top: #4D4D4D 1px solid;
+    border-left: #4D4D4D 1px solid;
+    border-bottom: #4D4D4D 1px solid;
+    font-size: 100%;
+/*    list-style-type: square;*/
+    background-color: #E6E6E6;
+    text-align: justify;
+    text-decoration: none;
+/*    margin: 4px;*/
+    border-spacing: 2px;
+}
+
+.myTitle
+{
+    padding:1px;
+    border-right:1px none #4D4D4D;
+    border-top:1px none #4D4D4D;
+    border-left: 1px none #4D4D4D;
+    border-bottom: 1px solid #4D4D4D;
+    font-weight: bolder;
+    font-size: 95%;
+    color: #FFFFFF;
+    text-indent: 5px;
+    letter-spacing: 1px;
+    background-color: #BFBFBF;
+    background-image: url('../images/gray_linea.gif');
+    text-align: center;
+}
+
+.tableline1
+{
+    color: #000000;
+    background-color: #BFBFBF;
+    text-align: left;
+    font-size: 80%;
+}
+
+.tableline1 td {
+    padding-right: 3px;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+
+.tableline1 td a {
+  color: #840500;
+  text-decoration: none;
+}
+
+.tableline2
+{
+    font-size: 80%;
+    background-color: #999999;
+    text-align: left;
+    color: #000000;
+}
+
+.tableline2 td
+{
+    padding-right: 3px;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+
+.tableline2 td a {
+  color: #840500;
+  text-decoration: none;
+}
+
+.tablelinemain
+{
+    font-size: 85%;
+    color: #ffffff;
+    text-indent: 2px;
+    background-color: #737373;
+    text-align: center;
+}
+.tablelinemain a
+{
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.tablelinemain td
+{
+    padding-right: 3px;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+
+.tablelineheader
+{
+    font-size: 100%;
+    color: #ffffff;
+    text-indent: 2px;
+    background-color: #737373;
+    text-align: left;
+}
+.tablelineheader a
+{
+    font-size: 100%;
+    color: #ffffff;
+}
+
+.tablelineheader td
+{
+    padding-right: 3px;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+.tablefooter
+{
+    font-size: 70%;
+    text-decoration: none;
+}
+
+.tablenav {
+  background-color: #999999;
+/*  border: 3px solid;*/
+  border-color: #f4fcf2;
+  padding: 0px;
+  border-spacing: 0px;
+  font-size: 100%;
+}
+
+.tablenav td
+{
+    padding-right: 3px;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+
+.tablenav  ul {
+  margin: 0 0 0 0;
+  padding: 0;
+}
+
+.tablenav  ul li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tablenav  ul li a {
+  float: left;
+  font-size: 120%;
+  font-weight: normal;
+  margin: 0;
+  padding: 4px 8px 6px 8px;
+  background-color: #999999;
+  border-color: #4D4D4D;
+  border-style: solid;
+  border-width: 1px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.tablenav  ul li a:hover {
+  background-color: #E6E6E6;
+  color: #000000
+}
+
+.tablenav ul li a:selected {
+  background-color: #E6E6E6;
+  border: 1px solid;
+  border-color: #4D4D4D;
+  color: #000000;
+  font-weight: bold;
+}
+
+.currenttopmenue {
+  float: left;
+  font-size: 120%;
+  font-weight: normal;
+  margin: 0;
+  padding: 4px 8px 6px 8px;
+  background-color: #E6E6E6;
+  border-color: #4D4D4D;
+  border-style: solid;
+  border-width: 1px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.tablelinenav
+{
+    border-right: #4D4D4D thin;
+    border-top: #4D4D4D thin;
+    font-size: 98%;
+    border-left: #4D4D4D thin;
+    color: #000000;
+    border-bottom: #4D4D4D thin;
+    background-color: #999999;
+    text-align: center;
+}
+
+.tablelineerror {
+    border-right: 1px solid;
+    border-top: 1px solid;
+    font-size: 110%;
+    border-left: 1px solid;
+    color: #ff0000;
+    text-indent: 2px;
+    border-bottom: 1px solid;
+    background-color: #E6E6E6;
+    text-align: center;
+}
+.basket_input {
+    border: 2px solid;
+    border-color: #9D1D14;
+    border-radius: 3px;
+    webkit-border-radius: 3 px;
+}
+/* #4D4D4D   #737373   #999999   #BFBFBF   #E6E6E6 */
+
+.tablelinedetail
+{
+    font-size: 250%;
+    color: #ffffff;
+    text-indent: 2px;
+    background-color: #737373;
+    text-align: left;
+}
+.tablelinedetail a
+{
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.tablelinedetail td
+{
+    padding-right: 3px;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+.basket_input {
+    border: 2px solid;
+    border-color: #9D1D14;
+    border-radius: 3px;
+    webkit-border-radius: 3 px;
+}
+#tabbed_navigation{
+  border-bottom:1px
+  solid #ADADAD;
+  margin-bottom:15px;}
+#tabbed_navigation ul{
+  padding:0px;}
+#tabbed_navigation ul li{
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+  border:1px
+  solid #999999;
+  float:left;
+  font-size:80%;
+  font-weight:bold;
+  margin-left:3px;
+  padding:7px 10px;
+  position:relative;
+  text-decoration:none;
+  top:2px;}
+#tabbed_navigation ul li a{
+  float:left;
+  text-decoration:none;
+  color:#333333;}
+#tabbed_navigation ul li a:hover {
+  background-color: #999999; }
+#tabbed_navigation ul li.current{
+  border-bottom:1px solid #bfbfbf;
+  border-radius: 8px 8px 0px 0px;
+  background-color: #bfbfbf;}
+

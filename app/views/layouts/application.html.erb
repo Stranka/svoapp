@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsNuke</title>
-    <%= stylesheet_link_tag :all %>
+    <title><%= @config.title %></title>
+    <%= stylesheet_link_tag @stylesheet %>
     <%= javascript_include_tag :all %>
     <%= csrf_meta_tag %>
   </head>
@@ -16,9 +16,9 @@
             <tr>
               <% if @config.position_logo == 'right' %>
                 <td align="left" width="70%"></td>
-                <td align="right" width="30%" valign="center"><img src="/images/logo.png" border="0" alt="Logo"></td>
+                <td align="right" width="30%" valign="center"><img src="<%= @logo %>" border="0" alt="Logo"></td>
               <% else %>
-                <td align="left" width="30%" valign="center"><img src="/images/logo.png" border="0" alt="Logo"></td>
+                <td align="left" width="30%" valign="center"><img src="<%= @logo %>" border="0" alt="Logo"></td>
                 <td align="right" width="70%"></td>
               <% end %>
             </tr>

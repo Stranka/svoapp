@@ -52,7 +52,7 @@
         <%= f.label :auth_level %>
     </td>
     <td>
-        <%= f.text_field :auth_level %>
+        <%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %>
     </td>
   </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
@@ -60,7 +60,7 @@
         <%= f.label :auth_level_edit %>
     </td>
     <td>
-        <%= f.text_field :auth_level_edit %>
+        <%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %>
     </td>
   </tr>
       <tr>

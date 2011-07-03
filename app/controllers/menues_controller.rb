@@ -14,7 +14,7 @@ class MenuesController < ApplicationController
   # GET /menues/1.xml
   def show
     @menue = Menue.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
-    if @menue 
+    if @menue
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @menue }
@@ -29,11 +29,11 @@ class MenuesController < ApplicationController
   # GET /menues/new
   # GET /menues/new.xml
   def new
-    if @auth_edit >= 50   
-      @articles = Article.all 
+    if @auth_edit >= 50
+      @articles = Article.all
       @menue = Menue.new
       @men = Menue.all
-  
+
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @menue }
@@ -49,18 +49,19 @@ class MenuesController < ApplicationController
     @articles = Article.all
     @men = Menue.all
     @menue = Menue.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
-    if @menue 
+    if @menue
     else
       flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
-    end    
-    
+    end
+
   end
 
   # POST /menues
   # POST /menues.xml
   def create
     @menue = Menue.new(params[:menue])
+
     if @menue.parent_id == nil or @menue.parent_id == ''
       @menue.parent_id = 0
     end
@@ -69,6 +70,8 @@ class MenuesController < ApplicationController
         format.html { redirect_to(@menue, :notice => Menue.human_name + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @menue, :status => :created, :location => @menue }
       else
+        @articles = Article.all
+        @men = Menue.all
         format.html { render :action => "new" }
         format.xml  { render :xml => @menue.errors, :status => :unprocessable_entity }
       end
@@ -88,6 +91,8 @@ class MenuesController < ApplicationController
         format.html { redirect_to(@menue, :notice => Menue.human_name + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
+        @articles = Article.all
+        @men = Menue.all
         format.html { render :action => "edit" }
         format.xml  { render :xml => @menue.errors, :status => :unprocessable_entity }
       end
@@ -96,7 +101,7 @@ class MenuesController < ApplicationController
 
   # DELETE /menues/1
   # DELETE /menues/1.xml
-  def destroy   
+  def destroy
     @menue = Menue.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
     if @menue
       @menue.destroy
@@ -126,10 +131,10 @@ class MenuesController < ApplicationController
       else
         @tree.ancestry = 'close'
       end
-    end 
+    end
     @tree.save
     redirect_to(:controller => params[:co], :action => params[:ac], :id => params[:pid])
-  end  
+  end
 
   def up
     @menue = Menue.find(params[:id])
@@ -138,11 +143,12 @@ class MenuesController < ApplicationController
     redirect_to(:controller => params[:co], :action => params[:ac], :id => params[:pid])
 
   end
-  
+
   def down
     @menue = Menue.find(params[:id])
     @menue.move_lower
 
     redirect_to(:controller => params[:co], :action => params[:ac], :id => params[:pid])
-  end  
+  end
 end
+

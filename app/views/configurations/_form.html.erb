@@ -4,7 +4,7 @@
       <% if @configuration.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@configuration.errors.count, "error") %> prohibited this configuration from being saved:</h2>
-    
+
           <ul>
           <% @configuration.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -13,8 +13,24 @@
         </div>
       <% end %>
     </td>
-  </tr> 
-      
+  </tr>
+
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :theme %>
+    </td>
+    <td>
+        <%= f.select :theme, Configuration::THEME%>
+    </td>
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :title %>
+    </td>
+    <td>
+        <%= f.text_field :title %>
+    </td>
+  </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :block_left %>
@@ -87,7 +103,15 @@
     <td>
         <%= f.check_box :manage_tree %>
     </td>
-  </tr>  
+  </tr>
+      <tr class= "tableline<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :shop_active %>
+    </td>
+    <td>
+        <%= f.check_box :shop_active %>
+    </td>
+  </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :articles_name %>
@@ -95,7 +119,7 @@
     <td>
         <%= f.collection_select :articles_name, @articles, :id, :name, :prompt => t('please select') %>
     </td>
-  </tr>  
+  </tr>
       <tr>
     <td></td>
     <td>
@@ -103,3 +127,4 @@
     </td>
   </tr>
     <% end %>
+

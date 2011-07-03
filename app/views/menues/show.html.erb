@@ -1,17 +1,17 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="2">
       <%= t('Show ') + Menue.human_name %>
-    </td>                
-  </tr> 
+    </td>
+  </tr>
   <tr class="tablelinemain">
     <td colspan="2">
       <%= notice %>
     </td>
-  </tr> 
+  </tr>
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td width="20%">
-  	 <%= Menue.human_attribute_name('name') %>  
+  	 <%= Menue.human_attribute_name('name') %>
     </td>
     <td>
   	<%= @menue.name %>
@@ -53,7 +53,7 @@
     <%= @menue.the_id %>
     </td>
   </tr>
-  
+
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
   	 <%= Menue.human_attribute_name('auth_level') %>
@@ -71,16 +71,16 @@
     <%= @menue.auth_level_edit %>
     </td>
   </tr>
-  
+
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
-  	 <%= Menue.human_attribute_name('parent') %>
+  	 <%= Menue.human_attribute_name('parent_id') %>
     </td>
     <% if @menue.parent != nil %>
       <td><%= @menue.parent.name %></td>
     <% else %>
       <td>      </td>
-    <% end %>      
+    <% end %>
   </tr>
 
   <tr class="tableline<%= cycle('1', '2') %>">
@@ -107,3 +107,4 @@
 	<%= link_to t('Back'), menues_path %>
     </td>
   </tr>
+

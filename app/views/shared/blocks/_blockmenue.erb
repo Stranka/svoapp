@@ -5,19 +5,29 @@
       <td>
         <% if menue.parent %>
           <% @ebene_menue.times do %>
-            &nbsp; 
+            &nbsp;
           <% end %>
         <% end %>
-        
+
         <% if menue.children.length() > 0 %>
           <% if check_tree('menue', menue.id) == 'open' %>
-            <%= link_to image_tag("plus.png", :border=>0, :alt =>'plus'), :controller => 'menues', :action => 'click', :id => menue.id, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
+            <%= link_to image_tag(@plus, :border=>0, :alt =>'plus'), :controller => 'menues', :action => 'click', :id => menue.id, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
           <% else %>
-            <%= link_to image_tag("minus.png", :border=>0, :alt =>'minus'), :controller => 'menues', :action => 'click', :id => menue.id, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
+            <%= link_to image_tag(@minus, :border=>0, :alt =>'minus'), :controller => 'menues', :action => 'click', :id => menue.id, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
           <% end %>
-          <%= menue.name %>
+
+          <% if menue.the_url? %>
+            <%= link_to menue.name, menue.the_url , :target => "_blank" %>
+          <% else %>
+            <% if menue.the_action == '' %>
+              <%= link_to menue.name, :controller => 'menues', :action => 'click', :id => menue.id, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
+            <% else %>
+              <%= link_to menue.name, :controller => menue.the_controller, :action => menue.the_action, :id => menue.the_id %>
+            <% end %>
+          <% end %>
+
         <% else %>
-          <img src="/images/dot.png" alt="nix"> 
+          <img src= <%=@dot %> alt="nix">
           <% if menue.the_url? %>
             <%= link_to menue.name, menue.the_url , :target => "_blank" %>
           <% else %>
@@ -27,10 +37,10 @@
               <%= link_to menue.name, :controller => menue.the_controller, :action => menue.the_action, :id => menue.the_id %>
             <% end %>
           <% end %>
-        <% end %>  
+        <% end %>
         <% if @auth_edit >= 80 and @config.manage_tree == true %>
-          <%= link_to image_tag("up.png", :border=>0, :alt =>'up'), :controller => 'menues',:action => 'up', :id => menue, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %> 
-          <%= link_to image_tag("down.png", :border=>0, :alt =>'down'), :controller => 'menues', :action => 'down', :id => menue, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
+          <%= link_to image_tag(@up, :border=>0, :alt =>'up'), :controller => 'menues',:action => 'up', :id => menue, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
+          <%= link_to image_tag(@down, :border=>0, :alt =>'down'), :controller => 'menues', :action => 'down', :id => menue, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
         <% end %>
         <% if check_tree('menue', menue.id) == 'close'%>
           <% @children = menue.children %>
@@ -40,3 +50,4 @@
     </tr>
   <% @ebene_menue -= 1 %>
 <% end %>
+

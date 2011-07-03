@@ -1,27 +1,36 @@
 # -*- encoding : utf-8 -*-
 class ApplicationController < ActionController::Base
-  
+
 
   protect_from_forgery
-  
+
   before_filter :get_config
   before_filter :get_blocks
   before_filter :require_user, :except => [:articles,:showme,:show_content,:permalink,
                                            :products,:show_products_productclass,
+                                           :baskets,:add_to_basket,:show_my_open_order,:checkout,
                                            :productclasses,:click,
                                            :menues,:click,
                                            :customers,:new,:create,
                                            :user_sessions, :new]
 
-  helper_method :current_user_session, :current_user  
-  
-  
+  helper_method :current_user_session, :current_user
+
+
   def get_config
     @config = Configuration.find(:first)
     @ebene_productclass = -1
     @ebene_menue = -1
+    @stylesheet = 'themes/' + @config.theme + '/stylesheets/nuke.css'
+    @logo = '/stylesheets/themes/' + @config.theme + '/images/logo.png'
+    @plus = '/stylesheets/themes/' + @config.theme + '/images/plus.png'
+    @minus = '/stylesheets/themes/' + @config.theme + '/images/minus.png'
+    @dot = '/stylesheets/themes/' + @config.theme + '/images/dot.png'
+    @up = '/stylesheets/themes/' + @config.theme + '/images/up.png'
+    @down = '/stylesheets/themes/' + @config.theme + '/images/down.png'
+    @picture_size = 2048000
   end
-  
+
   def get_blocks
     if current_user == nil
       @auth_show = 0
@@ -30,7 +39,7 @@ class ApplicationController < ActionController::Base
       @auth_show = current_user.auth_level
       @auth_edit = current_user.auth_level_edit
     end
-    
+
     @lblocks = Block.find(:all, :conditions => ['position = ? and active = ? and auth_level <= ? ', 'links', true, @auth_show], :order => "fieldorder")
     @rblocks = Block.find(:all, :conditions => ['position = ? and active = ? and auth_level <= ?', 'rechts', true, @auth_show], :order => "fieldorder")
     @menue_top = Menue.find(:all, :conditions => ['ontop = ? and active = ? and auth_level <= ?', true, true, @auth_show], :order => 'position')
@@ -38,13 +47,13 @@ class ApplicationController < ActionController::Base
     @firstarticle = Article.find(:first, :conditions => {:id => @config.articles_name})
     if @firstarticle == nil
       @firstarticle = Article.new
-      @firstarticle.name = "Nicht gefunden"
-      @firstarticle.content = "Ihr Startartikel wurde nicht gefunden, bitte prüfen sie die Konfiguration"
+      @firstarticle.name = t('not found')
+      @firstarticle.content = t("can't find the first article, please check the configuration")
     end
-    
+
     @user_session = UserSession.new
   end
- 
+
 #  private
     def current_user_session
       logger.debug "ApplicationController::current_user_session"
@@ -87,4 +96,11 @@ class ApplicationController < ActionController::Base
       session[:return_to] = nil
     end
 
+    # get all actions for specified controller
+    def get_all_actions(cont)
+      c= Module.const_get(cont.to_s.pluralize.capitalize + "Controller")
+      c.public_instance_methods(false).reject{ |action| ['rescue_action'].include?(action) }
+    end
+
 end
+

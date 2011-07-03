@@ -4,7 +4,7 @@
       <% if @user.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-    
+
           <ul>
           <% @user.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -13,9 +13,9 @@
         </div>
       <% end %>
     </td>
-  </tr> 
+  </tr>
 
-    <tr class='tablelinemain'><td><%=t('login data')%></td><td></td></tr>      
+    <tr class='tablelinemain'><td><%=t('login data')%></td><td></td></tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :login %>
@@ -47,9 +47,9 @@
       <td>
           <%= f.password_field :password_confirmation %>
       </td>
-    </tr> 
+    </tr>
 
-    <tr class='tablelinemain'><td><%=t('personal info')%></td><td></td></tr> 
+    <tr class='tablelinemain'><td><%=t('personal info')%></td><td></td></tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :title %>
@@ -81,7 +81,7 @@
     <td>
         <%= f.text_field :taxnumber %>
     </td>
-  </tr> 
+  </tr>
       <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :wwwadress %>
@@ -92,8 +92,8 @@
   </tr>
 
 <%#= render :partial => "shared/new_address",:locals => {:f => f} %>
-    
-    
+
+
       <%= f.fields_for :billingaddress do |a| %>
         <tr class='tablelinemain'><td><%=t('billingaddress')%></td><td></td></tr>
         <%= a.hidden_field :address_type, :value => "Rechnungsadresse" %>
@@ -107,7 +107,7 @@
         <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label :mobil %></td><td><%= a.text_field :mobile %></td></tr>
       <% end %>
 
- 
+
         <%= f.fields_for :deliveryaddress do |a| %>
           <tr class='tablelinemain'><td><%=t('deliveryaddress')%></td><td></td></tr>
           <%= a.hidden_field :address_type, :value => "Lieferadresse" %>
@@ -122,7 +122,7 @@
         <% end %>
 
   <% if @auth_edit > 50 %>
-    <tr class='tablelinemain'><td><%=t('administration')%></td><td></td></tr> 
+    <tr class='tablelinemain'><td><%=t('administration')%></td><td></td></tr>
          <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :customernumber %>
@@ -130,7 +130,7 @@
     <td>
         <%= f.text_field :customernumber %>
     </td>
-  </tr> 
+  </tr>
          <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :customergroup_id %>
@@ -144,7 +144,7 @@
         <%= f.label :auth_level %>
     </td>
     <td>
-        <%= f.text_field :auth_level, :value => '0' %>
+        <%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %>
     </td>
   </tr>
 
@@ -153,9 +153,9 @@
         <%= f.label :auth_level_edit %>
     </td>
     <td>
-        <%= f.text_field :auth_level_edit, :value => '0' %>
+        <%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %>
     </td>
-  </tr> 
+  </tr>
   <% end %>
 
   <tr>
@@ -165,3 +165,4 @@
     </td>
   </tr>
 <% end %>
+

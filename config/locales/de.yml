@@ -45,6 +45,17 @@ de:
   'Listing Catagory ': 'Produkte der Kategorie '
   'My Order': 'Zum Warenkorb'
   'not available': 'nicht vorhanden'
+  'Checkout': 'zur Kasse'
+  'showme': 'Startseite'
+  'show_content': 'Artikel'
+  'index': 'Index'
+  'not found': 'Nicht gefunden'
+  "can't find the first article, please check the configuration": 'Ihr Startartikel wurde nicht gefunden, bitte prüfen sie die Konfiguration'
+  'create': 'Datei hochladen'
+  'upload files': 'Datei hochladen'
+  'file to big': 'Datei ist zu groß'
+  'file uploaded': 'Datei erfolgreich hochgeladen'
+  'file': 'Datei'
 
   date:
     formats:
@@ -174,6 +185,36 @@ de:
 
 
   activerecord:
+    errors:
+      template:
+        header:
+          one:    "Konnte {{model}} nicht speichern: ein Fehler."
+          other:  "Konnte {{model}} nicht speichern: {{count}} Fehler."
+        body: "Bitte überprüfen Sie die folgenden Felder:"
+
+      messages:
+        inclusion: "ist kein gültiger Wert"
+        exclusion: "ist nicht verfügbar"
+        invalid: "ist nicht gültig"
+        confirmation: "stimmt nicht mit der Bestätigung überein"
+        accepted: "muss akzeptiert werden"
+        empty: "muss ausgefüllt werden"
+        blank: "muss ausgefüllt werden"
+        too_long: "ist zu lang (nicht mehr als {{count}} Zeichen)"
+        too_short: "ist zu kurz (nicht weniger als {{count}} Zeichen)"
+        wrong_length: "hat die falsche Länge (muss genau {{count}} Zeichen haben)"
+        taken: "ist bereits vergeben"
+        not_a_number: "ist keine Zahl"
+        greater_than: "muss größer als {{count}} sein"
+        greater_than_or_equal_to: "muss größer oder gleich {{count}} sein"
+        equal_to: "muss genau {{count}} sein"
+        less_than: "muss kleiner als {{count}} sein"
+        less_than_or_equal_to: "muss kleiner oder gleich {{count}} sein"
+        odd: "muss ungerade sein"
+        even: "muss gerade sein"
+        record_invalid: "Gültigkeitsprüfung ist fehlgeschlagen: {{errors}}"
+
+
     models:
       productclass: 'Produktkategorie'
       product: 'Produkt'
@@ -236,6 +277,7 @@ de:
         articles_name: 'Name des Startartikels'
         auth_level_edit: 'Berechtigung Ändern'
         auth_level: 'Berechtigung Anzeigen'
+        shop_active: 'Webshop aktiv'
 
       user:
         firstname: 'Vorname'
@@ -275,36 +317,21 @@ de:
         telnr: 'Festnetz'
         mobil: 'Mobil'
 
+      menue:
+        name: 'Name'
+        the_url: 'Externer Link'
+        the_controller: 'Controller'
+        the_action: 'Aktion'
+        the_id: 'Artikel'
+        auth_level_edit: 'Berechtigung Ändern'
+        auth_level: 'Berechtigung Anzeigen'
+        parent_id: 'Übergeordneter Menüpunkt'
+        ontop: 'Sichtbar im oberen Menü'
+        active: 'Sichtbar'
 
 
-    errors:
-      template:
-        header:
-          one:    "Konnte {{model}} nicht speichern: ein Fehler."
-          other:  "Konnte {{model}} nicht speichern: {{count}} Fehler."
-        body: "Bitte überprüfen Sie die folgenden Felder:"
 
-      messages:
-        inclusion: "ist kein gültiger Wert"
-        exclusion: "ist nicht verfügbar"
-        invalid: "ist nicht gültig"
-        confirmation: "stimmt nicht mit der Bestätigung überein"
-        accepted: "muss akzeptiert werden"
-        empty: "muss ausgefüllt werden"
-        blank: "muss ausgefüllt werden"
-        too_long: "ist zu lang (nicht mehr als {{count}} Zeichen)"
-        too_short: "ist zu kurz (nicht weniger als {{count}} Zeichen)"
-        wrong_length: "hat die falsche Länge (muss genau {{count}} Zeichen haben)"
-        taken: "ist bereits vergeben"
-        not_a_number: "ist keine Zahl"
-        greater_than: "muss größer als {{count}} sein"
-        greater_than_or_equal_to: "muss größer oder gleich {{count}} sein"
-        equal_to: "muss genau {{count}} sein"
-        less_than: "muss kleiner als {{count}} sein"
-        less_than_or_equal_to: "muss kleiner oder gleich {{count}} sein"
-        odd: "muss ungerade sein"
-        even: "muss gerade sein"
-        record_invalid: "Gültigkeitsprüfung ist fehlgeschlagen: {{errors}}"
+
 
 
   helpers:

@@ -4,7 +4,7 @@
       <% if @shipment.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
-    
+
           <ul>
           <% @shipment.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -13,8 +13,8 @@
         </div>
       <% end %>
     </td>
-  </tr> 
-      
+  </tr>
+
   <tr class= "tableline<%= cycle('1', '2') %>">
     <td>
         <%= f.label :name %>
@@ -47,22 +47,6 @@
         <%= f.text_field :scale_id %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :auth_level %>
-    </td>
-    <td>
-        <%= f.text_field :auth_level %>
-    </td>
-  </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :auth_level_edit %>
-    </td>
-    <td>
-        <%= f.text_field :auth_level_edit %>
-    </td>
-  </tr>
       <tr>
     <td></td>
     <td>
@@ -70,3 +54,4 @@
     </td>
   </tr>
     <% end %>
+

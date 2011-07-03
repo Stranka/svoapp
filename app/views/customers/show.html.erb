@@ -1,15 +1,15 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="2">
       <%= t('Show ') + Customer.human_name %>
-    </td>                
-  </tr> 
+    </td>
+  </tr>
   <tr class="tablelinemain">
     <td colspan="2">
       <%= notice %>
     </td>
-  </tr> 
+  </tr>
 
-  <tr class='tablelinemain'><td><%=t('login data')%></td><td></td></tr>      
+  <tr class='tablelinemain'><td><%=t('login data')%></td><td></td></tr>
 
   <tr class="tableline<%= cycle('1', '2') %>">
     <td width="20%">
@@ -27,7 +27,7 @@
     <%= @customer.email %>
     </td>
   </tr>
-  <tr class='tablelinemain'><td><%=t('personal info')%></td><td></td></tr>      
+  <tr class='tablelinemain'><td><%=t('personal info')%></td><td></td></tr>
   <tr class="tableline<%= cycle('1', '2') %>">
     <td>
      <%= Customer.human_attribute_name('title') %>
@@ -72,7 +72,20 @@
     </td>
   </tr>
 
-  
+  <tr class="tableline<%= cycle('1', '2') %>">
+    <td>
+     <%= Customer.human_attribute_name('last_login_at') %>
+    </td>
+
+    <% if @customer.last_login_at %>
+      <td>
+       <%= l @customer.last_login_at, :format => :long_all %>
+      </td>
+    <% else %>
+      <td></td>
+    <% end %>
+  </tr>
+
   <tr class='tablelinemain'><td><%=t('billingaddress')%></td><td></td></tr>
 
   <tr class= "tableline<%= cycle('1', '2') %>">
@@ -107,7 +120,7 @@
       <td><%= t('same as billingaddress') %></td>
       <td>&nbsp</td>
     </tr>
-  <% else %>  
+  <% else %>
     <tr class= "tableline<%= cycle('1', '2') %>">
       <td><%= Deliveryaddress.human_attribute_name('street') %></td>
       <td><%= @customer.deliveryaddress.street %></td>
@@ -141,3 +154,4 @@
 	<%= link_to t('Back'), customers_path %>
     </td>
   </tr>
+

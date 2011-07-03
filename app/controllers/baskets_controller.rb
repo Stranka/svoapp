@@ -146,15 +146,22 @@ class BasketsController < ApplicationController
     end
   end
 
+  def checkout
+
+  end
+
+
 protected
 
   def create_basket
     @basket = Basket.new
     @basket.session_id = request.session_options[:id]
-    @basket.customer_id = current_user.id
+    if current_user != nil
+      @basket.customer_id = current_user.id
+      @basket.auth_level = current_user.auth_level
+      @basket.auth_level_edit = current_user.auth_level_edit
+    end
     @basket.status = 'offen'
-    @basket.auth_level = current_user.auth_level
-    @basket.auth_level_edit = current_user.auth_level_edit
     @basket.save
     return @basket
   end
