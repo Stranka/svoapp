@@ -2,29 +2,26 @@
 <html>
   <head>
     <title>RailsNuke</title>
-    <%= stylesheet_link_tag :all %>
+    <%= stylesheet_link_tag "/themes/blue/stylesheets/nuke.css" %>
     <%= javascript_include_tag :all %>
     <%= csrf_meta_tag %>
   </head>
   <body>
-
-    <table id="TopPage" width="<%=@config.pagewidth%>%" border="0" align="center" cellpadding="0" cellspacing="6" class="tabletoppage">
+    <table id="TopPage" width="<%=@config.pagewidth%>%" class="tabletoppage">
       <tr>
         <td>
-
-          <table id="Header" width="100%" height="120" border="0" align="center" cellpadding="0" cellspacing="6" class="tableheader">
+          <table id="Header" width="100%" class="tableheader">
             <tr>
               <% if @config.position_logo == 'right' %>
                 <td align="left" width="70%"></td>
-                <td align="right" width="30%" valign="center"><img src="/images/logo.png" border="0" alt="Logo"></td>
+                <td align="right" width="30%"><img src="/images/logo.png" alt="Logo"></td>
               <% else %>
-                <td align="left" width="30%" valign="center"><img src="/images/logo.png" border="0" alt="Logo"></td>
+                <td align="left" width="30%"><img src="/images/logo.png" alt="Logo"></td>
                 <td align="right" width="70%"></td>
               <% end %>
             </tr>
           </table>
-
-          <table id="menue" width="100%" height="40" border="0" align="center" cellpadding="0" cellspacing="6" class="tablenav">
+          <table id="menue" class="tablenav">
             <tr class="tablelinenav">
               <td>
                 <ul>
@@ -34,30 +31,30 @@
             </tr>
           </table>
 
-          <table id="container" width="100%" border="0" align="center" cellpadding="0" cellspacing="6" class="tablecontainer">
+          <table id="container" class="tablecontainer">
             <tr>
               <% if @config.block_left == true %>
-                <td width=<%=@config.block_left_width%>% valign="top">
+                <td id="sidebar" width=<%= @config.block_left_width %>% class="sidebar">
                   <%= render :partial => "shared/blocks/blocks", :collection => @lblocks, :as => :block %>
                 </td>
               <% end %>
-              <td valign="top">
+              <td>
                 <% if @config.topimage == true and controller.action_name == 'showme' %>
                   <%= render :partial => "shared/topimage" %>
                 <% end %>
-                <table id="content" width="100%" height="40" border="0" align="center" cellpadding="0" cellspacing="6" class="tablecontent">
+                <table id="content" class="tablecontent">
                   <%= yield %>
                 </table>
               </td>
               <% if @config.block_right == true %>
-                <td width=<%=@config.block_left_width%>% valign="top">
+                <td width=<%=@config.block_left_width%>%>
                   <%= render :partial => "shared/blocks/blocks", :collection => @rblocks, :as => :block %>
                 </td>
               <% end %>
             </tr>
           </table>
 
-          <table id="footer" width="100%" border="0" align="center" cellpadding="4" cellspacing="4" class="tablefooter">
+          <table id="footer" class="tablefooter">
             <tr>
               <td>
                 <%= render :partial => "shared/footer" %>
