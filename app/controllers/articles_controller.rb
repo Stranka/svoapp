@@ -128,5 +128,3 @@ class ArticlesController < ApplicationController
   end
 end
 
->>>>>>> 0821af8dde79d41ce47f7a1d3b07b6a870b98303
-
