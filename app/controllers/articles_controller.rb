@@ -127,6 +127,7 @@ class ArticlesController < ApplicationController
   end
 
   def showme
+    @showarticle = Article.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
     begin
     end while @showarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
   end
