@@ -15,9 +15,9 @@
             <tr>
               <% if @config.position_logo == 'right' %>
                 <td align="left" width="70%"></td>
-                <td align="right" width="30%" valign="center"><img src="/images/logo.png" border="0" alt="Logo"></td>
+                <td align="right" width="30%" valign="center"><img src="<%=@logo %>" border="0" alt="Logo"></td>
               <% else %>
-                <td align="left" width="30%" valign="center"><img src="/images/logo.png" border="0" alt="Logo"></td>
+                <td align="left" width="30%" valign="center"><img src="<%=@logo %>" border="0" alt="Logo"></td>
                 <td align="right" width="70%"></td>
               <% end %>
             </tr>
@@ -49,7 +49,7 @@
                 </table>
               </td>
               <% if @config.block_right == true %>
-                <td width=<%=@config.block_left_width%>% valign="top">
+                <td width=<%=@config.block_right_width%>% valign="top">
                   <%= render :partial => "shared/blocks/blocks", :collection => @rblocks, :as => :block %>
                 </td>
               <% end %>
