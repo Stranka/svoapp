@@ -27,12 +27,13 @@ class ArticlesController < ApplicationController
   # GET /articles/1.xml
   def permalink
     @showarticle = Article.find(:first, :conditions => ['name = ? and auth_level <= ?', params[:id], @auth_show])
-    begin
-    end while @showarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
     if @showarticle == nil
       @showarticle = Article.new
       @showarticle.name = t('Sorry')
       @showarticle.content = t('access denied')
+    else
+      begin
+      end while @showarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
     end
     render "show_content"
   end
@@ -123,6 +124,11 @@ class ArticlesController < ApplicationController
       begin
       end while @showarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
     end
+  end
+
+  def showme
+    begin
+    end while @showarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
   end
 end
 
