@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+require "uri"
+
   # GET /articles
   # GET /articles.xml
   def index
