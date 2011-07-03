@@ -4,7 +4,7 @@ class Article < ActiveRecord::Base
 
   FORMAT = ["textile", "raw"];
 
-  def fixinternallinks
+  def parseinternallinks
     self.content.sub!(/\[\[(.+?)\]\]/) { |i| '<a href="/articles/'+URI.escape($1)+'/permalink">'+$1+'</a>'}
   end
 end

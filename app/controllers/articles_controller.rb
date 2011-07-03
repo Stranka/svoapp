@@ -17,8 +17,6 @@ require "uri"
   def show
     @article = Article.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
     if @article
-      begin
-      end while @article.fixinternallinks
     else
       flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
@@ -35,7 +33,7 @@ require "uri"
       @showarticle.content = t('access denied')
     else
       begin
-      end while @showarticle.fixinternallinks
+      end while @showarticle.parseinternallinks
     end
     render "show_content"
   end
@@ -124,13 +122,13 @@ require "uri"
       @showarticle.content = t('access denied')
     else
       begin
-      end while @showarticle.fixinternallinks
+      end while @showarticle.parseinternallinks
     end
   end
 
   def showme
       begin
-      end while @firstarticle.fixinternallinks
+      end while @firstarticle.parseinternallinks
   end
 end
 
