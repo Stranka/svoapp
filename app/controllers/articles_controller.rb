@@ -15,10 +15,8 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
     if @article
-      respond_to do |format|
-        format.html # show.html.erb
-        format.xml  { render :xml => @article }
-      end
+      begin
+      end while @article.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
     else
       flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
