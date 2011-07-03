@@ -129,15 +129,8 @@ require "uri"
   end
 
   def showme
-    @showarticle = Article.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
-    if @showarticle == nil
-      @showarticle = Article.new
-      @showarticle.name = t('Sorry')
-      @showarticle.content = t('access denied')
-    else
       begin
-      end while @showarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
-    end
-   end
+      end while @firstarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
+  end
 end
 
