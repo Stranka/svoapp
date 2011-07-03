@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+require "uri"
+
   # GET /articles
   # GET /articles.xml
   def index
@@ -15,14 +17,25 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
     if @article
-      respond_to do |format|
-        format.html # show.html.erb
-        format.xml  { render :xml => @article }
-      end
     else
       flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
+  end
+
+  # GET /articles/1
+  # GET /articles/1.xml
+  def permalink
+    @showarticle = Article.find(:first, :conditions => ['name = ? and auth_level <= ?', params[:id], @auth_show])
+    if @showarticle == nil
+      @showarticle = Article.new
+      @showarticle.name = t('Sorry')
+      @showarticle.content = t('access denied')
+    else
+      begin
+      end while @showarticle.parseinternallinks
+    end
+    render "show_content"
   end
 
   # GET /articles/new
@@ -109,7 +122,7 @@ class ArticlesController < ApplicationController
       @showarticle.content = t('access denied')
     else
       begin
-      end while @showarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
+      end while @showarticle.parseinternallinks
     end
     respond_to do |format|
       format.html # show_article.html.erb
@@ -117,20 +130,9 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # GET /articles/1
-  # GET /articles/1.xml
-  def permalink
-    @showarticle = Article.find(:first, :conditions => ['name = ? and auth_level <= ?', params[:id], @auth_show])
-    if @showarticle == nil
-      @showarticle = Article.new
-      @showarticle.name = t('Sorry')
-      @showarticle.content = t('access denied')
-    else
+  def showme
       begin
-      end while @showarticle.content.sub!(/\[\[(\w+)\]\]/,'<a href="/articles/\\1/permalink">\\1</a>')
-    end
-    render "show_content"
+      end while @firstarticle.parseinternallinks
   end
-
 end
 
