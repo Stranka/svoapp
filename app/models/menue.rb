@@ -6,7 +6,7 @@ class Menue < ActiveRecord::Base
   acts_as_tree :order => "position"
   acts_as_list :scope => :parent_id
 
-  AC = ['', 'index', 'showme', 'show_content']
+  AC = []
   CO = ['', 'articles', 'baskets', 'blocks', 'configurations', 'menues', 'news', 'pictures', 'productclasses', 'products', 'shipments','users'];
 
 

@@ -1,6 +1,27 @@
+<script type="text/javascript">
+
+function swapOptions(ArrayName){
+	var ExSelect = document.menue.menue_the_action;
+	if (ArrayName == 'articles') {
+	  var theArray = new Array("show_content","showme");
+  }	else {
+    var theArray = new Array("index","111");
+  }
+  theArray = eval(theArray)
+	setOptionText(ExSelect, theArray);
+}
+
+function setOptionText(theSelect, theArray){
+	for (loop = 0; loop < theSelect.options.length; loop++){
+		theSelect.options[loop].text = theArray[loop];
+	}
+}
+
+</script>
+
 <tr class="tablelinemain">
   <td colspan="2">
-    <%= form_for(@menue) do |f| %>
+    <%= form_for(@menue,:html => { :name => 'menue' }) do |f| %>
       <% if @menue.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@menue.errors.count, "error") %> prohibited this menue from being saved:</h2>
@@ -37,11 +58,11 @@
         <%= f.label :the_controller %>
     </td>
     <td>
-        <%= f.select :the_controller, options_for_select(Menue::CO,@menue.the_controller), :prompt => t('please select')  %>
+        <%= f.select :the_controller, options_for_select(Menue::CO,@menue.the_controller), options = {:prompt => t('please select')}, html_options = {:onchange => 'swapOptions(this.options[selectedIndex].text);'} %>
     </td>
   </tr>
 
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "tableline<%= cycle('1', '2') %>" >
     <td>
         <%= f.label :the_action %>
     </td>
