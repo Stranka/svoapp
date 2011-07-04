@@ -1,4 +1,4 @@
-<tr class="tablelinemain">
+<tr class="linemain">
   <td colspan="2">
     <%= form_for(@configuration) do |f| %>
       <% if @configuration.errors.any? %>
@@ -15,7 +15,7 @@
     </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :theme %>
     </td>
@@ -23,7 +23,7 @@
         <%= f.select :theme, Configuration::THEME%>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :title %>
     </td>
@@ -31,7 +31,7 @@
         <%= f.text_field :title %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :block_left %>
     </td>
@@ -39,7 +39,7 @@
         <%= f.check_box :block_left %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :block_left_width %>
     </td>
@@ -47,7 +47,7 @@
         <%= f.text_field :block_left_width %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :block_right %>
     </td>
@@ -55,7 +55,7 @@
         <%= f.check_box :block_right %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :block_right_width %>
     </td>
@@ -63,7 +63,7 @@
         <%= f.text_field :block_right_width %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :pagewidth %>
     </td>
@@ -71,7 +71,7 @@
         <%= f.text_field :pagewidth %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :block_headerline %>
     </td>
@@ -79,7 +79,7 @@
         <%= f.check_box :block_headerline %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :position_logo %>
     </td>
@@ -87,7 +87,7 @@
         <%= f.select :position_logo, Configuration::POSITION%>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :topimage %>
     </td>
@@ -96,7 +96,7 @@
     </td>
   </tr>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :manage_tree %>
     </td>
@@ -104,7 +104,7 @@
         <%= f.check_box :manage_tree %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :shop_active %>
     </td>
@@ -112,7 +112,7 @@
         <%= f.check_box :shop_active %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :articles_name %>
     </td>

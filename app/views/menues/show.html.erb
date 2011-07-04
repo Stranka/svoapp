@@ -3,13 +3,13 @@
       <%= t('Show ') + Menue.human_name %>
     </td>
   </tr>
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="2">
       <%= notice %>
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
   	 <%= Menue.human_attribute_name('name') %>
     </td>
@@ -18,7 +18,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	<%= Menue.human_attribute_name('the_url') %>
     </td>
@@ -27,7 +27,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Menue.human_attribute_name('the_controller') %>
     </td>
@@ -36,7 +36,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Menue.human_attribute_name('the_action') %>
     </td>
@@ -45,7 +45,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
       <%= Menue.human_attribute_name('the_id') %>
     </td>
@@ -54,7 +54,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Menue.human_attribute_name('auth_level') %>
     </td>
@@ -63,7 +63,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
       <%= Menue.human_attribute_name('auth_level_edit') %>
     </td>
@@ -72,7 +72,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Menue.human_attribute_name('parent_id') %>
     </td>
@@ -83,7 +83,7 @@
     <% end %>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Menue.human_attribute_name('ontop') %>
     </td>
@@ -92,7 +92,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Menue.human_attribute_name('active') %>
     </td>
@@ -101,7 +101,7 @@
     </td>
   </tr>
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="2">
 	<%= link_to t('Edit'), edit_menue_path(@menue) %> |
 	<%= link_to t('Back'), menues_path %>

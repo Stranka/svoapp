@@ -1,15 +1,15 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="2">
       <%= t('Show ') + Basket.human_name %>
-    </td>                
-  </tr> 
-  <tr class="tablelinemain">
+    </td>
+  </tr>
+  <tr class="linemain">
     <td colspan="2">
       <%= notice %>
     </td>
-  </tr> 
+  </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
       <%= Basket.human_attribute_name('session_id') %>
     </td>
@@ -18,7 +18,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
       <%= Basket.human_attribute_name('customer_id') %>
     </td>
@@ -27,7 +27,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
       <%= Basket.human_attribute_name('status') %>
     </td>
@@ -36,7 +36,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
       <%= Basket.human_attribute_name('shipmentterms') %>
     </td>
@@ -45,7 +45,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
       <%= Basket.human_attribute_name('paymentterms') %>
     </td>
@@ -54,7 +54,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
       <%= Basket.human_attribute_name('order_number') %>
     </td>
@@ -63,7 +63,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
       <%= Basket.human_attribute_name('store') %>
     </td>
@@ -72,9 +72,10 @@
     </td>
   </tr>
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="2">
   <%= link_to t('Edit'), edit_basket_path(@basket) %> |
   <%= link_to t('Back'), baskets_path %>
     </td>
   </tr>
+

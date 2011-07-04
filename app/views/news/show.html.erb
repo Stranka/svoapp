@@ -1,15 +1,15 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="2">
       <%= t('Show ') + News.human_name %>
-    </td>                
-  </tr> 
-  <tr class="tablelinemain">
+    </td>
+  </tr>
+  <tr class="linemain">
     <td colspan="2">
       <%= notice %>
     </td>
-  </tr> 
+  </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
   	 <%= News.human_attribute_name('title') %>
     </td>
@@ -18,7 +18,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
   	 <%= News.human_attribute_name('date') %>
     </td>
@@ -27,7 +27,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
   	 <%= News.human_attribute_name('notice') %>
     </td>
@@ -36,7 +36,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
   	 <%= News.human_attribute_name('format') %>
     </td>
@@ -45,7 +45,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
   	 <%= News.human_attribute_name('auth_level') %>
     </td>
@@ -54,7 +54,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
   	 <%= News.human_attribute_name('auth_level_edit') %>
     </td>
@@ -63,9 +63,10 @@
     </td>
   </tr>
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="2">
 	<%= link_to t('Edit'), edit_news_path(@news) %> |
 	<%= link_to t('Back'), news_index_path %>
     </td>
   </tr>
+

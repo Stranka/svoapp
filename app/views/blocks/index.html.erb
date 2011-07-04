@@ -5,14 +5,14 @@
   </tr>
 
   <% if flash[:notice]%>
-    <tr class="tablelineerror">
+    <tr class="lineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
     </tr>
   <% end %>
 
-  <tr class="tablelineheader">
+  <tr class="lineheader">
 
     <td><%= Block.human_attribute_name('name') %></td>
     <td><%= Block.human_attribute_name('headerline') %></td>
@@ -24,7 +24,7 @@
   </tr>
 
 <% @blocks.each do |block| %>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= block.name %></td>
     <td><%= block.headerline %></td>
     <td><%= block.position %></td>
@@ -38,7 +38,7 @@
 <% end %>
 
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="7">
 	<%= link_to t('New ') + Block.human_name, new_block_path %>
     </td>

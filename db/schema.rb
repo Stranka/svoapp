@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20110703152306) do
   end
 
   create_table "baskets", :force => true do |t|
-    t.string   "session_id"
+    t.integer  "session_id"
     t.integer  "customer_id"
     t.string   "status"
     t.string   "shipmentterms"
@@ -226,4 +226,3 @@ ActiveRecord::Schema.define(:version => 20110703152306) do
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token", :unique => true
 
 end
-

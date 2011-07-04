@@ -1,3 +1,4 @@
+
 <script type="text/javascript">
 
 function swapOptions(ArrayName){
@@ -19,7 +20,8 @@ function setOptionText(theSelect, theArray){
 
 </script>
 
-<tr class="tablelinemain">
+<tr class="linemain">
+
   <td colspan="2">
     <%= form_for(@menue,:html => { :name => 'menue' }) do |f| %>
       <% if @menue.errors.any? %>
@@ -36,7 +38,7 @@ function setOptionText(theSelect, theArray){
     </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :name %>
     </td>
@@ -45,7 +47,7 @@ function setOptionText(theSelect, theArray){
     </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :the_url %>
     </td>
@@ -53,7 +55,7 @@ function setOptionText(theSelect, theArray){
         <%= f.text_field :the_url %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :the_controller %>
     </td>
@@ -62,7 +64,9 @@ function setOptionText(theSelect, theArray){
     </td>
   </tr>
 
-  <tr class= "tableline<%= cycle('1', '2') %>" >
+
+
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :the_action %>
     </td>
@@ -71,7 +75,7 @@ function setOptionText(theSelect, theArray){
       </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :the_id %>
     </td>
@@ -80,7 +84,7 @@ function setOptionText(theSelect, theArray){
     </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :auth_level %>
     </td>
@@ -89,7 +93,7 @@ function setOptionText(theSelect, theArray){
     </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :auth_level_edit %>
     </td>
@@ -98,7 +102,7 @@ function setOptionText(theSelect, theArray){
     </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :parent_id %>
     </td>
@@ -106,7 +110,7 @@ function setOptionText(theSelect, theArray){
         <%= f.collection_select :parent_id, @men, :id, :name, :include_blank => true, :prompt => t('please select') %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :ontop %>
     </td>
@@ -114,7 +118,7 @@ function setOptionText(theSelect, theArray){
         <%= f.check_box :ontop %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :active %>
     </td>

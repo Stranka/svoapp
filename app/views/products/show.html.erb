@@ -3,14 +3,14 @@
       <%= t('Show ') + Product.human_name %>
     </td>
   </tr>
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="2">
       <%= notice %>
     </td>
   </tr>
 
 
-    <tr class="tableline<%= cycle('1', '2') %>">
+    <tr class="line<%= cycle('1', '2') %>">
       <td width ="20%">
         <%= image_tag ("product/"+@product.image_url), :height => '250' %>
       </td>
@@ -19,7 +19,7 @@
       </td>
     </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Product.human_attribute_name('shorttext') %>
     </td>
@@ -28,7 +28,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Product.human_attribute_name('producer') %>
     </td>
@@ -37,7 +37,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
       <%= Product.human_attribute_name('productclass_id') %>
     </td>
@@ -46,7 +46,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Product.human_attribute_name('price') %>
     </td>
@@ -55,7 +55,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Product.human_attribute_name('special_price') %>
     </td>
@@ -64,7 +64,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Product.human_attribute_name('product_features') %>
     </td>
@@ -73,7 +73,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Product.human_attribute_name('weight') %>
     </td>
@@ -82,7 +82,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Product.human_attribute_name('unit_of_weight') %>
     </td>
@@ -91,7 +91,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Product.human_attribute_name('unit_of_quantity') %>
     </td>
@@ -100,7 +100,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Product.human_attribute_name('tax_percentage') %>
     </td>
@@ -109,7 +109,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Product.human_attribute_name('image_url') %>
     </td>
@@ -118,7 +118,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Product.human_attribute_name('specification_sheet') %>
     </td>
@@ -141,7 +141,7 @@
     </td>
   </tr>
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="2">
 	<%= link_to t('Edit'), edit_product_path(@product) %> |
 	<%= link_to t('Back'), products_path %>

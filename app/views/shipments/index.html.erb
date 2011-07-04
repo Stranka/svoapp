@@ -1,18 +1,18 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="7">
       <%= t('Listing ') + Shipment.human_name %>
-    </td>                
-  </tr> 
+    </td>
+  </tr>
 
-  <% if flash[:notice]%> 
-    <tr class="tablelineerror">
+  <% if flash[:notice]%>
+    <tr class="lineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
-    </tr> 
+    </tr>
   <% end %>
-  
-  <tr class="tablelineheader">
+
+  <tr class="lineheader">
     <td><%= Shipment.human_attribute_name('name') %></td>
     <td><%= Shipment.human_attribute_name('weight_max') %></td>
     <td><%= Shipment.human_attribute_name('lenght_max') %></td>
@@ -23,7 +23,7 @@
   </tr>
 
   <% @shipments.each do |shipment| %>
-    <tr class= "tableline<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
       <td><%= shipment.name %></td>
       <td><%= shipment.weight_max %></td>
       <td><%= shipment.lenght_max %></td>
@@ -38,7 +38,7 @@
     </tr>
   <% end %>
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="7">
   <%= link_to t('New ') + Shipment.human_name, new_shipment_path %>
     </td>

@@ -3,15 +3,15 @@
       <%= t('Show ') + Customer.human_name %>
     </td>
   </tr>
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="2">
       <%= notice %>
     </td>
   </tr>
 
-  <tr class='tablelinemain'><td><%=t('login data')%></td><td></td></tr>
+  <tr class='linemain'><td><%=t('login data')%></td><td></td></tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
   	 <%= Customer.human_attribute_name('login') %>
     </td>
@@ -19,7 +19,7 @@
   	<%= @customer.login %>
     </td>
   </tr>
- <tr class="tableline<%= cycle('1', '2') %>">
+ <tr class="line<%= cycle('1', '2') %>">
     <td>
      <%= Customer.human_attribute_name('email') %>
     </td>
@@ -27,8 +27,8 @@
     <%= @customer.email %>
     </td>
   </tr>
-  <tr class='tablelinemain'><td><%=t('personal info')%></td><td></td></tr>
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class='linemain'><td><%=t('personal info')%></td><td></td></tr>
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
      <%= Customer.human_attribute_name('title') %>
     </td>
@@ -36,7 +36,7 @@
     <%= @customer.title %>
     </td>
   </tr>
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Customer.human_attribute_name('firstname') %>
     </td>
@@ -45,7 +45,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Customer.human_attribute_name('lastname') %>
     </td>
@@ -54,7 +54,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
      <%= Customer.human_attribute_name('taxnumber') %>
     </td>
@@ -63,7 +63,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
      <%= Customer.human_attribute_name('wwwadress') %>
     </td>
@@ -72,7 +72,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
      <%= Customer.human_attribute_name('last_login_at') %>
     </td>
@@ -86,69 +86,69 @@
     <% end %>
   </tr>
 
-  <tr class='tablelinemain'><td><%=t('billingaddress')%></td><td></td></tr>
+  <tr class='linemain'><td><%=t('billingaddress')%></td><td></td></tr>
 
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= Billingaddress.human_attribute_name('street') %></td>
     <td><%= @customer.billingaddress.street %></td>
   </tr>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= Billingaddress.human_attribute_name('zipcode') %></td>
     <td><%= @customer.billingaddress.zipcode %></td>
   </tr>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= Billingaddress.human_attribute_name('city') %></td>
     <td><%= @customer.billingaddress.city %></td>
   </tr>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= Billingaddress.human_attribute_name('country') %></td>
     <td><%= @customer.billingaddress.country %></td>
   </tr>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= Billingaddress.human_attribute_name('telnr') %></td>
     <td><%= @customer.billingaddress.telnr %></td>
   </tr>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= Billingaddress.human_attribute_name('mobil') %></td>
     <td><%= @customer.billingaddress.mobile %></td>
   </tr>
 
-  <tr class='tablelinemain'><td><%=t('deliveryaddress')%></td><td></td></tr>
+  <tr class='linemain'><td><%=t('deliveryaddress')%></td><td></td></tr>
 
   <% if @customer.deliveryaddress.nil? %>
-    <tr class= "tableline<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
       <td><%= t('same as billingaddress') %></td>
       <td>&nbsp</td>
     </tr>
   <% else %>
-    <tr class= "tableline<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
       <td><%= Deliveryaddress.human_attribute_name('street') %></td>
       <td><%= @customer.deliveryaddress.street %></td>
     </tr>
-    <tr class= "tableline<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
       <td><%= Deliveryaddress.human_attribute_name('zipcode') %></td>
       <td><%= @customer.deliveryaddress.zipcode %></td>
     </tr>
-    <tr class= "tableline<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
       <td><%= Deliveryaddress.human_attribute_name('city') %></td>
       <td><%= @customer.deliveryaddress.city %></td>
     </tr>
-    <tr class= "tableline<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
       <td><%= Deliveryaddress.human_attribute_name('country') %></td>
       <td><%= @customer.deliveryaddress.country %></td>
     </tr>
-    <tr class= "tableline<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
       <td><%= Deliveryaddress.human_attribute_name('telnr') %></td>
       <td><%= @customer.deliveryaddress.telnr %></td>
     </tr>
-    <tr class= "tableline<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
       <td><%= Deliveryaddress.human_attribute_name('mobil') %></td>
       <td><%= @customer.deliveryaddress.mobile %></td>
     </tr>
   <% end %>
 
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="2">
 	<%= link_to t('Edit'), edit_customer_path(@customer) %> |
 	<%= link_to t('Back'), customers_path %>

@@ -1,8 +1,8 @@
 
-    <tr class= "tableline2">
+    <tr class= "line2">
       <td>
-        <table width="100%" class="tablecontent">
-          <tr class= "tableline1">
+        <table width="100%" class="content">
+          <tr class= "line1">
             <td>
               <%= t ('Article in basket') %>
             </td>
@@ -10,7 +10,7 @@
               <%= basket.basketlines.count %>
             </td>
           </tr>
-          <tr class= "tableline2">
+          <tr class= "line2">
             <td>
               <%= t ('value') %>
             </td>
@@ -18,7 +18,7 @@
               <%= number_to_currency(basket.basketlines.sum(:value)) %>
             </td>
           </tr>
-          <tr class= "tableline2">
+          <tr class= "line2">
             <td colspan="2">
               <%= link_to t('My Order'), :controller => 'baskets', :action => 'show_my_open_order' %> /
               <%= link_to t('Checkout'), :controller => 'baskets', :action => 'checkout' %>

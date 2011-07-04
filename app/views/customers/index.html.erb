@@ -1,18 +1,18 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="5">
 	     <%= t('My Account')%>
-    </td>                
-  </tr> 
+    </td>
+  </tr>
 
-  <% if flash[:notice]%> 
-    <tr class="tablelineerror">
+  <% if flash[:notice]%>
+    <tr class="lineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
-    </tr> 
+    </tr>
   <% end %>
 
-  <tr class="tablelineheader">
+  <tr class="lineheader">
 
     <td><%= Customer.human_attribute_name('login') %></td>
     <td><%= Customer.human_attribute_name('firstname') %></td>
@@ -21,7 +21,7 @@
     <td><%= t 'action' %></td>
   </tr>
 
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= @customer.login %></td>
     <td><%= @customer.firstname %></td>
     <td><%= @customer.lastname %></td>
@@ -31,8 +31,9 @@
   </tr>
 
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="5">
       &nbsp;
     </td>
   </tr>
+

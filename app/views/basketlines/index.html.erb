@@ -1,18 +1,18 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="9">
       <%= t('Listing ') + Basketline.human_name %>
-    </td>                
-  </tr> 
+    </td>
+  </tr>
 
-  <% if flash[:notice]%> 
-    <tr class="tablelineerror">
+  <% if flash[:notice]%>
+    <tr class="lineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
-    </tr> 
+    </tr>
   <% end %>
-  
-  <tr class="tablelineheader">
+
+  <tr class="lineheader">
     <td><%= Basketline.human_attribute_name('basket_id') %></td>
     <td><%= Basketline.human_attribute_name('product_id') %></td>
     <td><%= Basketline.human_attribute_name('quantity') %></td>
@@ -25,7 +25,7 @@
   </tr>
 
   <% @basketlines.each do |basketline| %>
-    <tr class= "tableline<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
       <td><%= basketline.basket_id %></td>
       <td><%= basketline.product_id %></td>
       <td><%= basketline.quantity %></td>
@@ -42,7 +42,7 @@
     </tr>
   <% end %>
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="9">
       <%= link_to t('New ') + Basketline.human_name', new_basketline_path %>
     </td>

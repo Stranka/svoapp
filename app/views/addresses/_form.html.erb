@@ -1,10 +1,10 @@
-<tr class="tablelinemain">
+<tr class="linemain">
   <td colspan="2">
     <%= form_for(@address) do |f| %>
       <% if @address.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@address.errors.count, "error") %> prohibited this address from being saved:</h2>
-    
+
           <ul>
           <% @address.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -13,9 +13,9 @@
         </div>
       <% end %>
     </td>
-  </tr> 
-      
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  </tr>
+
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :street %>
     </td>
@@ -23,7 +23,7 @@
         <%= f.text_field :street %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :city %>
     </td>
@@ -31,7 +31,7 @@
         <%= f.text_field :city %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :zipcode %>
     </td>
@@ -39,7 +39,7 @@
         <%= f.text_field :zipcode %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :country %>
     </td>
@@ -47,7 +47,7 @@
         <%= f.text_field :country %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :telnr %>
     </td>
@@ -55,7 +55,7 @@
         <%= f.text_field :telnr %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :mobile %>
     </td>
@@ -63,7 +63,7 @@
         <%= f.text_field :mobile %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :addressable_id %>
     </td>
@@ -71,7 +71,7 @@
         <%= f.text_field :addressable_id %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :addressable_type %>
     </td>
@@ -79,7 +79,7 @@
         <%= f.text_field :addressable_type %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :address_type %>
     </td>
@@ -94,3 +94,4 @@
     </td>
   </tr>
     <% end %>
+

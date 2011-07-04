@@ -8,67 +8,35 @@
   </head>
   <body>
 
-    <table id="TopPage" width="<%=@config.pagewidth%>%" border="0" align="center" cellpadding="0" cellspacing="6" class="tabletoppage">
-      <tr>
-        <td>
-
-          <table id="Header" width="100%" height="120" border="0" align="center" cellpadding="0" cellspacing="6" class="tableheader">
-            <tr>
-              <% if @config.position_logo == 'right' %>
-                <td align="left" width="70%"></td>
-                <td align="right" width="30%" valign="center"><img src="<%=@logo %>" border="0" alt="Logo"></td>
-              <% else %>
-                <td align="left" width="30%" valign="center"><img src="<%=@logo %>" border="0" alt="Logo"></td>
-                <td align="right" width="70%"></td>
-              <% end %>
-            </tr>
+    <table class="fullpage" width="<%=@config.pagewidth%>%" align="center">
+      <tr class="header">
+        <td colspan="3" align=<%= @config.position_logo %> ><img src="<%=@logo %>" alt="Logo"></td>
+      </tr>
+      <tr class="nav">
+        <td colspan="3"> <ul> <%= render :partial => "shared/menue", :collection => @menue_top, :as => :menue %> </ul> </td>
+      </tr>
+      <tr class="container">
+        <% if @config.block_left == true %>
+          <td class="sidebar" width=<%=@config.block_left_width%>%> <%= render :partial => "shared/blocks/blocks", :collection => @lblocks, :as => :block %> </td>
+        <% end %>
+        <td valign="top">
+          <% if @config.topimage == true and controller.action_name == 'showme' %> <div class="topimage" align="center"><%= render :partial => "shared/topimage" %> </div> <% end %>
+          <table class="content" align="center">
+            <%= yield %>
           </table>
-
-          <table id="menue" width="100%" height="40" border="0" align="center" cellpadding="0" cellspacing="6" class="tablenav">
-            <tr class="tablelinenav">
-              <td>
-                <ul>
-                  <%= render :partial => "shared/menue", :collection => @menue_top, :as => :menue %>
-                </ul>
-              </td>
-            </tr>
-          </table>
-
-          <table id="container" width="100%" border="0" align="center" cellpadding="0" cellspacing="6" class="tablecontainer">
-            <tr>
-              <% if @config.block_left == true %>
-                <td width=<%=@config.block_left_width%>% valign="top">
-                  <%= render :partial => "shared/blocks/blocks", :collection => @lblocks, :as => :block %>
-                </td>
-              <% end %>
-              <td valign="top">
-                <% if @config.topimage == true and controller.action_name == 'showme' %>
-                  <%= render :partial => "shared/topimage" %>
-                <% end %>
-                <table id="content" width="100%" height="40" border="0" align="center" cellpadding="0" cellspacing="6" class="tablecontent">
-                  <%= yield %>
-                </table>
-              </td>
-              <% if @config.block_right == true %>
-                <td width=<%=@config.block_right_width%>% valign="top">
-                  <%= render :partial => "shared/blocks/blocks", :collection => @rblocks, :as => :block %>
-                </td>
-              <% end %>
-            </tr>
-          </table>
-
-          <table id="footer" width="100%" border="0" align="center" cellpadding="4" cellspacing="4" class="tablefooter">
-            <tr>
-              <td>
-                <%= render :partial => "shared/footer" %>
-              </td>
-            </tr>
-          </table>
-
+        </td>
+        <% if @config.block_right == true %>
+          <td width=<%=@config.block_right_width%>% valign="top">
+            <%= render :partial => "shared/blocks/blocks", :collection => @rblocks, :as => :block %>
+          </td>
+        <% end %>
+      </tr>
+      <tr class ="footer">
+        <td colspan="3">
+          <%= render :partial => "shared/footer" %>
         </td>
       </tr>
     </table>
-
   </body>
 </html>
 
