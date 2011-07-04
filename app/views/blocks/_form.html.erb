@@ -1,4 +1,4 @@
-<tr class="tablelinemain">
+<tr class="linemain">
   <td colspan="2">
     <%= form_for(@block) do |f| %>
       <% if @block.errors.any? %>
@@ -15,7 +15,7 @@
     </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :name %>
     </td>
@@ -23,7 +23,7 @@
         <%= f.text_field :name %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :headerline %>
     </td>
@@ -31,7 +31,7 @@
         <%= f.text_field :headerline %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :position %>
     </td>
@@ -39,7 +39,7 @@
         <%= f.select :position, Block::POSITION %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :fieldorder %>
     </td>
@@ -47,7 +47,7 @@
         <%= f.text_field :fieldorder %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :blockid %>
     </td>
@@ -55,7 +55,7 @@
         <%= f.select :blockid, Block::BLOCKID %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :active %>
     </td>
@@ -63,7 +63,7 @@
         <%= f.check_box :active %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :auth_level %>
     </td>
@@ -72,7 +72,7 @@
     </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :auth_level_edit %>
     </td>

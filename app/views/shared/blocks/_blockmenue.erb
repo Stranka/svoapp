@@ -1,7 +1,7 @@
 
 <% if menue.auth_level <= @auth_show and menue.active == true %>
   <% @ebene_menue += 1 %>
-    <tr class= "tableline<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
       <td>
         <% if menue.parent %>
           <% @ebene_menue.times do %>

@@ -6,14 +6,14 @@
   </tr>
 
   <% if flash[:notice]%>
-    <tr class="tablelineerror">
+    <tr class="lineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
     </tr>
   <% end %>
 
-  <tr class="tablelineheader">
+  <tr class="lineheader">
     <td><%= Basket.human_attribute_name('order_number') %></td>
     <td><%= Basket.human_attribute_name('customer_id') %></td>
     <td><%= Basket.human_attribute_name('status') %></td>
@@ -22,7 +22,7 @@
     <td><%= Basket.human_attribute_name('store') %></td>
   </tr>
 
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= @basket.order_number %></td>
     <td><%#= @basket.customer.firstname ||= ' ' + ' ' + @basket.customer.lastname ||= ' ' %></td>
     <td><%= @basket.status %></td>
@@ -34,7 +34,7 @@
 
 
   <% @basket.basketlines.each do |b| %>
-    <tr class="tablelinemain">
+    <tr class="linemain">
       <td><%= Product.human_attribute_name('image_url') %></td>
       <td><%= Product.human_attribute_name('shorttext') %></td>
       <td align ="right"><%= Product.human_attribute_name('quantity') %></td>
@@ -42,7 +42,7 @@
       <td align ="right"><%= Product.human_attribute_name('value') %></td>
       <td></td>
     </tr>
-    <tr class= "tableline<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
       <td><%= image_tag ("product/"+b.product.image_url),:height => '50' %></td>
       <td><%= b.product.shorttext %></td>
       <td align ="right"><%= b.quantity %></td>
@@ -51,7 +51,7 @@
       <td></td>
     </tr>
   <% end %>
-  <tr class = "tablelinemain">
+  <tr class = "linemain">
     <td></td>
     <td></td>
     <td></td>

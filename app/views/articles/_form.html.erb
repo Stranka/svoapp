@@ -33,7 +33,7 @@ tinyMCE.init({
 </script >
 
 
-<tr class="tablelinemain">
+<tr class="linemain">
   <td colspan="2">
     <%= form_for(@article) do |f| %>
       <% if @article.errors.any? %>
@@ -50,7 +50,7 @@ tinyMCE.init({
     </td>
   </tr>
 
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :name %>
     </td>
@@ -58,7 +58,7 @@ tinyMCE.init({
         <%= f.text_field :name %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :content %>
     </td>
@@ -66,7 +66,7 @@ tinyMCE.init({
         <%= f.text_area :content, :rows => 30 %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :auth_level %>
     </td>
@@ -75,7 +75,7 @@ tinyMCE.init({
     </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :auth_level_edit %>
     </td>

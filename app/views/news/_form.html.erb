@@ -1,4 +1,4 @@
-<tr class="tablelinemain">
+<tr class="linemain">
   <td colspan="2">
     <%= form_for(@news) do |f| %>
       <% if @news.errors.any? %>
@@ -15,7 +15,7 @@
     </td>
   </tr>
 
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :title %>
     </td>
@@ -23,7 +23,7 @@
         <%= f.text_field :title %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :date %>
     </td>
@@ -31,7 +31,7 @@
         <%= f.date_select :date %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :notice %>
     </td>
@@ -39,7 +39,7 @@
         <%= f.text_area :notice %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :format %>
     </td>
@@ -47,7 +47,7 @@
         <%= f.select :format, Article::FORMAT %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :auth_level %>
     </td>
@@ -55,7 +55,7 @@
         <%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :auth_level_edit %>
     </td>

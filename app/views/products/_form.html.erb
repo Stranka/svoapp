@@ -1,4 +1,4 @@
-<tr class="tablelinemain">
+<tr class="linemain">
   <td colspan="2">
     <%= form_for(@product, :html => { :multipart => true }) do |f| %>
       <% if @product.errors.any? %>
@@ -15,7 +15,7 @@
     </td>
   </tr>
 
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :shorttext %>
     </td>
@@ -23,7 +23,7 @@
         <%= f.text_field :shorttext %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :description %>
     </td>
@@ -31,7 +31,7 @@
         <%= f.text_area :description %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :producer %>
     </td>
@@ -39,7 +39,7 @@
         <%= f.text_field :producer %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :productclass_id %>
     </td>
@@ -47,7 +47,7 @@
         <%= f.collection_select :productclass_id, @productclasses, :id, :name, :prompt => t('please select')  %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :price %>
     </td>
@@ -56,7 +56,7 @@
         <%#= f.amount_field :price %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :special_price %>
     </td>
@@ -64,7 +64,7 @@
         <%= f.text_field :special_price, :value => number_to_currency(@product.special_price, :unit=>"", :locale => 'de') %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :product_features %>
     </td>
@@ -72,7 +72,7 @@
         <%= f.text_field :product_features %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :weight %>
     </td>
@@ -80,7 +80,7 @@
         <%= f.text_field :weight %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :unit_of_weight %>
     </td>
@@ -88,7 +88,7 @@
         <%= f.text_field :unit_of_weight %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :unit_of_quantity %>
     </td>
@@ -96,7 +96,7 @@
         <%= f.text_field :unit_of_quantity %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :tax_percentage %>
     </td>
@@ -104,7 +104,7 @@
         <%= f.text_field :tax_percentage %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :image_url %>
     </td>
@@ -112,7 +112,7 @@
         <%= f.file_field(:image_file, :style => "width: 30em") %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :specification_sheet %>
     </td>

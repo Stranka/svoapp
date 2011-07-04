@@ -1,27 +1,27 @@
 
   <%= form_for @user_session, :url => {:controller => 'user_sessions', :action => "create"} do |f| %>
 
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :login %>
     </td>
   </tr>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.text_field :login , :size => 20 %>
     </td>
   </tr>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :password %>
     </td>
   </tr>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.password_field :password, :size => 20 %>
     </td>
   </tr>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
       <%= f.submit t('login') %>
       <% if @config.shop_active == true %>

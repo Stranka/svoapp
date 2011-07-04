@@ -1,10 +1,10 @@
-<tr class="tablelinemain">
+<tr class="linemain">
   <td colspan="2">
     <%= form_for(@basketline) do |f| %>
       <% if @basketline.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@basketline.errors.count, "error") %> prohibited this basketline from being saved:</h2>
-    
+
           <ul>
           <% @basketline.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -13,9 +13,9 @@
         </div>
       <% end %>
     </td>
-  </tr> 
-      
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  </tr>
+
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :basket_id %>
     </td>
@@ -23,7 +23,7 @@
         <%= f.text_field :basket_id %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :product_id %>
     </td>
@@ -31,7 +31,7 @@
         <%= f.text_field :product_id %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :quantity %>
     </td>
@@ -39,7 +39,7 @@
         <%= f.text_field :quantity %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :value %>
     </td>
@@ -47,7 +47,7 @@
         <%= f.text_field :value %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :price %>
     </td>
@@ -55,7 +55,7 @@
         <%= f.text_field :price %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :tax_percentage %>
     </td>
@@ -63,7 +63,7 @@
         <%= f.text_field :tax_percentage %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :producer_number %>
     </td>
@@ -71,7 +71,7 @@
         <%= f.text_field :producer_number %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :weight %>
     </td>
@@ -86,3 +86,4 @@
     </td>
   </tr>
     <% end %>
+

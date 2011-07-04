@@ -6,14 +6,14 @@
   </tr>
 
   <% if flash[:notice]%>
-    <tr class="tablelineerror">
+    <tr class="lineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
     </tr>
   <% end %>
 
-  <tr class="tablelineheader">
+  <tr class="lineheader">
 
     <td><%= Article.human_attribute_name('name') %></td>
     <td><%= Article.human_attribute_name('content') %></td>
@@ -21,7 +21,7 @@
   </tr>
 
 <% @articles.each do |article| %>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= article.name %></td>
     <td><%= raw(truncate(article.content.gsub(/<\/?[^>]*>/, ""), :length => 200)) %></td>
     <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), article %>
@@ -30,7 +30,7 @@
   </tr>
 <% end %>
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="3">
 	   <%= link_to t('New ') + Article.human_name, new_article_path %>
     </td>

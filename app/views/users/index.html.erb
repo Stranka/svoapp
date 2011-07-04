@@ -1,29 +1,29 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="7">
 	     <%= t('Listing ') + User.human_name %>
-    </td>                
-  </tr> 
+    </td>
+  </tr>
 
-  <% if flash[:notice]%> 
-    <tr class="tablelineerror">
+  <% if flash[:notice]%>
+    <tr class="lineerror">
       <td colspan="6">
         <%= flash[:notice] %>
       </td>
-    </tr> 
+    </tr>
   <% end %>
 
-  <tr class="tablelineheader">
+  <tr class="lineheader">
 
     <td><%= User.human_attribute_name('login') %></td>
     <td><%= User.human_attribute_name('lastname') %></td>
     <td><%= User.human_attribute_name('email') %></td>
     <td><%= User.human_attribute_name('auth_level') %></td>
-    <td><%= User.human_attribute_name('auth_level_edit') %></td> 
+    <td><%= User.human_attribute_name('auth_level_edit') %></td>
     <td><%= t 'action' %></td>
   </tr>
 
 <% @users.each do |user| %>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= user.login %></td>
     <td><%= user.lastname %></td>
     <td><%= user.email %></td>
@@ -36,8 +36,9 @@
 <% end %>
 
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="6">
   <%= link_to t('New ') + User.human_name, new_user_path %>
     </td>
   </tr>
+

@@ -1,27 +1,27 @@
 
-  <tr class= "tableline<%= cycle('1', '2') %>">
-    <td> 
-      <a href="#" onclick="$('rechnungsaddresse').grow(); return false;"><%= t('Rechnungsadresse')%></a> 
-    </td>    
+  <tr class= "line<%= cycle('1', '2') %>">
+    <td>
+      <a href="#" onclick="$('rechnungsaddresse').grow(); return false;"><%= t('Rechnungsadresse')%></a>
+    </td>
     <td>
     </td>
   </tr>
-  
-  <tr id='rechnungsaddresse' style="display:none; class= "tableline<%= cycle('1', '2') %>" >
+
+  <tr id='rechnungsaddresse' style="display:none; class= "line<%= cycle('1', '2') %>" >
     <td colspan = 2>
-      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="tablecontent">
+      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="content">
         <%= f.fields_for :addresses do |a| %>
 
         <%= a.hidden_field :addressable_type, :value => "User" %>
         <%= a.hidden_field :address_type, :value => 'Rechnungsadresse'%>
 
 
-      <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label 'Straße' %></td><td><%= a.text_field :street %></td></tr>
-      <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label 'Postleitzahl' %></td><td><%= a.text_field :zipcode %></td></tr>
-      <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label 'Ort' %></td><td><%= a.text_field :city %></td></tr>
-      <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label 'Land' %></td><td><%= a.text_field :country %></td></tr>
-      <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label 'Festnetz' %></td><td><%= a.text_field :telnr %></td></tr>
-      <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label 'Mobil' %></td><td><%= a.text_field :mobile %></td></tr>
+      <tr class= "line<%= cycle('1', '2') %>"><td><%= a.label 'Straße' %></td><td><%= a.text_field :street %></td></tr>
+      <tr class= "line<%= cycle('1', '2') %>"><td><%= a.label 'Postleitzahl' %></td><td><%= a.text_field :zipcode %></td></tr>
+      <tr class= "line<%= cycle('1', '2') %>"><td><%= a.label 'Ort' %></td><td><%= a.text_field :city %></td></tr>
+      <tr class= "line<%= cycle('1', '2') %>"><td><%= a.label 'Land' %></td><td><%= a.text_field :country %></td></tr>
+      <tr class= "line<%= cycle('1', '2') %>"><td><%= a.label 'Festnetz' %></td><td><%= a.text_field :telnr %></td></tr>
+      <tr class= "line<%= cycle('1', '2') %>"><td><%= a.label 'Mobil' %></td><td><%= a.text_field :mobile %></td></tr>
         <% end %>
       </table>
     </td>
@@ -29,30 +29,31 @@
 
 
 
-  <tr class= "tableline<%= cycle('1', '2') %>">
-    <td> 
-      <a href="#" onclick="$('lieferadresse').grow(); return false;"><%= t('Lieferadresse')%></a> 
-    </td>    
+  <tr class= "line<%= cycle('1', '2') %>">
+    <td>
+      <a href="#" onclick="$('lieferadresse').grow(); return false;"><%= t('Lieferadresse')%></a>
+    </td>
     <td>
     </td>
   </tr>
-   
 
-  <tr id='lieferadresse' style="display:none; class= "tableline<%= cycle('1', '2') %>" >
+
+  <tr id='lieferadresse' style="display:none; class= "line<%= cycle('1', '2') %>" >
     <td colspan = 2>
-      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="tablecontent">
+      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="content">
         <%= f.fields_for :deliveryaddresses do |a| %>
 
         <%= a.hidden_field :addressable_type, :value => "User" %>
         <%= a.hidden_field :address_type, :value => 'lieferadresse'%>
 
-      <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label 'Straße' %></td><td><%= a.text_field :street %></td></tr>
-      <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label 'Postleitzahl' %></td><td><%= a.text_field :zipcode %></td></tr>
-      <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label 'Ort' %></td><td><%= a.text_field :city %></td></tr>
-      <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label 'Land' %></td><td><%= a.text_field :country %></td></tr>
-      <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label 'Festnetz' %></td><td><%= a.text_field :telnr %></td></tr>
-      <tr class= "tableline<%= cycle('1', '2') %>"><td><%= a.label 'Mobil' %></td><td><%= a.text_field :mobile %></td></tr>
+      <tr class= "line<%= cycle('1', '2') %>"><td><%= a.label 'Straße' %></td><td><%= a.text_field :street %></td></tr>
+      <tr class= "line<%= cycle('1', '2') %>"><td><%= a.label 'Postleitzahl' %></td><td><%= a.text_field :zipcode %></td></tr>
+      <tr class= "line<%= cycle('1', '2') %>"><td><%= a.label 'Ort' %></td><td><%= a.text_field :city %></td></tr>
+      <tr class= "line<%= cycle('1', '2') %>"><td><%= a.label 'Land' %></td><td><%= a.text_field :country %></td></tr>
+      <tr class= "line<%= cycle('1', '2') %>"><td><%= a.label 'Festnetz' %></td><td><%= a.text_field :telnr %></td></tr>
+      <tr class= "line<%= cycle('1', '2') %>"><td><%= a.label 'Mobil' %></td><td><%= a.text_field :mobile %></td></tr>
         <% end %>
       </table>
     </td>
   </tr>
+

@@ -1,18 +1,18 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="10">
       <%= t('Listing ') + Address.human_name %>
-    </td>                
-  </tr> 
+    </td>
+  </tr>
 
-  <% if flash[:notice]%> 
-    <tr class="tablelineerror">
+  <% if flash[:notice]%>
+    <tr class="lineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
-    </tr> 
+    </tr>
   <% end %>
-  
-  <tr class="tablelineheader">
+
+  <tr class="lineheader">
     <td><%= Address.human_attribute_name('street') %></td>
     <td><%= Address.human_attribute_name('city') %></td>
     <td><%= Address.human_attribute_name('zipcode') %></td>
@@ -26,7 +26,7 @@
   </tr>
 
   <% @addresses.each do |address| %>
-    <tr class= "tableline<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
       <td><%= address.street %></td>
       <td><%= address.city %></td>
       <td><%= address.zipcode %></td>
@@ -44,7 +44,7 @@
     </tr>
   <% end %>
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="10">
       <%= link_to t('New ') + Address.human_name', new_address_path %>
     </td>

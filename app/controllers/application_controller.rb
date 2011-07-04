@@ -21,13 +21,15 @@ class ApplicationController < ActionController::Base
     @config = Configuration.find(:first)
     @ebene_productclass = -1
     @ebene_menue = -1
-    @stylesheet = 'themes/' + @config.theme + '/stylesheets/nuke.css'
-    @logo = '/stylesheets/themes/' + @config.theme + '/images/logo.png'
-    @plus = '/stylesheets/themes/' + @config.theme + '/images/plus.png'
-    @minus = '/stylesheets/themes/' + @config.theme + '/images/minus.png'
-    @dot = '/stylesheets/themes/' + @config.theme + '/images/dot.png'
-    @up = '/stylesheets/themes/' + @config.theme + '/images/up.png'
-    @down = '/stylesheets/themes/' + @config.theme + '/images/down.png'
+    @config.theme.nil? ? @config.theme = "gray" : true
+    @stylesheet = @config.theme + '/nuke.css'
+    @imagepath = '/stylesheets/' + @config.theme + '/images/'
+    @logo = @imagepath + 'logo.png'
+    @plus = @imagepath +  'plus.png'
+    @minus = @imagepath + 'minus.png'
+    @dot = @imagepath + 'dot.png'
+    @up = @imagepath + 'up.png'
+    @down = @imagepath + 'down.png'
     @picture_size = 2048000
   end
 

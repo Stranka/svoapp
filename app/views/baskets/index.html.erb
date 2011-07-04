@@ -5,14 +5,14 @@
   </tr>
 
   <% if flash[:notice]%>
-    <tr class="tablelineerror">
+    <tr class="lineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
     </tr>
   <% end %>
 
-  <tr class="tablelineheader">
+  <tr class="lineheader">
     <td><%= Basket.human_attribute_name('session_id') %></td>
     <td><%= Basket.human_attribute_name('customer_id') %></td>
     <td><%= Basket.human_attribute_name('status') %></td>
@@ -24,7 +24,7 @@
   </tr>
 
   <% @baskets.each do |basket| %>
-    <tr class= "tableline<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
       <td><%= basket.session_id %></td>
       <td><%= basket.customer_id %></td>
       <td><%= basket.status %></td>
@@ -40,7 +40,7 @@
     </tr>
   <% end %>
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="8">
       <%= link_to t('New ') + Basket.human_name, new_basket_path %>
     </td>

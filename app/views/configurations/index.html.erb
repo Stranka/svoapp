@@ -1,10 +1,10 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="9">
 	     <%= t('Listing ') + Configuration.human_name %>
-    </td>                
-  </tr> 
+    </td>
+  </tr>
 
-  <tr class="tablelineheader">
+  <tr class="lineheader">
 
     <td><%= Configuration.human_attribute_name('block_left') %></td>
     <td><%= Configuration.human_attribute_name('block_left_width') %></td>
@@ -18,7 +18,7 @@
   </tr>
 
 <% @configurations.each do |configuration| %>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= configuration.block_left %></td>
     <td><%= configuration.block_left_width %></td>
     <td><%= configuration.block_right %></td>
@@ -34,9 +34,10 @@
 <% end %>
 
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="9">
       &nbsp
 	<%#= link_to t('New ') + Configuration.human_name, new_configuration_path %>
     </td>
   </tr>
+

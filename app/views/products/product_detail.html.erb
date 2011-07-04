@@ -3,13 +3,13 @@
       <%= t('Show ') + Product.human_name %>
     </td>
   </tr>
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="2">
       <%= notice %>
     </td>
   </tr>
 
-  <tr class="tablelinedetail">
+  <tr class="linedetail">
     <td colspan="12">
   	 <%= @product.shorttext %>
     </td>
@@ -39,7 +39,7 @@
 
 
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="12">
 	<%= link_to t('Back'), :back  %>
     </td>

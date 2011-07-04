@@ -9,14 +9,14 @@
   </tr>
 
   <% if flash[:notice]%>
-    <tr class="tablelineerror">
+    <tr class="lineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
     </tr>
   <% end %>
 
-  <tr class="tablelineheader">
+  <tr class="lineheader">
 
     <td><%= Product.human_attribute_name('image_url') %></td>
     <td><%= Product.human_attribute_name('shorttext') %></td>
@@ -26,7 +26,7 @@
   </tr>
 
 <% @products.each do |product| %>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td width="5%"><%= link_to (image_tag ("product/"+product.image_url),:height => '150'), :controller => 'products', :action => 'product_detail', :id => product.id %></td>
     <td width ="35%">
       <%= link_to (product.shorttext), :controller => 'products', :action => 'product_detail', :id => product.id %></br></br>

@@ -5,14 +5,14 @@
   </tr>
 
   <% if flash[:notice]%>
-    <tr class="tablelineerror">
+    <tr class="lineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
     </tr>
   <% end %>
   <% if params[:picture] != '' and params[:type] == 'image' %>
-    <tr class= "tableline<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
       <td>
       </td>
       <td>
@@ -21,7 +21,7 @@
     </tr>
   <% end %>
 
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
     <%= form_tag('', :multipart => true ) %>
         <%= t('file') %>

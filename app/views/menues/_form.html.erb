@@ -1,4 +1,4 @@
-<tr class="tablelinemain">
+<tr class="linemain">
   <td colspan="2">
     <%= form_for(@menue) do |f| %>
       <% if @menue.errors.any? %>
@@ -15,7 +15,7 @@
     </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :name %>
     </td>
@@ -24,7 +24,7 @@
     </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :the_url %>
     </td>
@@ -32,7 +32,7 @@
         <%= f.text_field :the_url %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :the_controller %>
     </td>
@@ -41,7 +41,7 @@
     </td>
   </tr>
 
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :the_action %>
     </td>
@@ -50,7 +50,7 @@
       </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :the_id %>
     </td>
@@ -59,7 +59,7 @@
     </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :auth_level %>
     </td>
@@ -68,7 +68,7 @@
     </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :auth_level_edit %>
     </td>
@@ -77,7 +77,7 @@
     </td>
   </tr>
 
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :parent_id %>
     </td>
@@ -85,7 +85,7 @@
         <%= f.collection_select :parent_id, @men, :id, :name, :include_blank => true, :prompt => t('please select') %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :ontop %>
     </td>
@@ -93,7 +93,7 @@
         <%= f.check_box :ontop %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :active %>
     </td>

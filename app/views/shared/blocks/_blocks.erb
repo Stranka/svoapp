@@ -1,5 +1,5 @@
 
-  <table id=<%= block.name %> width="100%" align="center" cellspacing="6" cellpadding="0" class="tablecontent">
+  <table id=<%= block.name %> class="content">
     <% if block.active == true %>
       <tr>
         <td class="myTitle" width="100%">
@@ -7,7 +7,7 @@
         </td>
       </tr>
       <%if @config.block_headerline == true %>
-        <tr class="tablelinemain">
+        <tr class="linemain">
           <td>
             <%= block.headerline? ? block.headerline : block.name  %>
           </td>

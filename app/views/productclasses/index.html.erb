@@ -1,18 +1,18 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="4">
 	     <%= t('Listing ') + Productclass.human_name %>
-    </td>                
-  </tr> 
-  
+    </td>
+  </tr>
+
   <% if flash[:notice]%>
-    <tr class="tablelineerror">
+    <tr class="lineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
-    </tr> 
+    </tr>
   <% end %>
-  
-  <tr class="tablelineheader">
+
+  <tr class="lineheader">
 
     <td><%= Productclass.human_attribute_name('name') %></td>
     <td><%= Productclass.human_attribute_name('parent') %></td>
@@ -21,7 +21,7 @@
   </tr>
 
 <% @productclasses.each do |productclass| %>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= productclass.name %></td>
     <% if productclass.parent %>
       <td><%= productclass.parent.name %></td>
@@ -36,8 +36,9 @@
 <% end %>
 
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="4">
 	<%= link_to t('New ') + Productclass.human_name, new_productclass_path %>
     </td>
   </tr>
+

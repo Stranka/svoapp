@@ -1,4 +1,4 @@
-<tr class="tablelinemain">
+<tr class="linemain">
   <td colspan="2">
     <%= form_for(@shipment) do |f| %>
       <% if @shipment.errors.any? %>
@@ -15,7 +15,7 @@
     </td>
   </tr>
 
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :name %>
     </td>
@@ -23,7 +23,7 @@
         <%= f.text_field :name %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :weight_max %>
     </td>
@@ -31,7 +31,7 @@
         <%= f.text_field :weight_max %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :lenght_max %>
     </td>
@@ -39,7 +39,7 @@
         <%= f.text_field :lenght_max %>
     </td>
   </tr>
-      <tr class= "tableline<%= cycle('1', '2') %>">
+      <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :scale_id %>
     </td>

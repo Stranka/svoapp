@@ -3,13 +3,13 @@
       <%= t('Show ') + Configuration.human_name %>
     </td>
   </tr>
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="2">
       <%= notice %>
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
   	 <%= Configuration.human_attribute_name('theme') %>
     </td>
@@ -18,7 +18,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
   	 <%= Configuration.human_attribute_name('title') %>
     </td>
@@ -27,7 +27,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td width="20%">
   	 <%= Configuration.human_attribute_name('block_left') %>
     </td>
@@ -36,7 +36,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Configuration.human_attribute_name('block_left_width') %>
     </td>
@@ -45,7 +45,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Configuration.human_attribute_name('block_right') %>
     </td>
@@ -54,7 +54,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Configuration.human_attribute_name('block_right_width') %>
     </td>
@@ -63,7 +63,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	<%= Configuration.human_attribute_name('pagewidth') %>
     </td>
@@ -72,7 +72,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Configuration.human_attribute_name('block_headerline') %>
     </td>
@@ -81,7 +81,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Configuration.human_attribute_name('position_logo') %>
     </td>
@@ -90,7 +90,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
   	 <%= Configuration.human_attribute_name('topimage') %>
     </td>
@@ -99,7 +99,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
       <%= Configuration.human_attribute_name('manage_tree') %>
     </td>
@@ -108,7 +108,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
       <%= Configuration.human_attribute_name('shop_active') %>
     </td>
@@ -117,7 +117,7 @@
     </td>
   </tr>
 
-  <tr class="tableline<%= cycle('1', '2') %>">
+  <tr class="line<%= cycle('1', '2') %>">
     <td>
       <%= Configuration.human_attribute_name('articles_name') %>
     </td>
@@ -126,7 +126,7 @@
     </td>
   </tr>
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="2">
 	<%= link_to t('Edit'), edit_configuration_path(@configuration) %> |
 	<%= link_to t('Back'), configurations_path %>

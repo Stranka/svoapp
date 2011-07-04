@@ -1,23 +1,23 @@
   <tr>
-    <td class ="myTitle" width="100%" colspan="2">
+    <td class ="myTitle" width="100%">
       <%= @showarticle.name %>
     </td>
   </tr>
   <% if flash[:notice]%>
-    <tr class="tablelineerror">
+    <tr class="lineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
     </tr>
   <% end %>
-  <tr class="tableline<%= cycle('1', '2') %>">
-    <td colspan="2">
+  <tr class="line<%= cycle('1', '2') %>">
+    <td>
     <%= raw(@showarticle.content) %>
     </td>
   </tr>
 
-  <tr class="tablelinemain">
-    <td colspan="2">
+  <tr class="linemain">
+    <td>
 	   &nbsp;
     </td>
   </tr>

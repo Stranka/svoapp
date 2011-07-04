@@ -1,18 +1,18 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="8">
 	   <%= t('Listing ') + Menue.human_name %>
-    </td>                
-  </tr> 
+    </td>
+  </tr>
 
-  <% if flash[:notice]%> 
-    <tr class="tablelineerror">
+  <% if flash[:notice]%>
+    <tr class="lineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
-    </tr> 
+    </tr>
   <% end %>
 
-  <tr class="tablelineheader">
+  <tr class="lineheader">
 
     <td><%= Menue.human_attribute_name('name') %></td>
     <td><%= Menue.human_attribute_name('the_url') %></td>
@@ -25,7 +25,7 @@
   </tr>
 
 <% @menues.each do |menue| %>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= menue.name %></td>
     <td><%= menue.the_url %></td>
     <td><%= menue.the_controller %></td>
@@ -44,8 +44,9 @@
 <% end %>
 
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="8">
   <%= link_to t('New ') + Menue.human_name, new_menue_path %>
     </td>
   </tr>
+

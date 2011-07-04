@@ -1,18 +1,18 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="4">
 	   <%= t('Listing ') + News.human_name %>
-    </td>                
-  </tr> 
+    </td>
+  </tr>
 
-  <% if flash[:notice]%> 
-    <tr class="tablelineerror">
+  <% if flash[:notice]%>
+    <tr class="lineerror">
       <td colspan="5">
         <%= flash[:notice] %>
       </td>
-    </tr> 
+    </tr>
   <% end %>
-  
-  <tr class="tablelineheader">
+
+  <tr class="lineheader">
 
     <td><%= News.human_attribute_name('title') %></td>
     <td><%= News.human_attribute_name('date') %></td>
@@ -21,7 +21,7 @@
   </tr>
 
 <% @news.each do |news| %>
-  <tr class= "tableline<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td><%= news.title %></td>
     <td><%= l news.date %></td>
     <td><%= truncate(news.notice, :length => 100) %></td>
@@ -32,8 +32,9 @@
 <% end %>
 
 
-  <tr class="tablelinemain">
+  <tr class="linemain">
     <td colspan="4">
 	<%= link_to t('New ') + News.human_name, new_news_path %>
     </td>
   </tr>
+
