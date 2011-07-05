@@ -50,11 +50,18 @@
         <%= f.label :the_action %>
     </td>
     <td>
-      <%= f.select :the_action, options_for_select(Menue::AC,@menue.the_action), :prompt => t('please select')  %>
+      <% if @menue.the_controller == 'articles' %>
+        <%= f.select :the_action, options_for_select(Menue::AC_ARTICLE,@menue.the_action), :prompt => t('please select')  %>
+      <% else %>
+        <%= f.select :the_action, options_for_select(Menue::AC_REST,@menue.the_action), :prompt => t('please select')  %>
+      <% end %>
       </td>
   </tr>
-
-      <tr id='the_id' style="display:none"; class= "line<%= cycle('1', '2') %>">
+      <% if @menue.the_controller == 'articles' %>
+        <tr id='the_id' class= "line<%= cycle('1', '2') %>">
+      <% else %>
+        <tr id='the_id' style="display:none"; class= "line<%= cycle('1', '2') %>">
+      <% end %>
     <td>
         <%= f.label :the_id %>
     </td>
