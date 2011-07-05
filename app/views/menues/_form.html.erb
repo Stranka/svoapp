@@ -39,7 +39,7 @@
         <%= f.label :the_controller %>
     </td>
     <td>
-        <%= f.select :the_controller, options_for_select(Menue::CO,@menue.the_controller), options = {:prompt => t('please select')}, html_options = {:onchange => 'update_auswahl()'} %>
+        <%= f.select :the_controller, options_for_select(Menue::CO,@menue.the_controller), options = {:prompt => t('please select')}, html_options = {:onchange => 'menue_action_auswahl()'} %>
     </td>
   </tr>
 
@@ -58,8 +58,10 @@
       </td>
   </tr>
       <% if @menue.the_controller == 'articles' %>
+
         <tr id='the_id' class= "line<%= cycle('1', '2') %>">
       <% else %>
+        <% cycle('1', '2') %>
         <tr id='the_id' style="display:none"; class= "line<%= cycle('1', '2') %>">
       <% end %>
     <td>

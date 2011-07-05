@@ -10,7 +10,7 @@ setInterval(function(){
 }, 8000);
 
 //<script type="text/javascript">
-  function update_auswahl()
+  function menue_action_auswahl()
     {
     var co = document.menue.menue_the_controller;
     var ac = document.menue.menue_the_action;
