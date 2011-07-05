@@ -1,25 +1,4 @@
 
-<script type="text/javascript">
-
-function swapOptions(ArrayName){
-	var ExSelect = document.menue.menue_the_action;
-	if (ArrayName == 'articles') {
-	  var theArray = new Array("show_content","showme");
-  }	else {
-    var theArray = new Array("index","111");
-  }
-  theArray = eval(theArray)
-	setOptionText(ExSelect, theArray);
-}
-
-function setOptionText(theSelect, theArray){
-	for (loop = 0; loop < theSelect.options.length; loop++){
-		theSelect.options[loop].text = theArray[loop];
-	}
-}
-
-</script>
-
 <tr class="linemain">
 
   <td colspan="2">
@@ -60,7 +39,7 @@ function setOptionText(theSelect, theArray){
         <%= f.label :the_controller %>
     </td>
     <td>
-        <%= f.select :the_controller, options_for_select(Menue::CO,@menue.the_controller), options = {:prompt => t('please select')}, html_options = {:onchange => 'swapOptions(this.options[selectedIndex].text);'} %>
+        <%= f.select :the_controller, options_for_select(Menue::CO,@menue.the_controller), options = {:prompt => t('please select')}, html_options = {:onchange => 'update_auswahl()'} %>
     </td>
   </tr>
 
@@ -75,7 +54,7 @@ function setOptionText(theSelect, theArray){
       </td>
   </tr>
 
-      <tr class= "line<%= cycle('1', '2') %>">
+      <tr id='the_id' style="display:none"; class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :the_id %>
     </td>
