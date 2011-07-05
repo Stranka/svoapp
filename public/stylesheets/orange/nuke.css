@@ -18,24 +18,24 @@ body { font-family: Verdana, 'Lucida Grande', Arial, Helvetica, sans-serif; font
 
 .line1 { color: #000000; background-color: #fcf2cd; text-align: left; font-size: 80%; }
 .line1 td { padding: 3px; }
-.line1 td a { color: #000000; text-decoration: none; }
+.line1 td a { color: #CB0000; text-decoration: none; }
 .line2 { font-size: 80%; background-color: #fae9af; text-align: left; color: #000000; }
 .line2 td { padding: 3px; }
-.line2 td a { color: #000000; text-decoration: none; }
+.line2 td a { color: #CB0000; text-decoration: none; }
 
-.linemain { font-size: 85%; color: #000000; background-color: #f8de87; text-align: center; }
-.lineheader { color: #000000; text-indent: 2px; background-color: #f8de87; text-align: left; }
+.linemain { font-size: 85%; color: #000000; background-color: #F8DE87; text-align: center; }
+.lineheader { color: #000000; text-indent: 2px; background-color: #F8DE87; text-align: left; }
 .lineheader td { padding: 3px; }
 
 
 .footer { font-size: 70%; text-decoration: none; }
 
-.nav { background-color: #fae9af; height: 40px; margin: 10px; border: #4D4D4D thin; color: #000000; }
+.nav { background-color: #F8DE87; height: 40px; margin: 10px; border: #4D4D4D thin; color: #000000; }
 .nav td { padding: 3px; width: 100%}
 .nav  ul { margin: 0 0 0 0; padding: 0; }
 .nav  ul li { display: inline; list-style-type: none; margin: 0; padding: 0; }
 .nav  ul li a { float: left; font-size: 120%; font-weight: normal; margin: 0; padding: 4px 8px 6px 8px; background-color: #fae9af; border: 1px solid #4D4D4D;
-                color: #ffffff; text-decoration: none; }
+                color: #000000; text-decoration: none; }
 .nav  ul li a:hover { background-color: #fdf5db; color: #000000 }
 .nav ul li a:selected { background-color: #fdf5db; border: 1px solid; border-color: #4D4D4D; color: #000000; font-weight: bold; }
 
