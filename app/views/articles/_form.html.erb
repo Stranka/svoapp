@@ -1,3 +1,4 @@
+
 <script type="text/javascript" src="/tinymce/jscripts/tiny_mce/tiny_mce.js" ></script >
 <script type="text/javascript" >
 tinyMCE.init({
@@ -21,7 +22,7 @@ tinyMCE.init({
         skin_variant : "silver",
 
         // Example content CSS (should be your site CSS)
-        content_css : "css/example.css",
+        // content_css : "public/stylesheets/orange/nuke.css",
 
         // Drop lists for link/image/media/template dialogs
         template_external_list_url : "js/template_list.js",
@@ -31,7 +32,6 @@ tinyMCE.init({
 
 });
 </script >
-
 
 <tr class="linemain">
   <td colspan="2">
@@ -50,6 +50,7 @@ tinyMCE.init({
     </td>
   </tr>
 
+
   <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :name %>
@@ -58,13 +59,28 @@ tinyMCE.init({
         <%= f.text_field :name %>
     </td>
   </tr>
+    <tr class= "line<%= cycle('1', '2') %>">
+    <td></td>
+    <td>
+      <span id="show_normal">
+        <a "href="#" onclick="$('show_normal').hide(); $('show_tiny').show(); $('normal').show(); $('tiny').hide()"><%= t('expertmode')%></a>
+      </span>
+      <span id="show_tiny" style="display:none";>
+        <a "href="#" onclick="$('show_normal').show(); $('show_tiny').hide(); $('normal').hide(); $('tiny').show()"><%= t('usermode')%></a>
+      </span>
+    </td>
+  </tr>
       <tr class= "line<%= cycle('1', '2') %>">
     <td>
-        <%= f.label :content %>
+      <%= f.label :content %>
     </td>
-    <td>
+    <td id="tiny">
         <%= f.text_area :content, :rows => 30 %>
     </td>
+    <td id="normal" style="display:none";>
+        <%= f.text_area :content, :rows => 30, :cols => 80 %>
+    </td>
+
   </tr>
       <tr class= "line<%= cycle('1', '2') %>">
     <td>

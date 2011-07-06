@@ -2,7 +2,7 @@
 #FFFFFF, #E6E6E6, #4D4D4D, #BFBFBF, #737373, #999999, #000000, #840500, #9D1D14
 #ffd300, #fdf5db, #fcf2cd, #fae9af, #f8de87
 */
-
+/* #4D4D4D   #CCB8A7   #999999   #6f6b68   #393635 #36a536*/
 body { font-family: Verdana, 'Lucida Grande', Arial, Helvetica, sans-serif; font-size: 100%; background-color: #FFFFFF; color: #4D4D4D; }
 .fadein { position:relative; height: 200px; width: 730px; }
 .fadein img { position:absolute; left: 0px; top: 0px; }

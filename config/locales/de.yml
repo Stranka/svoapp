@@ -56,6 +56,8 @@ de:
   'file to big': 'Datei ist zu groß'
   'file uploaded': 'Datei erfolgreich hochgeladen'
   'file': 'Datei'
+  'expertmode': 'Expertenmodus'
+  'usermode': 'Normalmodus'
 
   date:
     formats:

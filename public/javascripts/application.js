@@ -39,3 +39,19 @@ setInterval(function(){
     }
 //</script>
 
+  fuction change_tinymce()
+  {
+
+//    if tiny.style.display = 'none'
+//    {
+//      normal.hide()
+//      tiny.show()
+//    }
+//    else
+//    {
+//      tiny.hide()
+//      normal.show()
+//    }
+    document.getElementById("normal").show()
+  }
+
