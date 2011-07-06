@@ -12,7 +12,7 @@
         <td colspan="3" align=<%= @config.position_logo %> ><img src="<%=@logo %>" alt="Logo"></td>
       </tr>
       <tr class="nav">
-        <td colspan="3"> <ul> <%= render :partial => "shared/menue", :collection => @menue_top, :as => :menue %> </ul> </td>
+        <td colspan="3"> <ul> <%= render :partial => "shared/menue", :collection => @menue_top, :as => :menue %> </ul></td>
       </tr>
       <tr class="container">
         <% if @config.block_left == true %>
@@ -25,7 +25,7 @@
           </table>
         </td>
         <% if @config.block_right == true %>
-          <td width=<%=@config.block_right_width%>% valign="top">
+          <td class="sidebar" width=<%=@config.block_right_width%>% valign="top">
             <%= render :partial => "shared/blocks/blocks", :collection => @rblocks, :as => :block %>
           </td>
         <% end %>

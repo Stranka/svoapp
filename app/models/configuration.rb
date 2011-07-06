@@ -1,7 +1,7 @@
 class Configuration < ActiveRecord::Base
 
   POSITION = ["left", "right"];
-  THEME = ['gray', 'orange', 'mittenin','brown']
+  THEME = ['gray', 'orange', 'mittenin','brown', 'blue']
 
 end
 
