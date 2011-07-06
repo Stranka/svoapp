@@ -1,6 +1,8 @@
+
 <tr class="linemain">
+
   <td colspan="2">
-    <%= form_for(@menue) do |f| %>
+    <%= form_for(@menue,:html => { :name => 'menue' }) do |f| %>
       <% if @menue.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@menue.errors.count, "error") %> prohibited this menue from being saved:</h2>
@@ -37,20 +39,31 @@
         <%= f.label :the_controller %>
     </td>
     <td>
-        <%= f.select :the_controller, options_for_select(Menue::CO,@menue.the_controller), :prompt => t('please select')  %>
+        <%= f.select :the_controller, options_for_select(Menue::CO,@menue.the_controller), options = {:prompt => t('please select')}, html_options = {:onchange => 'menue_action_auswahl()'} %>
     </td>
   </tr>
+
+
 
   <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :the_action %>
     </td>
     <td>
-      <%= f.select :the_action, options_for_select(Menue::AC,@menue.the_action), :prompt => t('please select')  %>
+      <% if @menue.the_controller == 'articles' %>
+        <%= f.select :the_action, options_for_select(Menue::AC_ARTICLE,@menue.the_action), :prompt => t('please select')  %>
+      <% else %>
+        <%= f.select :the_action, options_for_select(Menue::AC_REST,@menue.the_action), :prompt => t('please select')  %>
+      <% end %>
       </td>
   </tr>
+      <% if @menue.the_controller == 'articles' %>
 
-      <tr class= "line<%= cycle('1', '2') %>">
+        <tr id='the_id' class= "line<%= cycle('1', '2') %>">
+      <% else %>
+        <% cycle('1', '2') %>
+        <tr id='the_id' style="display:none"; class= "line<%= cycle('1', '2') %>">
+      <% end %>
     <td>
         <%= f.label :the_id %>
     </td>

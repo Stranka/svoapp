@@ -150,5 +150,6 @@ class MenuesController < ApplicationController
 
     redirect_to(:controller => params[:co], :action => params[:ac], :id => params[:pid])
   end
+
 end
 
