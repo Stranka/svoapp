@@ -57,11 +57,11 @@ ol.tblist li{display:block;padding-left:15px;list-style-type:none; margin-left:0
 
 .topimage { background:url('images/contentbg.gif') no-repeat; background-position: 100% 0%; height: 100px; }
 
-.line1 { color: #000000; text-align: left; font-size: 80%; font: 11px Tahoma; }
+.line1 { color: #000000; text-align: left; font-size: 80%; font: 11px Tahoma; vertical-align:top; }
 .line1 td { padding-left: 12px; padding-right: 12px; padding-top: 6px; }
 .line1 td a { font-weight:normal; color:#3A4B61; text-decoration: none; border-bottom: dotted 1px; }
 .line1 td a:hover{ text-decoration: none; border-bottom: solid 1px;}
-.line2 { font-size: 80%; text-align: left; color: #000000; font: 11px Tahoma}
+.line2 { font-size: 80%; text-align: left; color: #000000; font: 11px Tahoma; vertical-align:top; }
 .line2 td { padding-left: 12px; padding-right: 12px; padding-top: 6px; }
 .line2 td a { font-weight:normal; color:#303030; text-decoration: none; border-bottom: dotted 1px; }
 .line2 td a:hover{text-decoration: none; border-bottom: solid 1px;}
