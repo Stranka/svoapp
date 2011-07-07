@@ -42,6 +42,7 @@ module RailsNuke
 
     I18n.default_locale = "de"
     I18n.load_path += Dir.glob("config/locales/de.yml")
+
   end
 end
 
