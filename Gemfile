@@ -12,7 +12,7 @@ gem 'acts_as_tree'
 gem 'acts_as_list'
 gem 'amount_field_rails3', :require => 'amount_field'
 gem "tabs_on_rails"
-gem 'ckeditor', '3.4.2.pre'
+gem 'ckeditor', '3.5.0'
 gem "paperclip", "~> 2.3"
 
 
