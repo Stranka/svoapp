@@ -27,12 +27,24 @@
     </td>
   </tr>
 
-      <tr class= "line<%= cycle('1', '2') %>">
+    <tr class= "line<%= cycle('1', '2') %>">
     <td>
-      <%= f.label :content %>
+      <span id="show_normal">
+        <a "href="#" onclick="$('show_normal').hide(); $('show_tiny').show(); $('normal').show(); $('cktextarea').hide()"><%= t('expertmode')%></a>
+      </span>
+      <span id="show_tiny" style="display:none";>
+        <a "href="#" onclick="$('show_normal').show(); $('show_tiny').hide(); $('normal').hide(); $('cktextarea').show()"><%= t('usermode')%></a>
+      </span>
     </td>
-    <td>
-        <%= f.cktext_area :content, :toolbar=>'Full', :width=>'800px', :height=>'500px' %>
+    <td></td>
+  </tr>
+
+  <tr class= "line<%= cycle('1', '2') %>">
+    <td id="normal" style="display:none"; colspan ="2">
+      <%= f.text_area :content, :rows => 30, :cols => 80 %>
+    </td>
+    <td <td id="cktextarea" colspan="2">
+      <%= f.cktext_area :content, :toolbar=>'Full', :width=>'800px', :height=>'500px' %>
     </td>
 
   </tr>

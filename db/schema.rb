@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110706160122) do
+ActiveRecord::Schema.define(:version => 20110707193229) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20110706160122) do
     t.boolean  "shop_active",       :default => false
     t.string   "theme"
     t.string   "title"
+    t.boolean  "show_title",        :default => false
   end
 
   create_table "menues", :force => true do |t|

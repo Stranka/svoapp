@@ -280,6 +280,7 @@ de:
         auth_level_edit: 'Berechtigung Ändern'
         auth_level: 'Berechtigung Anzeigen'
         shop_active: 'Webshop aktiv'
+        show_title: 'Kopfzeile im Content anzeigen'
 
       user:
         firstname: 'Vorname'

@@ -1,2 +1,2 @@
-rails generate migration add_css_to_configuration theme:string title:string
+rails generate migration add_show_title_to_configuration show_title:boolean
 

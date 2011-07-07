@@ -101,6 +101,15 @@
 
   <tr class="line<%= cycle('1', '2') %>">
     <td>
+  	 <%= Configuration.human_attribute_name('show_title') %>
+    </td>
+    <td>
+  	<%= @configuration.show_title %>
+    </td>
+  </tr>
+
+  <tr class="line<%= cycle('1', '2') %>">
+    <td>
       <%= Configuration.human_attribute_name('manage_tree') %>
     </td>
     <td>
