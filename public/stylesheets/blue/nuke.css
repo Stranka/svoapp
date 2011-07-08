@@ -55,7 +55,7 @@ ol.tblist li{display:block;padding-left:15px;list-style-type:none; margin-left:0
 .content a { color:#374457; }
 .content h4 { font: 18px Trebuchet MS; color:#374457; margin:0; padding:0; margin-left:13px; }
 
-.topimage { background:url('images/contentbg.gif') no-repeat; background-position: 100% 0%; height: 100px; margin-bottom: 40px; }
+.topimage { background:url('images/contentbg.gif') no-repeat; background-position: 100% 0%; height: 200px; margin-bottom: 40px; }
 
 .line1 { color: #000000; text-align: left; font-size: 80%; font: 11px Tahoma; vertical-align:top; }
 .line1 td { padding-left: 12px; padding-right: 12px; padding-top: 6px; }
