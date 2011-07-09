@@ -135,6 +135,14 @@
     </td>
   </tr>
 
+  <tr class="line<%= cycle('1', '2') %>">
+    <td width="20%">
+  	 <%= Configuration.human_attribute_name('copyright') %>
+    </td>
+    <td>
+  	<%= @configuration.copyright %>
+    </td>
+  </tr>
   <tr class="linemain">
     <td colspan="2">
 	<%= link_to t('Edit'), edit_configuration_path(@configuration) %> |

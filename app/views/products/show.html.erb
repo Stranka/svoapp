@@ -12,7 +12,7 @@
 
     <tr class="line<%= cycle('1', '2') %>">
       <td width ="20%">
-        <%= image_tag ("product/"+@product.image_url), :height => '250' %>
+        <%= image_tag @product.image.url %>
       </td>
       <td>
         <%= raw(@product.description) %>
@@ -111,19 +111,11 @@
 
   <tr class="line<%= cycle('1', '2') %>">
     <td>
-  	 <%= Product.human_attribute_name('image_url') %>
+  	 <%#= Product.human_attribute_name('sheet') %>
+  	 <%= image_tag (@product.sheet.url(:preview)) if @product.sheet_file_name != nil %>
     </td>
     <td>
-  	<%= @product.image_url %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-  	 <%= Product.human_attribute_name('specification_sheet') %>
-    </td>
-    <td>
-      <% if @product.specification_sheet != nil %>
+      <% if @product.sheet_file_name != nil %>
         <%= link_to( t('show'), {
               :controller => 'products',
               :action => 'show_specification_sheet',
@@ -136,7 +128,7 @@
               :id => @product.id,
               :mode => 'download' %>
       <% else %>
-        <%= t('not available') %>
+        <%= t('no datasheet available') %>
       <% end %>
     </td>
   </tr>

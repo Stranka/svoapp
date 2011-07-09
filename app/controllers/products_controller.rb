@@ -62,24 +62,25 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.xml
   def create
-    @product = Product.new(params[:product])
+    @product = Product.create(params[:product])
     @product.update_attribute(:price, params[:product][:price].tr('.','').tr(',','.'))
+    @productclasses = Productclass.all
 
-    if params[:product][:image_file] != nil
-      pic = params[:product][:image_file]
-      @product.image_url = pic.original_filename
+#    if params[:product][:image_file] != nil
+#      pic = params[:product][:image_file]
+#      @product.image_url = pic.original_filename
 
-      complete_path = Rails.root.to_s + '/public/images/' + pic.original_filename
-      FileUtils.copy(pic.tempfile.path, complete_path)
-    end
+#      complete_path = Rails.root.to_s + '/public/images/' + pic.original_filename
+#      FileUtils.copy(pic.tempfile.path, complete_path)
+#    end
 
-    if params[:product][:specification_sheet_file] != nil
-      pdf = params[:product][:specification_sheet_file]
-      @product.specification_sheet = pdf.original_filename
+#    if params[:product][:specification_sheet_file] != nil
+#      pdf = params[:product][:specification_sheet_file]
+#      @product.specification_sheet = pdf.original_filename
 
-      complete_path = Rails.root.to_s + '/public/sheets/' + pdf.original_filename
-      FileUtils.copy(pdf.tempfile.path, complete_path)
-    end
+#      complete_path = Rails.root.to_s + '/public/sheets/' + pdf.original_filename
+#      FileUtils.copy(pdf.tempfile.path, complete_path)
+#    end
 
 
     respond_to do |format|
@@ -97,22 +98,22 @@ class ProductsController < ApplicationController
   # PUT /products/1.xml
   def update
     @product = Product.find(params[:id])
+    @productclasses = Productclass.all
+#    if params[:product][:image_file] != nil
+#      pic = params[:product][:image_file]
+#      @product.image_url = pic.original_filename
 
-    if params[:product][:image_file] != nil
-      pic = params[:product][:image_file]
-      @product.image_url = pic.original_filename
+#      complete_path = Rails.root.to_s + '/public/images/' + pic.original_filename
+#      FileUtils.copy(pic.tempfile.path, complete_path)
+#    end
 
-      complete_path = Rails.root.to_s + '/public/images/' + pic.original_filename
-      FileUtils.copy(pic.tempfile.path, complete_path)
-    end
+#    if params[:product][:specification_sheet_file] != nil
+#      pdf = params[:product][:specification_sheet_file]
+#      @product.specification_sheet = pdf.original_filename
 
-    if params[:product][:specification_sheet_file] != nil
-      pdf = params[:product][:specification_sheet_file]
-      @product.specification_sheet = pdf.original_filename
-
-      complete_path = Rails.root.to_s + '/public/sheets/' + pdf.original_filename
-      FileUtils.copy(pdf.tempfile.path, complete_path)
-    end
+#      complete_path = Rails.root.to_s + '/public/sheets/' + pdf.original_filename
+#      FileUtils.copy(pdf.tempfile.path, complete_path)
+#    end
 
     respond_to do |format|
 
@@ -152,10 +153,13 @@ class ProductsController < ApplicationController
     @product = Product.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
     if @product
       if params[:mode] == 'show'
-        send_file(Rails.root.to_s + '/public/sheets/' + @product.specification_sheet, :type => 'application/pdf', :disposition => 'inline')
+#        send_file(Rails.root.to_s + '/public/sheets/' + @product.sheet, :type => 'application/pdf', :disposition => 'inline')
+        send_file @product.sheet.path, :type => @product.sheet_content_type, :disposition => 'inline'
+
 #      render :file => Rails.root.to_s + '/public/sheets/' + params[:file]
       else
-        send_file(Rails.root.to_s + '/public/sheets/' + @product.specification_sheet, :type => 'application/pdf', :disposition => 'attachment')
+#        send_file(Rails.root.to_s + '/public/sheets/' + @product.sheet, :type => 'application/pdf', :disposition => 'attachment')
+        send_file @product.sheet.path, :type => @product.sheet_content_type, :disposition => 'attachment'
       end
     else
       flash[:notice] = t('access denied')

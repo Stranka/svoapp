@@ -12,6 +12,8 @@ body { font-family: Verdana, 'Lucida Grande', Arial, Helvetica, sans-serif; font
 .container { border: none; text-align: left; border-top: #4D4D4D 1px solid; }
 .content { border: #4D4D4D 1px solid; font-size: 100%; background-color: #fdf5db; text-decoration: none; border-spacing: 2px; vertical-align: top; width: 100%;
            margin-bottom: 6px; }
+.blocks { border: #4D4D4D 1px solid; font-size: 100%; background-color: #E6E6E6; text-decoration: none; border-spacing: 2px; vertical-align: top; width: 100%;
+           margin-bottom: 6px; }
 .sidebar { vertical-align: top; }
 .topimage { margin-bottom: 6px; }
 .myTitle { padding:1px; border:1px none #4D4D4D; font-weight: bold; font-size: 95%; color: #FFFFFF; background-image: url('images/orange_linea.gif'); text-align: center; }

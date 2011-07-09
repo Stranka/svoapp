@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110707193229) do
+ActiveRecord::Schema.define(:version => 20110709070359) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20110707193229) do
     t.string   "theme"
     t.string   "title"
     t.boolean  "show_title",        :default => false
+    t.string   "copyright"
   end
 
   create_table "menues", :force => true do |t|
@@ -159,20 +160,24 @@ ActiveRecord::Schema.define(:version => 20110707193229) do
     t.string   "shorttext"
     t.text     "description"
     t.string   "producer"
-    t.decimal  "price",               :precision => 10, :scale => 2, :default => 0.0, :null => false
-    t.decimal  "special_price",       :precision => 10, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "price",              :precision => 10, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "special_price",      :precision => 10, :scale => 2, :default => 0.0, :null => false
     t.string   "product_features"
-    t.decimal  "weight",              :precision => 10, :scale => 0, :default => 0,   :null => false
+    t.decimal  "weight",             :precision => 10, :scale => 0, :default => 0,   :null => false
     t.string   "unit_of_weight"
     t.string   "unit_of_quantity"
-    t.integer  "tax_percentage",                                     :default => 0,   :null => false
-    t.string   "image_url"
-    t.string   "specification_sheet"
-    t.integer  "auth_level",                                         :default => 0,   :null => false
-    t.integer  "auth_level_edit",                                    :default => 0,   :null => false
+    t.integer  "tax_percentage",                                    :default => 0,   :null => false
+    t.integer  "auth_level",                                        :default => 0,   :null => false
+    t.integer  "auth_level_edit",                                   :default => 0,   :null => false
     t.integer  "productclass_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.string   "sheet_file_name"
+    t.string   "sheet_content_type"
+    t.integer  "sheet_file_size"
   end
 
   create_table "sessions", :force => true do |t|

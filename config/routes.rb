@@ -2,6 +2,7 @@ RailsNuke::Application.routes.draw do
 
   resources :pictures
 
+
   resources :basketlines
 
   resources :baskets do

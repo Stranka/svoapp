@@ -1,6 +1,6 @@
   <tr class="line<%= cycle('1', '2') %>">
     <td colspan="2">
-      <%= image_tag ("product/"+product.image_url) %>
+      <%= image_tag (product.image.url(:content)) %>
     </td>
 
   </tr>

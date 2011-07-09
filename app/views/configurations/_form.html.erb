@@ -130,6 +130,14 @@
         <%= f.collection_select :articles_name, @articles, :id, :name, :prompt => t('please select') %>
     </td>
   </tr>
+      <tr class= "line<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :copyright %>
+    </td>
+    <td>
+        <%= f.text_field :copyright %>
+    </td>
+  </tr>
       <tr>
     <td></td>
     <td>
