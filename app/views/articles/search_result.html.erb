@@ -1,8 +1,10 @@
+<% if @config.show_title == true %>
   <tr>
     <td class ="myTitle" width="100%">
 	    <%= t('search_result') %>
     </td>
   </tr>
+<% end %>
 
   <% if flash[:notice]%>
     <tr class="lineerror">
