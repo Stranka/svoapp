@@ -75,7 +75,6 @@ ol.tblist li{display:block;padding-left:15px;list-style-type:none; margin-left:0
 .sidebar ul li { list-style-type:none; background:url('images/li.gif') no-repeat; border:0px none; margin:0px; padding-left:20px; font: 12px  Verdana; }
 
 .lineheader td {font: 20px Trebuchet MS; color: #374457; border-bottom: dotted 1px #6C8092; padding: 10px; margin-bottom: 20px; text-align: left;}
-/*.lineheader { color: #ffffff; text-indent: 2px; background-color: #737373; text-align: left; }*/
 .search_result {border: dashed 1px #DDD; margin: 10px; padding: 10px; }
 
 .footer{ float:left; text-align:center; width:100%; color:#F1DCE3; margin:0 auto; padding:0; background:url('images/footerbg.gif') repeat-x; font-size: 70%; text-decoration: none;}
@@ -90,7 +89,7 @@ ol.tblist li{display:block;padding-left:15px;list-style-type:none; margin-left:0
 .linedetail td { padding: 3px; }
 
 .basket_input { border: 2px solid; border-color: #9D1D14; border-radius: 3px; webkit-border-radius: 3 px; }
-.search_string {background-color: #53af47 }
+.search_string {background-color: #EF6; padding: 2px; }
 
 #tabbed_navigation{ border-bottom:1px solid #ADADAD; margin-bottom:15px; }
 #tabbed_navigation ul { padding:0px; }
