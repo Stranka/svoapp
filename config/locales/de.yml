@@ -59,6 +59,10 @@ de:
   'expertmode': 'Expertenmodus'
   'usermode': 'Normalmodus'
   'no datasheet available': 'Kein Datenblatt vorhanden'
+  'search': 'Suche starten'
+  'please specify a searchstring': 'Bitte einen Suchstring eingeben'
+  'search_result': 'Suchergebnis'
+  'hide content': 'Artikel schließen'
 
   date:
     formats:

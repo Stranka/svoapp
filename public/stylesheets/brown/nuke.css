@@ -52,6 +52,7 @@ body { font-family: Verdana, 'Lucida Grande', Arial, Helvetica, sans-serif; font
 .linedetail td { padding: 3px; }
 
 .basket_input { border: 2px solid; border-color: #9D1D14; border-radius: 3px; webkit-border-radius: 3 px; }
+.search_string {background-color: #53af47 }
 
 #tabbed_navigation{ border-bottom:1px solid #f1e6de; margin-bottom:15px; }
 #tabbed_navigation ul { padding:0px; }

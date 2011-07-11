@@ -69,7 +69,8 @@ RailsNuke::Application.routes.draw do
   match 'logout' => "user_sessions#destroy", :as => :logout
 
   match 'home' => "articles#showme", :as => :home
-
+  match 'articlesearch' => "articles#search_all"
+  match 'productsearch' => "products#search_all"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -39,7 +39,7 @@
         <%= f.label :the_controller %>
     </td>
     <td>
-        <%= f.select :the_controller, options_for_select(Menue::CO,@menue.the_controller), options = {:prompt => t('please select')}, html_options = {:onchange => 'menue_action_auswahl()'} %>
+        <%= f.select :the_controller, options_for_select(@CO,@menue.the_controller), options = {:prompt => t('please select')}, html_options = {:onchange => 'menue_action_auswahl()'} %>
     </td>
   </tr>
 

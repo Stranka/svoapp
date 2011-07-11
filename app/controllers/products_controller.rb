@@ -191,5 +191,19 @@ class ProductsController < ApplicationController
     end
 
   end
+
+  def search_all
+
+    if params[:pquery] != '' and params[:pquery] != nil
+      @query = '%' + params[:pquery] + '%'
+      @products = Product.find(:all, :conditions => ['auth_level <= ? and ( shorttext like ? or description like ?)', @auth_show, @query, @query])
+      flash[:notice] = nil
+    else
+      @products = Product.find(:all, :conditions => ['id = ?', 'xhnfgdthdasFGHFCBYJSXFSADF'])
+      flash[:notice] = t('please specify a searchstring')
+    end
+    render 'show_products_productclass'
+
+  end
 end
 
