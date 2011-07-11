@@ -25,18 +25,18 @@
   </tr>
   <tr id='article_content<%= search.id %>' style="display:none;" class= "line<%= cycle('1', '2') %>">
     <td>
-      <span id="search_result">
+      <div class="search_result">
         <a href="#" onclick="$('article_content<%= search.id %>').hide(); return false;"><%= t('hide')%></a>
         <%= raw(search.content) %>
         <a href="#" onclick="$('article_content<%= search.id %>').hide(); return false;"><%= t('hide')%></a>
-      </span>
+      </div>
     </td>
   </tr>
 <% end %>
 
   <tr class="linemain">
     <td>
-	   &nbsp
+	   &nbsp;
     </td>
   </tr>
 <% end %>
