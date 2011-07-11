@@ -9,7 +9,7 @@ h5 {font: 8px Trebuchet MS;color:#374457;margin:0;padding:0; border-bottom: dott
 a:link, a:visited, a:active{color:#303030;text-decoration:none;font-weight:bold;}
 a:hover{text-decoration:underline;}
 input {border:1px solid #3A4B61;vertical-align: middle; font:11px Tahoma}
-.input {width:160px;height:19px;border:1px solid #2F4052;background:#1F2A3A;font:13px Tahoma;color:#6C8092;line-height:19px;}
+.input {width:160px;height:19px;border:1px solid #2F4052;background:#1F2A3A;font:13px Tahoma; color:#6C8092;line-height:19px;}
 .button {border:0px; }
 ol.commentlist{margin:0 0 1px;padding:0;}
 ol.commentlist li{display:block;list-style:none;margin:0;padding:0px 0px 1px;}
@@ -74,9 +74,9 @@ ol.tblist li{display:block;padding-left:15px;list-style-type:none; margin-left:0
 .sidebar ul{ list-style-type:none; border-spacing: 0px; }
 .sidebar ul li { list-style-type:none; background:url('images/li.gif') no-repeat; border:0px none; margin:0px; padding-left:20px; font: 12px  Verdana; }
 
-.lineheader td {font: 20px Trebuchet MS; color: #374457; border-bottom: dotted 1px; padding: 10px; margin-bottom: 20px; text-align: left;}
+.lineheader td {font: 20px Trebuchet MS; color: #374457; border-bottom: dotted 1px #6C8092; padding: 10px; margin-bottom: 20px; text-align: left;}
 /*.lineheader { color: #ffffff; text-indent: 2px; background-color: #737373; text-align: left; }*/
-.search_result {border: dotted 1px; margin: 10px; padding: 10px; }
+.search_result {border: dashed 1px #DDD; margin: 10px; padding: 10px; }
 
 .footer{ float:left; text-align:center; width:100%; color:#F1DCE3; margin:0 auto; padding:0; background:url('images/footerbg.gif') repeat-x; font-size: 70%; text-decoration: none;}
 .footer a:hover{text-decoration:underline; border:none;}
