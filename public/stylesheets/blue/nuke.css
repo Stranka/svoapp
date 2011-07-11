@@ -74,9 +74,9 @@ ol.tblist li{display:block;padding-left:15px;list-style-type:none; margin-left:0
 .sidebar ul{ list-style-type:none; border-spacing: 0px; }
 .sidebar ul li { list-style-type:none; background:url('images/li.gif') no-repeat; border:0px none; margin:0px; padding-left:20px; font: 12px  Verdana; }
 
-
-.lineheader { color: #ffffff; text-indent: 2px; background-color: #737373; text-align: left; }
-.lineheader td { padding: 3px; }
+.lineheader td {font: 20px Trebuchet MS; color: #374457; border-bottom: dotted 1px; padding: 10px; margin-bottom: 20px; text-align: left;}
+/*.lineheader { color: #ffffff; text-indent: 2px; background-color: #737373; text-align: left; }*/
+#search_result {padding: 50px;}
 
 .footer{ float:left; text-align:center; width:100%; color:#F1DCE3; margin:0 auto; padding:0; background:url('images/footerbg.gif') repeat-x; font-size: 70%; text-decoration: none;}
 .footer a:hover{text-decoration:underline; border:none;}
