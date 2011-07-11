@@ -7,14 +7,14 @@
   <% if flash[:notice]%>
     <tr class="lineerror">
       <td colspan="5">
-        <%= flash[:notice] %>
+        <%= flash[:notice] %> '<%= params[:aquery] %>'
       </td>
     </tr>
   <% else %>
 
   <tr class="lineheader">
 
-    <td>&nbsp;</td>
+    <td><%= t('searchstring')%> '<%= params[:aquery] %>'</td>
   </tr>
 
 <% @search.each do |search| %>
@@ -23,9 +23,9 @@
   </tr>
   <tr id='article_content<%= search.id %>' style="display:none;" class= "line<%= cycle('1', '2') %>">
     <td>
-      <a href="#" onclick="$('article_content<%= search.id %>').hide(); return false;"><%= t('hide content')%></a>
+      <a href="#" onclick="$('article_content<%= search.id %>').hide(); return false;"><%= t('hide')%></a>
       <%= raw(search.content) %>
-      <a href="#" onclick="$('article_content<%= search.id %>').hide(); return false;"><%= t('hide content')%></a>
+      <a href="#" onclick="$('article_content<%= search.id %>').hide(); return false;"><%= t('hide')%></a>
     </td>
   </tr>
 <% end %>

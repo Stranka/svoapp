@@ -62,7 +62,9 @@ de:
   'search': 'Suche starten'
   'please specify a searchstring': 'Bitte einen Suchstring eingeben'
   'search_result': 'Suchergebnis'
-  'hide content': 'Artikel schließen'
+  'hide': 'Schließen'
+  'no results found': 'Keine Suchergebnisse gefunden für '
+  'searchstring': 'Suchergebnis für '
 
   date:
     formats:
