@@ -1,8 +1,10 @@
-  <tr>
-    <td class ="myTitle" width="100%">
-      <%= @showarticle.name %>
-    </td>
-  </tr>
+  <% if @config.show_title == true %>
+    <tr>
+      <td class ="myTitle" width="100%">
+        <%= @showarticle.name %>
+      </td>
+    </tr>
+  <% end %>
   <% if flash[:notice]%>
     <tr class="lineerror">
       <td colspan="5">

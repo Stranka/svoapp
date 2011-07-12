@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :get_config
   before_filter :get_blocks
-  before_filter :require_user, :except => [:articles,:showme,:show_content,:permalink,
+  before_filter :require_user, :except => [:articles,:showme,:show_content,:permalink,:search_all,
                                            :products,:show_products_productclass,
                                            :baskets,:add_to_basket,:show_my_open_order,:checkout,
                                            :productclasses,:click,
@@ -31,6 +31,7 @@ class ApplicationController < ActionController::Base
     @up = @imagepath + 'up.png'
     @down = @imagepath + 'down.png'
     @picture_size = 2048000
+    @CO = ['', 'articles', 'baskets', 'blocks', 'configurations', 'menues', 'news', 'pictures', 'productclasses', 'products', 'shipments','users']
   end
 
   def get_blocks

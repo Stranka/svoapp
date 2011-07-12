@@ -8,7 +8,7 @@ class Menue < ActiveRecord::Base
 
   AC_ARTICLE = ['show_content', 'showme']
   AC_REST = ['index']
-  CO = ['', 'articles', 'baskets', 'blocks', 'configurations', 'menues', 'news', 'pictures', 'productclasses', 'products', 'shipments','users'];
+
 
 
   def check_controller?

@@ -1,0 +1,31 @@
+
+<% if local_assigns[:mode] == 'article' %>
+  <tr class= "line<%= cycle('1', '2') %>">
+    <td>
+      <%= form_tag('/articlesearch',:id => 'article_search', :name => 'article_search', :method => 'GET') do %>
+      <%= text_field_tag(:aquery) %>
+    </td>
+  </tr>
+
+  <tr class= "line<%= cycle('1', '2') %>">
+    <td>
+      <%= submit_tag (t('search')), :name => 'commit_article_search', :id => 'article_search_submit' %>
+    </td>
+  </tr>
+  <% end %>
+<% else %>
+  <tr class= "line<%= cycle('1', '2') %>">
+    <td>
+      <%= form_tag('/productsearch', :id => 'product_search', :name => 'product_search', :method => 'GET') do %>
+      <%= text_field_tag(:pquery) %>
+    </td>
+  </tr>
+
+  <tr class= "line<%= cycle('1', '2') %>">
+    <td>
+      <%= submit_tag (t('search')), :name => 'commit_product_search', :id => 'product_search_submit' %>
+    </td>
+  </tr>
+  <% end %>
+<% end %>
+

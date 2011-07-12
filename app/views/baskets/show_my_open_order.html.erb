@@ -32,18 +32,18 @@
 
   </tr>
 
+  <tr class="linemain">
+    <td><%= Product.human_attribute_name('image') %></td>
+    <td><%= Product.human_attribute_name('shorttext') %></td>
+    <td align ="right"><%= Product.human_attribute_name('quantity') %></td>
+    <td align ="right"><%= Product.human_attribute_name('price') %></td>
+    <td align ="right"><%= Product.human_attribute_name('value') %></td>
+    <td></td>
+  </tr>
 
   <% @basket.basketlines.each do |b| %>
-    <tr class="linemain">
-      <td><%= Product.human_attribute_name('image_url') %></td>
-      <td><%= Product.human_attribute_name('shorttext') %></td>
-      <td align ="right"><%= Product.human_attribute_name('quantity') %></td>
-      <td align ="right"><%= Product.human_attribute_name('price') %></td>
-      <td align ="right"><%= Product.human_attribute_name('value') %></td>
-      <td></td>
-    </tr>
     <tr class= "line<%= cycle('1', '2') %>">
-      <td><%= image_tag ("product/"+b.product.image_url),:height => '50' %></td>
+      <td><%= image_tag (b.product.image.url(:small)) %></td>
       <td><%= b.product.shorttext %></td>
       <td align ="right"><%= b.quantity %></td>
       <td align ="right"><%= number_to_currency(b.price) %></td>

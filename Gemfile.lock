@@ -36,7 +36,7 @@ GEM
     authlogic (2.1.6)
       activesupport
     builder (2.1.2)
-    ckeditor (3.4.2.pre)
+    ckeditor (3.5.0)
       mime-types (>= 1.16)
     cocaine (0.1.0)
     columnize (0.3.2)
@@ -100,7 +100,7 @@ DEPENDENCIES
   acts_as_tree
   amount_field_rails3
   authlogic
-  ckeditor (= 3.4.2.pre)
+  ckeditor (= 3.5.0)
   i18n
   mysql
   paperclip (~> 2.3)

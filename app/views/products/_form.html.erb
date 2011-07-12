@@ -106,18 +106,20 @@
   </tr>
       <tr class= "line<%= cycle('1', '2') %>">
     <td>
-        <%= f.label :image_url %>
+        <%= f.label :image %>
     </td>
     <td>
-        <%= f.file_field(:image_file, :style => "width: 30em") %>
+        <%= f.file_field:image %>
+        <%= image_tag (@product.image.url(:thumb)) if @product.image_file_name != nil %>
     </td>
   </tr>
       <tr class= "line<%= cycle('1', '2') %>">
     <td>
-        <%= f.label :specification_sheet %>
+        <%= f.label :sheet %>
     </td>
     <td>
-        <%= f.file_field(:specification_sheet_file, :style => "width: 30em") %>
+        <%= f.file_field :sheet %>
+        <%= image_tag (@product.sheet.url(:preview)) if @product.sheet_file_name != nil %>
     </td>
   </tr>
       <tr>

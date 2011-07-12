@@ -41,7 +41,11 @@
       <% when 'basket' %>
         <%= render :partial => "shared/blocks/basket", :object => read_basket(request.session_options[:id]), :as => :basket %>
 
+      <% when 'search' %>
+        <%= render :partial => "shared/blocks/search" , :locals => { :mode => 'article' } %>
 
+      <% when 'productsearch' %>
+        <%= render :partial => "shared/blocks/search" , :locals => { :mode => 'product' } %>
 
 
       <% when 'userblock1' %>

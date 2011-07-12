@@ -58,6 +58,13 @@ de:
   'file': 'Datei'
   'expertmode': 'Expertenmodus'
   'usermode': 'Normalmodus'
+  'no datasheet available': 'Kein Datenblatt vorhanden'
+  'search': 'Suche starten'
+  'please specify a searchstring': 'Bitte einen Suchstring eingeben'
+  'search_result': 'Suchergebnis'
+  'hide': 'Schließen'
+  'no results found': 'Keine Suchergebnisse gefunden für '
+  'searchstring': 'Suchergebnis für '
 
   date:
     formats:
@@ -251,8 +258,8 @@ de:
         unit_of_weight: 'Gewichtseinheit'
         unit_of_quantity: 'Mengeneinheit'
         tax_percentage: 'Mehrwertsteuer %'
-        image_url: 'Bilddatei'
-        specification_sheet: 'Datenblatt'
+        image: 'Bilddatei'
+        sheet: 'Datenblatt'
         auth_level_edit: 'Berechtigung Ändern'
         auth_level: 'Berechtigung Anzeigen'
 
@@ -280,6 +287,8 @@ de:
         auth_level_edit: 'Berechtigung Ändern'
         auth_level: 'Berechtigung Anzeigen'
         shop_active: 'Webshop aktiv'
+        show_title: 'Kopfzeile im Content anzeigen'
+        copyright: 'Copyright-Vermerk'
 
       user:
         firstname: 'Vorname'
