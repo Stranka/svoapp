@@ -9,7 +9,7 @@ h5 {font: 8px Trebuchet MS;color:#374457;margin:0;padding:0; border-bottom: dott
 a:link, a:visited, a:active{color:#303030;text-decoration:none;font-weight:bold;}
 a:hover{text-decoration:underline;}
 input {border:1px solid #3A4B61;vertical-align: middle; font:11px Tahoma}
-.input {width:160px;height:19px;border:1px solid #2F4052;background:#1F2A3A;font:13px Tahoma;color:#6C8092;line-height:19px;}
+.input {width:160px;height:19px;border:1px solid #2F4052;background:#1F2A3A;font:13px Tahoma; color:#6C8092;line-height:19px;}
 .button {border:0px; }
 ol.commentlist{margin:0 0 1px;padding:0;}
 ol.commentlist li{display:block;list-style:none;margin:0;padding:0px 0px 1px;}
@@ -47,7 +47,7 @@ ol.tblist li{display:block;padding-left:15px;list-style-type:none; margin-left:0
 
 .container { float:left; background:url('images/mainbg.gif');background-position:14px 0px; border: none; border-spacing: 0px; }
 
-.content{ font: 11px Tahoma; color:#374457; float:left; width:568px; margin:0; background:url('images/contentbg.gif') no-repeat; background-position: 100% 0%; min-height:730px;
+.content{ font: 11px Tahoma; color:#374457; float:left; width:568px; margin:0; background:url('images/contentbg.gif') no-repeat; background-position: 100% 0%; min-height:130px;
           padding-bottom:10px; overflow:hidden; vertical-align:top; }
 .blocks { font: 11px Tahoma; color:#374457; float:left; width:230px; margin:0; padding-bottom:10px; overflow:hidden; border-spacing: 0px; }
 .news { font: 11px Tahoma; color:#374457; float:left; width:180px; margin:0; padding-bottom:10px; overflow:hidden; }
@@ -74,9 +74,8 @@ ol.tblist li{display:block;padding-left:15px;list-style-type:none; margin-left:0
 .sidebar ul{ list-style-type:none; border-spacing: 0px; }
 .sidebar ul li { list-style-type:none; background:url('images/li.gif') no-repeat; border:0px none; margin:0px; padding-left:20px; font: 12px  Verdana; }
 
-
-.lineheader { color: #ffffff; text-indent: 2px; background-color: #737373; text-align: left; }
-.lineheader td { padding: 3px; }
+.lineheader td {font: 20px Trebuchet MS; color: #374457; border-bottom: dotted 1px #6C8092; padding: 10px; margin-bottom: 20px; text-align: left;}
+.search_result {border: dashed 1px #DDD; margin: 10px; padding: 10px; }
 
 .footer{ float:left; text-align:center; width:100%; color:#F1DCE3; margin:0 auto; padding:0; background:url('images/footerbg.gif') repeat-x; font-size: 70%; text-decoration: none;}
 .footer a:hover{text-decoration:underline; border:none;}
@@ -90,7 +89,7 @@ ol.tblist li{display:block;padding-left:15px;list-style-type:none; margin-left:0
 .linedetail td { padding: 3px; }
 
 .basket_input { border: 2px solid; border-color: #9D1D14; border-radius: 3px; webkit-border-radius: 3 px; }
-.search_string {background-color: #53af47 }
+.search_string {background-color: #EF6; padding: 2px; }
 .field_with_errors { padding: 2px; background-color: red; display: table;}
 
 #tabbed_navigation{ border-bottom:1px solid #ADADAD; margin-bottom:15px; }
