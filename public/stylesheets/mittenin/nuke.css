@@ -8,16 +8,17 @@ body { font-family: Verdana, Arial, Tahoma, Geneva, sans-serif; font-size: 100%;
 .fadein img { position:absolute; left: 0px; top: 0px; }
 
 .fullpage { background-color: #FFFFFF; text-align: center; width: 1024px;}
-.header { font-size: 100%; width: 100%; vertical-align: center; background-image: url('images/logo_header.png');
+.header { font-size: 100%; width: 100%; background-image: url('images/logo_header.png');
           background-repeat: no-repeat;  height: 100px;}
 .container { text-align: left; }
 .content { border: 1px dashed; border-color: #DDD ; font-size: 100%; background-color: #fafafa; text-decoration: none;
-           vertical-align: top; width: 730px; margin-top: 16px; margin-right: 20px; margin-left: 0px; float: left; }
+           vertical-align: top; width: 760px; margin-bottom: 0px; margin-top: 16px; margin-right: 0px; margin-left: 0px; float: left; }
 .blocks { font-size: 100%; background-color: #FFFFFF; text-decoration: none; border-spacing: 2px; vertical-align: top; width: 100%;
            margin-bottom: 6px; margin-top: 10px; }
 
 .sidebar { vertical-align: top;}
-.topimage { margin-bottom: 6px; margin-top: 16px; margin-left: 0px; }
+.topimage { margin-bottom: 6px; margin-top: 16px; margin-left: 0px; margin-right: 0px; width: 730px;
+            float: left; }
 .myTitle { border-top: 3px double; border-bottom: 1px solid; border-color: #a60000; font-weight: normal; font-size: 95%; color: #000000; text-align: left }
 
 .line1 { color: #000000; background-color: #FFFFFF; text-align: left; font-size: 80%; }
