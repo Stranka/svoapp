@@ -5,7 +5,9 @@
         <div class='currenttopmenue'><%= menue.name %></div>
       <% end %>
     <% else %>
-      <%= link_to menue.name, :controller => menue.the_controller, :action => menue.the_action %>
+      <%= link_to_unless_current( menue.name, {:controller => menue.the_controller, :action => menue.the_action}) do %>
+        <div class='currenttopmenue'><%= menue.name %></div>
+      <% end %>
     <% end %>
   <% else %>
       <%= link_to menue.name, menue.the_url , :target => "_blank" %>
