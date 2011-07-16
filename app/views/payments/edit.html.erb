@@ -1,0 +1,14 @@
+
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+      <%= t('Editing ') + Payment.human_name %>
+    </td>
+  </tr>
+  <%= render 'form' %>
+  <tr class="linemain">
+    <td colspan="2">
+      <%= link_to t('Show'), @payment %> |
+      <%= link_to t('Back'), payments_path %>
+    </td>
+  </tr>
+

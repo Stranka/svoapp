@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  cost: 9.99
+  auth_level: 1
+  auth_level_edit: 1
+
+two:
+  name: MyString
+  cost: 9.99
+  auth_level: 1
+  auth_level_edit: 1

@@ -30,8 +30,10 @@ class ApplicationController < ActionController::Base
     @dot = @imagepath + 'dot.png'
     @up = @imagepath + 'up.png'
     @down = @imagepath + 'down.png'
+    @shop_cart = @imagepath + 'shop_cart.gif'
     @picture_size = 2048000
-    @CO = ['', 'articles', 'baskets', 'blocks', 'configurations', 'menues', 'news', 'pictures', 'productclasses', 'products', 'shipments','users']
+    @CO = ['', 'articles', 'baskets', 'blocks', 'configurations', 'menues', 'news', 'pictures', 'productclasses', 'products',
+               'shipments', 'users', 'payments']
   end
 
   def get_blocks

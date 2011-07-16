@@ -1,5 +1,7 @@
 RailsNuke::Application.routes.draw do
 
+  resources :payments
+
   resources :pictures
 
 
@@ -9,9 +11,11 @@ RailsNuke::Application.routes.draw do
     collection do
       get 'show_my_open_order'
       get 'checkout'
+      put 'checkout_step_1'
     end
     member do
       put 'add_to_basket'
+
     end
   end
 

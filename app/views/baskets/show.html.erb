@@ -72,6 +72,36 @@
     </td>
   </tr>
 
+
+  <tr class= "line<%= cycle('1', '2') %>">
+  <td colspan="2">
+  <table class="content">
+  <tr class="lineheader">
+    <td><%= Product.human_attribute_name('shorttext') %></td>
+    <td><%= Basketline.human_attribute_name('quantity') %></td>
+    <td><%= Basketline.human_attribute_name('value') %></td>
+    <td><%= Basketline.human_attribute_name('price') %></td>
+    <td><%= Basketline.human_attribute_name('tax_percentage') %></td>
+    <td><%= Basketline.human_attribute_name('producer_number') %></td>
+    <td><%= Basketline.human_attribute_name('weight') %></td>
+  </tr>
+
+  <% @basket.basketlines.each do |basketline| %>
+    <tr class= "line<%= cycle('1', '2') %>">
+      <td><%= basketline.product.shorttext %></td>
+      <td><%= basketline.quantity %></td>
+      <td><%= basketline.value %></td>
+      <td><%= basketline.price %></td>
+      <td><%= basketline.tax_percentage %></td>
+      <td><%= basketline.producer_number %></td>
+      <td><%= basketline.weight %></td>
+    </tr>
+
+  <% end %>
+  </table>
+  </td>
+  </tr>
+
   <tr class="linemain">
     <td colspan="2">
   <%= link_to t('Edit'), edit_basket_path(@basket) %> |

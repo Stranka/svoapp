@@ -91,6 +91,7 @@ ol.tblist li{display:block;padding-left:15px;list-style-type:none; margin-left:0
 
 .basket_input { border: 2px solid; border-color: #9D1D14; border-radius: 3px; webkit-border-radius: 3 px; }
 .search_string {background-color: #53af47 }
+.field_with_errors { padding: 2px; background-color: red; display: table;}
 
 #tabbed_navigation{ border-bottom:1px solid #ADADAD; margin-bottom:15px; }
 #tabbed_navigation ul { padding:0px; }

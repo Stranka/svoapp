@@ -3,7 +3,7 @@
     <%= form_for(@basketline) do |f| %>
       <% if @basketline.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@basketline.errors.count, "error") %> prohibited this basketline from being saved:</h2>
+          <h2><%= pluralize(@basketline.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
 
           <ul>
           <% @basketline.errors.full_messages.each do |msg| %>

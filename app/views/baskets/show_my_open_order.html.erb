@@ -14,48 +14,41 @@
   <% end %>
 
   <tr class="lineheader">
-    <td><%= Basket.human_attribute_name('order_number') %></td>
-    <td><%= Basket.human_attribute_name('customer_id') %></td>
-    <td><%= Basket.human_attribute_name('status') %></td>
-    <td><%= Basket.human_attribute_name('shipmentterms') %></td>
-    <td><%= Basket.human_attribute_name('paymentterms') %></td>
-    <td><%= Basket.human_attribute_name('store') %></td>
+    <td colspan ="3">
+      <%= image_tag(@shop_cart, :border=>0, :alt =>'shopping cart') %>
+      <%= t('shopping cart for ') %>
+      <% if current_user %>
+        <%= @basket.customer.login + ' (' + @basket.customer.firstname  + ' ' + @basket.customer.lastname + ')'%>
+      <% end %>
+    </td>
+    <td align="right"><%= number_to_currency(@basket.basketlines.sum(:value)) %></td>
+    <td></td>
   </tr>
 
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td><%= @basket.order_number %></td>
-    <td><%#= @basket.customer.firstname ||= ' ' + ' ' + @basket.customer.lastname ||= ' ' %></td>
-    <td><%= @basket.status %></td>
-    <td><%= @basket.shipmentterms %></td>
-    <td><%= @basket.paymentterms %></td>
-    <td><%= @basket.store %></td>
-
-  </tr>
-
-  <tr class="linemain">
-    <td><%= Product.human_attribute_name('image') %></td>
-    <td><%= Product.human_attribute_name('shorttext') %></td>
-    <td align ="right"><%= Product.human_attribute_name('quantity') %></td>
-    <td align ="right"><%= Product.human_attribute_name('price') %></td>
-    <td align ="right"><%= Product.human_attribute_name('value') %></td>
+  <tr class="lineheader">
+    <td colspan="2"><%= t('article in the shopping cart') %></td>
+    <td><%= Product.human_attribute_name('quantity') %></td>
+    <td><%= Product.human_attribute_name('price') %></td>
     <td></td>
   </tr>
 
   <% @basket.basketlines.each do |b| %>
     <tr class= "line<%= cycle('1', '2') %>">
-      <td><%= image_tag (b.product.image.url(:small)) %></td>
+      <td width="5%"><%= link_to (image_tag (b.product.image.url(:thumb))), :controller => 'products', :action => 'product_detail', :id => b.product.id %></td>
       <td><%= b.product.shorttext %></td>
-      <td align ="right"><%= b.quantity %></td>
-      <td align ="right"><%= number_to_currency(b.price) %></td>
-      <td align="right"><%= number_to_currency(b.value) %></td>
-      <td></td>
+      <td>
+      <%= form_for b, :url => {:controller => 'baskets', :action => 'add_to_basket', :id => b.product.id} do |p| %>
+   	  <%= number_field(:basketline, :quantity, options = {:size => 5, :value => b.quantity, :min => '0', :max => '99', :class => "basket_input"})%></td>
+      <%= p.hidden_field(:product_id, :value => b.product.id)%>
+      <%= p.hidden_field(:mode, :value => 'basket')%>
+      </td>
+      <td><%= number_to_currency(b.price) %></td>
+      <td><%= image_submit_tag("edit.png") %></td>
+      <% end %>
     </tr>
   <% end %>
   <tr class = "linemain">
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td colspan="3"></td>
     <td align="right"><%= number_to_currency(@basket.basketlines.sum(:value)) %></td>
     <td></td>
   </tr>

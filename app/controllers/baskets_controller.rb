@@ -121,35 +121,85 @@ class BasketsController < ApplicationController
 #    end
 
     @basket = Basket.find_by_session_id(request.session_options[:id])
+
     @basket ||= create_basket       # || ist ein oder => gibt es @basket ok, wenn nicht führe create_basket aus
-    @basketline = Basketline.find(:first, :conditions => ['product_id = ? and basket_id <= ?', @product.id, @basket.id])
+    @basketline = Basketline.find(:first, :conditions => ['product_id = ? and basket_id = ?', @product.id, @basket.id])
     @basketline ||= create_basketline
-    change_basketline_quantity
-    @basketline.save
 
+    if params[:basketline][:mode] == 'basket'
+      set_basketline_quantity
+    else
+      change_basketline_quantity
+    end
+    if @basketline.quantity <= 0
+      if @basketline.destroy
+        flash[:notice] = t('article deleted')
+      else
+        flash[:notice] = t('an error occured')
+      end
+    else
+      if @basketline.save
+        if params[:basketline][:mode] == 'basket'
+          flash[:notice] = t('article edited')
+        else
+          flash[:notice] = t('article added')
+        end
+      else
+        flash[:notice] = t('an error occured')
+      end
+    end
 
-    @products = Product.find(:all, :conditions => ['productclass_id = ? and auth_level_edit <= ?', @product.productclass.id, @auth_edit])
-    redirect_to(:controller => 'products', :action => 'show_products_productclass', :id => @product.productclass.id)
+    if params[:basketline][:mode] == 'basket'
+      redirect_to(:controller => 'baskets', :action => 'show_my_open_order')
+    else
+      @products = Product.find(:all, :conditions => ['productclass_id = ? and auth_level_edit <= ?', @product.productclass.id, @auth_edit])
+      redirect_to(:controller => 'products', :action => 'show_products_productclass', :id => @product.productclass.id)
+    end
 
   end
 
   def show_my_open_order
     @basket = Basket.find(:first, :conditions => ['session_id = ? and status = ?', request.session_options[:id], 'offen'])
+    if @basket.customer_id == nil
+      @basket.build_customer
+    end
     if @basket
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @basket }
       end
     else
-      flash[:notice] = t('access denied')
-      redirect_to(:action => 'index')
+      flash[:notice] = t('no articles in basket')
+      @productclass = Productclass.find(:first)
+      redirect_to(:controller => 'products', :action => 'show_products_productclass', :id => @productclass.id)
     end
   end
 
   def checkout
-
+    @basket = Basket.find(:first, :conditions => ['session_id = ? and status = ?', request.session_options[:id], 'offen'])
+    @shipmentterms = Shipment.all
+    @paymentterms = Payment.all
   end
 
+  def checkout_step_1
+    flash[:error] = nil
+    if params[:AGB] == nil
+      flash[:error] = t('AGB have to be acctepted')
+    end
+    if params[:disclaimer] == nil
+      if flash[:error] == nil
+        flash[:error] = t('Disclaimer have to be acctepted')
+      else
+        flash[:error] += '</br>' + t('Disclaimer have to be acctepted')
+      end
+    end
+    if params[:AGB] == nil or params[:disclaimer] == nil
+      @basket = Basket.find(:first, :conditions => ['session_id = ? and status = ?', request.session_options[:id], 'offen'])
+      @shipmentterms = Shipment.all
+      @paymentterms = Payment.all
+      render :checkout
+    end
+  end
 
 protected
 
@@ -167,11 +217,18 @@ protected
   end
 
   def change_basketline_quantity
+
     @basketline.quantity += params[:basketline][:quantity].to_i
     @basketline.value = @basketline.quantity * @basketline.price
   end
 
+  def set_basketline_quantity
+    @basketline.quantity = params[:basketline][:quantity].to_i
+    @basketline.value = @basketline.quantity * @basketline.price
+  end
+
   def create_basketline
+
     @basketline = Basketline.new
     @basketline.basket_id = @basket.id
     @basketline.product_id = @product.id

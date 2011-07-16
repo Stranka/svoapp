@@ -1,0 +1,58 @@
+<tr class="linemain">
+  <td colspan="2">
+    <%= form_for(@payment) do |f| %>
+      <% if @payment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@payment.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
+
+          <ul>
+          <% @payment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr class= "line<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :name %>
+    </td>
+    <td>
+        <%= f.text_field :name %>
+    </td>
+  </tr>
+      <tr class= "line<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :cost %>
+    </td>
+    <td>
+        <%= f.text_field :cost %>
+    </td>
+  </tr>
+      <tr class= "line<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :auth_level %>
+    </td>
+    <td>
+        <%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %>
+    </td>
+  </tr>
+
+      <tr class= "line<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :auth_level_edit %>
+    </td>
+    <td>
+        <%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %>
+    </td>
+  </tr>
+      <tr>
+    <td></td>
+    <td>
+      <%= f.submit %>
+    </td>
+  </tr>
+    <% end %>
+

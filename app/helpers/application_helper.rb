@@ -1,6 +1,5 @@
 module ApplicationHelper
 
-
   def read_menue
     @usermenue = Menue.find(:all, :conditions => ['auth_level <= ? and active = ? and parent_id = ?', @auth_show, true, 0], :order => "position")
   end

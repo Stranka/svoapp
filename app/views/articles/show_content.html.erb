@@ -20,7 +20,11 @@
 
   <tr class="linemain">
     <td>
-	   &nbsp;
+      <% if params[:mode] == 'basket' %>
+        <%= link_to t('Back'), :back  %>
+      <% else %>
+        &nbsp;
+      <% end %>
     </td>
   </tr>
 
