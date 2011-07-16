@@ -40,8 +40,10 @@ protected
       @basket.save
     else
       @basket = Basket.find(:first, :conditions => ['customer_id = ? and status = ?', @customer.id, 'offen'])
-      @basket.session_id = request.session_options[:id]
-      @basket.save
+      if @basket
+        @basket.session_id = request.session_options[:id]
+        @basket.save
+      end
     end
   end
 end
