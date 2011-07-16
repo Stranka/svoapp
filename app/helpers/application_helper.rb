@@ -13,6 +13,10 @@ module ApplicationHelper
     @news = News.find(:all, :order => "date DESC", :limit => '2')
   end
 
+  def read_all_news
+    @news = News.find(:all, :order => "date DESC")
+  end
+
   def read_article(title)
     @article = Article.find(:all, :conditions => {:name => title})
   end

@@ -14,7 +14,7 @@ class NewsController < ApplicationController
   # GET /news/1.xml
   def show
     @news = News.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
-    if @news 
+    if @news
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @news }
@@ -29,9 +29,9 @@ class NewsController < ApplicationController
   # GET /news/new
   # GET /news/new.xml
   def new
-    if @auth_edit >= 50    
+    if @auth_edit >= 50
       @news = News.new
-  
+
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @news }
@@ -45,12 +45,12 @@ class NewsController < ApplicationController
   # GET /news/1/edit
   def edit
     @news = News.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
-    if @news 
+    if @news
     else
       flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
-    end    
-    
+    end
+
   end
 
   # POST /news
@@ -87,7 +87,7 @@ class NewsController < ApplicationController
 
   # DELETE /news/1
   # DELETE /news/1.xml
-  def destroy   
+  def destroy
     @news = News.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
     if @news
       @news.destroy
@@ -101,4 +101,10 @@ class NewsController < ApplicationController
       redirect_to(:action => 'index')
     end
   end
+
+  def all_news
+
+  end
+
 end
+

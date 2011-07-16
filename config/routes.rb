@@ -25,7 +25,11 @@ RailsNuke::Application.routes.draw do
 
   resources :shipments
 
-  resources :news
+  resources :news do
+    collection do
+      get 'all_news'
+    end
+  end
 
   resources :products do
     collection do

@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
                                            :productclasses,:click,
                                            :menues,:click,
                                            :customers,:new,:create,
+                                           :news,:all_news,
                                            :user_sessions, :new]
 
   helper_method :current_user_session, :current_user

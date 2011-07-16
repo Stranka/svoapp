@@ -53,7 +53,11 @@
       <% if @menue.the_controller == 'articles' %>
         <%= f.select :the_action, options_for_select(Menue::AC_ARTICLE,@menue.the_action), :prompt => t('please select')  %>
       <% else %>
-        <%= f.select :the_action, options_for_select(Menue::AC_REST,@menue.the_action), :prompt => t('please select')  %>
+        <% if @menue.the_controller == 'news'  %>
+          <%= f.select :the_action, options_for_select(Menue::AC_NEWS,@menue.the_action), :prompt => t('please select')  %>
+        <% else %>
+          <%= f.select :the_action, options_for_select(Menue::AC_REST,@menue.the_action), :prompt => t('please select')  %>
+        <% end %>
       <% end %>
       </td>
   </tr>
