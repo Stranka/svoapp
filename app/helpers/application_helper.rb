@@ -1,6 +1,5 @@
 module ApplicationHelper
 
-
   def read_menue
     @usermenue = Menue.find(:all, :conditions => ['auth_level <= ? and active = ? and parent_id = ?', @auth_show, true, 0], :order => "position")
   end
@@ -12,6 +11,10 @@ module ApplicationHelper
 
   def read_block_news
     @news = News.find(:all, :order => "date DESC", :limit => '2')
+  end
+
+  def read_all_news
+    @news = News.find(:all, :order => "date DESC")
   end
 
   def read_article(title)

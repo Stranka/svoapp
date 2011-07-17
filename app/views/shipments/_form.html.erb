@@ -3,7 +3,7 @@
     <%= form_for(@shipment) do |f| %>
       <% if @shipment.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
+          <h2><%= pluralize(@shipment.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
 
           <ul>
           <% @shipment.errors.full_messages.each do |msg| %>
@@ -28,7 +28,7 @@
         <%= f.label :weight_max %>
     </td>
     <td>
-        <%= f.text_field :weight_max %>
+        <%= f.number_field :weight_max, options = {:size => 10, :min => '0', :max => '99999'} %>
     </td>
   </tr>
       <tr class= "line<%= cycle('1', '2') %>">
@@ -36,7 +36,7 @@
         <%= f.label :lenght_max %>
     </td>
     <td>
-        <%= f.text_field :lenght_max %>
+        <%= f.number_field :lenght_max, options = {:size => 10, :min => '0', :max => '99999'} %>
     </td>
   </tr>
       <tr class= "line<%= cycle('1', '2') %>">

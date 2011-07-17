@@ -19,7 +19,7 @@ class Product < ActiveRecord::Base
 	validates_attachment_size :image, :less_than=> 2.megabytes
 	validates_attachment_size :sheet, :less_than=> 2.megabytes
 
-  validates_presence_of :shorttext, :productclass, :price, :tax_percentage, :image
+  validates_presence_of :shorttext, :productclass_id, :price, :tax_percentage, :image
 
   belongs_to :productclass
   has_many :basketlines

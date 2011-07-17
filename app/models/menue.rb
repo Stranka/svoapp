@@ -7,6 +7,7 @@ class Menue < ActiveRecord::Base
   acts_as_list :scope => :parent_id
 
   AC_ARTICLE = ['show_content', 'showme']
+  AC_NEWS = ['all_news', 'index']
   AC_REST = ['index']
 
 
@@ -18,6 +19,8 @@ class Menue < ActiveRecord::Base
           errors.add(:the_action, '-> Darf nicht -index- sein')
         end
         return true
+      when 'news'
+        return false
       when ''
         self.the_action = ''
         self.the_id = nil

@@ -1,0 +1,105 @@
+class PaymentsController < ApplicationController
+  # GET /payments
+  # GET /payments.xml
+  def index
+#    @payments = Payment.all
+    @payments = Payment.find(:all, :conditions => ['auth_level <= ?', @auth_show])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @payments }
+    end
+  end
+
+  # GET /payments/1
+  # GET /payments/1.xml
+  def show
+    @payment = Payment.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
+    if @payment 
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @payment }
+      end
+    else
+      flash[:notice] = t('access denied')
+      redirect_to(:action => 'index')
+    end
+
+  end
+
+  # GET /payments/new
+  # GET /payments/new.xml
+  def new
+    if @auth_edit >= 50    
+      @payment = Payment.new
+  
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml  { render :xml => @payment }
+      end
+    else
+      flash[:notice] = t('access denied')
+      redirect_to(:action => 'index')
+    end
+  end
+
+  # GET /payments/1/edit
+  def edit
+    @payment = Payment.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
+    if @payment 
+    else
+      flash[:notice] = t('access denied')
+      redirect_to(:action => 'index')
+    end    
+    
+  end
+
+  # POST /payments
+  # POST /payments.xml
+  def create
+    @payment = Payment.new(params[:payment])
+
+    respond_to do |format|
+      if @payment.save
+        format.html { redirect_to(@payment, :notice => Payment.human_name + ' ' + t('was successfully created')) }
+        format.xml  { render :xml => @payment, :status => :created, :location => @payment }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @payment.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /payments/1
+  # PUT /payments/1.xml
+  def update
+    @payment = Payment.find(params[:id])
+
+    respond_to do |format|
+      if @payment.update_attributes(params[:payment])
+        format.html { redirect_to(@payment, :notice => Payment.human_name + ' ' + t('was successfully updated')) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @payment.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /payments/1
+  # DELETE /payments/1.xml
+  def destroy   
+    @payment = Payment.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
+    if @payment
+      @payment.destroy
+
+      respond_to do |format|
+        format.html { redirect_to(payments_url) }
+        format.xml  { head :ok }
+      end
+    else
+      flash[:notice] = t('access denied')
+      redirect_to(:action => 'index')
+    end
+  end
+end

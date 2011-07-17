@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110709070359) do
+ActiveRecord::Schema.define(:version => 20110713155726) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -142,6 +142,15 @@ ActiveRecord::Schema.define(:version => 20110709070359) do
     t.datetime "updated_at"
   end
 
+  create_table "payments", :force => true do |t|
+    t.string   "name"
+    t.decimal  "cost",            :precision => 10, :scale => 0, :default => 0,   :null => false
+    t.integer  "auth_level",                                     :default => 0,   :null => false
+    t.integer  "auth_level_edit",                                :default => 0,   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "productclasses", :force => true do |t|
     t.string   "name"
     t.integer  "parent_id"
@@ -193,11 +202,11 @@ ActiveRecord::Schema.define(:version => 20110709070359) do
 
   create_table "shipments", :force => true do |t|
     t.string   "name"
-    t.integer  "weight_max"
-    t.integer  "lenght_max"
-    t.integer  "scale_id"
-    t.integer  "auth_level"
-    t.integer  "auth_level_edit"
+    t.integer  "weight_max",                                   :default => 0,   :null => false
+    t.integer  "lenght_max",                                   :default => 0,   :null => false
+    t.integer  "scale_id",                                     :default => 0,   :null => false
+    t.integer  "auth_level",                                   :default => 0,   :null => false
+    t.integer  "auth_level_edit",                              :default => 0,   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -251,3 +260,4 @@ ActiveRecord::Schema.define(:version => 20110709070359) do
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token", :unique => true
 
 end
+

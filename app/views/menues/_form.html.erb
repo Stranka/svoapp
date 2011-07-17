@@ -5,7 +5,7 @@
     <%= form_for(@menue,:html => { :name => 'menue' }) do |f| %>
       <% if @menue.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@menue.errors.count, "error") %> prohibited this menue from being saved:</h2>
+          <h2><%= pluralize(@menue.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
 
           <ul>
           <% @menue.errors.full_messages.each do |msg| %>
@@ -53,7 +53,11 @@
       <% if @menue.the_controller == 'articles' %>
         <%= f.select :the_action, options_for_select(Menue::AC_ARTICLE,@menue.the_action), :prompt => t('please select')  %>
       <% else %>
-        <%= f.select :the_action, options_for_select(Menue::AC_REST,@menue.the_action), :prompt => t('please select')  %>
+        <% if @menue.the_controller == 'news'  %>
+          <%= f.select :the_action, options_for_select(Menue::AC_NEWS,@menue.the_action), :prompt => t('please select')  %>
+        <% else %>
+          <%= f.select :the_action, options_for_select(Menue::AC_REST,@menue.the_action), :prompt => t('please select')  %>
+        <% end %>
       <% end %>
       </td>
   </tr>

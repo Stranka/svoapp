@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
 
-  validates_presence_of :name, :content, :format
+  validates_presence_of :name, :content
 
   FORMAT = ["textile", "raw"];
 

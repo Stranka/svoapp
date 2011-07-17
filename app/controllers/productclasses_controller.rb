@@ -3,7 +3,7 @@ class ProductclassesController < ApplicationController
   # GET /productclasses.xml
   def index
     @productclasses = Productclass.find(:all, :conditions => ['auth_level <= ?', @auth_show])
-    
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @productclasses }
@@ -14,7 +14,7 @@ class ProductclassesController < ApplicationController
   # GET /productclasses/1.xml
   def show
     @productclass = Productclass.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
-    if @productclass 
+    if @productclass
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @productclass }
@@ -24,14 +24,14 @@ class ProductclassesController < ApplicationController
       redirect_to(:action => 'index')
     end
   end
-  
+
   # GET /productclasses/new
   # GET /productclasses/new.xml
   def new
-    if @auth_edit >= 50    
+    if @auth_edit >= 50
       @productclass = Productclass.new
-      @prclasses = Productclass.find(:all) 
-      
+      @prclasses = Productclass.find(:all)
+
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @productclass }
@@ -40,22 +40,23 @@ class ProductclassesController < ApplicationController
       flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
-  end    
+  end
 
   # GET /productclasses/1/edit
   def edit
     @productclass = Productclass.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
-    if @productclass 
+    if @productclass
     else
       flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
-    end 
+    end
     @prclasses = Productclass.find(:all)
   end
 
   # POST /productclasses
   # POST /productclasses.xml
   def create
+    @prclasses = Productclass.find(:all)
     @productclass = Productclass.new(params[:productclass])
     if @productclass.parent_id == nil
       @productclass.parent_id = 0
@@ -64,11 +65,11 @@ class ProductclassesController < ApplicationController
     if params[:productclass][:picture_field] != nil
       pic = params[:productclass][:picture_field]
       @productclass.picture = pic.original_filename
-      
-      complete_path = Rails.root.to_s + '/public/images/' + pic.original_filename    
+
+      complete_path = Rails.root.to_s + '/public/images/' + pic.original_filename
       FileUtils.copy(pic.tempfile.path, complete_path)
     end
-        
+
     respond_to do |format|
       if @productclass.save
         format.html { redirect_to(@productclass, :notice => Productclass.human_name + ' ' + t('was successfully created')) }
@@ -83,6 +84,7 @@ class ProductclassesController < ApplicationController
   # PUT /productclasses/1
   # PUT /productclasses/1.xml
   def update
+    @prclasses = Productclass.find(:all)
     @productclass = Productclass.find(params[:id])
     if @productclass.parent_id == nil
       @productclass.parent_id = 0
@@ -91,11 +93,11 @@ class ProductclassesController < ApplicationController
     if params[:productclass][:picture_field] != nil
       pic = params[:productclass][:picture_field]
       @productclass.picture = pic.original_filename
-      
-      complete_path = Rails.root.to_s + '/public/images/' + pic.original_filename    
+
+      complete_path = Rails.root.to_s + '/public/images/' + pic.original_filename
       FileUtils.copy(pic.tempfile.path, complete_path)
     end
-            
+
     respond_to do |format|
       if @productclass.update_attributes(params[:productclass])
         format.html { redirect_to(@productclass, :notice => Productclass.human_name + ' ' + t('was successfully updated')) }
@@ -123,7 +125,7 @@ class ProductclassesController < ApplicationController
       redirect_to(:action => 'index')
     end
   end
-  
+
   def click
     @tree = Tree.find(:first, :conditions => ['session_id = ? and model = ? and model_id = ?', request.session_options[:id], 'productclass', params[:id]])
 #    @menue = Menue.find(params[:id])
@@ -139,7 +141,7 @@ class ProductclassesController < ApplicationController
       else
         @tree.ancestry = 'close'
       end
-    end 
+    end
     @tree.save
     redirect_to(:controller => params[:co], :action => params[:ac], :id => params[:pid])
   end
@@ -151,7 +153,7 @@ class ProductclassesController < ApplicationController
     redirect_to(:controller => params[:co], :action => params[:ac], :id => params[:pid])
 
   end
-  
+
   def down
     @productclass = Productclass.find(params[:id])
     @productclass.move_lower
@@ -159,3 +161,4 @@ class ProductclassesController < ApplicationController
     redirect_to(:controller => params[:co], :action => params[:ac], :id => params[:pid])
   end
 end
+

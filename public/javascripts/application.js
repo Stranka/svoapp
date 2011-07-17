@@ -26,6 +26,15 @@ setInterval(function(){
     }
     else if (co.options
     [co.selectedIndex].
+    value == "news")
+    {
+    ac.options.length = 0;
+    ac.options[0] = new Option("all_news");
+    ac.options[1] = new Option("index");
+    document.getElementById("the_id").hide()
+    }
+    else if (co.options
+    [co.selectedIndex].
     value == "")
     {
     document.getElementById("the_id").hide()

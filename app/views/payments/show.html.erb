@@ -1,0 +1,54 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+      <%= t('Show ') + Payment.human_name %>
+    </td>
+  </tr>
+  <tr class="linemain">
+    <td colspan="2">
+      <%= notice %>
+    </td>
+  </tr>
+
+  <tr class="line<%= cycle('1', '2') %>">
+    <td width="20%">
+      <%= Payment.human_attribute_name('name') %>
+    </td>
+    <td>
+      <%= @payment.name %>
+    </td>
+  </tr>
+
+  <tr class="line<%= cycle('1', '2') %>">
+    <td width="20%">
+      <%= Payment.human_attribute_name('cost') %>
+    </td>
+    <td>
+      <%= @payment.cost %>
+    </td>
+  </tr>
+
+  <tr class="line<%= cycle('1', '2') %>">
+    <td width="20%">
+      <%= Payment.human_attribute_name('auth_level') %>
+    </td>
+    <td>
+      <%= @payment.auth_level %>
+    </td>
+  </tr>
+
+  <tr class="line<%= cycle('1', '2') %>">
+    <td width="20%">
+      <%= Payment.human_attribute_name('auth_level_edit') %>
+    </td>
+    <td>
+      <%= @payment.auth_level_edit %>
+    </td>
+  </tr>
+
+  <tr class="linemain">
+    <td colspan="2">
+  <%= link_to t('Edit'), edit_payment_path(@payment) %> |
+  <%= link_to t('Back'), payments_path %>
+    </td>
+  </tr>
+

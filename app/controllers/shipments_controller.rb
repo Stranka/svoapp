@@ -14,7 +14,7 @@ class ShipmentsController < ApplicationController
   # GET /shipments/1.xml
   def show
     @shipment = Shipment.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
-    if @shipment 
+    if @shipment
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @shipment }
@@ -29,9 +29,9 @@ class ShipmentsController < ApplicationController
   # GET /shipments/new
   # GET /shipments/new.xml
   def new
-    if @auth_edit >= 50    
+    if @auth_edit >= 50
       @shipment = Shipment.new
-  
+
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @shipment }
@@ -45,12 +45,12 @@ class ShipmentsController < ApplicationController
   # GET /shipments/1/edit
   def edit
     @shipment = Shipment.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
-    if @shipment 
+    if @shipment
     else
       flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
-    end    
-    
+    end
+
   end
 
   # POST /shipments
@@ -87,7 +87,7 @@ class ShipmentsController < ApplicationController
 
   # DELETE /shipments/1
   # DELETE /shipments/1.xml
-  def destroy   
+  def destroy
     @shipment = Shipment.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
     if @shipment
       @shipment.destroy
@@ -102,3 +102,4 @@ class ShipmentsController < ApplicationController
     end
   end
 end
+
