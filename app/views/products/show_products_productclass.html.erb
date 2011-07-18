@@ -1,19 +1,26 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="5">
-      <% if @products.first != nil %>
-	      <%= t('Listing Catagory ') + @products.first.productclass.name %>
+      <% if params[:pquery] == '' or params[:pquery] == nil %>
+        <% if @products.first != nil %>
+	        <%= t('Listing Catagory ') + @products.first.productclass.name %>
+	      <% else %>
+          <%= t('Listing ') + Product.human_name %>
+	      <% end %>
 	    <% else %>
-        <%= t('Listing ') + Product.human_name %>
+	      <%= flash[:notice] %>
+	      <% flash[:notice] = nil %>
 	    <% end %>
     </td>
   </tr>
-
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="5">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
+  <% if params[:pquery] == '' or params[:pquery] == nil %>
+    <% if flash[:notice]%>
+      <tr class="lineerror">
+        <td colspan="5">
+          <%= flash[:notice] %>
+          <% flash[:notice] = nil %>
+        </td>
+      </tr>
+    <% end %>
   <% end %>
 
   <tr class="lineheader">

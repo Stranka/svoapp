@@ -366,3 +366,17 @@ de:
       create: "Hinzufügen %{model}"
       update: "Ändern %{model}"
 
+  authlogic:
+    error_messages:
+      login_blank: 'fehlt'
+      login_not_found: 'ist nicht gültig'
+      login_invalid: 'darf nur aus folgenden Zeichen .-_ <at> bestehen.'
+      consecutive_failed_logins_limit_exceeded: 'zuviele Fehlversuche, Account ist gesperrt'
+      email_invalid: 'ist keine gültige eMail-Adresse'
+      password_blank: 'darf nicht leer sein'
+      password_invalid: 'ist nicht gültig'
+      not_active: 'Account ist nicht aktiv'
+      not_confirmed: 'Account ist nicht überprüft'
+      not_approved: 'Account ist nicht überprüft'
+      no_authentication_details: 'Nicht alle nötigen Informationen'
+
