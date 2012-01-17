@@ -21,14 +21,14 @@
 
 <% @search.each do |search| %>
   <tr class= "line<%= cycle('1', '2') %>">
-    <td><a href="<%= search.name %>" onclick="$('article_content<%= search.id %>').grow(); return false;"><%= search.name %> (<%= search.auth_level_edit %>)</a></td>
+    <td><a href="#" onclick="$('#article_content<%= search.id %>').show('slow');"><%= search.name %> (<%= search.auth_level_edit %>)</a></td>
   </tr>
   <tr id='article_content<%= search.id %>' style="display:none;" class= "line<%= cycle('1', '2') %>">
     <td>
       <div class="search_result">
-        <a href="#" onclick="$('article_content<%= search.id %>').hide(); return false;"><%= t('hide')%></a>
+        <a href="#" onclick="$('#article_content<%= search.id %>').hide();"><%= t('hide')%></a>
         <%= raw(search.content) %>
-        <a href="#" onclick="$('article_content<%= search.id %>').hide(); return false;"><%= t('hide')%></a>
+        <a href="#" onclick="$('#article_content<%= search.id %>').hide();"><%= t('hide')%></a>
       </div>
     </td>
   </tr>

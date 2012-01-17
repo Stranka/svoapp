@@ -17,24 +17,24 @@
           <% end %>
 
           <% if menue.the_url? %>
-            <%= link_to menue.name, menue.the_url , :target => "_blank" %>
+            <%= link_to t(menue.name), menue.the_url , :target => "_blank" %>
           <% else %>
             <% if menue.the_action == '' %>
-              <%= link_to menue.name, :controller => 'menues', :action => 'click', :id => menue.id, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
+              <%= link_to t(menue.name), :controller => 'menues', :action => 'click', :id => menue.id, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
             <% else %>
-              <%= link_to menue.name, :controller => menue.the_controller, :action => menue.the_action, :id => menue.the_id %>
+              <%= link_to t(menue.name), :controller => menue.the_controller, :action => menue.the_action, :id => menue.the_id %>
             <% end %>
           <% end %>
 
         <% else %>
           <img src= <%=@dot %> alt="nix">
           <% if menue.the_url? %>
-            <%= link_to menue.name, menue.the_url , :target => "_blank" %>
+            <%= link_to t(menue.name), menue.the_url , :target => "_blank" %>
           <% else %>
             <% if menue.the_action == '' %>
-              <%= menue.name %>
+              <%= t(menue.name) %>
             <% else %>
-              <%= link_to menue.name, :controller => menue.the_controller, :action => menue.the_action, :id => menue.the_id %>
+              <%= link_to t(menue.name), :controller => menue.the_controller, :action => menue.the_action, :id => menue.the_id %>
             <% end %>
           <% end %>
         <% end %>

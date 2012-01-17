@@ -34,7 +34,14 @@
 
   <% @basket.basketlines.each do |b| %>
     <tr class= "line<%= cycle('1', '2') %>">
-      <td width="5%"><%= link_to (image_tag (b.product.image.url(:thumb))), :controller => 'products', :action => 'product_detail', :id => b.product.id %></td>
+      <% anzahl = 0 %>
+      <% b.product.assets.each do |asset| %>
+        <% anzahl += 1 %>
+        <% if anzahl < 2 %>
+          <td width="5%"><%= link_to (image_tag (asset.image.url(:small))), :controller => 'products', :action => 'product_detail', :id => b.product.id %></td>
+        <% end %>
+      <% end %>
+
       <td><%= b.product.shorttext %></td>
       <td>
       <%= form_for b, :url => {:controller => 'baskets', :action => 'add_to_basket', :id => b.product.id} do |p| %>

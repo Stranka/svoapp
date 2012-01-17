@@ -39,31 +39,31 @@ module ApplicationHelper
 
 
   def read_userblock_1
-    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
+#    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
   end
   def read_userblock_2
-    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
+#    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
   end
   def read_userblock_3
-    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
+#    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
   end
   def read_userblock_4
-    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
+#    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
   end
   def read_userblock_5
-    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
+#    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
   end
   def read_userblock_6
-    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
+#    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
   end
   def read_userblock_7
-    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
+#    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
   end
   def read_userblock_8
-    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
+#    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
   end
   def read_userblock_9
-    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
+#    @article = Article.find(:all, :conditions => {:name => 'Referenzen'})
   end
 
 end

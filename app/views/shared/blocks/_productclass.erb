@@ -14,9 +14,9 @@
           <% else %>
             <%= link_to image_tag(@minus, :border=>0, :alt =>'minus'), :controller => 'productclasses', :action => 'click', :id => productclass.id, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
           <% end %>
-          <%= link_to productclass.name, :controller => 'productclasses', :action => 'click', :id => productclass.id, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
+          <%= link_to t(productclass.name), :controller => 'productclasses', :action => 'click', :id => productclass.id, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
         <% else %>
-          <img src= <%=@dot %> alt="nix"> <%= link_to productclass.name, :controller => 'products', :action => 'show_products_productclass', :id => productclass.id %>
+          <img src= <%=@dot %> alt="nix"> <%= link_to t(productclass.name), :controller => 'products', :action => 'show_products_productclass', :id => productclass.id %>
         <% end %>
         <% if @auth_edit >= 80 and @config.manage_tree == true %>
           <%= link_to image_tag(@up, :border=>0, :alt =>'up'), :controller => 'productclasses',:action => 'up', :id => productclass, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>

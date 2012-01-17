@@ -1,7 +1,6 @@
-  <tr class="line<%= cycle('1', '2') %>">
-    <td colspan="2">
-      <%= image_tag (product.image.url(:content)) %>
-    </td>
-
-  </tr>
+  <% product.assets.each do |asset| %>
+    <tr class="line<%= cycle('1', '2') %>">
+      <td width="5%"><%= link_to( image_tag(asset.image.url(:content)), asset.image.url(:original),:target => "_blank" ) %></td>
+    </tr>
+  <% end %>
 

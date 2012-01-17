@@ -7,15 +7,23 @@ class ApplicationController < ActionController::Base
   before_filter :get_config
   before_filter :get_blocks
   before_filter :require_user, :except => [:articles,:showme,:show_content,:permalink,:search_all,
-                                           :products,:show_products_productclass,
-                                           :baskets,:add_to_basket,:show_my_open_order,:checkout,
+                                           :products,:show_products_productclass, :product_detail,
+                                           :baskets,:add_to_basket,:show_my_open_order,:checkout, :checkout_step_1,
                                            :productclasses,:click,
-                                           :menues,:click,
+                                           :menues,:click, :change_language,
                                            :customers,:new,:create,
                                            :news,:all_news,
-                                           :user_sessions, :new]
+                                           :user_sessions, :new,
+                                           :errors, :show_error_page,
+                                           :tootips, :tooltip_content]
+
+  before_filter :set_locale
 
   helper_method :current_user_session, :current_user
+
+#  rescue_from(Exception) { # Or just handle particular exceptions
+#  redirect_to :controller => "errors", :action => "show_error_page"
+#  }
 
 
   def get_config
@@ -24,6 +32,7 @@ class ApplicationController < ActionController::Base
     @ebene_menue = -1
     @config.theme.nil? ? @config.theme = "gray" : true
     @stylesheet = @config.theme + '/nuke.css'
+    @printsheet = @config.theme + '/print.css'
     @imagepath = '/stylesheets/' + @config.theme + '/images/'
     @logo = @imagepath + 'logo.png'
     @plus = @imagepath +  'plus.png'
@@ -34,8 +43,12 @@ class ApplicationController < ActionController::Base
     @shop_cart = @imagepath + 'shop_cart.gif'
     @picture_size = 2048000
     @CO = ['', 'articles', 'baskets', 'blocks', 'configurations', 'menues', 'news', 'pictures', 'productclasses', 'products',
-               'shipments', 'users', 'payments']
+               'shipments', 'users', 'payments', 'tooltips']
   end
+
+# setzt den authorisationlevel
+# liest die Blocks, die links und/oder rechts angezeigt werden
+# stellt den Startartikel zur Verfügung
 
   def get_blocks
     if current_user == nil
@@ -106,6 +119,15 @@ class ApplicationController < ActionController::Base
     def get_all_actions(cont)
       c= Module.const_get(cont.to_s.pluralize.capitalize + "Controller")
       c.public_instance_methods(false).reject{ |action| ['rescue_action'].include?(action) }
+    end
+
+    def set_locale
+      I18n.locale = params[:locale] || I18n.default_locale
+    end
+
+    def default_url_options(options={})
+      logger.debug "default_url_options is passed options: #{options.inspect}\n"
+      { :locale => I18n.locale }
     end
 
 end

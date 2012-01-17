@@ -55,7 +55,7 @@
         <%= f.label :title %>
     </td>
     <td>
-        <%= f.text_field :title %>
+        <%= f.select :title, options_for_select(Customer::TITLES,@customer.title), :prompt => t('please select')  %>
     </td>
   </tr>
       <tr class= "line<%= cycle('1', '2') %>">

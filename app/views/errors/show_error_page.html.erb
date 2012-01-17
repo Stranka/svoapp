@@ -1,0 +1,14 @@
+  <tr>
+    <td class ="myTitle" width="100%" colspan="9">
+	     <%= t('error500') %>
+    </td>
+  </tr>
+
+  <% if flash[:error]%>
+    <tr class="lineerror">
+      <td colspan="5">
+        <%= flash[:error] %>
+      </td>
+    </tr>
+  <% end %>
+

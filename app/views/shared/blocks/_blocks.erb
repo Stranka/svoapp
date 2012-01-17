@@ -3,13 +3,13 @@
     <% if block.active == true %>
       <tr>
         <td class="myTitle" width="100%">
-          <%= block.name %>
+          <%= t(block.name) %>
         </td>
       </tr>
       <%if @config.block_headerline == true %>
         <tr class="linemain">
           <td>
-            <%= block.headerline? ? block.headerline : block.name  %>
+            <%= block.headerline? ? t(block.headerline) : t(block.name)  %>
           </td>
         </tr>
       <% end %>

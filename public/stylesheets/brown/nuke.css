@@ -18,14 +18,16 @@ body { font-family: Verdana, 'Lucida Grande', Arial, Helvetica, sans-serif; font
 
 .sidebar { vertical-align: top; }
 .topimage { margin-bottom: 6px; }
-.myTitle { padding:1px; border:1px none #4D4D4D; font-weight: bold; font-size: 95%; color: #FFFFFF; background-image: url('images/brown_linea.gif'); text-align: center; }
+.myTitle { padding:1px; border:1px none #4D4D4D; font-weight: bold; font-size: 95%; color: #FFFFFF; background-image: url('images/brown_linea.gif'); border-radius: 0px 0px 0px 0px; text-align: center; }
 
 .line1 { color: #ffffff; background-color: #6F6B68; text-align: left; font-size: 80%; }
 .line1 td { padding: 3px; }
 .line1 td a { color: #dcdc30; text-decoration: none; }
+.line1 td a img { color: #6F6B68; text-decoration: none; }
 .line2 { font-size: 80%; background-color: #393536; text-align: left; color: #ffffff; }
 .line2 td { padding: 3px; }
 .line2 td a { color: #dcdc30; text-decoration: none; }
+.line2 td a img { color: #393536; text-decoration: none; }
 
 .linemain { font-size: 85%; color: #000000; background-color: #CCB8A7; text-align: center; }
 .lineheader { color: #000000; text-indent: 2px; background-color: #CCB8A7; text-align: left; }

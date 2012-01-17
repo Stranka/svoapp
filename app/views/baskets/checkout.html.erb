@@ -29,17 +29,17 @@
       <%=t('deliveryaddress')%>
       <%= link_to t('edit'), :controller => 'customers', :action => 'edit', :id => @basket.customer.id, :mode => 'basket' %>
     </td>
-      <% if @basket.customer.deliveryaddress.nil? %>
+    <% if @basket.customer.deliveryaddress.nil? %>
       <td><%= @basket.customer.billingaddress.street %><br>
           <%= @basket.customer.billingaddress.zipcode %>&nbsp;<%= @basket.customer.billingaddress.city %><br>
           <%= @basket.customer.billingaddress.country %>
       </td>
-  <% else %>
+    <% else %>
       <td><%= @basket.customer.deliveryaddress.street %><br>
           <%= @basket.customer.deliveryaddress.zipcode %><%= @basket.customer.deliveryaddress.city %><br>
           <%= @basket.customer.deliveryaddress.country %>
       </td>
-  <% end %>
+    <% end %>
     </tr>
       <tr class= "line<%= cycle('1', '2') %>">
     <td>

@@ -14,6 +14,7 @@ gem 'amount_field_rails3', :require => 'amount_field'
 gem "tabs_on_rails"
 gem 'ckeditor', '3.5.0'
 gem "paperclip", "~> 2.3"
+gem 'simple-tooltip'
 
 
 # Use unicorn as the web server

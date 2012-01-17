@@ -23,9 +23,11 @@ body { font-family: Verdana, 'Lucida Grande', Arial, Helvetica, sans-serif; font
 .line1 { color: #000000; background-color: #BFBFBF; text-align: left; font-size: 80%; }
 .line1 td { padding: 3px; }
 .line1 td a { color: #840500; text-decoration: none; }
+.line1 td a img { color: #BFBFBF; text-decoration: none; }
 .line2 { font-size: 80%; background-color: #999999; text-align: left; color: #000000; }
 .line2 td { padding: 3px; }
 .line2 td a { color: #840500; text-decoration: none; }
+.line2 td a img { color: #BFBFBF; text-decoration: none; }
 
 .linemain { font-size: 85%; color: #ffffff; background-color: #737373; text-align: center; }
 .lineheader { color: #ffffff; text-indent: 2px; background-color: #737373; text-align: left; }

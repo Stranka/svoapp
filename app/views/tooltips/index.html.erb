@@ -1,0 +1,43 @@
+
+  <tr>
+    <td class ="myTitle" width="100%" colspan="7">
+      <%= t('Listing ') + Tooltip.human_name %>
+    </td>
+  </tr>
+
+  <% if flash[:notice]%>
+    <tr class="lineerror">
+      <td colspan="4">
+        <%= flash[:notice] %>
+      </td>
+    </tr>
+  <% end %>
+
+  <tr class="lineheader">
+    <td><%= Tooltip.human_attribute_name('title') %></td>
+    <td><%= Tooltip.human_attribute_name('locale') %></td>
+    <td><%= Tooltip.human_attribute_name('markup') %></td>
+
+    <td><%= t('action') %></td>
+  </tr>
+
+  <% @tooltips.each do |tooltip| %>
+    <tr class= "line<%= cycle('1', '2') %>">
+      <td><%= tooltip.title %></td>
+      <td><%= tooltip.locale %></td>
+      <td><%= tooltip.markup %></td>
+
+      <td align="right">
+        <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), tooltip %>
+        <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_tooltip_path(tooltip) %>
+        <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), tooltip, :confirm => t('Are you sure?'), :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+
+  <tr class="linemain">
+    <td colspan="7">
+  <%= link_to t('New ') + Tooltip.human_name, new_tooltip_path %>
+    </td>
+  </tr>
+

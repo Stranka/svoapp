@@ -36,6 +36,7 @@ class ProductsController < ApplicationController
     if @auth_edit >= 50
       @product = Product.new
       @productclasses = Productclass.all
+      2.times { @product.assets.build }
 
       respond_to do |format|
         format.html # new.html.erb
@@ -51,6 +52,8 @@ class ProductsController < ApplicationController
   def edit
     @productclasses = Productclass.all
     @product = Product.find(:first, :conditions => ['id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
+    2.times { @product.assets.build }
+
     if @product
     else
       flash[:notice] = t('access denied')

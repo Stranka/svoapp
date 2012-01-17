@@ -1,7 +1,7 @@
   <% if @config.show_title == true %>
     <tr>
       <td class ="myTitle" width="100%">
-        <%= @showarticle.name %>
+        <%= @showarticle.name %><%#= link_to_function(image_tag("print.png", :border=>0, :alt => t('print'), :title => t('print')), "javascript:print()") %>
       </td>
     </tr>
   <% end %>
@@ -13,13 +13,13 @@
     </tr>
   <% end %>
   <tr class="line<%= cycle('1', '2') %>">
-    <td>
+    <td colspan="2">
     <%= raw(@showarticle.content) %>
     </td>
   </tr>
 
   <tr class="linemain">
-    <td>
+    <td colspan="2">
       <% if params[:mode] == 'basket' %>
         <%= link_to t('Back'), :back  %>
       <% else %>

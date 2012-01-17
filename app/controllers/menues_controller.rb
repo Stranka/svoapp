@@ -151,5 +151,10 @@ class MenuesController < ApplicationController
     redirect_to(:controller => params[:co], :action => params[:ac], :id => params[:pid])
   end
 
+  def change_language
+    I18n.locale = params[:language]
+    redirect_to home_path
+  end
+
 end
 

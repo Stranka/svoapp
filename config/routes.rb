@@ -1,5 +1,13 @@
 RailsNuke::Application.routes.draw do
 
+  resources :tooltips do
+             collection do
+               get 'tooltip_content'
+             end
+           end
+
+  resources :errors
+
   resources :payments
 
   resources :pictures
@@ -64,6 +72,7 @@ RailsNuke::Application.routes.draw do
       get 'click'
       get 'up'
       get 'down'
+      get 'change_language'
     end
   end
 
@@ -135,6 +144,6 @@ RailsNuke::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
+
 end
 

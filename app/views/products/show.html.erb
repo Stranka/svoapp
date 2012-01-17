@@ -12,7 +12,9 @@
 
     <tr class="line<%= cycle('1', '2') %>">
       <td width ="20%">
-        <%= image_tag @product.image.url %>
+        <% @product.assets.each do |asset| %>
+          <%= link_to( image_tag(asset.image.url(:thumb)), asset.image.url(:original),:target => "_blank" ) %>
+        <% end %>
       </td>
       <td>
         <%= raw(@product.description) %>
@@ -111,8 +113,8 @@
 
   <tr class="line<%= cycle('1', '2') %>">
     <td>
-  	 <%#= Product.human_attribute_name('sheet') %>
-  	 <%= image_tag (@product.sheet.url(:preview)) if @product.sheet_file_name != nil %>
+      <%#= Product.human_attribute_name('sheet') %>
+  	  <%= image_tag (@product.sheet.url(:preview)) if @product.sheet_file_name != nil %>
     </td>
     <td>
       <% if @product.sheet_file_name != nil %>

@@ -2,8 +2,12 @@
 <html>
   <head>
     <title><%= @config.title %></title>
-    <%= stylesheet_link_tag @stylesheet %>
+    <%= stylesheet_link_tag @stylesheet, :media => :screen %>
+    <%= stylesheet_link_tag @printsheet, :media => :print %>
+    <%= stylesheet_link_tag("simple_tooltip") %>
     <%= javascript_include_tag :all %>
+    <%#=WICHTIG es muss sichergestellt sein, dass die rails.js nach der jquery.js geladen wird    %>
+    <%#=darum habe ich die rails.js in rails-3.0 umbenannt, weil sie sonst vor der jquery.js geladen werden würde    %>
     <%= csrf_meta_tag %>
   </head>
   <body>
@@ -13,14 +17,20 @@
         <td colspan="3" align=<%= @config.position_logo %> ><img src="<%=@logo %>" alt="Logo"></td>
       </tr>
       <tr class="nav">
-        <td colspan="3"> <ul> <%= render :partial => "shared/menue", :collection => @menue_top, :as => :menue %> </ul></td>
+        <td colspan="3"> <ul> <%= render :partial => "shared/menue", :collection => @menue_top, :as => :menue %>
+        <li><%= link_to_function(image_tag("print.png", :border=>0, :alt => t('print'), :title => t('print')), "javascript:print()") %></li>
+        </ul></td>
       </tr>
       <tr class="container">
         <% if @config.block_left == true %>
-          <td class="sidebar" width=<%=@config.block_left_width%>%> <%= render :partial => "shared/blocks/blocks", :collection => @lblocks, :as => :block %> </td>
+          <td class="sidebar" width=<%=@config.block_left_width%>%>
+            <%= render :partial => "shared/blocks/blocks", :collection => @lblocks, :as => :block %>
+          </td>
         <% end %>
         <td valign="top">
-          <% if @config.topimage == true and controller.action_name == 'showme' %> <div class="topimage" align="center"><%= render :partial => "shared/topimage" %> </div> <% end %>
+          <% if @config.topimage == true and controller.action_name == 'showme' %>
+            <div class="topimage" align="center"><%= render :partial => "shared/topimage" %> </div>
+          <% end %>
           <table class="content" align="center">
             <%= yield %>
           </table>

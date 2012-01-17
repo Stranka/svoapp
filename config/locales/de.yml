@@ -1,5 +1,55 @@
 de:
 
+#Menues
+  'Home': 'Start'
+  'Impressum': 'Impressum'
+  'Applikationen': 'Applikationen'
+  'Services': 'Services'
+  'News': 'News'
+  'Mittenin': 'Mittenin'
+  'Administration': 'Administration'
+  'Blöcke': 'Blöcke'
+  'Konfiguration': 'Konfiguration'
+  'Benutzer': 'Benutzer'
+  'Artikel': 'Artikel'
+  'Tooltips': 'Tooltips'
+  'Upload Datei': 'Upload Datei'
+  'Shop Administration': 'Shop Administration'
+  'Basket': 'Warenkorb'
+  'Produkte': 'Produkte'
+  'Versandart': 'Versandart'
+  'Zahlungsarten': 'Zahlungsarten'
+
+#Produktkatalog
+  'Bücher': 'Bücher'
+  'Krimis': 'Krimis'
+  'Inland': 'Inland'
+  'Ausland': 'Ausland'
+  'Sachbücher': 'Sachbücher'
+  'DVDs': 'DVDs'
+  'Action': 'Action'
+  'Horror': 'Horror'
+  'VHS': 'VHS'
+
+#Blocks
+  'Menü': 'Menü'
+  'Suche': 'Suche'
+  'Produktkatalog': 'Produktkatalog'
+  'Warenkorb': 'Warenkorb'
+  'Login': 'Login'
+  'Referenzen': 'Referenzen'
+  'Kundenmeinungen': 'Kundenmeinungen'
+  'Anmeldeinformationen': 'Anmeldeinformationen'
+  'Seitennavigation': 'Seitennavigation'
+  'Was sich bei uns tut': 'Was sich bei uns tut'
+  'Was unsere Kunden sagen': 'Was unsere Kunden sagen'
+  'Einige unserer Kunden': 'Einige unserer Kunden'
+  'Unser Angebot': 'Unser Angebot'
+  'Informationen': 'Informationen'
+  'Suche in Artikeln': 'Suche in Artikeln'
+  'Produktsuche': 'Produktsuche'
+  'Sprache wählen': 'Sprache wählen'
+
   'block_left': "Blockstruktur links anzeigen"
   'block_right': "Blockstruktur rechts anzeigen"
   'Listing ': 'Auflistung '
@@ -17,6 +67,8 @@ de:
   'Delete': 'Löschen'
   'back': 'zurück'
   'Back': 'zurück'
+  'print': 'Drucken'
+  'Print': 'Drucken'
   'Download': 'Download'
   'Logout': 'Abmelden'
   'login': 'Anmelden'
@@ -81,6 +133,8 @@ de:
   'Disclaimer have to be acctepted': 'Widerruf muß bestätigt werden'
   'error': 'Fehler'
   'error_explanation': 'verhindern das Speichern:'
+  'ups': 'UPS. Es tut uns leid, etwas ist schiefgelaufen. Wir wurden bereits von diesem Fehlerfall benachrichtigt und werden ihn umgehend analysieren'
+  'error500': 'Es tut uns leid, etwas ist schiefgelaufen (500)'
 
   date:
     formats:

@@ -58,7 +58,7 @@
   </tr>
       <tr class= "line<%= cycle('1', '2') %>">
     <td>
-        <%= f.label :special_price %>
+        <%= f.label :special_price %>&nbsp &nbsp <%= tooltip('admin_product_special_price', :hoover) %>
     </td>
     <td>
         <%= f.text_field :special_price, :value => number_to_currency(@product.special_price, :unit=>"", :locale => 'de') %>
@@ -104,22 +104,47 @@
         <%= f.text_field :tax_percentage %>
     </td>
   </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
+  <tr class= "line<%= cycle('1', '2') %>">
     <td>
         <%= f.label :image %>
     </td>
     <td>
-        <%= f.file_field:image %>
-        <%= image_tag (@product.image.url(:thumb)) if @product.image_file_name != nil %>
+        <%= f.fields_for :assets do |asset| %>
+
+           <% if asset.object.new_record? %>
+                 <%= asset.file_field :image %></br>
+           <% end %>
+
+       <% end %>
     </td>
   </tr>
+
       <tr class= "line<%= cycle('1', '2') %>">
     <td>
-        <%= f.label :sheet %>
+        <%= f.label :image %>&nbsp &nbsp <%= tooltip('admin_product_delete_picture', :hoover) %>
+    </td>
+    <td>
+
+     <% f.fields_for :assets do |asset| %>
+       <% unless asset.object.new_record? %>
+        <%= link_to( image_tag(asset.object.image.url(:thumb)), asset.object.image.url(:original),:target => "_blank" ) %>
+        <%= asset.check_box :_destroy %>
+      <% end %>
+    <% end %>
+
+    </td>
+  </tr>
+
+
+
+      <tr class= "line<%= cycle('1', '2') %>">
+    <td>
+        <%= f.label :sheet %>&nbsp &nbsp <%= tooltip('admin_product_delete_sheet', :hoover) %>
     </td>
     <td>
         <%= f.file_field :sheet %>
         <%= image_tag (@product.sheet.url(:preview)) if @product.sheet_file_name != nil %>
+        <%= f.check_box(:delete_sheet) %>
     </td>
   </tr>
       <tr>

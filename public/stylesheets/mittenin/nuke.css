@@ -18,15 +18,17 @@ body { font-family: Verdana, Arial, Tahoma, Geneva, sans-serif; font-size: 100%;
            margin-bottom: 6px; margin-top: 10px; }
 
 .sidebar { vertical-align: top;}
-.topimage { margin-bottom: 6px; margin-top: 16px; margin-left: 0px; margin-right: 0px; float: left; }
+.topimage { margin-bottom: 6px; margin-top: 16px; margin-left: 0px; margin-right: 0px; float: middle; }
 .myTitle { border-top: 3px double; border-bottom: 1px solid; border-color: #a60000; font-weight: normal; font-size: 95%; color: #000000; text-align: left }
 
 .line1 { color: #000000; background-color: #FFFFFF; text-align: left; font-size: 80%; }
 .line1 td { padding: 3px; }
 .line1 td a { color: #840500; text-decoration: none; }
+.line1 td a img { color: #FFFFFF; text-decoration: none; }
 .line2 { font-size: 80%; background-color: #FFFFFF; text-align: left; color: #000000; }
 .line2 td { padding: 3px; }
 .line2 td a { color: #840500; text-decoration: none; }
+.line2 td a img { color: #FFFFFF; text-decoration: none; }
 
 .linemain { font-size: 85%; color: #ffffff; background-color: #FFFFFF; text-align: center; }
 .lineheader { color: #ffffff; text-indent: 2px; background-color: #FFFFFF; text-align: left; }

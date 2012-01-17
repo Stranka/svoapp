@@ -3,6 +3,14 @@
 
   <tr class= "line<%= cycle('1', '2') %>">
     <td>
+      <%= link_to (image_tag('/images/at.gif')), :controller => 'menues', :action => 'change_language', :language => 'de' %>
+      <%= link_to (image_tag('/images/en.gif')), :controller => 'menues', :action => 'change_language', :language => 'en' %>
+      &nbsp;<%= t('Sprache wählen') %>
+    </td>
+  </tr>
+
+  <tr class= "line<%= cycle('1', '2') %>">
+    <td>
         <%= f.label :login %>
     </td>
   </tr>

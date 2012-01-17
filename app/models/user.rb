@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 # * "Herr": Mr.
 # * "Herr Dr.": PhD, Mr.
 # To be continued ...
-  TITLES = ["Frau", "Frau Dr.", "Herr", "Herr Dr."];
+  TITLES = ["Frau", "Frau Dr.", "Herr", "Herr Dr.", "Frau Mag.", "Herr Mag."];
 
 
 end
