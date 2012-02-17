@@ -112,6 +112,7 @@ de:
   'usermode': 'Normalmodus'
   'no datasheet available': 'Kein Datenblatt vorhanden'
   'search': 'Suche starten'
+  'productsearch': 'Produktsuche'
   'please specify a searchstring': 'Bitte einen Suchstring eingeben'
   'search_result': 'Suchergebnis'
   'hide': 'Schließen'

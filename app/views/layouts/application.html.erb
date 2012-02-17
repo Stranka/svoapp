@@ -35,9 +35,9 @@
         <li><%= link_to_function(image_tag("print.png", :style => "vertical-align:middle", :border => 0, :alt => t('print'), :title => t('print')), "javascript:print()") %></li>
         </ul>
       </div>
-      
+
+      &nbsp;      
       <div class="clear"></div>
-      
 
       <% if @config.block_left == true %>
         <div class="grid_<%=@config.block_left_width%>">
@@ -47,8 +47,13 @@
       <% if @config.topimage == true and controller.action_name == 'showme' %>
         <div class="topimage" align="center"><%= render :partial => "shared/topimage" %> </div>
       <% end %>
-      <div class="grid_<%= 16 - @config.block_left_width - @config.block_left_width %>"
-        <%= yield %>
+      <div class="grid_<%= 16 - @config.block_left_width - @config.block_left_width %>">
+        <div class="box">
+          <h2><a href="#" id="toggle-login-forms" style="cursor: pointer; " class="visible">&nbsp;<%#= t('article') %></a></h2>
+          <div class="block" id="login-forms">
+            <%= yield %>
+          </div>
+        </div>
       </div>
       <% if @config.block_right == true %>
         <div class="grid_<%=@config.block_right_width%>">

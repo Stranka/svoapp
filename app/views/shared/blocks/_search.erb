@@ -1,31 +1,13 @@
 
 <% if local_assigns[:mode] == 'article' %>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
       <%= form_tag('/articlesearch') do %>
       <%= text_field_tag(:aquery) %>
-    </td>
-  </tr>
-
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
       <%= submit_tag (t('search')) %>
-    </td>
-  </tr>
   <% end %>
 <% else %>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
       <%= form_tag('/productsearch') do %>
       <%= text_field_tag(:pquery) %>
-    </td>
-  </tr>
-
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
       <%= submit_tag (t('search')) %>
-    </td>
-  </tr>
   <% end %>
 <% end %>
 
