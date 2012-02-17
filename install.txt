@@ -1,18 +1,5 @@
 
 rake db:migrate
-rake db:fixtures:load                   wenn einzelnes => rake db:fixtures:load FIXTURES=menues.yml
-
-
-ins verzeichnis wechseln
-
-rails c eingeben
-
-folgenden Befehl eingeben:
-
-User.create(:login => 'test', :email => 'test@tester.com', :password => 'test123', :password_confirmation => 'test123', :auth_level => '100')
-
-exit
-
-danach soltte die applikation ohne probleme starten.
-
+rake db:fixtures:load                   #wenn einzelnes => rake db:fixtures:load FIXTURES=menues.yml
+# Damit ist ein User: admin Passwort: test123 angelegt
 

@@ -7,8 +7,6 @@ one:
   country: MyString
   telnr: MyString
   mobile: MyString
-  addressable_id: 1
-  addressable_type: MyString
   address_type: MyString
 
 two:
@@ -18,6 +16,4 @@ two:
   country: MyString
   telnr: MyString
   mobile: MyString
-  addressable_id: 1
-  addressable_type: MyString
   address_type: MyString

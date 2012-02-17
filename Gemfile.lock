@@ -1,7 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    RedCloth (4.2.7)
+    RedCloth (4.2.3)
     abstract (1.0.0)
     actionmailer (3.0.5)
       actionpack (= 3.0.5)
@@ -109,6 +109,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth (= 4.2.3)
   acts_as_list
   acts_as_tree
   amount_field_rails3

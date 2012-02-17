@@ -13,7 +13,7 @@
   auth_level_edit: 50
   
 2:
-  name: Blocks
+  name: Blöcke
   position: 20
   the_url: 
   the_controller: blocks
@@ -73,12 +73,12 @@
   auth_level_edit: 50
     
 7:
-  name: Über uns
+  name: Impressum
   position: 2
   the_url: 
   the_controller: articles
   the_action: show_content
-  the_id: 6
+  the_id: 1
   auth_level: 0
   parent_id: 0
   ontop: true
