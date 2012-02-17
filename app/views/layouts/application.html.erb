@@ -2,7 +2,15 @@
 <html>
   <head>
     <title><%= @config.title %></title>
-    <%= stylesheet_link_tag @stylesheet, :media => :screen %>
+
+    <%= stylesheet_link_tag ( @config.theme + '/reset.css' ), :media => :screen %>
+    <%= stylesheet_link_tag ( @config.theme + '/text.css' ), :media => :screen %>
+    <%= stylesheet_link_tag ( @config.theme + '/grid.css' ), :media => :screen %>
+    <%= stylesheet_link_tag ( @config.theme + '/layout.css' ), :media => :screen %>
+    <%= stylesheet_link_tag ( @config.theme + '/nav.css' ), :media => :screen %>
+    <!--[if IE 6]><%= stylesheet_link_tag ( @config.theme + 'ie6.css' ), :media => :screen %><![endif]-->
+		<!--[if IE 7]><%= stylesheet_link_tag ( @config.theme + 'ie.css' ), :media => :screen %><![endif]-->
+
     <%= stylesheet_link_tag @printsheet, :media => :print %>
     <%= stylesheet_link_tag("simple_tooltip") %>
     <%= javascript_include_tag :all %>
@@ -13,41 +21,48 @@
   </head>
   <body>
 
-    <table class="fullpage" width="<%=@config.pagewidth%>%" align="center">
-      <tr class="header">
-        <td colspan="3" align=<%= @config.position_logo %> ><img src="<%=@logo %>" alt="Logo"></td>
-      </tr>
-      <tr class="nav">
-        <td colspan="3"> <ul> <%= render :partial => "shared/menue", :collection => @menue_top, :as => :menue %>
-        <li><%= link_to_function(image_tag("print.png", :border=>0, :alt => t('print'), :title => t('print')), "javascript:print()") %></li>
-        </ul></td>
-      </tr>
-      <tr class="container">
-        <% if @config.block_left == true %>
-          <td class="sidebar" width=<%=@config.block_left_width%>%>
-            <%= render :partial => "shared/blocks/blocks", :collection => @lblocks, :as => :block %>
-          </td>
-        <% end %>
-        <td valign="top">
-          <% if @config.topimage == true and controller.action_name == 'showme' %>
-            <div class="topimage" align="center"><%= render :partial => "shared/topimage" %> </div>
-          <% end %>
-          <table class="content" align="center">
-            <%= yield %>
-          </table>
-        </td>
-        <% if @config.block_right == true %>
-          <td class="sidebar" width=<%=@config.block_right_width%>% valign="top">
-            <%= render :partial => "shared/blocks/blocks", :collection => @rblocks, :as => :block %>
-          </td>
-        <% end %>
-      </tr>
-      <tr class ="footer">
-        <td colspan="3">
+    <div class="container_16" width="<%=@config.pagewidth%>%">
+    
+      <div class="grid_16" align=<%= @config.position_logo %>>
+       <h1 id="branding"><img src="<%=@logo %>" alt="Logo"></h1>
+      </div>
+      
+      <div class="clear"></div>
+      
+      <div class="grid_16">
+        <ul class="nav main"> 
+        <%= render :partial => "shared/menue", :collection => @menue_top, :as => :menue %>
+        <li><%= link_to_function(image_tag("print.png", :style => "vertical-align:middle", :border => 0, :alt => t('print'), :title => t('print')), "javascript:print()") %></li>
+        </ul>
+      </div>
+      
+      <div class="clear"></div>
+      
+
+      <% if @config.block_left == true %>
+        <div class="grid_<%=@config.block_left_width%>">
+          <%= render :partial => "shared/blocks/blocks", :collection => @lblocks, :as => :block %>
+        </div>
+      <% end %>
+      <% if @config.topimage == true and controller.action_name == 'showme' %>
+        <div class="topimage" align="center"><%= render :partial => "shared/topimage" %> </div>
+      <% end %>
+      <div class="grid_<%= 16 - @config.block_left_width - @config.block_left_width %>"
+        <%= yield %>
+      </div>
+      <% if @config.block_right == true %>
+        <div class="grid_<%=@config.block_right_width%>">
+          <%= render :partial => "shared/blocks/blocks", :collection => @rblocks, :as => :block %>
+        </div>
+      <% end %>
+
+      <div class="clear"></div>
+            
+      <div class="grid_16">
           <%= render :partial => "shared/footer" %>
-        </td>
-      </tr>
-    </table>
+      </div>
+      
+    </div>
   </body>
 </html>
 

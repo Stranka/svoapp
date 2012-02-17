@@ -1,24 +1,6 @@
-
-<% zahl = 1 + rand(14) %>
-
-
-    <tr class= "line2">
-      <td>
-        <table class="news">
-          <tr>
-            <td>
-              <img src="/images/insert<%= zahl.to_s %>.jpg" width="40" height="40" />
-            </td>
-            <td>
-              <%= l news.date %>
-            </td>
-          </tr>
-          <tr class= "line1">
-            <td colspan="2">
-              <%= news.notice %>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-
+  <div class="<%= ( news_counter == 0 ) ? "first article" : "article" %>">
+    <% zahl = 1 + rand(14) %>
+    <p class="meta"><%= l news.date %></p>
+    <div class="image"><img src="/images/insert<%= zahl.to_s %>.jpg" width="40" height="40" /></div>
+    <p><%= news.notice %></p>
+  </div>

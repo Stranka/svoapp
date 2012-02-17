@@ -1,31 +1,4 @@
-
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-      <%= link_to (image_tag('/images/at.gif')), :controller => 'menues', :action => 'change_language', :language => 'de' %>
-      <%= link_to (image_tag('/images/en.gif')), :controller => 'menues', :action => 'change_language', :language => 'en' %>&nbsp;<%= t('Sprache wählen') %>
-    </td>
-  </tr>
-    <tr class= "line<%= cycle('1', '2') %>">
-      <td>
-        <%= t('logged in as') %>
-      </td>
-    </tr>
-
-    <tr class= "line<%= cycle('1', '2') %>">
-      <td>
-        <b><%= current_user.login %></b>
-      </td>
-    </tr>
-
-    <tr class= "line<%= cycle('1', '2') %>">
-      <td>
-        <%= link_to t('My Account'), customers_path %>
-      </td>
-    </tr>
-
-    <tr class= "line<%= cycle('1', '2') %>">
-      <td>
-        <%= link_to t('Logout'), logout_path %>
-      </td>
-    </tr>
-
+<%= link_to (image_tag('/images/at.gif')), :controller => 'menues', :action => 'change_language', :language => 'de' %>
+<%= link_to (image_tag('/images/en.gif')), :controller => 'menues', :action => 'change_language', :language => 'en' %>&nbsp;<%= t('Sprache wählen') %><br/>
+<%= t('logged in as') %> <b><%= current_user.login %></b><br />
+<%= link_to t('My Account'), customers_path %> &nbsp; <%= link_to t('Logout'), logout_path %><br />
