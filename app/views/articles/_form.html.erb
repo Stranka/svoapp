@@ -1,5 +1,5 @@
 <%= javascript_include_tag :ckeditor %>
-
+<table>
 <tr class="linemain">
   <td colspan="2">
     <%= form_for(@article) do |f| %>
@@ -30,10 +30,10 @@
     <tr class= "line<%= cycle('1', '2') %>">
     <td>
       <span id="show_normal">
-        <a "href="#" onclick="$('show_normal').hide(); $('show_tiny').show(); $('normal').show(); $('cktextarea').hide()"><%= t('expertmode')%></a>
+        <a "href="#" onclick="$('#show_normal').hide(); $('#show_tiny').show(); $('#normal').show(); $('#cktextarea').hide()"><%= t('expertmode')%></a>
       </span>
       <span id="show_tiny" style="display:none";>
-        <a "href="#" onclick="$('show_normal').show(); $('show_tiny').hide(); $('normal').hide(); $('cktextarea').show()"><%= t('usermode')%></a>
+        <a "href="#" onclick="$('#show_normal').show(); $('#show_tiny').hide(); $('#normal').hide(); $('#cktextarea').show()"><%= t('usermode')%></a>
       </span>
     </td>
     <td></td>
@@ -72,6 +72,6 @@
       <%= f.submit %>
     </td>
   </tr>
-
+</table>
     <% end %>
 
