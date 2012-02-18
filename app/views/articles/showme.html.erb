@@ -1,27 +1,9 @@
- <% if @config.show_title == true %>
-   <tr>
-      <td class ="myTitle" width="100%">
-        <%= @firstarticle.name %>
-      </td>
-    </tr>
-   <% end %>
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="5">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
-  <% end %>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td colspan="2">
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t(@firstarticle.name) %></a></h2>
+<div class="block" id="main">
+  <div class="first article" >
+    <% if flash[:notice]%>
+      <%= flash[:notice] %>
+    <% end %>
     <%= raw(@firstarticle.content) %>
-    </td>
-  </tr>
-
-  <tr class="linemain">
-    <td colspan="2">
-	   &nbsp;
-    </td>
-  </tr>
-
+  </div>
+</div>

@@ -49,10 +49,7 @@
       <% end %>
       <div class="grid_<%= 16 - @config.block_left_width - @config.block_right_width %>">
         <div class="box">
-          <h2><a href="#" id="toggle-login-forms" style="cursor: pointer; " class="visible">&nbsp;<%#= t('article') %></a></h2>
-          <div class="block" id="login-forms">
-            <%= yield %>
-          </div>
+          <%= yield %>
         </div>
       </div>
       <% if @config.block_right == true %>

@@ -1,30 +1,14 @@
-  <% if @config.show_title == true %>
-    <tr>
-      <td class ="myTitle" width="100%">
-        <%= @showarticle.name %><%#= link_to_function(image_tag("print.png", :border=>0, :alt => t('print'), :title => t('print')), "javascript:print()") %>
-      </td>
-    </tr>
-  <% end %>
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="5">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
-  <% end %>
-  <tr class="line<%= cycle('1', '2') %>">
-    <td colspan="2">
-    <%= raw(@showarticle.content) %>
-    </td>
-  </tr>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t(@showarticle.name) %></a></h2>
+<div class="block" id="main">
+  <div class="first article" >
+    <% if flash[:notice]%>
+      <%= flash[:notice] %>
+    <% end %>
 
-  <tr class="linemain">
-    <td colspan="2">
-      <% if params[:mode] == 'basket' %>
-        <%= link_to t('Back'), :back  %>
-      <% else %>
-        &nbsp;
-      <% end %>
-    </td>
-  </tr>
+      <%= raw(@showarticle.content) %>
 
+    <% if params[:mode] == 'basket' %>
+      <%= link_to t('Back'), :back  %>
+    <% end %>
+  </div>
+</div>

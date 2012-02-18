@@ -1,24 +1,23 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="4">
-	   <%= t('Listing ') + News.human_name %>
-    </td>
-  </tr>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration Konfiguration') %></a></h2>
 
   <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="4">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
+    <%= flash[:notice] %>
   <% end %>
 
-  <tr class="lineheader">
 
-    <td><%= News.human_attribute_name('title') %></td>
-    <td><%= News.human_attribute_name('date') %></td>
-    <td><%= News.human_attribute_name('notice') %></td>
-    <td><%= t 'action' %></td>
-  </tr>
+<div class="block" id="main">
+  <table>
+    <thead>
+      <tr>
+        <th class="table-head" colspan="4"><%= t('Listing ') + News.human_name %></th>
+      </tr>
+      <tr>
+    <th><%= News.human_attribute_name('title') %></td>
+    <th><%= News.human_attribute_name('date') %></td>
+    <th><%= News.human_attribute_name('notice') %></td>
+    <th><%= t 'action' %></td>      
+      </tr>
+    </thead>
 
 <% @news.each do |news| %>
   <tr class= "line<%= cycle('1', '2') %>">
@@ -31,10 +30,12 @@
   </tr>
 <% end %>
 
-
-  <tr class="linemain">
-    <td colspan="4">
-	<%= link_to t('New ') + News.human_name, new_news_path %>
-    </td>
-  </tr>
-
+    <tfoot>
+      <tr class="linemain">
+        <td colspan="4">
+	    <%= link_to t('New ') + News.human_name, new_news_path %>
+        </td>
+      </tr>
+    </tfoot>  
+  </table>
+</div>

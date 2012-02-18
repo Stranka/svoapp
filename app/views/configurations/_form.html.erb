@@ -1,148 +1,36 @@
-<tr class="linemain">
-  <td colspan="2">
-    <%= form_for(@configuration) do |f| %>
-      <% if @configuration.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@configuration.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration Konfiguration') %></a></h2>
+<div class="block" id="main">
 
-          <ul>
-          <% @configuration.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-    </td>
-  </tr>
-
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :theme %>
-    </td>
-    <td>
-        <%= f.select :theme, Configuration::THEME%>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :title %>
-    </td>
-    <td>
-        <%= f.text_field :title %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :block_left %>
-    </td>
-    <td>
-        <%= f.check_box :block_left %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :block_left_width %>
-    </td>
-    <td>
-        <%= f.text_field :block_left_width %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :block_right %>
-    </td>
-    <td>
-        <%= f.check_box :block_right %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :block_right_width %>
-    </td>
-    <td>
-        <%= f.text_field :block_right_width %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :pagewidth %>
-    </td>
-    <td>
-        <%= f.text_field :pagewidth %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :block_headerline %>
-    </td>
-    <td>
-        <%= f.check_box :block_headerline %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :position_logo %>
-    </td>
-    <td>
-        <%= f.select :position_logo, Configuration::POSITION%>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :topimage %>
-    </td>
-    <td>
-        <%= f.check_box :topimage %>
-    </td>
-  </tr>
-
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :show_title %>
-    </td>
-    <td>
-        <%= f.check_box :show_title %>
-    </td>
-  </tr>
-
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :manage_tree %>
-    </td>
-    <td>
-        <%= f.check_box :manage_tree %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :shop_active %>
-    </td>
-    <td>
-        <%= f.check_box :shop_active %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :articles_name %>
-    </td>
-    <td>
-        <%= f.collection_select :articles_name, @articles, :id, :name, :prompt => t('please select') %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :copyright %>
-    </td>
-    <td>
-        <%= f.text_field :copyright %>
-    </td>
-  </tr>
-      <tr>
-    <td></td>
-    <td>
-      <%= f.submit %>
-    </td>
-  </tr>
+  <%= form_for(@configuration) do |f| %>
+    <% if @configuration.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@configuration.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
+        <ul>
+        <% @configuration.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
 
+    <fieldset class="login">
+      <legend><%= t('Konfiguration') %></legend>         
+      <p><%= f.label :theme %><%= f.select :theme, Configuration::THEME%></p>
+      <p><%= f.label :title %><%= f.text_field :title %></p>
+      <p><%= f.label :block_left %><%= f.check_box :block_left %></p>
+      <p><%= f.label :block_left_width %><%= f.text_field :block_left_width %></p>
+      <p><%= f.label :block_right %><%= f.check_box :block_right %></p>
+      <p><%= f.label :block_right_width %><%= f.text_field :block_right_width %></p>
+      <p><%= f.label :pagewidth %><%= f.text_field :pagewidth %></p>
+      <p><%= f.label :block_headerline %><%= f.check_box :block_headerline %></p>
+      <p><%= f.label :position_logo %><%= f.select :position_logo, Configuration::POSITION%></p>
+      <p><%= f.label :topimage %><%= f.check_box :topimage %></p>
+      <p><%= f.label :show_title %><%= f.check_box :show_title %></p>
+      <p><%= f.label :manage_tree %><%= f.check_box :manage_tree %></p>
+      <p><%= f.label :shop_active %><%= f.check_box :shop_active %></p>
+      <p><%= f.label :articles_name %><%= f.collection_select :articles_name, @articles, :id, :name, :prompt => t('please select') %></p>
+      <p><%= f.label :copyright %><%= f.text_field :copyright %></p>
+      <%= f.submit %>
+    </fieldset>
+  <% end %>
+</div>

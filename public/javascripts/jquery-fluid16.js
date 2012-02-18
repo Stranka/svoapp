@@ -27,7 +27,7 @@ Ajax : function(){
 Toggle : function(){
 	var default_hide = {"grid": true };
 	$.each(
-		["grid", "paragraphs", "blockquote", "list-items", "section-menu", "tables", "forms", "login-forms", "search", "articles", "accordion", "productsearch", "productcatalog", "news"],
+		["grid", "paragraphs", "blockquote", "list-items", "section-menu", "tables", "forms", "login-forms", "search", "articles", "accordion", "productsearch", "productcatalog", "news", "main"],
 		function() {
 			var el = $("#" + (this == 'accordon' ? 'accordion-block' : this) );
 			if (default_hide[this]) {

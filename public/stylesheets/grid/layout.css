@@ -337,6 +337,14 @@ fieldset.login p label {
 fieldset.login p input {
 	width:60%;
 }
+fieldset.login p input[type=checkbox] {
+	width:13px;
+	margin-left:0px;
+}
+/* HAS: 20120218 Select hat gefehlt */
+fieldset.login p select {
+	width:60%;
+}
 fieldset.login input.button {
 	margin-left:35%;
 }

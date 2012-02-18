@@ -77,6 +77,8 @@ de:
   'New Customer': 'Neuer Kunde'
   'Editing Customer': 'Ändern Kunde'
   'Show Customer': 'Details zu Kunde'
+  'Key': 'Schlüssel'
+  'Value': 'Wert'
 
   'access denied': 'Fehlende Berechtigung.'
   'Sorry': 'Leider nein'

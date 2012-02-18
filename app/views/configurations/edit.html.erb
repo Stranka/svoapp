@@ -1,14 +1,3 @@
-
-  <tr>
-    <td class ="myTitle" width="100%" colspan="2">
-      <%= t('Editing ') + Configuration.human_name %>
-    </td>
-  </tr>
   <%= render 'form' %>
-  <tr class="linemain">
-    <td colspan="2">
-      <%= link_to t('Show'), @configuration %> |
-      <%= link_to t('Back'), configurations_path %>
-    </td>
-  </tr>
-
+  <%= link_to t('Show'), configuration_path(@configuration) %> |
+  <%= link_to t('Back'), configurations_path %>

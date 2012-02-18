@@ -1,36 +1,40 @@
-<table>
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="5">
-        <%= flash[:notice] %>
-      </td>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration Artikel') %></a></h2>
+<div class="block" id="main">
+
+  <table>
+    <% if flash[:notice]%>
+      <tr class="lineerror">
+        <td colspan="5">
+          <%= flash[:notice] %>
+        </td>
+      </tr>
+    <% end %>
+
+    <thead>
+      <tr>
+        <th class="table-head" colspan="3"><%= t('Listing ') + Article.human_name %></th>
+      </tr>
+      <tr>
+        <th><%= Article.human_attribute_name('name') %></th>
+        <th><%= Article.human_attribute_name('content') %></th>
+        <th><%= t 'action' %></td>
+      </tr>
+    </thead>
+
+  <% @articles.each do |article| %>
+    <tr class= "<%= cycle('odd', '') %>">
+      <td><%= article.name %></td>
+      <td><%= raw(truncate(article.content.gsub(/<\/?[^>]*>/, ""), :length => 200)) %></td>
+      <td align="right"><nobr><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), article %>
+      <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_article_path(article) %>
+      <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), article, :confirm => t('Are you sure?'), :method => :delete %></nobr></td>
     </tr>
   <% end %>
 
-  <thead>
-    <tr>
-      <th class="table-head" colspan="3"><%= t('Listing ') + Article.human_name %></th>
+    <tr class="linemain">
+      <td colspan="3">
+	     <%= link_to t('New ') + Article.human_name, new_article_path %>
+      </td>
     </tr>
-    <tr>
-      <th><%= Article.human_attribute_name('name') %></th>
-      <th><%= Article.human_attribute_name('content') %></th>
-      <th><%= t 'action' %></td>
-    </tr>
-  </thead>
-
-<% @articles.each do |article| %>
-  <tr class= "<%= cycle('odd', '') %>">
-    <td><%= article.name %></td>
-    <td><%= raw(truncate(article.content.gsub(/<\/?[^>]*>/, ""), :length => 200)) %></td>
-    <td align="right"><nobr><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), article %>
-    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_article_path(article) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), article, :confirm => t('Are you sure?'), :method => :delete %></nobr></td>
-  </tr>
-<% end %>
-
-  <tr class="linemain">
-    <td colspan="3">
-	   <%= link_to t('New ') + Article.human_name, new_article_path %>
-    </td>
-  </tr>
-</table>
+  </table>
+</div>
