@@ -46,9 +46,7 @@
       <div class="box">
         <h2><a href="#" id="toggle-basket" style="cursor: pointer; " class="visible"><%= t(block.name) %></a></h2>
         <div class="block" id="basket">
-          <table>
             <%= render :partial => "shared/blocks/article", :collection => read_article('Referenzen'), :as => :article %>
-          </table>    
         </div>
       </div>   
       

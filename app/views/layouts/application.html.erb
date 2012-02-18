@@ -24,7 +24,7 @@
     <div class="container_16" width="<%=@config.pagewidth%>%">
     
       <div class="grid_16" align=<%= @config.position_logo %>>
-       <h1 id="branding"><img src="<%=@logo %>" alt="Logo"></h1>
+       <h2 id="branding"><img src="<%=@logo %>" alt="Logo"></h1>
       </div>
       
       <div class="clear"></div>
@@ -47,7 +47,7 @@
       <% if @config.topimage == true and controller.action_name == 'showme' %>
         <div class="topimage" align="center"><%= render :partial => "shared/topimage" %> </div>
       <% end %>
-      <div class="grid_<%= 16 - @config.block_left_width - @config.block_left_width %>">
+      <div class="grid_<%= 16 - @config.block_left_width - @config.block_right_width %>">
         <div class="box">
           <h2><a href="#" id="toggle-login-forms" style="cursor: pointer; " class="visible">&nbsp;<%#= t('article') %></a></h2>
           <div class="block" id="login-forms">
