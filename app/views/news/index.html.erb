@@ -1,41 +1,53 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration Konfiguration') %></a></h2>
-
-  <% if flash[:notice]%>
-    <%= flash[:notice] %>
-  <% end %>
-
-
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + News.human_name %></a></h2>
 <div class="block" id="main">
+
   <table>
-    <thead>
-      <tr>
-        <th class="table-head" colspan="4"><%= t('Listing ') + News.human_name %></th>
-      </tr>
-      <tr>
-    <th><%= News.human_attribute_name('title') %></td>
-    <th><%= News.human_attribute_name('date') %></td>
-    <th><%= News.human_attribute_name('notice') %></td>
-    <th><%= t 'action' %></td>      
-      </tr>
-    </thead>
-
-<% @news.each do |news| %>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td><%= news.title %></td>
-    <td><%= l news.date %></td>
-    <td><%= truncate(news.notice, :length => 100) %></td>
-    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), news %>
-    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_news_path(news) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), news, :confirm => t('Are you sure?'), :method => :delete %></td>
-  </tr>
-<% end %>
-
-    <tfoot>
-      <tr class="linemain">
-        <td colspan="4">
-	    <%= link_to t('New ') + News.human_name, new_news_path %>
+    <% if flash[:notice]%>
+      <tr class="lineerror">
+        <td colspan="5">
+          <%= flash[:notice] %>
         </td>
       </tr>
-    </tfoot>  
+    <% end %>
+
+    <thead>
+      <tr>
+        <th class="table-head" colspan="7"><%= t('Listing ') + News.human_name %></th>
+      </tr>
+      <tr>
+                <th><%= News.human_attribute_name('title') %></th>
+                <th><%= News.human_attribute_name('date') %></th>
+                <th><%= News.human_attribute_name('notice') %></th>
+                <th><%= News.human_attribute_name('format') %></th>
+                <th><%= News.human_attribute_name('auth_level') %></th>
+                <th><%= News.human_attribute_name('auth_level_edit') %></th>
+                <th><%= t('action') %></th>
+      </tr>
+    </thead>  
+
+    <tbody>
+    <% @news.each do |news| %>
+      <tr class="<%= cycle('odd', '') %>">
+          <td><%= news.title %></td>
+          <td><%= news.date %></td>
+          <td><%= news.notice %></td>
+          <td><%= news.format %></td>
+          <td><%= news.auth_level %></td>
+          <td><%= news.auth_level_edit %></td>
+          <td align="right"><nobr>
+          <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), news %>
+          <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_news_path(news) %>
+          <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), news, :confirm => t('Are you sure?'), :method => :delete %>
+        </nobr></td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+      <tr class="linemain">
+        <th colspan="7">
+          <%= link_to t('New ') + News.human_name, new_news_path %>
+        </th>
+      </tr>
+    </tfoot>
   </table>
 </div>

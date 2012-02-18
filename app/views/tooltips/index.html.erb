@@ -1,43 +1,49 @@
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Tooltip.human_name %></a></h2>
+<div class="block" id="main">
 
-  <tr>
-    <td class ="myTitle" width="100%" colspan="7">
-      <%= t('Listing ') + Tooltip.human_name %>
-    </td>
-  </tr>
+  <table>
+    <% if flash[:notice]%>
+      <tr class="lineerror">
+        <td colspan="5">
+          <%= flash[:notice] %>
+        </td>
+      </tr>
+    <% end %>
 
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="4">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
-  <% end %>
+    <thead>
+      <tr>
+        <th class="table-head" colspan="5"><%= t('Listing ') + Tooltip.human_name %></th>
+      </tr>
+      <tr>
+                <th><%= Tooltip.human_attribute_name('title') %></th>
+                <th><%= Tooltip.human_attribute_name('content') %></th>
+                <th><%= Tooltip.human_attribute_name('markup') %></th>
+                <th><%= Tooltip.human_attribute_name('locale') %></th>
+                <th><%= t('action') %></th>
+      </tr>
+    </thead>  
 
-  <tr class="lineheader">
-    <td><%= Tooltip.human_attribute_name('title') %></td>
-    <td><%= Tooltip.human_attribute_name('locale') %></td>
-    <td><%= Tooltip.human_attribute_name('markup') %></td>
-
-    <td><%= t('action') %></td>
-  </tr>
-
-  <% @tooltips.each do |tooltip| %>
-    <tr class= "line<%= cycle('1', '2') %>">
-      <td><%= tooltip.title %></td>
-      <td><%= tooltip.locale %></td>
-      <td><%= tooltip.markup %></td>
-
-      <td align="right">
-        <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), tooltip %>
-        <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_tooltip_path(tooltip) %>
-        <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), tooltip, :confirm => t('Are you sure?'), :method => :delete %>
-      </td>
-    </tr>
-  <% end %>
-
-  <tr class="linemain">
-    <td colspan="7">
-  <%= link_to t('New ') + Tooltip.human_name, new_tooltip_path %>
-    </td>
-  </tr>
-
+    <tbody>
+    <% @tooltips.each do |tooltip| %>
+      <tr class="<%= cycle('odd', '') %>">
+          <td><%= tooltip.title %></td>
+          <td><%= tooltip.content %></td>
+          <td><%= tooltip.markup %></td>
+          <td><%= tooltip.locale %></td>
+          <td align="right"><nobr>
+          <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), tooltip %>
+          <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_tooltip_path(tooltip) %>
+          <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), tooltip, :confirm => t('Are you sure?'), :method => :delete %>
+        </nobr></td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+      <tr class="linemain">
+        <th colspan="5">
+          <%= link_to t('New ') + Tooltip.human_name, new_tooltip_path %>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

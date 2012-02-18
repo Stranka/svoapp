@@ -1,29 +1,40 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="2">
-      <%%= t('Show ') + <%= class_name %>.human_name %>
-    </td>
-  </tr>
-  <tr class="linemain">
-    <td colspan="2">
-      <%%= notice %>
-    </td>
-  </tr>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%%= t('Administration') + ' ' + <%= class_name %>.human_name %></a></h2>
 
-<% for attribute in attributes -%>
-  <tr class="line<%%= cycle('1', '2') %>">
-    <td width="20%">
-      <%%= <%= class_name %>.human_attribute_name('<%= attribute.name %>') %>
-    </td>
-    <td>
-      <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
-    </td>
-  </tr>
+<%%= notice %>
 
-<% end -%>
-  <tr class="linemain">
-    <td colspan="2">
-  <%%= link_to t('Edit'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>) %> |
-  <%%= link_to t('Back'), <%= index_helper %>_path %>
-    </td>
-  </tr>
+<div class="block" id="main">
+  <table>
+    <thead>
+      <tr>
+        <th class="table-head" colspan="2"><%%= t('Show ') + <%= class_name %>.human_name %></th>
+      </tr>
+      <tr>
+        <th><%%= t('Key')%></th>
+        <th><%%= t('Value')%></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% for attribute in attributes -%>
+      <tr class="line<%%= cycle('1', '2') %>">
+        <td width="50%">
+          <%%= <%= class_name %>.human_attribute_name('<%= attribute.name %>') %>
+        </td>
+        <td>
+          <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+        </td>
+      </tr>
+    <% end -%>
+    </tbody>
+
+    <tfoot>
+      <tr class="linemain">
+        <th colspan="2">
+          <%%= link_to t('Edit'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>) %> |
+          <%%= link_to t('Back'), <%= index_helper %>_path %>
+        </th>
+      </tr>
+    <tfoot>    
+  </table>
+</div>  
 

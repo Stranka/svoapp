@@ -1,61 +1,26 @@
-<tr class="linemain">
-  <td colspan="2">
-    <%= form_for(@tooltip) do |f| %>
-      <% if @tooltip.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@tooltip.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Tooltip.human_name %></a></h2>
+<div class="block" id="main">
 
-          <ul>
-          <% @tooltip.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-    </td>
-  </tr>
-
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :title %>
-    </td>
-    <td>
-        <%= f.text_field :title %>
-    </td>
-  </tr>
-
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :content %>
-    </td>
-    <td>
-        <%= f.text_area :content, :rows => 10, :cols => 70  %>
-    </td>
-  </tr>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :locale %>
-    </td>
-    <td>
-        <%= f.text_field :locale, :size => 5 %> Use two letter ISO-639-1 code (e.g. en, de, etc)
-    </td>
-  </tr>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :markup %>
-    </td>
-    <td>
-      <%= f.radio_button :markup, 'markdown', :selected => true %> Markdown
-      <%= f.radio_button :markup, 'textile' %> Textile
-      <%= f.radio_button :markup, 'html' %> HTML / Plain Text &nbsp;
-    </td>
-  </tr>
-
-      <tr>
-    <td></td>
-    <td>
-      <%= f.submit %>
-    </td>
-  </tr>
-<% end %>
+  <%= form_for(@tooltip) do |f| %>
+    <% if @tooltip.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@tooltip.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
+        <ul>
+        <% @tooltip.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+      
+    <fieldset class="login">
+      <legend><%= t(Tooltip.human_name) %></legend>         
+            <p><%= f.label :title %> <%= f.text_field :title %></p>
+            <p><%= f.label :content %> <%= f.text_area :content %></p>
+            <p><%= f.label :markup %> <%= f.text_field :markup %></p>
+            <p><%= f.label :locale %> <%= f.text_field :locale %></p>
+            <%= f.submit %>
+    </fieldset>
+  <% end %>
+</div>   
 

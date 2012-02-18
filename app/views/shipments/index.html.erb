@@ -1,46 +1,53 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="7">
-      <%= t('Listing ') + Shipment.human_name %>
-    </td>
-  </tr>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Shipment.human_name %></a></h2>
+<div class="block" id="main">
 
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="7">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
-  <% end %>
+  <table>
+    <% if flash[:notice]%>
+      <tr class="lineerror">
+        <td colspan="5">
+          <%= flash[:notice] %>
+        </td>
+      </tr>
+    <% end %>
 
-  <tr class="lineheader">
-    <td><%= Shipment.human_attribute_name('name') %></td>
-    <td><%= Shipment.human_attribute_name('weight_max') %></td>
-    <td><%= Shipment.human_attribute_name('lenght_max') %></td>
-    <td><%= Shipment.human_attribute_name('scale_id') %></td>
-    <td><%= Shipment.human_attribute_name('auth_level') %></td>
-    <td><%= Shipment.human_attribute_name('auth_level_edit') %></td>
-    <td><%= t('action') %></td>
-  </tr>
+    <thead>
+      <tr>
+        <th class="table-head" colspan="7"><%= t('Listing ') + Shipment.human_name %></th>
+      </tr>
+      <tr>
+                <th><%= Shipment.human_attribute_name('name') %></th>
+                <th><%= Shipment.human_attribute_name('weight_max') %></th>
+                <th><%= Shipment.human_attribute_name('lenght_max') %></th>
+                <th><%= Shipment.human_attribute_name('scale_id') %></th>
+                <th><%= Shipment.human_attribute_name('auth_level') %></th>
+                <th><%= Shipment.human_attribute_name('auth_level_edit') %></th>
+                <th><%= t('action') %></th>
+      </tr>
+    </thead>  
 
-  <% @shipments.each do |shipment| %>
-    <tr class= "line<%= cycle('1', '2') %>">
-      <td><%= shipment.name %></td>
-      <td><%= shipment.weight_max %></td>
-      <td><%= shipment.lenght_max %></td>
-      <td><%= shipment.scale_id %></td>
-      <td><%= shipment.auth_level %></td>
-      <td><%= shipment.auth_level_edit %></td>
-      <td align="right">
-        <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), shipment %>
-        <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_shipment_path(shipment) %>
-        <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), shipment, :confirm => t('Are you sure?'), :method => :delete %>
-      </td>
-    </tr>
-  <% end %>
-
-  <tr class="linemain">
-    <td colspan="7">
-  <%= link_to t('New ') + Shipment.human_name, new_shipment_path %>
-    </td>
-  </tr>
-
+    <tbody>
+    <% @shipments.each do |shipment| %>
+      <tr class="<%= cycle('odd', '') %>">
+          <td><%= shipment.name %></td>
+          <td><%= shipment.weight_max %></td>
+          <td><%= shipment.lenght_max %></td>
+          <td><%= shipment.scale_id %></td>
+          <td><%= shipment.auth_level %></td>
+          <td><%= shipment.auth_level_edit %></td>
+          <td align="right"><nobr>
+          <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), shipment %>
+          <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_shipment_path(shipment) %>
+          <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), shipment, :confirm => t('Are you sure?'), :method => :delete %>
+        </nobr></td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+      <tr class="linemain">
+        <th colspan="7">
+          <%= link_to t('New ') + Shipment.human_name, new_shipment_path %>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

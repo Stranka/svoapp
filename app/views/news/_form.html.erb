@@ -1,73 +1,28 @@
-<tr class="linemain">
-  <td colspan="2">
-    <%= form_for(@news) do |f| %>
-      <% if @news.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@news.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + News.human_name %></a></h2>
+<div class="block" id="main">
 
-          <ul>
-          <% @news.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-    </td>
-  </tr>
-
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :title %>
-    </td>
-    <td>
-        <%= f.text_field :title %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :date %>
-    </td>
-    <td>
-        <%= f.date_select :date %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :notice %>
-    </td>
-    <td>
-        <%= f.text_area :notice %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :format %>
-    </td>
-    <td>
-        <%= f.select :format, Article::FORMAT %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :auth_level %>
-    </td>
-    <td>
-        <%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :auth_level_edit %>
-    </td>
-    <td>
-        <%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %>
-    </td>
-  </tr>
-      <tr>
-    <td></td>
-    <td>
-      <%= f.submit %>
-    </td>
-  </tr>
+  <%= form_for(@news) do |f| %>
+    <% if @news.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@news.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
+        <ul>
+        <% @news.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
+      
+    <fieldset class="login">
+      <legend><%= t(News.human_name) %></legend>         
+            <p><%= f.label :title %> <%= f.text_field :title %></p>
+            <p><%= f.label :date %> <%= f.date_select :date %></p>
+            <p><%= f.label :notice %> <%= f.text_field :notice %></p>
+            <p><%= f.label :format %> <%= f.text_field :format %></p>
+            <p><%= f.label :auth_level %> <%= f.text_field :auth_level %></p>
+            <p><%= f.label :auth_level_edit %> <%= f.text_field :auth_level_edit %></p>
+            <%= f.submit %>
+    </fieldset>
+  <% end %>
+</div>   
 

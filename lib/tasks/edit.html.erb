@@ -1,0 +1,14 @@
+<%= class_name %>
+  <tr>
+    <td class ="myTitle" width="100%" colspan="2">
+    <<%= raw("%") %>= t('Editing ') + <%= class_name %>.human_name %>
+    </td>
+  </tr>
+  <%%= render 'form' %>
+  <tr class="linemain">
+    <td colspan="2">
+      <%%= link_to t('Show'), @<%= singular_table_name %> %> |
+      <%%= link_to t('Back'), <%= index_helper %>_path %>
+    </td>
+  </tr>
+
