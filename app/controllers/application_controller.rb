@@ -61,7 +61,7 @@ class ApplicationController < ActionController::Base
 
     @lblocks = Block.find(:all, :conditions => ['position = ? and active = ? and auth_level <= ? ', 'links', true, @auth_show], :order => "fieldorder")
     @rblocks = Block.find(:all, :conditions => ['position = ? and active = ? and auth_level <= ?', 'rechts', true, @auth_show], :order => "fieldorder")
-    @menue_top = Menue.find(:all, :conditions => ['ontop = ? and active = ? and auth_level <= ?', true, true, @auth_show], :order => 'position')
+    @menue_top = Menue.find(:all, :conditions => ['ontop = ? and active = ? and auth_level <= ? and parent_id = ? ', true, true, @auth_show, 0], :order => 'position')
 
     @firstarticle = Article.find(:first, :conditions => {:id => @config.articles_name})
     if @firstarticle == nil

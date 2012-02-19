@@ -36,6 +36,7 @@ ul.nav li ul li {
 	width:auto;
 	max-width:none;
 }
+
 ul.nav li a {
 	color:#fff;
 	background:#666;
@@ -96,6 +97,10 @@ ul.main li ul {
 ul.main li ul li {
   float:left;
 }
+ul.main li ul li ul li{
+  padding-left:10px;
+}
+
 ul.main li a {
 	height:2.5em;
 	line-height:2.5em;

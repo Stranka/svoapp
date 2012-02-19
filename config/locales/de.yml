@@ -1,6 +1,7 @@
 de:
 
 #Menues
+  'test': 'ich bin ein ganz furchtbar langer menüeintrag'
   'Home': 'Start'
   'Impressum': 'Impressum'
   'Applikationen': 'Applikationen'

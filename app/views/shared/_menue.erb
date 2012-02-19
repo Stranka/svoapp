@@ -1,16 +1,33 @@
-<li>
-  <% if menue.the_controller? %>
-    <% if menue.the_id? %>
-      <%= link_to_unless_current( t(menue.name), {:controller => menue.the_controller, :action => menue.the_action, :id => menue.the_id}) do %>
-        <div class='currenttopmenue'><%= t(menue.name) %></div>
+<% if menue.ontop == true %>
+  <% @ebene_menue += 1 %>
+    <li>
+      <% if menue.children.length() > 0 %>
+        <% if menue.the_url? %>
+          <%= link_to t(menue.name), menue.the_url , :target => "_blank" %>
+        <% else %>
+          <% if menue.the_action == '' %>
+            <%= link_to t(menue.name), :controller => 'menues', :action => 'click', :id => menue.id, :co => controller.controller_name, :ac => controller.action_name, :pid => params[:id] %>
+          <% else %>
+            <%= link_to t(menue.name), :controller => menue.the_controller, :action => menue.the_action, :id => menue.the_id %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <% if menue.the_url? %>
+          <%= link_to t(menue.name), menue.the_url , :target => "_blank" %>
+        <% else %>
+          <% if menue.the_action == '' %>
+            <%= t(menue.name) %>
+          <% else %>
+            <%= link_to t(menue.name), :controller => menue.the_controller, :action => menue.the_action, :id => menue.the_id %>
+          <% end %>
+        <% end %>
       <% end %>
-    <% else %>
-      <%= link_to_unless_current( t(menue.name), {:controller => menue.the_controller, :action => menue.the_action}) do %>
-        <div class='currenttopmenue'><%= t(menue.name) %></div>
+      <% @children = menue.children %>
+      <% if @children.any? %>
+        <ul>
+        <%= render :partial => "shared/menue", :collection => @children, :as => :menue %>
+        </ul>
       <% end %>
-    <% end %>
-  <% else %>
-      <%= link_to t(menue.name), menue.the_url , :target => "_blank" %>
-  <% end %>
-</li>
-
+    </li>
+  <% @ebene_menue -= 1 %>
+<% end %>
