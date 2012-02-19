@@ -1,91 +1,30 @@
-<tr class="linemain">
-  <td colspan="2">
-    <%= form_for(@block) do |f| %>
-      <% if @block.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@block.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Block.human_name %></a></h2>
+<div class="block" id="main">
 
-          <ul>
-          <% @block.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-    </td>
-  </tr>
-
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :name %>
-    </td>
-    <td>
-        <%= f.text_field :name %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :headerline %>
-    </td>
-    <td>
-        <%= f.text_field :headerline %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :position %>
-    </td>
-    <td>
-        <%= f.select :position, Block::POSITION %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :fieldorder %>
-    </td>
-    <td>
-        <%= f.text_field :fieldorder %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :blockid %>
-    </td>
-    <td>
-        <%= f.select :blockid, Block::BLOCKID %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :active %>
-    </td>
-    <td>
-        <%= f.check_box :active %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :auth_level %>
-    </td>
-    <td>
-        <%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %>
-    </td>
-  </tr>
-
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :auth_level_edit %>
-    </td>
-    <td>
-        <%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %>
-    </td>
-  </tr>
-
-      <tr>
-    <td></td>
-    <td>
-      <%= f.submit %>
-    </td>
-  </tr>
+  <%= form_for(@block) do |f| %>
+    <% if @block.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@block.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
+        <ul>
+        <% @block.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
+      
+    <fieldset class="login">
+      <legend><%= t(Block.human_name) %></legend>         
+            <p><%= f.label :name %> <%= f.text_field :name %></p>
+            <p><%= f.label :headerline %> <%= f.text_field :headerline %></p>
+            <p><%= f.label :position %> <%= f.text_field :position %></p>
+            <p><%= f.label :fieldorder %> <%= f.text_field :fieldorder %></p>
+            <p><%= f.label :blockid %> <%= f.text_field :blockid %></p>
+            <p><%= f.label :active %> <%= f.check_box :active %></p>
+            <p><%= f.label :auth_level %> <%= f.text_field :auth_level %></p>
+            <p><%= f.label :auth_level_edit %> <%= f.text_field :auth_level_edit %></p>
+            <%= f.submit %>
+    </fieldset>
+  <% end %>
+</div>   
 

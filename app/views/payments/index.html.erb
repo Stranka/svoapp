@@ -1,42 +1,49 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="5">
-      <%= t('Listing ') + Payment.human_name %>
-    </td>
-  </tr>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Payment.human_name %></a></h2>
+<div class="block" id="main">
 
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="5">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
-  <% end %>
+  <table>
+    <% if flash[:notice]%>
+      <tr class="lineerror">
+        <td colspan="5">
+          <%= flash[:notice] %>
+        </td>
+      </tr>
+    <% end %>
 
-  <tr class="lineheader">
-    <td><%= Payment.human_attribute_name('name') %></td>
-    <td><%= Payment.human_attribute_name('cost') %></td>
-    <td><%= Payment.human_attribute_name('auth_level') %></td>
-    <td><%= Payment.human_attribute_name('auth_level_edit') %></td>
-    <td><%= t('action') %></td>
-  </tr>
+    <thead>
+      <tr>
+        <th class="table-head" colspan="5"><%= t('Listing ') + Payment.human_name %></th>
+      </tr>
+      <tr>
+                <th><%= Payment.human_attribute_name('name') %></th>
+                <th><%= Payment.human_attribute_name('cost') %></th>
+                <th><%= Payment.human_attribute_name('auth_level') %></th>
+                <th><%= Payment.human_attribute_name('auth_level_edit') %></th>
+                <th><%= t('action') %></th>
+      </tr>
+    </thead>  
 
-  <% @payments.each do |payment| %>
-    <tr class= "line<%= cycle('1', '2') %>">
-      <td><%= payment.name %></td>
-      <td><%= payment.cost %></td>
-      <td><%= payment.auth_level %></td>
-      <td><%= payment.auth_level_edit %></td>
-      <td align="right">
-        <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), payment %>
-        <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_payment_path(payment) %>
-        <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), payment, :confirm => t('Are you sure?'), :method => :delete %>
-      </td>
-    </tr>
-  <% end %>
-
-  <tr class="linemain">
-    <td colspan="5">
-      <%= link_to t('New ') + Payment.human_name, new_payment_path %>
-    </td>
-  </tr>
-
+    <tbody>
+    <% @payments.each do |payment| %>
+      <tr class="<%= cycle('odd', '') %>">
+          <td><%= payment.name %></td>
+          <td><%= payment.cost %></td>
+          <td><%= payment.auth_level %></td>
+          <td><%= payment.auth_level_edit %></td>
+          <td align="right"><nobr>
+          <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), payment %>
+          <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_payment_path(payment) %>
+          <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), payment, :confirm => t('Are you sure?'), :method => :delete %>
+        </nobr></td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+      <tr class="linemain">
+        <th colspan="5">
+          <%= link_to t('New ') + Payment.human_name, new_payment_path %>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

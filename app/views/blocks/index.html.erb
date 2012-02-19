@@ -1,46 +1,57 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="7">
-	   <%= t('Listing ') + Block.human_name %>
-    </td>
-  </tr>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Block.human_name %></a></h2>
+<div class="block" id="main">
 
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="7">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
-  <% end %>
+  <table>
+    <% if flash[:notice]%>
+      <tr class="lineerror">
+        <td colspan="5">
+          <%= flash[:notice] %>
+        </td>
+      </tr>
+    <% end %>
 
-  <tr class="lineheader">
+    <thead>
+      <tr>
+        <th class="table-head" colspan="9"><%= t('Listing ') + Block.human_name %></th>
+      </tr>
+      <tr>
+                <th><%= Block.human_attribute_name('name') %></th>
+                <th><%= Block.human_attribute_name('headerline') %></th>
+                <th><%= Block.human_attribute_name('position') %></th>
+                <th><%= Block.human_attribute_name('fieldorder') %></th>
+                <th><%= Block.human_attribute_name('blockid') %></th>
+                <th><%= Block.human_attribute_name('active') %></th>
+                <th><%= Block.human_attribute_name('auth_level') %></th>
+                <th><%= Block.human_attribute_name('auth_level_edit') %></th>
+                <th><%= t('action') %></th>
+      </tr>
+    </thead>  
 
-    <td><%= Block.human_attribute_name('name') %></td>
-    <td><%= Block.human_attribute_name('headerline') %></td>
-    <td><%= Block.human_attribute_name('position') %></td>
-    <td><%= Block.human_attribute_name('fieldorder') %></td>
-    <td><%= Block.human_attribute_name('blockid') %></td>
-    <td><%= Block.human_attribute_name('active') %></td>
-    <td><%= t 'action' %></td>
-  </tr>
-
-<% @blocks.each do |block| %>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td><%= block.name %></td>
-    <td><%= block.headerline %></td>
-    <td><%= block.position %></td>
-    <td><%= block.fieldorder %></td>
-    <td><%= block.blockid %></td>
-    <td><%= block.active %></td>
-    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), block %>
-    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_block_path(block) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), block, :confirm => t('Are you sure?'), :method => :delete %></td>
-  </tr>
-<% end %>
-
-
-  <tr class="linemain">
-    <td colspan="7">
-	<%= link_to t('New ') + Block.human_name, new_block_path %>
-    </td>
-  </tr>
-
+    <tbody>
+    <% @blocks.each do |block| %>
+      <tr class="<%= cycle('odd', '') %>">
+          <td><%= block.name %></td>
+          <td><%= block.headerline %></td>
+          <td><%= block.position %></td>
+          <td><%= block.fieldorder %></td>
+          <td><%= block.blockid %></td>
+          <td><%= block.active %></td>
+          <td><%= block.auth_level %></td>
+          <td><%= block.auth_level_edit %></td>
+          <td align="right"><nobr>
+          <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), block %>
+          <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_block_path(block) %>
+          <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), block, :confirm => t('Are you sure?'), :method => :delete %>
+        </nobr></td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+      <tr class="linemain">
+        <th colspan="9">
+          <%= link_to t('New ') + Block.human_name, new_block_path %>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

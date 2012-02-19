@@ -28,18 +28,11 @@
       <td><%= configuration.block_headerline %></td>
       <td><%= configuration.position_logo %></td>
       <td><%= configuration.topimage %></td>
-      <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), configuration %>
-      <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_configuration_path(configuration) %>
+      <td align="right"><nobr>
+        <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), configuration %>
+        <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_configuration_path(configuration) %>
       <%#= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), configuration, :confirm => t('Are you sure?'), :method => :delete %></td>
-    </tr>
+      </nobr></tr>
   <% end %>
-
-
-    <tr class="linemain">
-      <td colspan="9">
-        &nbsp
-	  <%#= link_to t('New ') + Configuration.human_name, new_configuration_path %>
-      </td>
-    </tr>
   </table>
 </div>

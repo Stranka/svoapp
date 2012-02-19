@@ -1,52 +1,67 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="8">
-	   <%= t('Listing ') + Menue.human_name %>
-    </td>
-  </tr>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Menue.human_name %></a></h2>
+<div class="block" id="main">
 
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="8">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
-  <% end %>
-
-  <tr class="lineheader">
-
-    <td><%= Menue.human_attribute_name('name') %></td>
-    <td><%= Menue.human_attribute_name('the_url') %></td>
-    <td><%= Menue.human_attribute_name('the_controller') %></td>
-    <td><%= Menue.human_attribute_name('the_action') %></td>
-    <td><%= Menue.human_attribute_name('parent') %></td>
-    <td><%= Menue.human_attribute_name('ontop') %></td>
-    <td><%= Menue.human_attribute_name('active') %></td>
-    <td><%= t 'action' %></td>
-  </tr>
-
-<% @menues.each do |menue| %>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td><%= menue.name %></td>
-    <td><%= menue.the_url %></td>
-    <td><%= menue.the_controller %></td>
-    <td><%= menue.the_action %></td>
-    <% if menue.parent != nil %>
-      <td><%= menue.parent.name %></td>
-    <% else %>
-      <td>&nbsp</td>
+  <table>
+    <% if flash[:notice]%>
+      <tr class="lineerror">
+        <td colspan="5">
+          <%= flash[:notice] %>
+        </td>
+      </tr>
     <% end %>
-    <td><%= menue.ontop %></td>
-    <td><%= menue.active %></td>
-    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), menue %>
-    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_menue_path(menue) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), menue, :confirm => t('Are you sure?'), :method => :delete %></td>
-  </tr>
-<% end %>
 
+    <thead>
+      <tr>
+        <th class="table-head" colspan="14"><%= t('Listing ') + Menue.human_name %></th>
+      </tr>
+      <tr>
+                <th><%= Menue.human_attribute_name('name') %></th>
+                <th><%= Menue.human_attribute_name('position') %></th>
+                <th><%= Menue.human_attribute_name('the_url') %></th>
+                <th><%= Menue.human_attribute_name('the_controller') %></th>
+                <th><%= Menue.human_attribute_name('the_action') %></th>
+                <th><%= Menue.human_attribute_name('role') %></th>
+                <th><%= Menue.human_attribute_name('parent_id') %></th>
+                <th><%= Menue.human_attribute_name('ontop') %></th>
+                <th><%= Menue.human_attribute_name('active') %></th>
+                <th><%= Menue.human_attribute_name('the_id') %></th>
+                <th><%= Menue.human_attribute_name('auth_level') %></th>
+                <th><%= Menue.human_attribute_name('auth_level_edit') %></th>
+                <th><%= Menue.human_attribute_name('ancestry') %></th>
+                <th><%= t('action') %></th>
+      </tr>
+    </thead>  
 
-  <tr class="linemain">
-    <td colspan="8">
-  <%= link_to t('New ') + Menue.human_name, new_menue_path %>
-    </td>
-  </tr>
-
+    <tbody>
+    <% @menues.each do |menue| %>
+      <tr class="<%= cycle('odd', '') %>">
+          <td><%= menue.name %></td>
+          <td><%= menue.position %></td>
+          <td><%= menue.the_url %></td>
+          <td><%= menue.the_controller %></td>
+          <td><%= menue.the_action %></td>
+          <td><%= menue.role %></td>
+          <td><%= menue.parent_id %></td>
+          <td><%= menue.ontop %></td>
+          <td><%= menue.active %></td>
+          <td><%= menue.the_id %></td>
+          <td><%= menue.auth_level %></td>
+          <td><%= menue.auth_level_edit %></td>
+          <td><%= menue.ancestry %></td>
+          <td align="right"><nobr>
+          <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), menue %>
+          <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_menue_path(menue) %>
+          <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), menue, :confirm => t('Are you sure?'), :method => :delete %>
+        </nobr></td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+      <tr class="linemain">
+        <th colspan="14">
+          <%= link_to t('New ') + Menue.human_name, new_menue_path %>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
