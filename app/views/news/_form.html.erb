@@ -16,7 +16,7 @@
     <fieldset class="login">
       <legend><%= t(News.human_name) %></legend>         
             <p><%= f.label :title %> <%= f.text_field :title %></p>
-            <p><%= f.label :date %> <%= f.date_select :date %></p>
+            <p class="date"><%= f.label :date %> <%= f.date_select :date %></p>
             <p><%= f.label :notice %> <%= f.text_field :notice %></p>
             <p><%= f.label :format %> <%= f.text_field :format %></p>
             <p><%= f.label :auth_level %> <%= f.text_field :auth_level %></p>

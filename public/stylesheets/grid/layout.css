@@ -345,6 +345,10 @@ fieldset.login p input[type=checkbox] {
 fieldset.login p select {
 	width:60%;
 }
+fieldset.login p.date select {
+	width:10%;
+}
+
 fieldset.login input.button {
 	margin-left:35%;
 }
