@@ -2,5 +2,5 @@
     <% zahl = 1 + rand(14) %>
     <p class="meta"><%= l news.date %></p>
     <a class="image" href="#"><img src="/images/insert<%= zahl.to_s %>.jpg" width="40" height="40" /></a>
-    <p><%= news.notice %></p>
+    <p><%= raw news.notice %></p>
   </div>
