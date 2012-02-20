@@ -57,18 +57,10 @@
       </tr>
           <tr class="line<%= cycle('1', '2') %>">
         <td width="50%">
-          <%= Menue.human_attribute_name('role') %>
-        </td>
-        <td>
-          <%= @menue.role %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
           <%= Menue.human_attribute_name('parent_id') %>
         </td>
         <td>
-          <%= @menue.parent_id %>
+          <%= @menue.parent ? @menue.parent.name : '' %>
         </td>
       </tr>
           <tr class="line<%= cycle('1', '2') %>">
@@ -109,14 +101,6 @@
         </td>
         <td>
           <%= @menue.auth_level_edit %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Menue.human_attribute_name('ancestry') %>
-        </td>
-        <td>
-          <%= @menue.ancestry %>
         </td>
       </tr>
         </tbody>

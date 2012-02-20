@@ -2,7 +2,7 @@ class MenuesController < ApplicationController
   # GET /menues
   # GET /menues.xml
   def index
-    @menues = Menue.find(:all, :conditions => ['auth_level <= ?', @auth_show])
+    @menues = Menue.where("auth_level <= ?", @auth_show).order("parent_id", "position")
 
     respond_to do |format|
       format.html # index.html.erb

@@ -333,9 +333,29 @@ fieldset.login p label {
 	text-align:right;
 	width:32%;
 }
+
+/* HAS: 20120220 Für den Fehlerfall bei Validierung */
+fieldset.login div label {
+  position:relative;
+	float:left;
+	line-height:2em;
+	margin-right:3%;
+	text-align:right;
+	width:32%;
+	color:red;
+}
+
 fieldset.login p input {
 	width:60%;
 }
+
+/* HAS: 20120220 Für den Fehlerfall bei Validierung */
+fieldset.login div input {
+  border:1px solid red;
+  position:relative;
+	width:60%;
+}
+
 fieldset.login p input[type=checkbox] {
 	width:13px;
 	margin-left:0px;
