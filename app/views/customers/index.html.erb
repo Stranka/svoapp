@@ -1,39 +1,87 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="5">
-	     <%= t('My Account')%>
-    </td>
-  </tr>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Customer.human_name %></a></h2>
+<div class="block" id="main">
 
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="5">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
-  <% end %>
+  <table>
+    <% if flash[:notice]%>
+      <tr class="lineerror">
+        <td colspan="5">
+          <%= flash[:notice] %>
+        </td>
+      </tr>
+    <% end %>
 
-  <tr class="lineheader">
+    <thead>
+      <tr>
+        <th class="table-head" colspan="24"><%= t('Listing ') + Customer.human_name %></th>
+      </tr>
+      <tr>
+                <th><%= Customer.human_attribute_name('login') %></th>
+                <th><%= Customer.human_attribute_name('firstname') %></th>
+                <th><%= Customer.human_attribute_name('lastname') %></th>
+                <th><%= Customer.human_attribute_name('auth_level') %></th>
+                <th><%= Customer.human_attribute_name('auth_level_edit') %></th>
+                <th><%= Customer.human_attribute_name('email') %></th>
+                <th><%= Customer.human_attribute_name('crypted_password') %></th>
+                <th><%= Customer.human_attribute_name('password_salt') %></th>
+                <th><%= Customer.human_attribute_name('persistence_token') %></th>
+                <th><%= Customer.human_attribute_name('single_access_token') %></th>
+                <th><%= Customer.human_attribute_name('perishable_token') %></th>
+                <th><%= Customer.human_attribute_name('login_count') %></th>
+                <th><%= Customer.human_attribute_name('failed_login_count') %></th>
+                <th><%= Customer.human_attribute_name('last_request_at') %></th>
+                <th><%= Customer.human_attribute_name('current_login_at') %></th>
+                <th><%= Customer.human_attribute_name('last_login_at') %></th>
+                <th><%= Customer.human_attribute_name('current_login_ip') %></th>
+                <th><%= Customer.human_attribute_name('last_login_ip') %></th>
+                <th><%= Customer.human_attribute_name('title') %></th>
+                <th><%= Customer.human_attribute_name('wwwadress') %></th>
+                <th><%= Customer.human_attribute_name('taxnumber') %></th>
+                <th><%= Customer.human_attribute_name('customernumber') %></th>
+                <th><%= Customer.human_attribute_name('customergroup_id') %></th>
+                <th><%= t('action') %></th>
+      </tr>
+    </thead>  
 
-    <td><%= Customer.human_attribute_name('login') %></td>
-    <td><%= Customer.human_attribute_name('firstname') %></td>
-    <td><%= Customer.human_attribute_name('lastname') %></td>
-    <td><%= Customer.human_attribute_name('email') %></td>
-    <td><%= t 'action' %></td>
-  </tr>
-
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td><%= @customer.login %></td>
-    <td><%= @customer.firstname %></td>
-    <td><%= @customer.lastname %></td>
-    <td><%= @customer.email %></td>
-     <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), @customer %>
-    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_customer_path(@customer) %>
-  </tr>
-
-
-  <tr class="linemain">
-    <td colspan="5">
-      &nbsp;
-    </td>
-  </tr>
-
+    <tbody>
+    <% @customers.each do |customer| %>
+      <tr class="<%= cycle('odd', '') %>">
+          <td><%= customer.login %></td>
+          <td><%= customer.firstname %></td>
+          <td><%= customer.lastname %></td>
+          <td><%= customer.auth_level %></td>
+          <td><%= customer.auth_level_edit %></td>
+          <td><%= customer.email %></td>
+          <td><%= customer.crypted_password %></td>
+          <td><%= customer.password_salt %></td>
+          <td><%= customer.persistence_token %></td>
+          <td><%= customer.single_access_token %></td>
+          <td><%= customer.perishable_token %></td>
+          <td><%= customer.login_count %></td>
+          <td><%= customer.failed_login_count %></td>
+          <td><%= customer.last_request_at %></td>
+          <td><%= customer.current_login_at %></td>
+          <td><%= customer.last_login_at %></td>
+          <td><%= customer.current_login_ip %></td>
+          <td><%= customer.last_login_ip %></td>
+          <td><%= customer.title %></td>
+          <td><%= customer.wwwadress %></td>
+          <td><%= customer.taxnumber %></td>
+          <td><%= customer.customernumber %></td>
+          <td><%= customer.customergroup_id %></td>
+          <td align="right"><nobr>
+          <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), customer %>
+          <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_customer_path(customer) %>
+          <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), customer, :confirm => t('Are you sure?'), :method => :delete %>
+        </nobr></td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+      <tr class="linemain">
+        <th colspan="24">
+          <%= link_to t('New ') + Customer.human_name, new_customer_path %>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

@@ -1,0 +1,30 @@
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Billingaddress.human_name %></a></h2>
+<div class="block" id="main">
+
+  <%= form_for(@billingaddress) do |f| %>
+    <% if @billingaddress.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@billingaddress.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
+        <ul>
+        <% @billingaddress.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+      
+    <fieldset class="login">
+      <legend><%= t(Billingaddress.human_name) %></legend>         
+            <p><%= f.label :street %> <%= f.text_field :street %></p>
+            <p><%= f.label :city %> <%= f.text_field :city %></p>
+            <p><%= f.label :zipcode %> <%= f.text_field :zipcode %></p>
+            <p><%= f.label :country %> <%= f.text_field :country %></p>
+            <p><%= f.label :telnr %> <%= f.text_field :telnr %></p>
+            <p><%= f.label :mobile %> <%= f.text_field :mobile %></p>
+            <p><%= f.label :address_type %> <%= f.text_field :address_type %></p>
+            <p><%= f.label :user_id %> <%= f.text_field :user_id %></p>
+            <%= f.submit %>
+    </fieldset>
+  <% end %>
+</div>   
+

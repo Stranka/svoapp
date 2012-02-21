@@ -2,7 +2,6 @@ class CustomersController < ApplicationController
 
   def index
     @customer = Customer.find(current_user.id)
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
@@ -24,7 +23,6 @@ class CustomersController < ApplicationController
   end
 
   def new
-
     @customer = Customer.new
     @customer.build_billingaddress
     @customer.build_deliveryaddress

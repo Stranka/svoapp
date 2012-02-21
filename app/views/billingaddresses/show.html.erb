@@ -1,0 +1,94 @@
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Billingaddress.human_name %></a></h2>
+
+<%= notice %>
+
+<div class="block" id="main">
+  <table>
+    <thead>
+      <tr>
+        <th class="table-head" colspan="2"><%= t('Show ') + Billingaddress.human_name %></th>
+      </tr>
+      <tr>
+        <th><%= t('Key')%></th>
+        <th><%= t('Value')%></th>
+      </tr>
+    </thead>
+
+    <tbody>
+          <tr class="line<%= cycle('1', '2') %>">
+        <td width="50%">
+          <%= Billingaddress.human_attribute_name('street') %>
+        </td>
+        <td>
+          <%= @billingaddress.street %>
+        </td>
+      </tr>
+          <tr class="line<%= cycle('1', '2') %>">
+        <td width="50%">
+          <%= Billingaddress.human_attribute_name('city') %>
+        </td>
+        <td>
+          <%= @billingaddress.city %>
+        </td>
+      </tr>
+          <tr class="line<%= cycle('1', '2') %>">
+        <td width="50%">
+          <%= Billingaddress.human_attribute_name('zipcode') %>
+        </td>
+        <td>
+          <%= @billingaddress.zipcode %>
+        </td>
+      </tr>
+          <tr class="line<%= cycle('1', '2') %>">
+        <td width="50%">
+          <%= Billingaddress.human_attribute_name('country') %>
+        </td>
+        <td>
+          <%= @billingaddress.country %>
+        </td>
+      </tr>
+          <tr class="line<%= cycle('1', '2') %>">
+        <td width="50%">
+          <%= Billingaddress.human_attribute_name('telnr') %>
+        </td>
+        <td>
+          <%= @billingaddress.telnr %>
+        </td>
+      </tr>
+          <tr class="line<%= cycle('1', '2') %>">
+        <td width="50%">
+          <%= Billingaddress.human_attribute_name('mobile') %>
+        </td>
+        <td>
+          <%= @billingaddress.mobile %>
+        </td>
+      </tr>
+          <tr class="line<%= cycle('1', '2') %>">
+        <td width="50%">
+          <%= Billingaddress.human_attribute_name('address_type') %>
+        </td>
+        <td>
+          <%= @billingaddress.address_type %>
+        </td>
+      </tr>
+          <tr class="line<%= cycle('1', '2') %>">
+        <td width="50%">
+          <%= Billingaddress.human_attribute_name('user_id') %>
+        </td>
+        <td>
+          <%= @billingaddress.user_id %>
+        </td>
+      </tr>
+        </tbody>
+
+    <tfoot>
+      <tr class="linemain">
+        <th colspan="2">
+          <%= link_to t('Edit'), edit_billingaddress_path(@billingaddress) %> |
+          <%= link_to t('Back'), billingaddresses_path %>
+        </th>
+      </tr>
+    <tfoot>    
+  </table>
+</div>  
+
