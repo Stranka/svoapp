@@ -1,5 +1,5 @@
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td width="5%"><%= image_tag (product.assets[0].image.url(:description)) %></td>
+  <tr class= "<%= cycle('odd', '') %>">
+    <td width="5%"><%= image_tag product.assets[0].image.url(:description), html_options = {:style => "vertical-align:middle"} %></td>
     <td width ="35%">
       <%= product.shorttext %></br></br>
       <%= truncate(raw(product.description), :length => 200) %>

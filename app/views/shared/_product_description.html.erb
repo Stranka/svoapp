@@ -1,6 +1,6 @@
-  <tr class="line<%= cycle('1', '2') %>">
+  <tr class="<%= cycle('odd', '') %>">
     <td width ="20%">
-      <%= image_tag (product.assets[0].image.url(:description)) %>
+      <%= image_tag (product.assets[0].image.url(:description)), html_options = {:style => "vertical-align:middle"} %>
     </td>
     <td>
       <%= raw(product.description) %>

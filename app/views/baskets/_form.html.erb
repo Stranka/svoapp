@@ -1,10 +1,10 @@
-<tr class="linemain">
-  <td colspan="2">
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Basket.human_name %></a></h2>
+<div class="block" id="main">
+
     <%= form_for(@basket) do |f| %>
       <% if @basket.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@basket.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
-
           <ul>
           <% @basket.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -15,86 +15,38 @@
     </td>
   </tr>
 
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :session_id %>
-    </td>
-    <td>
-        <%= f.text_field :session_id %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :customer_id %>
-    </td>
-    <td>
-        <%= f.text_field :customer_id %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :status %>
-    </td>
-    <td>
-        <%= f.text_field :status %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :shipmentterms %>
-    </td>
-    <td>
-        <%= f.text_field :shipmentterms %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :paymentterms %>
-    </td>
-    <td>
-        <%= f.text_field :paymentterms %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :order_number %>
-    </td>
-    <td>
-        <%= f.text_field :order_number %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :store %>
-    </td>
-    <td>
-        <%= f.text_field :store %>
-    </td>
-  </tr>
-      <tr>
-    <td></td>
-    <td>
-      <%= f.submit %>
-    </td>
-  </tr>
+  <fieldset class="login">
+    <legend><%= t(Basket.human_name) %></legend>         
+
+    <p><%= f.label :session_id %><%= f.text_field :session_id %></p>
+    <p><%= f.label :customer_id %><%= f.text_field :customer_id %></p>
+    <p><%= f.label :status %><%= f.text_field :status %></p>
+    <p><%= f.label :shipmentterms %><%= f.text_field :shipmentterms %></p>
+    <p><%= f.label :paymentterms %><%= f.text_field :paymentterms %></p>
+    <p><%= f.label :order_number %><%= f.text_field :order_number %></p>
+    <p><%= f.label :store %><%= f.text_field :store %></p>
+    <%= f.submit %>
+    <br/>&nbsp;<br/>
     <% end %>
 
-
-  <tr class= "line<%= cycle('1', '2') %>">
-  <td colspan="2">
   <table class="content">
-  <tr class="lineheader">
-    <td><%= Product.human_attribute_name('shorttext') %></td>
-    <td><%= Basketline.human_attribute_name('quantity') %></td>
-    <td><%= Basketline.human_attribute_name('value') %></td>
-    <td><%= Basketline.human_attribute_name('price') %></td>
-    <td><%= Basketline.human_attribute_name('tax_percentage') %></td>
-    <td><%= Basketline.human_attribute_name('producer_number') %></td>
-    <td><%= Basketline.human_attribute_name('weight') %></td>
-  </tr>
+    <thead>
+      <tr>
+        <th class="table-head" colspan="9"><%= t('Bestellpositionen') %></th>
+      </tr>
+      <tr class="lineheader">
+        <th><%= Product.human_attribute_name('shorttext') %></th>
+        <th><%= Basketline.human_attribute_name('quantity') %></th>
+        <th><%= Basketline.human_attribute_name('value') %></th>
+        <th><%= Basketline.human_attribute_name('price') %></th>
+        <th><%= Basketline.human_attribute_name('tax_percentage') %></th>
+        <th><%= Basketline.human_attribute_name('producer_number') %></th>
+        <th><%= Basketline.human_attribute_name('weight') %></th>
+      </tr>
+    </thead>
 
   <% @basket.basketlines.each do |basketline| %>
-    <tr class= "line<%= cycle('1', '2') %>">
+    <tr class= "<%= cycle('odd', '') %>">
       <td><%= basketline.product.shorttext %></td>
       <td><%= basketline.quantity %></td>
       <td><%= basketline.value %></td>
@@ -106,6 +58,5 @@
 
   <% end %>
   </table>
-  </td>
-  </tr>
-
+  </fieldset>
+</div>   

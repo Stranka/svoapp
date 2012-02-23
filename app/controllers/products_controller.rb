@@ -206,7 +206,6 @@ class ProductsController < ApplicationController
       flash[:notice] = t('please specify a searchstring')
     end
     render 'show_products_productclass'
-
   end
 end
 

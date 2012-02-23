@@ -1,47 +1,41 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="12">
-      <%= t('Show ') + Product.human_name %>
-    </td>
-  </tr>
-  <tr class="linemain">
-    <td colspan="12">
-      <%= notice %>
-    </td>
-  </tr>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Show ') + Product.human_name %></a></h2>
+<div class="block" id="main">
+ <%= notice %>
 
-  <tr class="linedetail">
-    <td colspan="12">
-  	 <%= @product.shorttext %>
-    </td>
-  </tr>
-
-  <tr id="tabbed_navigation">
-  <td colspan="2">
-      <%= tabs_tag do |tab| %>
+    <ul id="tabbed_navigation" class ="nav main"><%= tabs_tag do |tab| %>
       <%= tab.general     t('general'), :controller => 'products', :action => 'product_detail', :id => @product.id, :tab => 'general' %>
       <%= tab.description t('description'), :controller => 'products', :action => 'product_detail', :id => @product.id, :tab => 'description' %>
       <%= tab.picture t('pictures'), :controller => 'products', :action => 'product_detail', :id => @product.id, :tab => 'picture' %>
+    <% end %></ul>
+
+  <table>
+    <thead>
+      <tr class="linedetail">
+        <th colspan="12">
+      	 <%= @product.shorttext %>
+        </th>
+      </tr>
+    </thead>
+
+    <% case params[:tab] %>
+      <% when 'general', nil %>
+        <%= render :partial => "shared/product_general", :object => @product, :as => :product %>
+
+      <% when 'description' %>
+        <%= render :partial => "shared/product_description", :object => @product, :as => :product %>
+
+      <% when 'picture' %>
+        <%= render :partial => "shared/product_picture", :object => @product, :as => :product %>
+
     <% end %>
-    </td>
-  </tr>
-
-  <% case params[:tab] %>
-    <% when 'general', nil %>
-      <%= render :partial => "shared/product_general", :object => @product, :as => :product %>
-
-    <% when 'description' %>
-      <%= render :partial => "shared/product_description", :object => @product, :as => :product %>
-
-    <% when 'picture' %>
-      <%= render :partial => "shared/product_picture", :object => @product, :as => :product %>
-
-  <% end %>
 
 
-
-  <tr class="linemain">
-    <td colspan="12">
-	    <%= link_to_function t('Back'), "history.back()"  %>
-    </td>
-  </tr>
-
+    <tfoot>
+    <tr class="linemain">
+      <td colspan="12">
+	      <%= link_to_function t('Back'), "history.back()"  %>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>

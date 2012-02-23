@@ -1,11 +1,5 @@
-
-
   <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="5">
         <%= flash[:notice] %>
-      </td>
-    </tr>
   <% end %>
 
   <%= render :partial => "shared/blocks/all_news", :collection => read_all_news, :as => :news %>

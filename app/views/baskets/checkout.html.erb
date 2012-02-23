@@ -1,87 +1,42 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="2">
-      <%= t('checkout') %>
-    </td>
-  </tr>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Checkout') %></a></h2>
+<div class="block" id="main">
 
-<tr class= "linemain">
-  <td colspan="2">
-    <%= form_for(@basket, :url => 'checkout_step_1') do |f| %>
-      <% if flash[:error] %>
-        <div id="error_explanation">
-          <h2><%= raw(flash[:error]) %></h2>
-        </div>
-      <% end %>
-    </td>
-  </tr>
-
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :customer_id %>
-    </td>
-    <td>
-        <%= @basket.customer.firstname + ' ' + @basket.customer.lastname %>
-    </td>
-  </tr>
-
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-      <%=t('deliveryaddress')%>
-      <%= link_to t('edit'), :controller => 'customers', :action => 'edit', :id => @basket.customer.id, :mode => 'basket' %>
-    </td>
-    <% if @basket.customer.deliveryaddress.nil? %>
-      <td><%= @basket.customer.billingaddress.street %><br>
-          <%= @basket.customer.billingaddress.zipcode %>&nbsp;<%= @basket.customer.billingaddress.city %><br>
-          <%= @basket.customer.billingaddress.country %>
-      </td>
-    <% else %>
-      <td><%= @basket.customer.deliveryaddress.street %><br>
-          <%= @basket.customer.deliveryaddress.zipcode %><%= @basket.customer.deliveryaddress.city %><br>
-          <%= @basket.customer.deliveryaddress.country %>
-      </td>
+  <%= form_for(@basket, :url => 'checkout_step_1') do |f| %>
+    <% if flash[:error] %>
+      <div id="error_explanation">
+        <h2><%= raw(flash[:error]) %></h2>
+      </div>
     <% end %>
-    </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :shipmentterms %>
-    </td>
-    <td>
-        <%= f.collection_select :shipmentterms, @shipmentterms, :id, :name, :prompt => t('please select')  %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :paymentterms %>
-    </td>
-    <td>
-        <%= f.collection_select :paymentterms, @paymentterms, :id, :name, :prompt => t('please select')  %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :order_number %>
-    </td>
-    <td>
-        <%= f.text_field :order_number %>
-    </td>
-  </tr>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td> <%= link_to t('accept AGB'), :controller => 'articles', :action => 'show_content', :id => read_article('AGB'), :mode => 'basket' %></td>
-    <td>
-       <%= check_box_tag 'AGB', 'accepted', false %>
-    </td>
-  </tr>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td> <%= link_to t('accept disclaimer'), :controller => 'articles', :action => 'show_content', :id => read_article('Disclaimer'), :mode => 'basket' %></td>
-    <td>
-       <%= check_box_tag 'disclaimer', 'accepted', false %>
-    </td>
-  </tr>
+
+  <table width = 50%>
+    <thead>
+      <tr><th><%=t('deliveryaddress')%></th></tr>
+    </thead>
       <tr>
-    <td></td>
-    <td>
-      <%= submit_tag t('next'), :controller => 'baskets', :action => 'checkout_step_1' %>
-    </td>
-  </tr>
-    <% end %>
-
+        <td><%= @basket.customer.firstname + ' ' + @basket.customer.lastname %></td>        
+      </tr>
+  <% if @basket.customer.deliveryaddress.nil? %>
+    <tr><td><%= @basket.customer.billingaddress.street %></td></tr>
+    <tr><td><%= @basket.customer.billingaddress.zipcode %>&nbsp;<%= @basket.customer.billingaddress.city %></td></tr>
+    <tr><td><%= @basket.customer.billingaddress.country %></td></tr>
+  <% else %>
+    <tr><td><%= @basket.customer.deliveryaddress.street %></td></tr>
+    <tr><td><%= @basket.customer.deliveryaddress.zipcode %><%= @basket.customer.deliveryaddress.city %></td></tr>
+    <tr><td><%= @basket.customer.deliveryaddress.country %></td></tr>
+  <% end %>
+    <tfoot>
+      <tr><td><%= link_to t('edit'), :controller => 'customers', :action => 'edit', :id => @basket.customer.id, :mode => 'basket' %></td></tr>
+    </tfoot>
+  </table>
+  
+  <fieldset class="login">
+  <legend><%= t('Checkout') %></legend>         
+    <p><%= f.label :shipmentterms %> <%= f.collection_select :shipmentterms, @shipmentterms, :id, :name, :prompt => t('please select')  %></p>
+    <p><%= f.label :paymentterms %> <%= f.collection_select :paymentterms, @paymentterms, :id, :name, :prompt => t('please select')  %></p>
+    <p><%= f.label :order_number %> <%= f.text_field :order_number %></p>
+    <p><%= check_box_tag 'AGB', 'accepted', false %> <%= link_to t('accept AGB'), :controller => 'articles', :action => 'show_content', :id => read_article('AGB'), :mode => 'basket' %> <br />
+    <%= check_box_tag 'disclaimer', 'accepted', false %> <%= link_to t('accept disclaimer'), :controller => 'articles', :action => 'show_content', :id => read_article('Disclaimer'), :mode => 'basket' %></p>
+    <%= submit_tag t('next'), :controller => 'baskets', :action => 'checkout_step_1' %>
+  </fielset>
+<% end %>
+</div>

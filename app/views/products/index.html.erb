@@ -1,48 +1,53 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="8">
-	     <%= t('Listing ') + Product.human_name %>
-    </td>
-  </tr>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Product.human_name %></a></h2>
+<div class="block" id="main">
 
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="8">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
-  <% end %>
+  <table>
+    <% if flash[:notice]%>
+      <tr class="lineerror">
+        <td colspan="5">
+          <%= flash[:notice] %>
+        </td>
+      </tr>
+    <% end %>
 
-  <tr class="lineheader">
+    <thead>
+      <tr>
+        <th class="table-head" colspan="20"><%= t('Listing ') + Product.human_name %></th>
+      </tr>
+      <tr>
+                <th><%= Product.human_attribute_name('shorttext') %></th>
+                <th><%= Product.human_attribute_name('description') %></th>
+                <th><%= Product.human_attribute_name('producer') %></th>
+                <th><%= Product.human_attribute_name('price') %></th>
+                <th><%= Product.human_attribute_name('product_features') %></th>
+                <th><%= Product.human_attribute_name('weight') %></th>
+                <th><%= t('action') %></th>
+      </tr>
+    </thead>  
 
-    <td><%= Product.human_attribute_name('shorttext') %></td>
-    <td><%= Product.human_attribute_name('price') %></td>
-    <td><%= Product.human_attribute_name('product_features') %></td>
-    <td><%= Product.human_attribute_name('weight') %></td>
-    <td><%= Product.human_attribute_name('unit_of_weight') %></td>
-    <td><%= Product.human_attribute_name('unit_of_quantity') %></td>
-    <td><%= Product.human_attribute_name('tax_percentage') %></td>
-    <td><%= t 'action' %></td>
-  </tr>
-
-<% @products.each do |product| %>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td><%= product.shorttext %></td>
-    <td><%= number_to_currency(product.price) %></td>
-    <td><%= product.product_features %></td>
-    <td><%= product.weight %></td>
-    <td><%= product.unit_of_weight %></td>
-    <td><%= product.unit_of_quantity %></td>
-    <td><%= product.tax_percentage %></td>
-    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), product %>
-    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_product_path(product) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), product, :confirm => t('Are you sure?'), :method => :delete %></td>
-  </tr>
-<% end %>
-
-
-  <tr class="linemain">
-    <td colspan="8">
-	<%= link_to t('New ') + Product.human_name , new_product_path %>
-    </td>
-  </tr>
-
+    <tbody>
+    <% @products.each do |product| %>
+      <tr class="<%= cycle('odd', '') %>">
+          <td><%= product.shorttext %></td>
+          <td><%= product.description %></td>
+          <td><%= product.producer %></td>
+          <td><%= number_to_currency(product.price) %></td>
+          <td><%= product.product_features %></td>
+          <td><%= product.weight %> <%= product.unit_of_weight %></td>
+          <td align="right"><nobr>
+          <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), product %>
+          <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_product_path(product) %>
+          <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), product, :confirm => t('Are you sure?'), :method => :delete %>
+        </nobr></td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+      <tr class="linemain">
+        <th colspan="20">
+          <%= link_to t('New ') + Product.human_name, new_product_path %>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

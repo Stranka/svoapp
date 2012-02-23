@@ -1,14 +1,8 @@
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Editing') + ' ' + Customer.human_name %></a></h2>
 
-  <tr>
-    <td class ="myTitle" width="100%" colspan="2">
-      <%= t('Editing ') + Customer.human_name %>
-    </td>
-  </tr>
+<div class="block" id="main">
   <%= render 'form' %>
-  <tr class="linemain">
-    <td colspan="2">
-      <%= link_to t('Show'), @customer %> |
-      <%= link_to t('Back'), customers_path %>
-    </td>
-  </tr>
-
+  <br/>
+  <%= link_to t('Show'), @customer %> |
+  <%= link_to t('Back'), customers_path %>
+</div>
