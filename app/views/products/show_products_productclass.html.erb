@@ -1,5 +1,5 @@
 <% if flash[:notice] %>
-  <h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t(flash[:notice]) %></a></h2>
+  <h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= flash[:notice] %></a></h2>
 <% else %>  
   <h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Listing Category ') + ' ' + t(@products.first.productclass.name) %></a></h2>
 <% end %>
