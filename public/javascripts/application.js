@@ -13,7 +13,7 @@ $(function(){
 });
 
 //<script type="text/javascript">
-  function menue_action_auswahl()
+function menue_action_auswahl()
     {
     var co = document.menue.menue_the_controller;
     var ac = document.menue.menue_the_action;
@@ -48,6 +48,6 @@ $(function(){
     ac.options[0] = new Option("index");
     $(document.getElementById("the_id")).hide()
     }
-    }
+    };
 //</script>
 
