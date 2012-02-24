@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
 
   def index
-    @customer = Customer.find(current_user.id)
+    @customers = Customer.find(:all, :conditions => ['auth_level <= ?', @auth_show])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
@@ -31,7 +31,6 @@ class CustomersController < ApplicationController
 
   # GET /customers/1/edit
   def edit
-
     @customer = Customer.find(params[:id])
     if @customer
     else

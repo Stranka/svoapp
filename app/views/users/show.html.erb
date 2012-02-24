@@ -219,16 +219,13 @@
       <td><%= @user.deliveryaddress.mobile %></td>
     </tr>
   <% end %>
-
-      
-        </tbody>
-
+  </tbody>
     <tfoot>
       <tr class="linemain">
-        <th colspan="2">
+        <td colspan="2">
           <%= link_to t('Edit'), edit_user_path(@user) %> |
           <%= link_to t('Back'), users_path %>
-        </th>
+        </td>
       </tr>
     <tfoot>    
   </table>

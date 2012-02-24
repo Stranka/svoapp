@@ -16,28 +16,9 @@
       </tr>
       <tr>
                 <th><%= Customer.human_attribute_name('login') %></th>
-                <th><%= Customer.human_attribute_name('firstname') %></th>
-                <th><%= Customer.human_attribute_name('lastname') %></th>
-                <th><%= Customer.human_attribute_name('auth_level') %></th>
-                <th><%= Customer.human_attribute_name('auth_level_edit') %></th>
-                <th><%= Customer.human_attribute_name('email') %></th>
-                <th><%= Customer.human_attribute_name('crypted_password') %></th>
-                <th><%= Customer.human_attribute_name('password_salt') %></th>
-                <th><%= Customer.human_attribute_name('persistence_token') %></th>
-                <th><%= Customer.human_attribute_name('single_access_token') %></th>
-                <th><%= Customer.human_attribute_name('perishable_token') %></th>
+                <th><%= t('name') %></th>
                 <th><%= Customer.human_attribute_name('login_count') %></th>
                 <th><%= Customer.human_attribute_name('failed_login_count') %></th>
-                <th><%= Customer.human_attribute_name('last_request_at') %></th>
-                <th><%= Customer.human_attribute_name('current_login_at') %></th>
-                <th><%= Customer.human_attribute_name('last_login_at') %></th>
-                <th><%= Customer.human_attribute_name('current_login_ip') %></th>
-                <th><%= Customer.human_attribute_name('last_login_ip') %></th>
-                <th><%= Customer.human_attribute_name('title') %></th>
-                <th><%= Customer.human_attribute_name('wwwadress') %></th>
-                <th><%= Customer.human_attribute_name('taxnumber') %></th>
-                <th><%= Customer.human_attribute_name('customernumber') %></th>
-                <th><%= Customer.human_attribute_name('customergroup_id') %></th>
                 <th><%= t('action') %></th>
       </tr>
     </thead>  
@@ -46,28 +27,9 @@
     <% @customers.each do |customer| %>
       <tr class="<%= cycle('odd', '') %>">
           <td><%= customer.login %></td>
-          <td><%= customer.firstname %></td>
-          <td><%= customer.lastname %></td>
-          <td><%= customer.auth_level %></td>
-          <td><%= customer.auth_level_edit %></td>
-          <td><%= customer.email %></td>
-          <td><%= customer.crypted_password %></td>
-          <td><%= customer.password_salt %></td>
-          <td><%= customer.persistence_token %></td>
-          <td><%= customer.single_access_token %></td>
-          <td><%= customer.perishable_token %></td>
+          <td><%= customer.title %> <%= customer.firstname %> <%= customer.lastname %></td>
           <td><%= customer.login_count %></td>
           <td><%= customer.failed_login_count %></td>
-          <td><%= customer.last_request_at %></td>
-          <td><%= customer.current_login_at %></td>
-          <td><%= customer.last_login_at %></td>
-          <td><%= customer.current_login_ip %></td>
-          <td><%= customer.last_login_ip %></td>
-          <td><%= customer.title %></td>
-          <td><%= customer.wwwadress %></td>
-          <td><%= customer.taxnumber %></td>
-          <td><%= customer.customernumber %></td>
-          <td><%= customer.customergroup_id %></td>
           <td align="right"><nobr>
           <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), customer %>
           <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_customer_path(customer) %>
