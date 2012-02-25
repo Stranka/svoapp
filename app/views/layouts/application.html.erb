@@ -48,6 +48,7 @@
         <% if @config.topimage == true and controller.action_name == 'showme' %>
           <div class="topimage" align="center"><%= render :partial => "shared/topimage" %> </div>
         <% end %>
+        &nbsp; <div class="clear"></div>
         <div class="box">
           <%= yield %>
         </div>
