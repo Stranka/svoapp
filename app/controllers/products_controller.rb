@@ -150,6 +150,7 @@ class ProductsController < ApplicationController
 
   def show_products_productclass
     @products = Product.find(:all, :conditions => ['productclass_id = ? and auth_level_edit <= ?', params[:id], @auth_edit])
+    @productclass = Productclass.find_by_id(params[:id])
   end
 
   def show_specification_sheet

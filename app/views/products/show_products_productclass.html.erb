@@ -1,7 +1,7 @@
 <% if flash[:notice] %>
   <h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= flash[:notice] %></a></h2>
 <% else %>  
-  <h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Listing Category ') + ' ' + t(@products.first.productclass.name) %></a></h2>
+  <h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Listing Category ') + ' ' + t(@productclass.name) %></a></h2>
 <% end %>
 <div class="block" id="main">
   <table>
@@ -9,11 +9,7 @@
     <tr>
       <th class="table-head" colspan="5">
         <% if params[:pquery] == '' or params[:pquery] == nil %>
-          <% if @products.first != nil %>
-	          <%= t('Listing Catagory ') + t(@products.first.productclass.name) %>
-	        <% else %>
-            <%= t('Listing ') + Product.human_name %>
-	        <% end %>
+          <%= t('Listing Category ') + t(@productclass.name) %>
 	      <% else %>
 	        <%= flash[:notice] %>
 	        <% flash[:notice] = nil %>
