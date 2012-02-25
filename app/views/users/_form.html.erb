@@ -54,7 +54,7 @@
             <p><%= f.label :auth_level %><%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %></p>
             <p><%= f.label :auth_level_edit %><%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %></p>
             <p><%= f.label :password %></td></td><td><%= f.password_field :password, :size => 40 %></td></tr>
-            <p><%= f.label 'Wiederholung' %></td></td><td><%= f.password_field :password_confirmation, :size => 40 %></td></tr>
+            <p><%= f.label :password_confirmation %></td></td><td><%= f.password_field :password_confirmation, :size => 40 %></td></tr>
 
         <% end %>
       </fieldset>
