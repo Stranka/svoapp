@@ -1,8 +1,19 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t(@firstarticle.name) %></a></h2>
-<div class="block" id="main">
-  <div class="first article" >
-    <% if flash[:notice]%>
-      <%= flash[:notice] %>
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
+
+<div class="block">
+  <div class="top">
+    <div class="sl"></div><div class="srtop"></div>
+    <h2><%= t(@firstarticle.name) %></h2>
+  </div>
+  <div class="content">
+    <% if @config.topimage == true and controller.action_name == 'showme' %>
+      <%= render :partial => "shared/topimage" %>
     <% end %>
     <%= raw(@firstarticle.content) %>
   </div>

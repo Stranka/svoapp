@@ -1,14 +1,27 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t(@showarticle.name) %></a></h2>
-<div class="block" id="main">
-  <div class="first article" >
-    <% if flash[:notice]%>
-      <%= flash[:notice] %>
-    <% end %>
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
+
+
+<div class="block">
+  <div class="top">
+    <h2><%= t(@showarticle.name) %></h2>
+  </div>
+  <div class="content" id="main">
+    <div class="first article" >
+      <%  if @firstarticle.id == @showarticle.id and @config.topimage == true %>
+        <%= render :partial => "shared/topimage" %>
+      <% end %>
       <%= raw(@showarticle.content) %>
 
-    <% if params[:mode] == 'basket' %>
-      <%= link_to t('Back'), :back  %>
-    <% end %>
+      <% if params[:mode] == 'basket' %>
+        <%= link_to t('Back'), :back  %>
+      <% end %>
+    </div>
   </div>
 </div>

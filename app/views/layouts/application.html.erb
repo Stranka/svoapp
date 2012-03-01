@@ -1,16 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
   <head>
     <title><%= @config.title %></title>
 
-    <%= stylesheet_link_tag ( @config.theme + '/reset.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/text.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/grid.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/layout.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/nav.css' ), :media => :screen %>
-    <!--[if IE 6]><%= stylesheet_link_tag ( @config.theme + 'ie6.css' ), :media => :screen %><![endif]-->
-		<!--[if IE 7]><%= stylesheet_link_tag ( @config.theme + 'ie.css' ), :media => :screen %><![endif]-->
-
+    <%= stylesheet_link_tag ( @config.theme + '/templates/css/style.css' ), :media => :screen %>
+    <%= stylesheet_link_tag ( @config.theme + '/templates/css/soft-red.css' ), :media => :screen %>
+    <%= stylesheet_link_tag ( @config.theme + '/templates/css/fonts.css' ), :media => :screen %>
     <%= stylesheet_link_tag @printsheet, :media => :print %>
     <%= stylesheet_link_tag("simple_tooltip") %>
     <%= javascript_include_tag :all %>
@@ -19,52 +14,51 @@
     <%= csrf_meta_tag %>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
   </head>
-  <body>
+  <body class="bck-3">
 
-    <div class="container_16" width="<%=@config.pagewidth%>%">
+    <div class="page soft-red liquid" width="<%=@config.pagewidth%>%">
     
-      <div class="grid_16" align=<%= @config.position_logo %>>
-       <h2 id="branding"><img src="<%=@logo %>" alt="Logo"></h1>
-      </div>
-      
-      <div class="clear"></div>
-      
-      <div class="grid_16">
-        <ul class="nav main"> 
-        <%= render :partial => "shared/menue", :collection => @menue_top, :as => :menue %>
-        <li><%= link_to_function(image_tag("print.png", :style => "vertical-align:middle", :border => 0, :alt => t('print'), :title => t('print')), "javascript:print()") %></li>
-        </ul>
-      </div>
-
-      &nbsp;      
-      <div class="clear"></div>
-
-      <% if @config.block_left == true %>
-        <div class="grid_<%=@config.block_left_width%>">
-          <%= render :partial => "shared/blocks/blocks", :collection => @lblocks, :as => :block %>
-        </div>
-      <% end %>
-      <div class="grid_<%= 16 - @config.block_left_width - @config.block_right_width %>">
-        <% if @config.topimage == true and controller.action_name == 'showme' %>
-          <div class="topimage" align="center"><%= render :partial => "shared/topimage" %> </div>
-        <% end %>
-        &nbsp; <div class="clear"></div>
-        <div class="box">
-          <%= yield %>
+      <div class="header" align=<%= @config.position_logo %>>
+        <div class="wrapper">
+          <div class="inner">
+            <h2 id="branding"><img src="<%=@logo %>" alt="Logo" style="margin:10px"></h1>
+            <ul class="main-menu">
+              <%= render :partial => "shared/menue", :collection => @menue_top, :as => :menue %>
+              <li><%= link_to_function(image_tag("print.png", :style => "vertical-align:middle", :border => 0, :alt => t('print'), :title => t('print')), "javascript:print()") %></li>
+            </ul>
+            <ul class="secondary-menu">
+              <li>&nbsp;<%= link_to (image_tag('/images/at.gif', :style => "vertical-align:middle")), url_options={:controller => 'menues', :action => 'change_language', :language => 'de'}, html_options={:class => 'user-menu-link'} %></li>
+              <li><%= link_to (image_tag('/images/en.gif', :style => "vertical-align:middle")), url_options={:controller => 'menues', :action => 'change_language', :language => 'en'}, html_options={:class => 'user-menu-link'}  %></li>
+            </ul>
+          </div>
         </div>
       </div>
-      <% if @config.block_right == true %>
-        <div class="grid_<%=@config.block_right_width%>">
-          <%= render :partial => "shared/blocks/blocks", :collection => @rblocks, :as => :block %>
-        </div>
-      <% end %>
 
-      <div class="clear"></div>
-            
-      <div class="grid_16">
-          <%= render :partial => "shared/footer" %>
+      <div class="middle grid">
+        <div class="wrapper">
+          <% if @config.block_left == true %>
+            <div class="column grid-<%=@config.block_left_width%>">
+              <%= render :partial => "shared/blocks/blocks", :collection => @lblocks, :as => :block %>
+            </div>
+          <% end %>
+          <div class="column grid-<%= 16 - @config.block_left_width - @config.block_right_width %>">
+            <%= yield %>
+          </div>
+          <% if @config.block_right == true %>
+            <div class="column grid-<%=@config.block_right_width%>">
+              <%= render :partial => "shared/blocks/blocks", :collection => @rblocks, :as => :block %>
+            </div>
+          <% end %>
+          <div class="clear"></div>
+        </div>
       </div>
-      
+      <div class="footer">
+        <div class="wrapper">
+          <div class="inner">
+            <%= render :partial => "shared/footer" %>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

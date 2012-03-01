@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 
 
   def get_config
-    @config = Configuration.find(:first)
+    @config = Configuration.first
     @ebene_productclass = -1
     @ebene_menue = -1
     @config.theme.nil? ? @config.theme = "gray" : true

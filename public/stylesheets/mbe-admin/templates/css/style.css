@@ -3,7 +3,7 @@
 }
 body {
 	font-size: 12px;
-	font-family: arial;
+	font-family:  Ubuntu, arial;
 	margin: 0;
 	padding: 0;
 	background: #333333 url('../img/body-bck-3.gif');
@@ -21,6 +21,10 @@ body.bck-3 {
 body.bck-4 {
 	background: #333333 url('../img/body-bck-4.gif');
 }
+
+.fadein { position:relative; height: 200px; width: 730px; }
+.fadein img { position:absolute; left: 0px; top: 0px; }
+
 textarea {
 	font-family: arial;
 	font-size: 12px;
@@ -1480,8 +1484,8 @@ div.radio.active.focus span.checked {
 }
 .page .header h2 {
 	background: url('../img/header-logo-container.png');
-	width: 102px;
-	height: 89px;
+    width: 192px;
+ 	height: 89px;
 	text-align: center;
 
 	margin: 0;
@@ -1499,7 +1503,7 @@ div.radio.active.focus span.checked {
 	list-style: none;
 	font-size: 0;
 	margin: 0;
-	padding: 6px 0 0 102px;
+	padding: 6px 0 0 192px;
 }
 .page .header ul.main-menu li {
 	height: 55px;
@@ -3761,8 +3765,8 @@ div.radio.active.focus span.checked {
 .page.blue-gray .block ul.shortcuts li a,
 .page .block ul.shortcuts li a {
 	display: inline-block;
-	width: 285px;
-	height: 60px;
+	width: 200px;
+	height:150px;
 	position: relative;
 	color: #333333 !important;
 	text-decoration: none;

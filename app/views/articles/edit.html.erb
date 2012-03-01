@@ -1,14 +1,8 @@
-
-  <tr>
-    <td class ="myTitle" width="100%" colspan="2">
-      <%= t('Editing ') + Article.human_name %>
-    </td>
-  </tr>
-  <%= render 'form' %>
-  <tr class="linemain">
-    <td colspan="2">
-      <%= link_to t('Show'), @article %> |
-      <%= link_to t('Back'), articles_path %>
-    </td>
-  </tr>
-
+<div class="block">
+  <div class="top"><h2><%= t('Editing ') + Article.human_name %></h2></div>
+  <div class="content">
+    <%= render 'form' %>
+    <div class="button small gray"><span><%= link_to t('Show'), @article %></span></div>
+    <div class="button small gray"><span><%= link_to t('Back'), articles_path %></span></div>
+  </div>
+</div>

@@ -2,58 +2,62 @@
 
   <% case block.blockid %>
      <% when 'menue' %>
-      <div class="box">
-        <h2><a href="#" id="toggle-tables" style="cursor: pointer; " class="visible"><%= t(block.name) %></a></h2>
-        <div class="block" id="tables">
-          <table>
-            <%= render :partial => "shared/blocks/blockmenue", :locals => { :block => block }, :collection => read_menue, :as => :menue %>
-          </table>    
+      <div class="block small">
+        <div class="top">
+          <h2><%= t(block.name) %></h2>
+        </div>
+        <div class="content">
+          <div class="block" id="tables">
+            <table>
+              <%= render :partial => "shared/blocks/blockmenue", :locals => { :block => block }, :collection => read_menue, :as => :menue %>
+            </table>
+          </div>
         </div>
       </div>           
        
-    <% when 'login' %>    
-      <div class="box">
-        <h2><a href="#" id="toggle-login-forms" style="cursor: pointer; " class="visible"><%= t(block.name) %></a></h2>
-        <div class="block" id="login-forms">
-          <table>
-          <%= current_user ? ( render :partial => "shared/blocks/blocklogout" ) : ( render :partial => "shared/blocks/blocklogin" ) %>
-          </table>    
-        </div>
-      </div>   
+    <% when 'login' %>
+    <div class="block small">
+      <div class="top">
+        <h2><%= t(block.name) %></h2>
+      </div>
+      <div class="content">
+        <table>
+        <%= current_user ? ( render :partial => "shared/blocks/blocklogout" ) : ( render :partial => "shared/blocks/blocklogin" ) %>
+        </table>
+      </div>
+    </div>
 
     <% when 'productclass' %>
-      <div class="box">
-        <h2><a href="#" id="toggle-productcatalog" style="cursor: pointer; " class="visible"><%= t(block.name) %></a></h2>
-        <div class="block" id="productcatalog">
-          <table>
-          <%= render :partial => "shared/blocks/productclass", :collection => read_productclass, :as => :productclass %>
-          </table>    
-        </div>
+    <div class="block small">
+      <div class="top"><h2><%= t(block.name) %></h2></div>
+      <div class="content">
+        <table>
+        <%= render :partial => "shared/blocks/productclass", :collection => read_productclass, :as => :productclass %>
+        </table>
+      </div>
       </div>   
 
 
     <% when 'news' %>
-      <div class="box">
-        <h2><a href="#" id="toggle-news" style="cursor: pointer; " class="visible"><%= t(block.name) %></a></h2>
-        <div class="block" id="news">
-          <table>
+      <div class="block small">
+        <div class="top"><h2><%= t(block.name) %></h2></div>
+        <div class="content">
             <%= render :partial => "shared/blocks/news", :collection => read_block_news, :as => :news %>
-          </table>    
         </div>
       </div>   
       
     <% when 'referenzen' %>
-      <div class="box">
-        <h2><a href="#" id="toggle-customer" style="cursor: pointer; " class="visible"><%= t(block.name) %></a></h2>
-        <div class="block" id="customer">
+      <div class="block small">
+        <div class="top"><h2><%= t(block.name) %></h2></div>
+        <div class="content">
             <%= render :partial => "shared/blocks/article", :collection => read_article('Referenzen'), :as => :article %>
         </div>
       </div>   
       
     <% when 'kundenmeinungen' %>
-      <div class="box">
-        <h2><a href="#" id="toggle-opinion" style="cursor: pointer; " class="visible"><%= t(block.name) %></a></h2>
-        <div class="block" id="opinion">
+      <div class="block small">
+        <div class="top"><h2><%= t(block.name) %></h2></div>
+        <div class="content">
           <table>
             <%= render :partial => "shared/blocks/article", :collection => read_article('Kundenmeinungen'), :as => :article %>
           </table>    
@@ -61,9 +65,9 @@
       </div>   
       
     <% when 'basket' %>
-      <div class="box">
-        <h2><a href="#" id="toggle-basket" style="cursor: pointer; " class="visible"><%= t(block.name) %></a></h2>
-        <div class="block" id="basket">
+      <div class="block small">
+        <div class="top"><h2><%= t(block.name) %></h2></div>
+        <div class="content">
           <table>
             <%= render :partial => "shared/blocks/basket", :object => read_basket(request.session_options[:id]), :as => :basket %>
           </table>    
@@ -71,22 +75,18 @@
       </div>   
 
     <% when 'search' %>    
-      <div class="box">
-        <h2><a href="#" id="toggle-search" style="cursor: pointer; " class="visible"><%= t(block.name) %></a></h2>
-        <div class="block" id="search">
-          <table>
-          <%= render :partial => "shared/blocks/search" , :locals => { :mode => 'article' } %> 
-          </table>    
+      <div class="block small">
+        <div class="top"><h2><%= t(block.name) %></a></h2></div>
+        <div class="content">
+          <%= render :partial => "shared/blocks/search" , :locals => { :mode => 'article' } %>
         </div>
       </div>   
       
     <% when 'productsearch' %>
-      <div class="box">
-        <h2><a href="#" id="toggle-productsearch" style="cursor: pointer; " class="visible"><%= t "productsearch" %></a></h2>
-        <div class="block" id="productsearch">
-          <table>
+      <div class="block small">
+        <div class="top"><h2><%= t "productsearch" %></h2></div>
+        <div class="content">
           <%= render :partial => "shared/blocks/search" , :locals => { :mode => 'product' } %>
-          </table>    
         </div>
       </div>   
 
