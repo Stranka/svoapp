@@ -1,3 +1,11 @@
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
+
 <div class="block">
   <div class="top">
     <h2><%= t('Administration') + ' ' + Block.human_name %></h2>
@@ -6,14 +14,6 @@
 
     <div class="dataTables_wrapper">
       <table class="listing data-table">
-        <% if flash[:notice]%>
-          <tr class="lineerror">
-            <td colspan="5">
-              <%= flash[:notice] %>
-            </td>
-          </tr>
-        <% end %>
-
         <thead>
           <tr>
             <th><%= Block.human_attribute_name('name') %></th>
@@ -29,7 +29,7 @@
         </thead>  
         <tbody>
         <% @blocks.each do |block| %>
-          <tr class="<%= cycle('odd', '') %>">
+          <tr>
             <td><%= block.name %></td>
             <td><%= block.headerline %></td>
             <td><%= block.position %></td>

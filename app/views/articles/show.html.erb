@@ -1,73 +1,51 @@
-<div class="top">
-  <h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Article.human_name %></a></h2>
-</div>
-<%= notice %>
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-<div class="content">
-  <table>
-    <thead>
-      <tr>
-        <th class="table-head" colspan="2"><%= t('Show ') + Article.human_name %></th>
-      </tr>
-      <tr>
-        <th><%= t('Key')%></th>
-        <th><%= t('Value')%></th>
-      </tr>
-    </thead>
-
-    <tbody>
-          <tr class="<%= cycle('odd', '') %>">
-        <td width="50%">
-          <%= Article.human_attribute_name('name') %>
-        </td>
-        <td>
-          <%= @article.name %>
-        </td>
-      </tr>
-          <tr class="<%= cycle('odd', '') %>">
-        <th colspan=2 >
-          <%= Article.human_attribute_name('content') %>
-        </th>
-      </tr>
-      <tr class="<%= cycle('odd', '') %>">
-        <td colspan=2>
-          <div class="first article"<%= raw(@article.content) %></div>
-        </td>
-      </tr>
-          <tr class="<%= cycle('odd', '') %>">
-        <td width="50%">
-          <%= Article.human_attribute_name('format') %>
-        </td>
-        <td>
-          <%= @article.format %>
-        </td>
-      </tr>
-          <tr class="<%= cycle('odd', '') %>">
-        <td width="50%">
-          <%= Article.human_attribute_name('auth_level') %>
-        </td>
-        <td>
-          <%= @article.auth_level %>
-        </td>
-      </tr>
-          <tr class="<%= cycle('odd', '') %>">
-        <td width="50%">
-          <%= Article.human_attribute_name('auth_level_edit') %>
-        </td>
-        <td>
-          <%= @article.auth_level_edit %>
-        </td>
-      </tr>
+<div class="block">
+  <div class="top">
+    <h2><%= Article.human_name%> <i><%= @article.name %></i></h2>
+  </div>
+  <div class="content">
+    <ul class="tab-header">
+      <li><a class="active" href="tab1">Inhalt</a></li>
+			<li><a href="tab2">Eigenschaften</a></li>
+    </ul>
+    <p align="right"><%= link_to t('Edit'), edit_article_path(@article) %> | <%= link_to t('Back'), articles_path %></p>
+    <div id="tab1" class="tab">
+      <p><%= raw(@article.content) %></p>
+    </div>
+    <div id="tab2" class="tab">
+      <table class="listing">
+        <thead>
+          <tr>
+            <th><%= t('Key')%></th><th><%= t('Value')%></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="50%"><%= Article.human_attribute_name('name') %></td>
+            <td><%= @article.name %></td>
+          </tr>
+          <tr class="<%= cycle('', 'even') %>">
+            <td width="50%"><%= Article.human_attribute_name('format') %></td>
+            <td><%= @article.format %></td>
+          </tr>
+          <tr class="<%= cycle('', 'even') %>">
+            <td width="50%"><%= Article.human_attribute_name('auth_level') %></td>
+            <td><%= @article.auth_level %></td>
+          </tr>
+          <tr class="<%= cycle('', 'even') %>">
+            <td width="50%"><%= Article.human_attribute_name('auth_level_edit') %></td>
+            <td><%= @article.auth_level_edit %></td>
+          </tr>
         </tbody>
-
-    <tfoot>
-      <tr class="linemain">
-        <th colspan="2">
-          <%= link_to t('Edit'), edit_article_path(@article) %> |
-          <%= link_to t('Back'), articles_path %>
-        </th>
-      </tr>
-    <tfoot>    
-  </table>
-</div>  
-
+      </table>
+    </div>
+    <p><%= link_to t('Edit'), edit_article_path(@article) %> | <%= link_to t('Back'), articles_path %></p>
+  </div>  
+</div>

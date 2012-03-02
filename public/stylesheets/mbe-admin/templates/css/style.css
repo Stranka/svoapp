@@ -2426,14 +2426,27 @@ div.radio.active.focus span.checked {
 	font-size: 13px;
 	line-height: 15px;
 }
+/* HAS 20120302: Abstände angepasst */
 .page .block .content ul.menu li a {
-	padding: 5px 10px;
-	margin: 0 0 3px 0;
+	padding: 0 10px 5px 10px;
 	border: 1px solid transparent;
-	display: block;
+	display: inline;
 	color: #333333;
 	text-decoration: none;
 }
+/* HAS 20120302: neu eingeführt */
+.page .block .content ul.menu li img {
+	margin: 0 0px 5px 10px;
+	border: 1px solid transparent;
+  vertical-align: middle;
+}
+.page .block .content ul.menu li a img {
+	margin: 0 0 5px 0;
+	border: 1px solid transparent;
+  vertical-align: middle;
+}
+
+
 .page .block .content ul.menu li a:hover,
 .page .block .content ul.menu li a.selected {
 	border: 1px solid white;

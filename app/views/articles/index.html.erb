@@ -9,28 +9,30 @@
 
 <div class="block" id="main">
 
-  <div class="top"><h2><%= t('Administration Artikel') %></h2></div>
+  <div class="top"><h2><%= t('Administration') + ' ' + Article.human_name %></h2></div>
     <div class="content">
-      <table class="listing">
-        <thead>
-          <tr>
-            <th><%= Article.human_attribute_name('name') %></th>
-            <th><%= Article.human_attribute_name('content') %></th>
-            <th><%= t 'action' %></td>
-          </tr>
-        </thead>
+      <div class="dataTables_wrapper">
+        <table class="listing data-table">
+          <thead>
+            <tr>
+              <th><%= Article.human_attribute_name('name') %></th>
+              <th><%= Article.human_attribute_name('content') %></th>
+              <th><%= t 'action' %></td>
+            </tr>
+          </thead>
 
-      <% @articles.each do |article| %>
-        <tr class= "<%= cycle('odd', 'even') %>">
-          <td><%= article.name %></td>
-          <td><%= raw(truncate(article.content.gsub(/<\/?[^>]*>/, ""), :length => 200)) %></td>
-          <td align="right"><nobr><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), article %>
-          <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_article_path(article) %>
-          <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), article, :confirm => t('Are you sure?'), :method => :delete %></nobr></td>
-        </tr>
-      <% end %>
-      </table>
-      <div class="button small gray"><span><%= link_to t('New ') + Article.human_name, new_article_path %></span>  </div>
+        <% @articles.each do |article| %>
+          <tr class= "<%= cycle('odd', 'even') %>">
+            <td><%= article.name %></td>
+            <td><%= raw(truncate(article.content.gsub(/<\/?[^>]*>/, ""), :length => 200)) %></td>
+            <td align="right"><nobr><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), article %>
+            <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_article_path(article) %>
+            <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), article, :confirm => t('Are you sure?'), :method => :delete %></nobr></td>
+          </tr>
+        <% end %>
+        </table>
+      </div>
+      <p><%= link_to t('New ') + Article.human_name, new_article_path %></p>
     </div>
   </div>
 </div>

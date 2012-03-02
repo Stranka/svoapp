@@ -1,4 +1,2 @@
-<%= link_to (image_tag('/images/at.gif')), :controller => 'menues', :action => 'change_language', :language => 'de' %>
-<%= link_to (image_tag('/images/en.gif')), :controller => 'menues', :action => 'change_language', :language => 'en' %>&nbsp;<%= t('Sprache wählen') %><br/>
-<%= t('logged in as') %> <b><%= current_user.login %></b><br />
-<%= link_to t('My Account'), customer_path(current_user.id) %> &nbsp; <%= link_to t('Logout'), logout_path %><br />
+<p align="right"><%= link_to t('My Account'), customer_path(current_user.id) %> | <%= link_to t('Logout'), logout_path %></p>
+<p><%= t('welcome') %>, <b><%= current_user.title %> <%= current_user.firstname %> <%= current_user.lastname %></b>!</p>

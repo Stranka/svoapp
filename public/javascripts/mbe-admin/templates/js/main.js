@@ -17,6 +17,7 @@ mbe = {
 		mbe.init.footer();
 
 		//init all the form elements
+    // HAS: 20120302 auskommentiert, da Forms durch uniform.js zerstört werden.
 		mbe.init.form.all();
 
 		//init the message boxes

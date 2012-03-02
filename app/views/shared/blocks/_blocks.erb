@@ -7,11 +7,9 @@
           <h2><%= t(block.name) %></h2>
         </div>
         <div class="content">
-          <div class="block" id="tables">
-            <table>
-              <%= render :partial => "shared/blocks/blockmenue", :locals => { :block => block }, :collection => read_menue, :as => :menue %>
-            </table>
-          </div>
+          <ul class="menu">
+            <%= render :partial => "shared/blocks/blockmenue", :locals => { :block => block }, :collection => read_menue, :as => :menue %>
+          </ul>
         </div>
       </div>           
        
@@ -21,9 +19,7 @@
         <h2><%= t(block.name) %></h2>
       </div>
       <div class="content">
-        <table>
         <%= current_user ? ( render :partial => "shared/blocks/blocklogout" ) : ( render :partial => "shared/blocks/blocklogin" ) %>
-        </table>
       </div>
     </div>
 
