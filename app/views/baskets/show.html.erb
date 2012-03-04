@@ -1,118 +1,89 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Basket.human_name %></a></h2>
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-<%= notice %>
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Basket.human_name %></h2>
+  </div>
+  <div class="content">
+    <p align="right"><%= link_to t('Edit'), edit_basket_path(@basket) %> | <%= link_to t('Back'), baskets_path %></p>
 
-<div class="block" id="main">
-  <table>
-    <thead>
+    <table class="listing">
+      <thead>
       <tr>
-        <th class="table-head" width="100%" colspan="2">
-          <%= t('Show ') + Basket.human_name %>
-        </th>
+        <th><%= t('Key')%></th>
+        <th><%= t('Value')%></th>
       </tr>
-    </thead>
-    
-    <tr class="<%= cycle('odd', '') %>">
-      <td width="20%">
-        <%= Basket.human_attribute_name('session_id') %>
-      </td>
-      <td>
-        <%= @basket.session_id %>
-      </td>
-    </tr>
+      </thead>
 
-    <tr class="<%= cycle('odd', '') %>">
-      <td width="20%">
-        <%= Basket.human_attribute_name('customer_id') %>
-      </td>
-      <td>
-        <%= @basket.customer_id %>
-      </td>
-    </tr>
-
-    <tr class="<%= cycle('odd', '') %>">
-      <td width="20%">
-        <%= Basket.human_attribute_name('status') %>
-      </td>
-      <td>
-        <%= @basket.status %>
-      </td>
-    </tr>
-
-    <tr class="<%= cycle('odd', '') %>">
-      <td width="20%">
-        <%= Basket.human_attribute_name('shipmentterms') %>
-      </td>
-      <td>
-        <%= @basket.shipmentterms %>
-      </td>
-    </tr>
-
-    <tr class="<%= cycle('odd', '') %>">
-      <td width="20%">
-        <%= Basket.human_attribute_name('paymentterms') %>
-      </td>
-      <td>
-        <%= @basket.paymentterms %>
-      </td>
-    </tr>
-
-    <tr class="<%= cycle('odd', '') %>">
-      <td width="20%">
-        <%= Basket.human_attribute_name('order_number') %>
-      </td>
-      <td>
-        <%= @basket.order_number %>
-      </td>
-    </tr>
-
-    <tr class="<%= cycle('odd', '') %>">
-      <td width="20%">
-        <%= Basket.human_attribute_name('store') %>
-      </td>
-      <td>
-        <%= @basket.store %>
-      </td>
-    </tr>
-
-
-    <tr class= "<%= cycle('odd', '') %>">
-    <td colspan="2">
-    
-    <table>
-    <thead>
-      <tr>
-        <th class="table-head" ><%= Product.human_attribute_name('shorttext') %></th>
-        <th class="table-head" ><%= Basketline.human_attribute_name('quantity') %></th>
-        <th class="table-head" ><%= Basketline.human_attribute_name('value') %></th>
-        <th class="table-head" ><%= Basketline.human_attribute_name('price') %></th>
-        <th class="table-head" ><%= Basketline.human_attribute_name('tax_percentage') %></th>
-        <th class="table-head" ><%= Basketline.human_attribute_name('producer_number') %></th>
-        <th class="table-head" ><%= Basketline.human_attribute_name('weight') %></th>
-      </tr>
-    </thead>
-    
-    <% @basket.basketlines.each do |basketline| %>
-      <tr class= "<%= cycle('odd', '') %>">
-        <td><%= basketline.product.shorttext %></td>
-        <td><%= basketline.quantity %></td>
-        <td><%= basketline.value %></td>
-        <td><%= basketline.price %></td>
-        <td><%= basketline.tax_percentage %></td>
-        <td><%= basketline.producer_number %></td>
-        <td><%= basketline.weight %></td>
+      <tr class="<%= cycle('', 'even') %>">
+        <td width="30%"><%= Basket.human_attribute_name('session_id') %></td>
+        <td><%= @basket.session_id %></td>
       </tr>
 
-    <% end %>
+      <tr class="<%= cycle('', 'even') %>">
+        <td width="30%"><%= Basket.human_attribute_name('customer_id') %></td>
+        <td><%= @basket.customer_id %></td>
+      </tr>
+
+      <tr class="<%= cycle('', 'even') %>">
+        <td width="30%"><%= Basket.human_attribute_name('status') %></td>
+        <td><%= @basket.status %></td>
+      </tr>
+
+      <tr class="<%= cycle('', 'even') %>">
+        <td width="30%"><%= Basket.human_attribute_name('shipmentterms') %></td>
+        <td><%= @basket.shipmentterms %></td>
+      </tr>
+
+      <tr class="<%= cycle('', 'even') %>">
+        <td width="30%"><%= Basket.human_attribute_name('paymentterms') %></td>
+        <td><%= @basket.paymentterms %></td>
+      </tr>
+
+      <tr class="<%= cycle('', 'even') %>">
+        <td width="30%"><%= Basket.human_attribute_name('order_number') %></td>
+        <td><%= @basket.order_number %></td>
+      </tr>
+
+      <tr class="<%= cycle('', 'even') %>">
+        <td width="30%"><%= Basket.human_attribute_name('store') %></td>
+        <td><%= @basket.store %></td>
+      </tr>
+    </table>        
+
+    <table class="listing">
+      <thead>
+        <tr>
+          <th class="table-head" ><%= Product.human_attribute_name('shorttext') %></th>
+          <th class="table-head" ><%= Basketline.human_attribute_name('quantity') %></th>
+          <th class="table-head" ><%= Basketline.human_attribute_name('value') %></th>
+          <th class="table-head" ><%= Basketline.human_attribute_name('price') %></th>
+          <th class="table-head" ><%= Basketline.human_attribute_name('tax_percentage') %></th>
+          <th class="table-head" ><%= Basketline.human_attribute_name('producer_number') %></th>
+          <th class="table-head" ><%= Basketline.human_attribute_name('weight') %></th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <% @basket.basketlines.each do |basketline| %>
+        <tr class= "<%= cycle('', 'even') %>">
+          <td><%= basketline.product.shorttext %></td>
+          <td><%= basketline.quantity %></td>
+          <td><%= basketline.value %></td>
+          <td><%= basketline.price %></td>
+          <td><%= basketline.tax_percentage %></td>
+          <td><%= basketline.producer_number %></td>
+          <td><%= basketline.weight %></td>
+        </tr>
+      <% end %>
+      </tbody>
     </table>
-    </td>
-    </tr>
-
-    <tr class="linemain">
-      <td colspan="2">
-    <%= link_to t('Edit'), edit_basket_path(@basket) %> |
-    <%= link_to t('Back'), baskets_path %>
-      </td>
-    </tr>
-  </table>
-</div>  
+    <p><%= link_to t('Edit'), edit_basket_path(@basket) %> | <%= link_to t('Back'), baskets_path %></p>
+  </div>
+</div>

@@ -1,49 +1,45 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Customer.human_name %></a></h2>
-<div class="block" id="main">
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-  <table>
-    <% if flash[:notice]%>
-      <tr class="lineerror">
-        <td colspan="5">
-          <%= flash[:notice] %>
-        </td>
-      </tr>
-    <% end %>
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Customer.human_name %></h2>
+  </div>
+  <div class="content">
+    <div class="dataTables_wrapper">
+      <table class="listing data-table">
+        <thead>
+          <tr>
+            <th><%= Customer.human_attribute_name('login') %></th>
+            <th><%= t('name') %></th>
+            <th><%= Customer.human_attribute_name('login_count') %></th>
+            <th><%= Customer.human_attribute_name('failed_login_count') %></th>
+            <th><%= t('action') %></th>
+          </tr>
+        </thead>
 
-    <thead>
-      <tr>
-        <th class="table-head" colspan="24"><%= t('Listing ') + Customer.human_name %></th>
-      </tr>
-      <tr>
-                <th><%= Customer.human_attribute_name('login') %></th>
-                <th><%= t('name') %></th>
-                <th><%= Customer.human_attribute_name('login_count') %></th>
-                <th><%= Customer.human_attribute_name('failed_login_count') %></th>
-                <th><%= t('action') %></th>
-      </tr>
-    </thead>  
-
-    <tbody>
-    <% @customers.each do |customer| %>
-      <tr class="<%= cycle('odd', '') %>">
-          <td><%= customer.login %></td>
-          <td><%= customer.title %> <%= customer.firstname %> <%= customer.lastname %></td>
-          <td><%= customer.login_count %></td>
-          <td><%= customer.failed_login_count %></td>
-          <td align="right"><nobr>
-          <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), customer %>
-          <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_customer_path(customer) %>
-          <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), customer, :confirm => t('Are you sure?'), :method => :delete %>
-        </nobr></td>
-      </tr>
-    <% end %>
-    </tbody>
-    <tfoot>
-      <tr class="linemain">
-        <th colspan="24">
-          <%= link_to t('New ') + Customer.human_name, new_customer_path %>
-        </th>
-      </tr>
-    </tfoot>
-  </table>
+        <tbody>
+        <% @customers.each do |customer| %>
+          <tr class="<%= cycle('odd', '') %>">
+            <td><%= customer.login %></td>
+            <td><%= customer.title %> <%= customer.firstname %> <%= customer.lastname %></td>
+            <td><%= customer.login_count %></td>
+            <td><%= customer.failed_login_count %></td>
+            <td align="right"><nobr>
+              <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), customer %>
+              <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_customer_path(customer) %>
+              <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), customer, :confirm => t('Are you sure?'), :method => :delete %>
+            </nobr></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <p><%= link_to t('New ') + Customer.human_name, new_customer_path %></p>
+  </div>
 </div>

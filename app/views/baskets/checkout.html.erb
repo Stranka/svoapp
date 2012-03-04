@@ -1,42 +1,40 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Checkout') %></a></h2>
-<div class="block" id="main">
-
-  <%= form_for(@basket, :url => 'checkout_step_1') do |f| %>
-    <% if flash[:error] %>
-      <div id="error_explanation">
-        <h2><%= raw(flash[:error]) %></h2>
-      </div>
-    <% end %>
-
-  <table width = 50%>
-    <thead>
-      <tr><th><%=t('deliveryaddress')%></th></tr>
-    </thead>
-      <tr>
-        <td><%= @basket.customer.firstname + ' ' + @basket.customer.lastname %></td>        
-      </tr>
-  <% if @basket.customer.deliveryaddress.nil? %>
-    <tr><td><%= @basket.customer.billingaddress.street %></td></tr>
-    <tr><td><%= @basket.customer.billingaddress.zipcode %>&nbsp;<%= @basket.customer.billingaddress.city %></td></tr>
-    <tr><td><%= @basket.customer.billingaddress.country %></td></tr>
-  <% else %>
-    <tr><td><%= @basket.customer.deliveryaddress.street %></td></tr>
-    <tr><td><%= @basket.customer.deliveryaddress.zipcode %><%= @basket.customer.deliveryaddress.city %></td></tr>
-    <tr><td><%= @basket.customer.deliveryaddress.country %></td></tr>
-  <% end %>
-    <tfoot>
-      <tr><td><%= link_to t('edit'), :controller => 'customers', :action => 'edit', :id => @basket.customer.id, :mode => 'basket' %></td></tr>
-    </tfoot>
-  </table>
-  
-  <fieldset class="login">
-  <legend><%= t('Checkout') %></legend>         
-    <p><%= f.label :shipmentterms %> <%= f.collection_select :shipmentterms, @shipmentterms, :id, :name, :prompt => t('please select')  %></p>
-    <p><%= f.label :paymentterms %> <%= f.collection_select :paymentterms, @paymentterms, :id, :name, :prompt => t('please select')  %></p>
-    <p><%= f.label :order_number %> <%= f.text_field :order_number %></p>
-    <p><%= check_box_tag 'AGB', 'accepted', false %> <%= link_to t('accept AGB'), :controller => 'articles', :action => 'show_content', :id => read_article('AGB'), :mode => 'basket' %> <br />
-    <%= check_box_tag 'disclaimer', 'accepted', false %> <%= link_to t('accept disclaimer'), :controller => 'articles', :action => 'show_content', :id => read_article('Disclaimer'), :mode => 'basket' %></p>
-    <%= submit_tag t('next'), :controller => 'baskets', :action => 'checkout_step_1' %>
-  </fielset>
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
 <% end %>
+
+<div class="block">
+  <div class="top">
+    <h2><%= t('Checkout') %></h2>
+  </div>
+  <div class="content">
+    <%= form_for(@basket, :url => 'checkout_step_1') do |f| %>
+
+    <h2><%=t('deliveryaddress')%></h2>
+      <p><%= @basket.customer.firstname + ' ' + @basket.customer.lastname %><br />
+    <% if @basket.customer.deliveryaddress.nil? %>
+      <%= @basket.customer.billingaddress.street %><br />
+      <%= @basket.customer.billingaddress.zipcode %>&nbsp;<%= @basket.customer.billingaddress.city %><br />
+      <%= @basket.customer.billingaddress.country %><br />
+    <% else %>
+      <%= @basket.customer.deliveryaddress.street %><br />
+      <%= @basket.customer.deliveryaddress.zipcode %>&nbsp;<%= @basket.customer.deliveryaddress.city %><br />
+      <%= @basket.customer.deliveryaddress.country %><br />
+    <% end %>
+      <%= link_to t('edit'), :controller => 'customers', :action => 'edit', :id => @basket.customer.id, :mode => 'basket' %></p>
+
+    <fieldset class="login">
+    <legend><%= t('Checkout') %></legend>
+      <p><%= f.label :shipmentterms %><br /><%= f.collection_select :shipmentterms, @shipmentterms, :id, :name, :prompt => t('please select')  %></p>
+      <p><%= f.label :paymentterms %><br /><%= f.collection_select :paymentterms, @paymentterms, :id, :name, :prompt => t('please select')  %></p>
+      <p><%= f.label :order_number %><br /><%= f.text_field :order_number %></p>
+      <p><%= check_box_tag 'AGB', 'accepted', false %> <%= link_to t('accept AGB'), :controller => 'articles', :action => 'show_content', :id => read_article('AGB'), :mode => 'basket' %> <br />
+      <%= check_box_tag 'disclaimer', 'accepted', false %> <%= link_to t('accept disclaimer'), :controller => 'articles', :action => 'show_content', :id => read_article('Disclaimer'), :mode => 'basket' %></p>
+      <p><%= submit_tag t('next'), :controller => 'baskets', :action => 'checkout_step_1' %></p>
+    </fieldset>
+  <% end %>
+  </div>
 </div>

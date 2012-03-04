@@ -1,8 +1,4 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Editing') + ' ' + Customer.human_name %></a></h2>
-
-<div class="block" id="main">
-  <%= render 'form' %>
-  <br/>
-  <%= link_to t('Show'), @customer %> |
-  <%= link_to t('Back'), customers_path %>
+    <%= render 'form' %>
+    <p><%= link_to t('Show'), @customer %> | <%= link_to t('Back'), customers_path %></p>
+  </div>
 </div>

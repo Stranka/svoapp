@@ -1,3 +1,31 @@
-<%= render 'form' %>
-<%= link_to t('Show'), @basket %> |
-<%= link_to t('Back'), baskets_path %>
+    <%= render 'form' %>
+    <h1><%= t('Bestellpositionen') %></h1>
+    <table class="listing">
+      <thead>
+      <tr class="lineheader">
+        <th><%= Product.human_attribute_name('shorttext') %></th>
+        <th><%= Basketline.human_attribute_name('quantity') %></th>
+        <th><%= Basketline.human_attribute_name('value') %></th>
+        <th><%= Basketline.human_attribute_name('price') %></th>
+        <th><%= Basketline.human_attribute_name('tax_percentage') %></th>
+        <th><%= Basketline.human_attribute_name('producer_number') %></th>
+        <th><%= Basketline.human_attribute_name('weight') %></th>
+      </tr>
+      </thead>
+
+      <% @basket.basketlines.each do |basketline| %>
+        <tr class= "<%= cycle('odd', '') %>">
+          <td><%= basketline.product.shorttext %></td>
+          <td><%= basketline.quantity %></td>
+          <td><%= basketline.value %></td>
+          <td><%= basketline.price %></td>
+          <td><%= basketline.tax_percentage %></td>
+          <td><%= basketline.producer_number %></td>
+          <td><%= basketline.weight %></td>
+        </tr>
+
+      <% end %>
+    </table>
+    <p><%= link_to t('Show'), @basket %> | <%= link_to t('Back'), baskets_path %></p>
+  </div>
+</div>

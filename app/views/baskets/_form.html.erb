@@ -1,62 +1,35 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Basket.human_name %></a></h2>
-<div class="block" id="main">
+<% if @basket.errors.any? %>
+  <div class="big-message success" xmlns="http://www.w3.org/1999/html">
+    <h2><%= pluralize(@basket.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
+    <ul>
+      <% @basket.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
+
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Basket.human_name %></h2>
+  </div>
+  <div class="content">
 
     <%= form_for(@basket) do |f| %>
-      <% if @basket.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@basket.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
-          <ul>
-          <% @basket.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-    </td>
-  </tr>
 
-  <fieldset class="login">
-    <legend><%= t(Basket.human_name) %></legend>         
+    <fieldset class="login">
+      <legend><%= t(Basket.human_name) %></legend>
 
-    <p><%= f.label :session_id %><%= f.text_field :session_id %></p>
-    <p><%= f.label :customer_id %><%= f.text_field :customer_id %></p>
-    <p><%= f.label :status %><%= f.text_field :status %></p>
-    <p><%= f.label :shipmentterms %><%= f.text_field :shipmentterms %></p>
-    <p><%= f.label :paymentterms %><%= f.text_field :paymentterms %></p>
-    <p><%= f.label :order_number %><%= f.text_field :order_number %></p>
-    <p><%= f.label :store %><%= f.text_field :store %></p>
-    <%= f.submit %>
-    <br/>&nbsp;<br/>
+      <p><%= f.label :session_id %><br /><%= f.text_field :session_id %></p>
+      <p><%= f.label :customer_id %><br /><%= f.text_field :customer_id %></p>
+      <p><%= f.label :status %><br /><%= f.text_field :status %></p>
+      <p><%= f.label :shipmentterms %><br /><%= f.text_field :shipmentterms %></p>
+      <p><%= f.label :paymentterms %><br /><%= f.text_field :paymentterms %></p>
+      <p><%= f.label :order_number %><br /><%= f.text_field :order_number %></p>
+      <p><%= f.label :store %><br /><%= f.text_field :store %></p>
+      <p><%= f.submit %></p>
+      <br/>&nbsp;<br/>
+    </fieldset>
     <% end %>
-
-  <table class="content">
-    <thead>
-      <tr>
-        <th class="table-head" colspan="9"><%= t('Bestellpositionen') %></th>
-      </tr>
-      <tr class="lineheader">
-        <th><%= Product.human_attribute_name('shorttext') %></th>
-        <th><%= Basketline.human_attribute_name('quantity') %></th>
-        <th><%= Basketline.human_attribute_name('value') %></th>
-        <th><%= Basketline.human_attribute_name('price') %></th>
-        <th><%= Basketline.human_attribute_name('tax_percentage') %></th>
-        <th><%= Basketline.human_attribute_name('producer_number') %></th>
-        <th><%= Basketline.human_attribute_name('weight') %></th>
-      </tr>
-    </thead>
-
-  <% @basket.basketlines.each do |basketline| %>
-    <tr class= "<%= cycle('odd', '') %>">
-      <td><%= basketline.product.shorttext %></td>
-      <td><%= basketline.quantity %></td>
-      <td><%= basketline.value %></td>
-      <td><%= basketline.price %></td>
-      <td><%= basketline.tax_percentage %></td>
-      <td><%= basketline.producer_number %></td>
-      <td><%= basketline.weight %></td>
-    </tr>
-
-  <% end %>
-  </table>
-  </fieldset>
-</div>   
