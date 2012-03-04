@@ -1,65 +1,67 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + User.human_name %></a></h2>
-<div class="block" id="main">
+<% if @user.errors.any? %>
+  <div class="big-message success">
+    <h2><%= pluralize(@user.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-  <%= form_for(@user) do |f| %>
-    <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@user.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
-        <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
+
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + User.human_name %> <i><%= @user.login %></i></h2>
+  </div>
+  <div class="content">
+
+    <%= form_for(@user) do |f| %>
+      <fieldset class="login">
+        <legend><%= t(User.human_name) %></legend>
+          <p><%= f.label :login %><br /><%= f.text_field :login %></p>
+          <p><%= f.label :firstname %><br /><%= f.text_field :firstname %></p>
+          <p><%= f.label :lastname %><br /><%= f.text_field :lastname %></p>
+          <p><%= f.label :email %><br /><%= f.text_field :email %></p>
+          <p><%= f.label :title %><br /><%= f.text_field :title %></p>
+          <p><%= f.label :wwwadress %><br /><%= f.text_field :wwwadress %></p>
+          <p><%= f.label :taxnumber %><br /><%= f.text_field :taxnumber %></p>
+          <p><%= f.label :customernumber %><br /><%= f.text_field :customernumber %></p>
+          <p><%= f.label :customergroup_id %><br /><%= f.text_field :customergroup_id %></p>
+          </fieldset><fieldset class="login">
+          <%= f.fields_for :billingaddress do |a| %>
+            <legend><%=t('billingaddress')%></legend>
+            <%= a.hidden_field :address_type, :value => "Rechnungsadresse" %>
+              <p><%= a.label :street %><br /><%= a.text_field :street %></p>
+              <p><%= a.label :zipcode %><br /><%= a.text_field :zipcode %></p>
+              <p><%= a.label :city %><br /><%= a.text_field :city %></p>
+              <p><%= a.label :country %><br /><%= a.text_field :country %></p>
+              <p><%= a.label :telnr %><br /><%= a.text_field :telnr %></p>
+              <p><%= a.label :mobil %><br /><%= a.text_field :mobile %></p>
+          <% end %>
+          </fieldset><fieldset class="login">
+          <%= f.fields_for :deliveryaddress do |a| %>
+            <legend><%=t('deliveryaddress')%></legend>
+            <%= a.hidden_field :address_type, :value => "Lieferadresse" %>
+              <p><%= a.label :street %><br /><%= a.text_field :street %></p>
+              <p><%= a.label :zipcode %><br /><%= a.text_field :zipcode %></p>
+              <p><%= a.label :city %><br /><%= a.text_field :city %></p>
+              <p><%= a.label :country %><br /><%= a.text_field :country %></p>
+              <p><%= a.label :telnr %><br /><%= a.text_field :telnr %></p>
+              <p><%= a.label :mobil %><br /><%= a.text_field :mobile %></p>
+          <% end %>
+          </fieldset><fieldset class="login">
+          <% if @auth_edit > 50 %>
+            <legend><%=t('administration')%></legend>
+              <p><%= f.label :customernumber %><br /><%= f.text_field :customernumber %></p>
+              <p><%= f.label :customergroup_id %><br /><%= f.text_field :customergroup_id %></p>
+              <p><%= f.label :auth_level %><br /><%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %></p>
+              <p><%= f.label :auth_level_edit %><br /><%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %></p>
+              <p><%= f.label :password %><br /><%= f.password_field :password, :size => 40 %></p>
+              <p><%= f.label :password_confirmation %><br /><%= f.password_field :password_confirmation, :size => 40 %></p>
+          <% end %>
+        </fieldset>
+      <%= f.submit %>
     <% end %>
-      
-    <fieldset class="login">
-      <legend><%= t(User.human_name) %></legend>         
-        <p><%= f.label :login %> <%= f.text_field :login %></p>
-        <p><%= f.label :firstname %> <%= f.text_field :firstname %></p>
-        <p><%= f.label :lastname %> <%= f.text_field :lastname %></p>
-        <p><%= f.label :email %> <%= f.text_field :email %></p>
-        <p><%= f.label :title %> <%= f.text_field :title %></p>
-        <p><%= f.label :wwwadress %> <%= f.text_field :wwwadress %></p>
-        <p><%= f.label :taxnumber %> <%= f.text_field :taxnumber %></p>
-        <p><%= f.label :customernumber %> <%= f.text_field :customernumber %></p>
-        <p><%= f.label :customergroup_id %> <%= f.text_field :customergroup_id %></p>
-        </fieldset><fieldset class="login">
-        <%= f.fields_for :billingaddress do |a| %>
-          <legend><%=t('billingaddress')%></legend>
-          <%= a.hidden_field :address_type, :value => "Rechnungsadresse" %>
-            <p><%= a.label :street %><%= a.text_field :street %></p>
-            <p><%= a.label :zipcode %><%= a.text_field :zipcode %></p>
-            <p><%= a.label :city %><%= a.text_field :city %></p>
-            <p><%= a.label :country %><%= a.text_field :country %></p>
-            <p><%= a.label :telnr %><%= a.text_field :telnr %></p>
-            <p><%= a.label :mobil %><%= a.text_field :mobile %></p>
-        <% end %>
-        </fieldset><fieldset class="login">
-        <%= f.fields_for :deliveryaddress do |a| %>
-          <legend><%=t('deliveryaddress')%></legend>
-          <%= a.hidden_field :address_type, :value => "Lieferadresse" %>
-            <p><%= a.label :street %><%= a.text_field :street %></p>
-            <p><%= a.label :zipcode %><%= a.text_field :zipcode %></p>
-            <p><%= a.label :city %><%= a.text_field :city %></p>
-            <p><%= a.label :country %><%= a.text_field :country %></p>
-            <p><%= a.label :telnr %><%= a.text_field :telnr %></p>
-            <p><%= a.label :mobil %><%= a.text_field :mobile %></p>
-        <% end %>
-        </fieldset><fieldset class="login">
-        <% if @auth_edit > 50 %>
-          <legend><%=t('administration')%></legend>
-            <p><%= f.label :customernumber %><%= f.text_field :customernumber %></p>
-            <p><%= f.label :customergroup_id %><%= f.text_field :customergroup_id %></p>
-            <p><%= f.label :auth_level %><%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %></p>
-            <p><%= f.label :auth_level_edit %><%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %></p>
-            <p><%= f.label :password %></td></td><td><%= f.password_field :password, :size => 40 %></td></tr>
-            <p><%= f.label :password_confirmation %></td></td><td><%= f.password_field :password_confirmation, :size => 40 %></td></tr>
-
-        <% end %>
-      </fieldset>
-    <%= f.submit %>
-  <% end %>
-</div>
-<p>&nbsp;</p>
-

@@ -1,44 +1,26 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + t('Bilder') %></a></h2>
+<% if flash[:notice] %>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-<br/>
-<%= notice %>
 
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + t('pictures') %></h2>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th class ="myTitle" width="100%" colspan="2">
-	       <%= t('upload files')%>
-      </th>
-    </tr>
-  </thead>
+  <div class="content">
+    <h1><%= t('upload files')%></h1>
 
-  <% if params[:picture] != '' and params[:type] == 'image' %>
-    <tr class= "<%= cycle('odd', '') %>">
-      <td>
-      </td>
-      <td>
-        <%= image_tag(params[:picture],:height => '150') %>
-      </td>
-    </tr>
-  <% end %>
+      <% if params[:picture] != '' and params[:type] == 'image' %>
+          <p><%= image_tag(params[:picture],:height => '150') %></p>
+      <% end %>
 
-  <tr class= "<%= cycle('odd', '') %>">
-    <td>
-    <%= form_tag('', :multipart => true ) %>
-        <%= t('file') %>
-    </td>
-    <td>
-        <%= file_field_tag(:image_file, :style => "width: 30em") %>
-    </td>
-  </tr>
-  
-  <tfoot>
-    <tr>
-      <td></td>
-      <td>
-        <%= submit_tag (t('create')) %>
-      </td>
-    </tr>
-  </tfoot>
-</table>
+      <p><%= form_tag('', :multipart => true ) %> <%= t('file') %></p>
+      <p><%= file_field_tag(:image_file, :style => "width: 30em") %></p>
+      <p><%= submit_tag (t('create')) %></p>
+  </div>
+</div>

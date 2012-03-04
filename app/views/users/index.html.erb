@@ -1,53 +1,48 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + User.human_name %></a></h2>
-<div class="block" id="main">
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-  <table>
-    <% if flash[:notice]%>
-      <tr class="lineerror">
-        <td colspan="5">
-          <%= flash[:notice] %>
-        </td>
-      </tr>
-    <% end %>
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + User.human_name %></h2>
+  </div>
+  <div class="content">
 
-    <thead>
-      <tr>
-        <th class="table-head" colspan="24"><%= t('Listing ') + User.human_name %></th>
-      </tr>
-      <tr>
-                <th><%= User.human_attribute_name('login') %></th>
-                <th><%= User.human_attribute_name('firstname') %></th>
-                <th><%= User.human_attribute_name('lastname') %></th>
-                <th><%= User.human_attribute_name('auth_level') %></th>
-                <th><%= User.human_attribute_name('auth_level_edit') %></th>
-                <th><%= User.human_attribute_name('taxnumber') %></th>
-                <th><%= t('action') %></th>
-      </tr>
-    </thead>  
+    <table class="listing">
+      <thead>
+        <tr>
+                  <th><%= User.human_attribute_name('login') %></th>
+                  <th><%= User.human_attribute_name('firstname') %></th>
+                  <th><%= User.human_attribute_name('lastname') %></th>
+                  <th><%= User.human_attribute_name('auth_level') %></th>
+                  <th><%= User.human_attribute_name('auth_level_edit') %></th>
+                  <th><%= User.human_attribute_name('taxnumber') %></th>
+                  <th><%= t('action') %></th>
+        </tr>
+      </thead>
 
-    <tbody>
-    <% @users.each do |user| %>
-      <tr class="<%= cycle('odd', '') %>">
-          <td><%= user.login %></td>
-          <td><%= user.firstname %></td>
-          <td><%= user.lastname %></td>
-          <td><%= user.auth_level %></td>
-          <td><%= user.auth_level_edit %></td>
-          <td><%= user.taxnumber %></td>
-          <td align="right"><nobr>
-          <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), user %>
-          <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_user_path(user) %>
-          <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), user, :confirm => t('Are you sure?'), :method => :delete %>
-        </nobr></td>
-      </tr>
-    <% end %>
-    </tbody>
-    <tfoot>
-      <tr class="linemain">
-        <th colspan="24">
-          <%= link_to t('New ') + User.human_name, new_user_path %>
-        </th>
-      </tr>
-    </tfoot>
-  </table>
+      <tbody>
+      <% @users.each do |user| %>
+        <tr class="<%= cycle('', 'even') %>">
+            <td><%= user.login %></td>
+            <td><%= user.firstname %></td>
+            <td><%= user.lastname %></td>
+            <td><%= user.auth_level %></td>
+            <td><%= user.auth_level_edit %></td>
+            <td><%= user.taxnumber %></td>
+            <td align="right"><nobr>
+            <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), user %>
+            <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_user_path(user) %>
+            <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), user, :confirm => t('Are you sure?'), :method => :delete %>
+          </nobr></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <p><%= link_to t('New ') + User.human_name, new_user_path %></p>
+  </div>
 </div>

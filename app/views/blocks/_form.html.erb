@@ -1,30 +1,34 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Block.human_name %></a></h2>
-<div class="block" id="main">
+<% if @block.errors.any? %>
+  <div class="big-message success">
+    <h2><%= pluralize(@block.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
+    <ul>
+    <% @block.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
+
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Block.human_name %> <i><%= @block.name %></i></h2>
+  </div>
+  <div class="content">
 
   <%= form_for(@block) do |f| %>
-    <% if @block.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@block.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
-        <ul>
-        <% @block.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
       
     <fieldset class="login">
       <legend><%= t(Block.human_name) %></legend>         
-            <p><%= f.label :name %> <%= f.text_field :name %></p>
-            <p><%= f.label :headerline %> <%= f.text_field :headerline %></p>
-            <p><%= f.label :position %> <%= f.text_field :position %></p>
-            <p><%= f.label :fieldorder %> <%= f.text_field :fieldorder %></p>
-            <p><%= f.label :blockid %> <%= f.text_field :blockid %></p>
-            <p><%= f.label :active %> <%= f.check_box :active %></p>
-            <p><%= f.label :auth_level %> <%= f.text_field :auth_level %></p>
-            <p><%= f.label :auth_level_edit %> <%= f.text_field :auth_level_edit %></p>
-            <%= f.submit %>
+            <p><%= f.label :name %><br /><%= f.text_field :name %></p>
+            <p><%= f.label :headerline %><br /><%= f.text_field :headerline %></p>
+            <p><%= f.label :position %><br /><%= f.text_field :position %></p>
+            <p><%= f.label :fieldorder %><br /><%= f.text_field :fieldorder %></p>
+            <p><%= f.label :blockid %><br /><%= f.text_field :blockid %></p>
+            <p><%= f.label :active %>&nbsp; <%= f.check_box :active %></p>
+            <p><%= f.label :auth_level %><br /><%= f.text_field :auth_level %></p>
+            <p><%= f.label :auth_level_edit %><br /><%= f.text_field :auth_level_edit %></p>
+            <p><%= f.submit %></p>
     </fieldset>
   <% end %>
-</div>   
-

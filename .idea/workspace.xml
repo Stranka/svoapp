@@ -2,33 +2,111 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27872ea7-ce8f-46b3-b777-4fd92f78a2f0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/stefan.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/fonts.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/RailsNuke.iml" afterPath="$PROJECT_DIR$/.idea/RailsNuke.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/img/header-logo-container.png" afterPath="$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/img/header-logo-container.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/users/show.html.erb.old" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/configuration.rb" afterPath="$PROJECT_DIR$/app/models/configuration.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/articles/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/articles/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/articles/index.html.erb" afterPath="$PROJECT_DIR$/app/views/articles/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/articles/show.html.erb" afterPath="$PROJECT_DIR$/app/views/articles/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/articles/show_content.html.erb" afterPath="$PROJECT_DIR$/app/views/articles/show_content.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/articles/showme.html.erb" afterPath="$PROJECT_DIR$/app/views/articles/showme.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/blocks/_blocklogin.erb" afterPath="$PROJECT_DIR$/app/views/shared/blocks/_blocklogin.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/blocks/_blocks.erb" afterPath="$PROJECT_DIR$/app/views/shared/blocks/_blocks.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/blocks/_news.erb" afterPath="$PROJECT_DIR$/app/views/shared/blocks/_news.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/blocks/_search.erb" afterPath="$PROJECT_DIR$/app/views/shared/blocks/_search.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/de.yml" afterPath="$PROJECT_DIR$/config/locales/de.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/blocks/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/blocks/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/blocks/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/blocks/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/blocks/index.html.erb" afterPath="$PROJECT_DIR$/app/views/blocks/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/blocks/new.html.erb" afterPath="$PROJECT_DIR$/app/views/blocks/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/blocks/show.html.erb" afterPath="$PROJECT_DIR$/app/views/blocks/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/configurations/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/configurations/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/configurations/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/configurations/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/configurations/index.html.erb" afterPath="$PROJECT_DIR$/app/views/configurations/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/configurations/new.html.erb" afterPath="$PROJECT_DIR$/app/views/configurations/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/configurations/show.html.erb" afterPath="$PROJECT_DIR$/app/views/configurations/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/menues/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/menues/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/menues/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/menues/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/menues/new.html.erb" afterPath="$PROJECT_DIR$/app/views/menues/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/menues/show.html.erb" afterPath="$PROJECT_DIR$/app/views/menues/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pictures/index.html.erb" afterPath="$PROJECT_DIR$/app/views/pictures/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/users/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/users/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/index.html.erb" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/new.html.erb" afterPath="$PROJECT_DIR$/app/views/users/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/fancybox/jquery.easing-1.3.pack.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/fancybox/jquery.easing-1.3.pack.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/fancybox/jquery.fancybox-1.3.4.css" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/fancybox/jquery.fancybox-1.3.4.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/fancybox/jquery.fancybox-1.3.4.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/fancybox/jquery.fancybox-1.3.4.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/fancybox/jquery.fancybox-1.3.4.pack.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/fancybox/jquery.fancybox-1.3.4.pack.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/fancybox/jquery.mousewheel-3.0.4.pack.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/fancybox/jquery.mousewheel-3.0.4.pack.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/performance/draw.html" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/performance/draw.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/performance/page.html" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/performance/page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/performance/sort.html" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/performance/sort.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests/1_dom/_zero_config.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests/1_dom/_zero_config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/_zero_config.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/_zero_config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/aoColumns.bSortable.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/aoColumns.bSortable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/aoColumns.fnRender.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/aoColumns.fnRender.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/aoColumns.iDataSort.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/aoColumns.iDataSort.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/aoColumns.sClass.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/aoColumns.sClass.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/aoColumns.sName.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/aoColumns.sName.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/aoColumns.sTitle.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/aoColumns.sTitle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/aoColumns.sWidth.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/aoColumns.sWidth.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/bAutoWidth.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/bAutoWidth.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/bSortClasses.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/bSortClasses.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/fnDrawCallback.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/fnDrawCallback.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/fnInitComplete.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/fnInitComplete.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/fnRowCallback.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/fnRowCallback.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/fnServerData.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/fnServerData.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/oLanguage.oPaginate.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/oLanguage.oPaginate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/oLanguage.sInfoEmpty.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/oLanguage.sInfoEmpty.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/oLanguage.sInfoPostFix.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/oLanguage.sInfoPostFix.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/oLanguage.sLoadingRecords.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/oLanguage.sLoadingRecords.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/oLanguage.sSearch.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/oLanguage.sSearch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/oLanguage.sUrl.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/oLanguage.sUrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/sAjaxDataProp.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/sAjaxDataProp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/sDom.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/sDom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/sPaginationType.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/3_ajax/sPaginationType.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/_zero_config_arrays_subobjects.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/_zero_config_arrays_subobjects.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/_zero_config_deep.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/_zero_config_deep.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/_zero_config_null_source.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/_zero_config_null_source.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/_zero_config_objects.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/_zero_config_objects.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/_zero_config_objects_subarrays.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/_zero_config_objects_subarrays.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aaSorting.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aaSorting.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aaSortingFixed.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aaSortingFixed.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bSearchable.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bSearchable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bSortable.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bSortable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bUseRendered.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bUseRendered.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bVisible.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.bVisible.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.fnRender.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.fnRender.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.iDataSort.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.iDataSort.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sClass.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sClass.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sName.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sName.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sTitle.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sTitle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sWidth.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoColumns.sWidth.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoSearchCols.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/aoSearchCols.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/asStripClasses.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/asStripClasses.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bAutoWidth.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bAutoWidth.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bFilter.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bFilter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bInfo.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bInfo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bLengthChange.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bLengthChange.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bPaginate.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bPaginate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bProcessing.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bProcessing.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bServerSide.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bServerSide.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bSort.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bSort.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bSortClasses.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/bSortClasses.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/fnDrawCallback.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/fnDrawCallback.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/fnHeaderCallback.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/fnHeaderCallback.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/fnInitComplete.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/fnInitComplete.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/fnRowCallback.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/fnRowCallback.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/fnServerData.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/fnServerData.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/iDisplayLength.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/iDisplayLength.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.oPaginate.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.oPaginate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sInfo.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sInfo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sInfoEmpty.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sInfoEmpty.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sInfoPostFix.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sInfoPostFix.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sLengthMenu.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sLengthMenu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sProcessing.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sProcessing.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sSearch.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sSearch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sUrl.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sUrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sZeroRecords.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oLanguage.sZeroRecords.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oSearch.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/oSearch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/sAjaxSource.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/sAjaxSource.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/sDom.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/sDom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/sPaginationType.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.datatable/unit_testing/tests_onhold/5_ajax_objects/sPaginationType.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.uniform/css/uniform.default.css" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.uniform/css/uniform.default.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.uniform/demo/demo.html" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.uniform/demo/demo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.uniform/jquery.uniform.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.uniform/jquery.uniform.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.uniform/jquery.uniform.min.js" afterPath="$PROJECT_DIR$/public/javascripts/mbe-admin/templates/js/jquery.uniform/jquery.uniform.min.js" />
     </list>
     <ignored path="RailsNuke.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,19 +132,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/style.css">
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/pictures/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1505" column="23" selection-start="49793" selection-end="49793" vertical-scroll-proportion="0.6729634">
+            <state line="24" column="0" selection-start="689" selection-end="689" vertical-scroll-proportion="0.6185567">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <file leaf-file-name="de.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/locales/de.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="79" selection-start="1242" selection-end="1242" vertical-scroll-proportion="-11.56">
+            <state line="100" column="19" selection-start="2869" selection-end="2873" vertical-scroll-proportion="-12.258064">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/blocks/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="23" selection-start="22" selection-end="22" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -135,22 +222,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/configuration.rb" />
-        <option value="$PROJECT_DIR$/app/views/articles/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/shared/blocks/_search.erb" />
-        <option value="$PROJECT_DIR$/config/locales/de.yml" />
-        <option value="$PROJECT_DIR$/app/views/shared/blocks/_blocklogin.erb" />
-        <option value="$PROJECT_DIR$/app/views/articles/showme.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/shared/blocks/_blocks.erb" />
-        <option value="$PROJECT_DIR$/app/views/shared/blocks/_news.erb" />
-        <option value="$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/fonts.css" />
-        <option value="$PROJECT_DIR$/app/views/articles/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/articles/edit.html.erb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/views/articles/show_content.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/style.css" />
+        <option value="$PROJECT_DIR$/app/views/menues/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/menues/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/menues/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/menues/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/configurations/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/configurations/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/configurations/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/configurations/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/configurations/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/pictures/index.html.erb" />
       </list>
     </option>
   </component>
@@ -162,9 +249,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
     <option name="y" value="25" />
-    <option name="width" value="1920" />
-    <option name="height" value="1029" />
+    <option name="width" value="1922" />
+    <option name="height" value="1031" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -249,7 +337,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -263,119 +351,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RailsNuke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="railsnuke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mbe-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RailsNuke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="railsnuke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mbe-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RailsNuke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="railsnuke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mbe-admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RailsNuke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="railsnuke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mbe-admin" />
+              <option name="myItemId" value="locales" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -415,7 +395,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
+              <option name="myItemId" value="pictures" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RailsNuke" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="railsnuke" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blocks" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -451,12 +453,12 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="preferences.lookFeel" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RunManager" selected="Rails.Development: RailsNuke">
     <configuration default="false" name="Default" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console" temporary="true">
@@ -618,6 +620,55 @@
         <option name="RakeTask" enabled="false" />
       </method>
     </configuration>
+    <configuration default="false" name="Production: RailsNuke" type="RailsRunConfigurationType" factoryName="Rails">
+      <predefined_log_file id="RUBY_RAILS_SERVER" enabled="true" />
+      <module name="RailsNuke" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="production" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Development: RailsNuke" type="RailsRunConfigurationType" factoryName="Rails">
+      <predefined_log_file id="RUBY_RAILS_SERVER" enabled="true" />
+      <module name="RailsNuke" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="default" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="BROWSER_URL" VALUE="http://0.0.0.0:3000" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
     <configuration default="false" name="test" type="RakeRunConfigurationType" factoryName="Rake">
       <module name="RailsNuke" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -664,60 +715,12 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Production: RailsNuke" type="RailsRunConfigurationType" factoryName="Rails">
-      <predefined_log_file id="RUBY_RAILS_SERVER" enabled="true" />
-      <module name="RailsNuke" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="production" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Development: RailsNuke" type="RailsRunConfigurationType" factoryName="Rails">
-      <predefined_log_file id="RUBY_RAILS_SERVER" enabled="true" />
-      <module name="RailsNuke" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
-      <RunnerSettings RunnerId="RubyRunner" />
-      <ConfigurationWrapper RunnerId="RubyRunner" />
-      <method />
-    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Query Language Console.Default" />
-      <item index="1" class="java.lang.String" itemvalue="Rake.test" />
-      <item index="2" class="java.lang.String" itemvalue="Rake.spec" />
-      <item index="3" class="java.lang.String" itemvalue="Rails.Production: RailsNuke" />
-      <item index="4" class="java.lang.String" itemvalue="Rails.Development: RailsNuke" />
+      <item index="1" class="java.lang.String" itemvalue="Rails.Production: RailsNuke" />
+      <item index="2" class="java.lang.String" itemvalue="Rails.Development: RailsNuke" />
+      <item index="3" class="java.lang.String" itemvalue="Rake.test" />
+      <item index="4" class="java.lang.String" itemvalue="Rake.spec" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -768,18 +771,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1920" height="1029" extended-state="0" />
+    <frame x="-1" y="25" width="1922" height="1031" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1693376" sideWeight="0.33654878" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17540108" sideWeight="0.47403315" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13629076" sideWeight="0.70022124" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1693376" sideWeight="0.33118972" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290461" sideWeight="0.49839744" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5259668" sideWeight="0.49786323" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29977876" sideWeight="0.49786323" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -846,92 +849,102 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/ie.css">
+    <entry file="file://$PROJECT_DIR$/app/views/menues/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.967008" />
+        <state line="51" column="13" selection-start="2798" selection-end="2798" vertical-scroll-proportion="0.8968347" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/ie9.css">
+    <entry file="file://$PROJECT_DIR$/app/views/configurations/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="15" column="0" selection-start="354" selection-end="354" vertical-scroll-proportion="0.2637749" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/datatable.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-11.705347" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/soft-red.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.20932879" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/crimson-orange.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.1114904" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/ipad.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-4.532423" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/iphone.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-8.202503" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/jquery.uniform.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="121" selection-end="158" vertical-scroll-proportion="0.018202502" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/soft-yellow.css">
+    <entry file="file://$PROJECT_DIR$/app/views/configurations/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/configurations/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="36" selection-start="3132" selection-end="3132" vertical-scroll-proportion="0.74516493" />
+        <state line="4" column="32" selection-start="98" selection-end="98" vertical-scroll-proportion="0.07033998" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/articles/show_content.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/configurations/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="411" selection-end="411" vertical-scroll-proportion="0.31887457">
+        <state line="1" column="119" selection-start="144" selection-end="144" vertical-scroll-proportion="0.017103763" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/configurations/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="1981" selection-end="1981" vertical-scroll-proportion="0.7033998" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="42" selection-start="970" selection-end="970" vertical-scroll-proportion="0.5810056">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/shared/blocks/_blockmenue.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/blocks/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="75" selection-start="1002" selection-end="1034" vertical-scroll-proportion="0.25714287">
+        <state line="8" column="0" selection-start="171" selection-end="210" vertical-scroll-proportion="0.17167382">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/articles/showme.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/blocks/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="338" selection-end="479" vertical-scroll-proportion="0.31887457">
+        <state line="12" column="0" selection-start="344" selection-end="384" vertical-scroll-proportion="0.25751072">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/img/header-logo-container.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/users/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="79" selection-start="1242" selection-end="1242" vertical-scroll-proportion="-11.56">
+        <state line="1" column="78" selection-start="103" selection-end="103" vertical-scroll-proportion="0.020746889">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/mbe-admin/templates/css/style.css">
+    <entry file="file://$PROJECT_DIR$/app/views/users/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1505" column="23" selection-start="49793" selection-end="49793" vertical-scroll-proportion="0.6729634">
+        <state line="2" column="2" selection-start="75" selection-end="75" vertical-scroll-proportion="0.042918455">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="13" selection-start="3667" selection-end="3667" vertical-scroll-proportion="0.8712446">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="14" selection-start="349" selection-end="349" vertical-scroll-proportion="-8.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/de.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="19" selection-start="2869" selection-end="2873" vertical-scroll-proportion="-12.258064">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/blocks/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="23" selection-start="22" selection-end="22" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pictures/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="689" selection-end="689" vertical-scroll-proportion="0.6185567">
           <folding />
         </state>
       </provider>

@@ -1,38 +1,47 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration Konfiguration') %></a></h2>
-<div class="block" id="main">
-  <table>
-    <thead>
-      <tr>
-        <th class="table-head" colspan="9"><%= t('Listing ') + Configuration.human_name %></th>
-      </tr>
-      <tr>
-        <th><%= Configuration.human_attribute_name('block_left') %></th>
-        <th><%= Configuration.human_attribute_name('block_left_width') %></th>
-        <th><%= Configuration.human_attribute_name('block_right') %></th>
-        <th><%= Configuration.human_attribute_name('block_right_width') %></th>
-        <th><%= Configuration.human_attribute_name('pagewidth') %></th>
-        <th><%= Configuration.human_attribute_name('block_headerline') %></th>
-        <th><%= Configuration.human_attribute_name('position_logo') %></th>
-        <th><%= Configuration.human_attribute_name('topimage') %></th>
-        <th><%= t 'action' %></td>      
-      </tr>
-    </thead>
+<% if flash[:notice]%>
+    <div class="big-message success">
+      <h2><%= flash[:notice] %></h2>
+      <div class="bg"></div>
+      <div class="close"></div>
+    </div>
+<% end %>
 
-  <% @configurations.each do |configuration| %>
-    <tr class= "line<%= cycle('1', '2') %>">
-      <td><%= configuration.block_left %></td>
-      <td><%= configuration.block_left_width %></td>
-      <td><%= configuration.block_right %></td>
-      <td><%= configuration.block_right_width %></td>
-      <td><%= configuration.pagewidth %></td>
-      <td><%= configuration.block_headerline %></td>
-      <td><%= configuration.position_logo %></td>
-      <td><%= configuration.topimage %></td>
-      <td align="right"><nobr>
-        <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), configuration %>
-        <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_configuration_path(configuration) %>
-      <%#= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), configuration, :confirm => t('Are you sure?'), :method => :delete %></td>
-      </nobr></tr>
-  <% end %>
-  </table>
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration Konfiguration') %></h2>
+  </div>
+  <div class="content">
+      <table class="listing">
+        <thead>
+          <tr>
+            <th><%= Configuration.human_attribute_name('block_left') %></th>
+            <th><%= Configuration.human_attribute_name('block_left_width') %></th>
+            <th><%= Configuration.human_attribute_name('block_right') %></th>
+            <th><%= Configuration.human_attribute_name('block_right_width') %></th>
+            <th><%= Configuration.human_attribute_name('pagewidth') %></th>
+            <th><%= Configuration.human_attribute_name('block_headerline') %></th>
+            <th><%= Configuration.human_attribute_name('position_logo') %></th>
+            <th><%= Configuration.human_attribute_name('topimage') %></th>
+            <th><%= t 'action' %></td>
+          </tr>
+        </thead>
+
+      <% @configurations.each do |configuration| %>
+        <tr class= "line<%= cycle('1', '2') %>">
+          <td><%= configuration.block_left %></td>
+          <td><%= configuration.block_left_width %></td>
+          <td><%= configuration.block_right %></td>
+          <td><%= configuration.block_right_width %></td>
+          <td><%= configuration.pagewidth %></td>
+          <td><%= configuration.block_headerline %></td>
+          <td><%= configuration.position_logo %></td>
+          <td><%= configuration.topimage %></td>
+          <td align="right"><nobr>
+            <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), configuration %>
+            <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_configuration_path(configuration) %>
+          <%#= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), configuration, :confirm => t('Are you sure?'), :method => :delete %></td>
+          </nobr></tr>
+      <% end %>
+    </table>
+  </div>
 </div>
