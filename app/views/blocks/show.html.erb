@@ -22,39 +22,39 @@
 
       <tbody>
         <tr class="<%= cycle('', 'even') %>">
-          <td width="50%"><%= Block.human_attribute_name('name') %></td>
+          <td width="30%"><%= Block.human_attribute_name('name') %></td>
           <td><%= @block.name %></td>
         </tr>
         <tr class="<%= cycle('', 'even') %>">
-          <td width="50%"><%= Block.human_attribute_name('headerline') %></td>
+          <td width="30%"><%= Block.human_attribute_name('headerline') %></td>
           <td><%= @block.headerline %></td>
         </tr>
         <tr class="<%= cycle('', 'even') %>">
-          <td width="50%"><%= Block.human_attribute_name('position') %></td>
+          <td width="30%"><%= Block.human_attribute_name('position') %></td>
           <td><%= @block.position %></td>
         </tr>
         <tr class="<%= cycle('', 'even') %>">
-          <td width="50%"><%= Block.human_attribute_name('fieldorder') %></td>
+          <td width="30%"><%= Block.human_attribute_name('fieldorder') %></td>
           <td><%= @block.fieldorder %></td>
         </tr>
         <tr class="<%= cycle('', 'even') %>">
-          <td width="50%"><%= Block.human_attribute_name('blockid') %></td>
+          <td width="30%"><%= Block.human_attribute_name('blockid') %></td>
           <td><%= @block.blockid %></td>
         </tr>
         <tr class="<%= cycle('', 'even') %>">
-          <td width="50%"><%= Block.human_attribute_name('active') %></td>
+          <td width="30%"><%= Block.human_attribute_name('active') %></td>
           <td><%= @block.active %></td>
         </tr>
         <tr class="<%= cycle('', 'even') %>">
-          <td width="50%"><%= Block.human_attribute_name('auth_level') %></td>
+          <td width="30%"><%= Block.human_attribute_name('auth_level') %></td>
           <td><%= @block.auth_level %></td>
         </tr>
         <tr class="<%= cycle('', 'even') %>">
-          <td width="50%"><%= Block.human_attribute_name('auth_level_edit') %></td>
+          <td width="30%"><%= Block.human_attribute_name('auth_level_edit') %></td>
           <td><%= @block.auth_level_edit %></td>
         </tr>
       </tbody>
     </table>
   <p><%= link_to t('Edit'), edit_block_path(@block) %> | <%= link_to t('Back'), blocks_path %></p>
   </div>
-</div>  
+</div>

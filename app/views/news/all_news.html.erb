@@ -1,6 +1,18 @@
-  <% if flash[:notice]%>
-        <%= flash[:notice] %>
-  <% end %>
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-  <%= render :partial => "shared/blocks/all_news", :collection => read_all_news, :as => :news %>
-
+<div class="block">
+  <div class="top">
+    <h2><%= News.human_name %></h2>
+  </div>
+  <div class="content">
+    <div class="accordion">
+      <%= render :partial => "shared/blocks/all_news", :collection => read_all_news, :as => :news %>
+    </div>
+  </div>
+</div>
