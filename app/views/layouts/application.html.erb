@@ -52,11 +52,11 @@
             <ul class="main-menu">
               <%= render :partial => "shared/menue", :collection => @menue_top, :as => :menue %>
               <li><%= link_to_function(image_tag("print.png", :style => "vertical-align:middle", :border => 0, :alt => t('print'), :title => t('print')), "javascript:print()") %></li>
-              <li><a href="">Thema</a>
+              <li><a href="/">Thema</a>
                 <ul>
                   <li><%= link_to "Rot", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-red'}, html_options={:class => 'user-menu-link'}  %></li>
                   <li><%= link_to "Orange", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'crimson-orange'}, html_options={:class => 'user-menu-link'}  %></li>
-                  <li><%= link_to "Grün", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-green'}, html_options={:class => 'user-menu-link'}  %></li>#
+                  <li><%= link_to "Grün", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-green'}, html_options={:class => 'user-menu-link'}  %></li>
                   <li><%= link_to "Blau", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-blue'}, html_options={:class => 'user-menu-link'}  %></li>
                   <li><%= link_to "Purpur", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-purple'}, html_options={:class => 'user-menu-link'}  %></li>
                   <li><%= link_to "Gelb", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-yellow'}, html_options={:class => 'user-menu-link'}  %></li>
@@ -65,8 +65,8 @@
               </li>
             </ul>
             <ul class="secondary-menu">
-              <li>&nbsp;<%= link_to (image_tag('/images/at.gif', :style => "vertical-align:middle")), url_options={:controller => 'menues', :action => 'change_language', :language => 'de'}, html_options={:class => 'user-menu-link'} %></li>
-              <li><%= link_to (image_tag('/images/en.gif', :style => "vertical-align:middle")), url_options={:controller => 'menues', :action => 'change_language', :language => 'en'}, html_options={:class => 'user-menu-link'}  %></li>
+              <li><%= link_to (image_tag('/images/at.gif', :style => "padding-top:20px")), url_options={:controller => 'menues', :action => 'change_language', :language => 'de'} %></li>
+              <li><%= link_to (image_tag('/images/en.gif', :style => "padding-top:20px")), url_options={:controller => 'menues', :action => 'change_language', :language => 'en'} %></li>
             </ul>
           </div>
         </div>
