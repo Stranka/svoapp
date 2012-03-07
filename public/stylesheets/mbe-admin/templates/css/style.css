@@ -278,6 +278,11 @@ div.radio.active.focus span.checked {
  *
  */
 
+*.search_string {
+    font-weight: bold;
+    color: #fa0;
+}
+
 .page .block .content form {
 	margin: 0;
 	padding: 0;

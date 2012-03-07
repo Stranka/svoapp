@@ -1,19 +1,41 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= @search.count %> <%= t('searchstring')%> '<%= params[:aquery] %>'</a></h2>
-<div class="block" id="main">
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-  <% if flash[:notice]%>
-    <%= flash[:notice] %> '<%= params[:aquery] %>'
+<div class="block">
+  <div class="top">
+    <h2><%= @search.count %> <%= t('searchstring')%> '<%= params[:aquery] %>'</h2>
+  </div>
+  <div class="content">
 
-  <% else %>
-    <div id="accordion">
-       <% @search.each_with_index do |search,i | %>
-         <h3 class="toggler atStart"><%= i+1 %>) <%= search.name %> (<%= search.auth_level_edit %> Treffer)</h3>
-         <div class="element atStart">
-           <div class="first article">
-             <%= raw(search.content) %>
-           </div>
-         </div>
-       <% end %>          
-     </div>
-  <% end %>
+    <% if flash[:notice]%>
+      <%= flash[:notice] %> '<%= params[:aquery] %>'
+
+    <% else %>
+      <div class="vertical-tabs">
+        <div class="tab-list">
+          <ul>
+            <% @search.each_with_index do |search,i | %>
+              <% if i==0 %>
+                <li class="active">
+              <% else %>
+                <li>
+              <% end %>
+                <a href="tab<%= i %>"><%= search.name %> (<%= search.auth_level_edit %>)</a></li>
+            <% end %>
+          </ul>
+        </div>
+        <% @search.each_with_index do |search,i | %>
+          <div id="tab<%= i %>" class="right-tab">
+               <%= raw(search.content) %>
+          </div>
+        <% end %>
+        <div class="clear">&nbsp;</div>
+      </div>
+    <% end %>
+  </div>
 </div>

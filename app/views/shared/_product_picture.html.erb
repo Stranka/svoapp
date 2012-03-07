@@ -1,6 +1,9 @@
   <% product.assets.each do |asset| %>
     <tr class="<%= cycle('odd', '') %>">
-      <td width="5%"><%= link_to( image_tag(asset.image.url(:content)), asset.image.url(:original),:target => "_blank" ) %></td>
+      <td width="5%">
+        <% if product.assets[0] %>
+          <%= link_to( image_tag(asset.image.url(:content)), asset.image.url(:original),:target => "_blank" ) %></td>
+        <% end %>
     </tr>
   <% end %>
 
