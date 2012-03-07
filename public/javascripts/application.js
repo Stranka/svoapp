@@ -24,7 +24,7 @@ function menue_action_auswahl()
     {
     ac.options.length = 0;
     ac.options[0] = new Option("show_content");
-    ac.options[1] = new Option("showme");
+    ac.options[1] = new Option("index");
     $(document.getElementById("the_id")).show()
     }
     else if (co.options
