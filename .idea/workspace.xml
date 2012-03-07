@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27872ea7-ce8f-46b3-b777-4fd92f78a2f0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/application.js" afterPath="$PROJECT_DIR$/public/javascripts/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/menue.rb" afterPath="$PROJECT_DIR$/app/models/menue.rb" />
     </list>
     <ignored path="RailsNuke.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,31 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <file leaf-file-name="menue.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/menue.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="129" selection-start="3836" selection-end="3836" vertical-scroll-proportion="-11.769231">
+            <state line="18" column="1" selection-start="424" selection-end="424" vertical-scroll-proportion="0.4935484">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/menues/_form.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="10" selection-start="2027" selection-end="2027" vertical-scroll-proportion="-16.346153">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/application.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="16" selection-start="697" selection-end="697" vertical-scroll-proportion="0.38387096">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -120,7 +100,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/shipments/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/shipments/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/shipments/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/shipments/show.html.erb" />
@@ -136,6 +115,7 @@
         <option value="$PROJECT_DIR$/app/views/blocks/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/menues/_form.html.erb" />
         <option value="$PROJECT_DIR$/public/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/app/models/menue.rb" />
       </list>
     </option>
   </component>
@@ -267,7 +247,55 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mbe-admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RailsNuke" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="railsnuke" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RailsNuke" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="railsnuke" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -684,11 +712,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/shipments/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="13" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.7052933" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/shipments/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="20" selection-start="332" selection-end="332" vertical-scroll-proportion="0.31616595" />
@@ -751,16 +774,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/menues/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="129" selection-start="3836" selection-end="3836" vertical-scroll-proportion="-11.769231">
+        <state line="43" column="10" selection-start="2027" selection-end="2027" vertical-scroll-proportion="-16.346153">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/menues/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="10" selection-start="2027" selection-end="2027" vertical-scroll-proportion="-16.346153">
+        <state line="45" column="129" selection-start="3836" selection-end="3836" vertical-scroll-proportion="0.9655766">
           <folding />
         </state>
       </provider>
@@ -771,6 +794,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/menue.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="1" selection-start="424" selection-end="424" vertical-scroll-proportion="0.4935484">
+          <folding />
         </state>
       </provider>
     </entry>
