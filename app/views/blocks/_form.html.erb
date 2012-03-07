@@ -23,9 +23,9 @@
       <legend><%= t(Block.human_name) %></legend>         
             <p><%= f.label :name %><br /><%= f.text_field :name %></p>
             <p><%= f.label :headerline %><br /><%= f.text_field :headerline %></p>
-            <p><%= f.label :position %><br /><%= f.text_field :position %></p>
+            <p><%= f.label :position %><br /><%= f.select :position, Block::POSITION %></p>
             <p><%= f.label :fieldorder %><br /><%= f.text_field :fieldorder %></p>
-            <p><%= f.label :blockid %><br /><%= f.text_field :blockid %></p>
+            <p><%= f.label :blockid %><br /> <%= f.select :blockid, Block::BLOCKID %></p>
             <p><%= f.label :active %>&nbsp; <%= f.check_box :active %></p>
             <p><%= f.label :auth_level %><br /><%= f.text_field :auth_level %></p>
             <p><%= f.label :auth_level_edit %><br /><%= f.text_field :auth_level_edit %></p>

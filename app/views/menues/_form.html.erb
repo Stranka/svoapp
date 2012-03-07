@@ -41,7 +41,7 @@
           <% else %>
               <p id="the_id" style="display:none";>
           <% end %>
-          <p><%= f.label :the_id %><br /><%= f.collection_select :the_id, @articles, :id, :name, :prompt => t('please select') %></p>
+          <%= f.label :the_id %><br /><%= f.collection_select :the_id, @articles, :id, :name, :prompt => t('please select') %></p>
           <p><%= f.label :parent_id %><br /><%= f.collection_select :parent_id, @men, :id, :name, :include_blank => true, :prompt => t('please select') %></p>
           <p><%= f.label :ontop %>&nbsp;<%= f.check_box :ontop %></p>
           <p><%= f.label :active %>&nbsp;<%= f.check_box :active %></p>
