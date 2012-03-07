@@ -1,2 +1,2 @@
 <p align="right"><%= link_to t('My Account'), customer_path(current_user.id) %> | <%= link_to t('Logout'), logout_path %></p>
-<p><%= t('welcome') %>, <b><%= current_user.title %> <%= current_user.firstname %> <%= current_user.lastname %></b>!</p>
+<p><%= t('welcome') %>, <nobr><b><%= current_user.title %> <%= current_user.firstname %> <%= current_user.lastname %></b>!</nobr></p>

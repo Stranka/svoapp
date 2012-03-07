@@ -156,5 +156,10 @@ class MenuesController < ApplicationController
     redirect_to home_path
   end
 
+  def change_theme
+    RailsNuke::Application.config.theme = params[:theme]
+    redirect_to home_path
+  end
+
 end
 

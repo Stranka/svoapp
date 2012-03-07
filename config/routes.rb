@@ -73,6 +73,7 @@ RailsNuke::Application.routes.draw do
       get 'up'
       get 'down'
       get 'change_language'
+      get 'change_theme'
     end
   end
 

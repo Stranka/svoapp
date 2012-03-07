@@ -1,78 +1,52 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Shipment.human_name %></a></h2>
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-<%= notice %>
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Shipment.human_name %></h2>
+  </div>
+  <div class="content">
+    <p align="right"><%= link_to t('Edit'), edit_shipment_path(@shipment) %> | <%= link_to t('Back'), shipments_path %></p>
+    <table class="listing">
+      <thead>
+        <tr>
+          <th><%= t('Key')%></th>
+          <th><%= t('Value')%></th>
+        </tr>
+      </thead>
 
-<div class="block" id="main">
-  <table>
-    <thead>
-      <tr>
-        <th class="table-head" colspan="2"><%= t('Show ') + Shipment.human_name %></th>
-      </tr>
-      <tr>
-        <th><%= t('Key')%></th>
-        <th><%= t('Value')%></th>
-      </tr>
-    </thead>
-
-    <tbody>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Shipment.human_attribute_name('name') %>
-        </td>
-        <td>
-          <%= @shipment.name %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Shipment.human_attribute_name('weight_max') %>
-        </td>
-        <td>
-          <%= @shipment.weight_max %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Shipment.human_attribute_name('lenght_max') %>
-        </td>
-        <td>
-          <%= @shipment.lenght_max %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Shipment.human_attribute_name('scale_id') %>
-        </td>
-        <td>
-          <%= @shipment.scale_id %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Shipment.human_attribute_name('auth_level') %>
-        </td>
-        <td>
-          <%= @shipment.auth_level %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Shipment.human_attribute_name('auth_level_edit') %>
-        </td>
-        <td>
-          <%= @shipment.auth_level_edit %>
-        </td>
-      </tr>
-        </tbody>
-
-    <tfoot>
-      <tr class="linemain">
-        <th colspan="2">
-          <%= link_to t('Edit'), edit_shipment_path(@shipment) %> |
-          <%= link_to t('Back'), shipments_path %>
-        </th>
-      </tr>
-    <tfoot>    
-  </table>
-</div>  
-
+      <tbody>
+        <tr class="line<%= cycle('', 'even') %>">
+          <td width="30%"><%= Shipment.human_attribute_name('name') %></td>
+          <td><%= @shipment.name %></td>
+        </tr>
+        <tr class="line<%= cycle('', 'even') %>">
+          <td width="30%"><%= Shipment.human_attribute_name('weight_max') %></td>
+          <td><%= @shipment.weight_max %></td>
+        </tr>
+        <tr class="line<%= cycle('', 'even') %>">
+          <td width="30%"><%= Shipment.human_attribute_name('lenght_max') %></td>
+          <td><%= @shipment.lenght_max %></td>
+        </tr>
+        <tr class="line<%= cycle('', 'even') %>">
+          <td width="30%"><%= Shipment.human_attribute_name('scale_id') %></td>
+          <td><%= @shipment.scale_id %></td>
+        </tr>
+        <tr class="line<%= cycle('', 'even') %>">
+          <td width="30%"><%= Shipment.human_attribute_name('auth_level') %></td>
+          <td><%= @shipment.auth_level %></td>
+        </tr>
+        <tr class="line<%= cycle('', 'even') %>">
+          <td width="30%"><%= Shipment.human_attribute_name('auth_level_edit') %></td>
+          <td><%= @shipment.auth_level_edit %></td>
+        </tr>
+      </tbody>
+    </table>
+    <p><%= link_to t('Edit'), edit_shipment_path(@shipment) %> | <%= link_to t('Back'), shipments_path %></p>
+  </div>
+</div>

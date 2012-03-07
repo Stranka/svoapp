@@ -1,205 +1,120 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Product.human_name %></a></h2>
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-<%= notice %>
-
-<div class="block" id="main">
-  <table>
-    <thead>
-      <tr>
-        <th class="table-head" colspan="2"><%= t('Show ') + Product.human_name %></th>
-      </tr>
-      <tr>
-        <th><%= t('Key')%></th>
-        <th><%= t('Value')%></th>
-      </tr>
-    </thead>
-
-    <tbody>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('shorttext') %>
-        </td>
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Product.human_name %></h2>
+  </div>
+  <div class="content">
+    <p align="right"><%= link_to t('Edit'), edit_product_path(@product) %> | <%= link_to t('Back'), products_path %></p>
+    <table class="listing">
+      <thead>
+        <tr>
+          <th><%= t('Key')%></th>
+          <th><%= t('Value')%></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('shorttext') %></td>
+          <td><%= @product.shorttext %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= t('Assets') %></td>
+          <td width ="50%">
+            <% @product.assets.each do |asset| %>
+              <%= link_to( image_tag(asset.image.url(:thumb)), asset.image.url(:original),:target => "_blank" ) %>
+            <% end %>
+          </td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('description') %></td>
+          <td><%= @product.description %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('producer') %></td>
+          <td><%= @product.producer %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('price') %></td>
+          <td><%= number_to_currency(@product.price) %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('special_price') %></td>
+          <td><%= number_to_currency(@product.special_price) %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('product_features') %></td>
+          <td><%= @product.product_features %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('weight') %></td>
+          <td><%= @product.weight %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('unit_of_weight') %></td>
+          <td><%= @product.unit_of_weight %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('unit_of_quantity') %></td>
+          <td><%= @product.unit_of_quantity %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('tax_percentage') %></td>
+          <td><%= @product.tax_percentage %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('auth_level') %></td>
+          <td><%= @product.auth_level %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('auth_level_edit') %></td>
+          <td><%= @product.auth_level_edit %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('productclass_id') %></td>
+          <td><%= @product.productclass.name %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('image_file_name') %></td>
+          <td><%= @product.image_file_name %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('image_content_type') %></td>
+          <td><%= @product.image_content_type %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('image_file_size') %></td>
+          <td><%= @product.image_file_size %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('sheet_file_name') %></td>
         <td>
-          <%= @product.shorttext %>
-        </td>
-      </tr>
-      <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= t('Assets') %>
-        </td>
-        <td width ="50%">
-          <% @product.assets.each do |asset| %>
-            <%= link_to( image_tag(asset.image.url(:thumb)), asset.image.url(:original),:target => "_blank" ) %>
+          <% if @product.sheet_file_name != nil %>
+            <%= @product.sheet_file_name %>
+            <%= link_to( t('show'), {:controller => 'products', :action => 'show_specification_sheet', :id => @product.id, :mode => 'show'},{:target => "_blank"}) %> /
+            <%= link_to t('Download'),:controller => 'products', :action => 'show_specification_sheet', :id => @product.id, :mode => 'download' %>
+          <% else %>
+            <%= t('no datasheet available') %>
           <% end %>
         </td>
-      </tr>
-      <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('description') %>
-        </td>
-        <td>
-          <%= @product.description %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('producer') %>
-        </td>
-        <td>
-          <%= @product.producer %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('price') %>
-        </td>
-        <td>
-          <%= number_to_currency(@product.price) %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('special_price') %>
-        </td>
-        <td>
-          <%= number_to_currency(@product.special_price) %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('product_features') %>
-        </td>
-        <td>
-          <%= @product.product_features %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('weight') %>
-        </td>
-        <td>
-          <%= @product.weight %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('unit_of_weight') %>
-        </td>
-        <td>
-          <%= @product.unit_of_weight %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('unit_of_quantity') %>
-        </td>
-        <td>
-          <%= @product.unit_of_quantity %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('tax_percentage') %>
-        </td>
-        <td>
-          <%= @product.tax_percentage %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('auth_level') %>
-        </td>
-        <td>
-          <%= @product.auth_level %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('auth_level_edit') %>
-        </td>
-        <td>
-          <%= @product.auth_level_edit %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('productclass_id') %>
-        </td>
-        <td>
-          <%= @product.productclass.name %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('image_file_name') %>
-        </td>
-        <td>
-          <%= @product.image_file_name %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('image_content_type') %>
-        </td>
-        <td>
-          <%= @product.image_content_type %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('image_file_size') %>
-        </td>
-        <td>
-          <%= @product.image_file_size %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('sheet_file_name') %>
-        </td>
-      <td>
-        <% if @product.sheet_file_name != nil %>
-          <%= @product.sheet_file_name %> <%= link_to( t('show'), {
-                :controller => 'products',
-                :action => 'show_specification_sheet',
-                :id => @product.id,
-                :mode => 'show'},
-                {:target => "_blank"}) %> /
-          <%= link_to t('Download'),
-                :controller => 'products',
-                :action => 'show_specification_sheet',
-                :id => @product.id,
-                :mode => 'download' %>
-        <% else %>
-          <%= t('no datasheet available') %>
-        <% end %>
-      </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('sheet_content_type') %>
-        </td>
-        <td>
-          <%= @product.sheet_content_type %>
-        </td>
-      </tr>
-          <tr class="line<%= cycle('1', '2') %>">
-        <td width="50%">
-          <%= Product.human_attribute_name('sheet_file_size') %>
-        </td>
-        <td>
-          <%= @product.sheet_file_size %>
-        </td>
-      </tr>
-        </tbody>
-
-    <tfoot>
-      <tr class="linemain">
-        <th colspan="2">
-          <%= link_to t('Edit'), edit_product_path(@product) %> |
-          <%= link_to t('Back'), products_path %>
-        </th>
-      </tr>
-    <tfoot>    
-  </table>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('sheet_content_type') %></td>
+          <td><%= @product.sheet_content_type %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Product.human_attribute_name('sheet_file_size') %></td>
+          <td><%= @product.sheet_file_size %></td>
+        </tr>
+      </tbody>
+    </table>
+    <p><%= link_to t('Edit'), edit_product_path(@product) %> | <%= link_to t('Back'), products_path %></p>
+  </div>
 </div>  

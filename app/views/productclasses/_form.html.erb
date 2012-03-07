@@ -1,26 +1,33 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Productclass.human_name %></a></h2>
-<div class="block" id="main">
-  <%= form_for(@productclass, :html => { :multipart => true }) do |f| %>
-    <% if @productclass.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@productclass.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
-        <ul>
-        <% @productclass.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+<% if @productclass.errors.any? %>
+  <div class="big-message success">
+    <h2><%= pluralize(@productclass.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
+    <ul>
+      <% @productclass.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-  <fieldset class="login">
-    <legend><%= Productclass.human_name %></legend>         
-    <p><%= f.label :name %><%= f.text_field :name %></p>
-    <p><%= f.label :parent_id %><%#= collection_select('f',:parent_id, @prclasses, :id, :name, :include_blank => true, :prompt => t('please select')) %>
-       <%= f.collection_select :parent_id, @prclasses, :id, :name, :include_blank => true, :prompt => t('please select') %></p>
-    <p><%= f.label :picture %><%= f.file_field(:picture_field, :style => "width: 30em") %></p>
-    <p><%= f.label :auth_level %><%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %></p>
-    <p><%= f.label :auth_level_edit %><%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %></p>
-    <%= f.submit %>
-    </fieldset>
-  <% end %>
-</div>
+
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Productclass.human_name %></h2>
+
+    </div>
+    <div class="content">
+    <%= form_for(@productclass, :html => { :multipart => true }) do |f| %>
+
+    <fieldset class="login">
+      <legend><%= Productclass.human_name %></legend>
+      <p><%= f.label :name %><br /><%= f.text_field :name %></p>
+      <p><%= f.label :parent_id %><br /><%#= collection_select('f',:parent_id, @prclasses, :id, :name, :include_blank => true, :prompt => t('please select')) %>
+         <%= f.collection_select :parent_id, @prclasses, :id, :name, :include_blank => true, :prompt => t('please select') %></p>
+      <p><%= f.label :picture %><br /><%= f.file_field(:picture_field, :style => "width: 30em") %></p>
+      <p><%= f.label :auth_level %><br /><%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %></p>
+      <p><%= f.label :auth_level_edit %><br /><%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %></p>
+      <p><%= f.submit %></p>
+      </fieldset>
+    <% end %>

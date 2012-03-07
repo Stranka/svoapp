@@ -1,53 +1,48 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Shipment.human_name %></a></h2>
-<div class="block" id="main">
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-  <table>
-    <% if flash[:notice]%>
-      <tr class="lineerror">
-        <td colspan="5">
-          <%= flash[:notice] %>
-        </td>
-      </tr>
-    <% end %>
-
-    <thead>
-      <tr>
-        <th class="table-head" colspan="7"><%= t('Listing ') + Shipment.human_name %></th>
-      </tr>
-      <tr>
-                <th><%= Shipment.human_attribute_name('name') %></th>
-                <th><%= Shipment.human_attribute_name('weight_max') %></th>
-                <th><%= Shipment.human_attribute_name('lenght_max') %></th>
-                <th><%= Shipment.human_attribute_name('scale_id') %></th>
-                <th><%= Shipment.human_attribute_name('auth_level') %></th>
-                <th><%= Shipment.human_attribute_name('auth_level_edit') %></th>
-                <th><%= t('action') %></th>
-      </tr>
-    </thead>  
-
-    <tbody>
-    <% @shipments.each do |shipment| %>
-      <tr class="<%= cycle('odd', '') %>">
-          <td><%= shipment.name %></td>
-          <td><%= shipment.weight_max %></td>
-          <td><%= shipment.lenght_max %></td>
-          <td><%= shipment.scale_id %></td>
-          <td><%= shipment.auth_level %></td>
-          <td><%= shipment.auth_level_edit %></td>
-          <td align="right"><nobr>
-          <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), shipment %>
-          <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_shipment_path(shipment) %>
-          <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), shipment, :confirm => t('Are you sure?'), :method => :delete %>
-        </nobr></td>
-      </tr>
-    <% end %>
-    </tbody>
-    <tfoot>
-      <tr class="linemain">
-        <th colspan="7">
-          <%= link_to t('New ') + Shipment.human_name, new_shipment_path %>
-        </th>
-      </tr>
-    </tfoot>
-  </table>
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Shipment.human_name %></h2>
+  </div>
+  <div class="content">
+    <div class="dataTables_wrapper">
+      <table class="listing data-table">
+        <thead>
+          <tr>
+            <th><%= Shipment.human_attribute_name('name') %></th>
+            <th><%= Shipment.human_attribute_name('weight_max') %></th>
+            <th><%= Shipment.human_attribute_name('lenght_max') %></th>
+            <th><%= Shipment.human_attribute_name('scale_id') %></th>
+            <th><%= Shipment.human_attribute_name('auth_level') %></th>
+            <th><%= Shipment.human_attribute_name('auth_level_edit') %></th>
+            <th><%= t('action') %></th>
+          </tr>
+        </thead>  
+        <tbody>
+        <% @shipments.each do |shipment| %>
+          <tr class="<%= cycle('odd', '') %>">
+            <td><%= shipment.name %></td>
+            <td><%= shipment.weight_max %></td>
+            <td><%= shipment.lenght_max %></td>
+            <td><%= shipment.scale_id %></td>
+            <td><%= shipment.auth_level %></td>
+            <td><%= shipment.auth_level_edit %></td>
+            <td align="right"><nobr>
+              <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), shipment %>
+              <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_shipment_path(shipment) %>
+              <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), shipment, :confirm => t('Are you sure?'), :method => :delete %>
+            </nobr></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <p><%= link_to t('New ') + Shipment.human_name, new_shipment_path %></p>
+  </div>
 </div>

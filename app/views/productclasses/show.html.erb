@@ -1,98 +1,69 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Productclass.human_name %></a></h2>
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-<%= notice %>
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Productclass.human_name %></h2>
+  </div>
+  <div class="content">
+    <p align="right"><%= link_to t('Edit'), edit_productclass_path(@productclass) %> | <%= link_to t('Back'), productclasses_path %></p>
+    <table class="listing">
+      <thead>
+        <tr>
+          <th><%= t('Key')%></th>
+          <th><%= t('Value')%></th>
+        </tr>
+      </thead>
 
-<div class="block" id="main">
-  <table>
-    <thead>
-      <tr>
-        <th class="table-head" colspan="2"><%= t('Show ') + Productclass.human_name %></th>
-      </tr>
-      <tr>
-        <th><%= t('Key')%></th>
-        <th><%= t('Value')%></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr class="<%= cycle('odd', '') %>">
-        <td width="50%">
-          <%= Productclass.human_attribute_name('name') %>
-        </td>
-        <td>
-          <%= @productclass.name %>
-        </td>
-      </tr>
-      <tr class="<%= cycle('odd', '') %>">
-        <td width="50%">
-          <%= Productclass.human_attribute_name('parent_id') %>
-        </td>
-        <td>
-          <% if @productclass.parent %>
-      	   <%= @productclass.parent.name %>
-      	  <% end %>
-        </td>
-      </tr>
-          <tr class="<%= cycle('odd', '') %>">
-        <td width="50%">
-          <%= Productclass.human_attribute_name('picture') %>
-        </td>
-        <td>
-          <%= @productclass.picture %>
-        </td>
-      </tr>
-      <tr class="<%= cycle('odd', '') %>">
-        <td colspan="2" align="right"><%= image_tag (@productclass.picture), :height => '150' %></td>
-      </tr>
-          <tr class="<%= cycle('odd', '') %>">
-        <td width="50%">
-          <%= Productclass.human_attribute_name('url') %>
-        </td>
-        <td>
-          <%= @productclass.url %>
-        </td>
-      </tr>
-          <tr class="<%= cycle('odd', '') %>">
-        <td width="50%">
-          <%= Productclass.human_attribute_name('position') %>
-        </td>
-        <td>
-          <%= @productclass.position %>
-        </td>
-      </tr>
-          <tr class="<%= cycle('odd', '') %>">
-        <td width="50%">
-          <%= Productclass.human_attribute_name('ancestry') %>
-        </td>
-        <td>
-          <%= @productclass.ancestry %>
-        </td>
-      </tr>
-          <tr class="<%= cycle('odd', '') %>">
-        <td width="50%">
-          <%= Productclass.human_attribute_name('auth_level') %>
-        </td>
-        <td>
-          <%= @productclass.auth_level %>
-        </td>
-      </tr>
-          <tr class="<%= cycle('odd', '') %>">
-        <td width="50%">
-          <%= Productclass.human_attribute_name('auth_level_edit') %>
-        </td>
-        <td>
-          <%= @productclass.auth_level_edit %>
-        </td>
-      </tr>
-        </tbody>
-
-    <tfoot>
-      <tr class="linemain">
-        <th colspan="2">
-          <%= link_to t('Edit'), edit_productclass_path(@productclass) %> |
-          <%= link_to t('Back'), productclasses_path %>
-        </th>
-      </tr>
-    <tfoot>    
-  </table>
-</div>  
+      <tbody>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Productclass.human_attribute_name('name') %></td>
+          <td><%= @productclass.name %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Productclass.human_attribute_name('parent_id') %></td>
+          <td><% if @productclass.parent %>
+               <%= @productclass.parent.name %>
+              <% end %></td>
+        </tr>
+            <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Productclass.human_attribute_name('picture') %></td>
+          <td><%= @productclass.picture %></td>
+        </tr>
+        <% if !@productclass.picture.empty? %>
+          <tr class="<%= cycle('', 'even') %>">
+            <td colspan="2" align="right">
+              <%= image_tag (@productclass.picture), :height => '150' %>
+            </td>
+          </tr>
+        <% end %>
+            <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Productclass.human_attribute_name('url') %></td>
+          <td><%= @productclass.url %></td>
+        </tr>
+            <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Productclass.human_attribute_name('position') %></td>
+          <td><%= @productclass.position %></td>
+        </tr>
+            <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Productclass.human_attribute_name('ancestry') %></td>
+          <td><%= @productclass.ancestry %></td>
+        </tr>
+            <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Productclass.human_attribute_name('auth_level') %></td>
+          <td><%= @productclass.auth_level %></td>
+        </tr>
+            <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Productclass.human_attribute_name('auth_level_edit') %></td>
+          <td><%= @productclass.auth_level_edit %></td>
+        </tr>
+          </tbody>
+    </table>
+    <p><%= link_to t('Edit'), edit_productclass_path(@productclass) %> | <%= link_to t('Back'), productclasses_path %></p>
+  </div>
+</div>

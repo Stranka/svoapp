@@ -31,6 +31,9 @@ de:
   'Action': 'Action'
   'Horror': 'Horror'
   'VHS': 'VHS'
+  'Picture': 'Bild'
+  'Description': 'Beschreibung'
+  'General': 'Allgemein'
 
 #Blocks
   'Menü': 'Menü'
