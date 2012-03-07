@@ -17,7 +17,6 @@ mbe = {
 		mbe.init.footer();
 
 		//init all the form elements
-    // HAS: 20120302 auskommentiert, da Forms durch uniform.js zerstört werden.
 		mbe.init.form.all();
 
 		//init the message boxes
@@ -608,191 +607,195 @@ mbe = {
 			expressionActions: 'Actions',
 			ready: function() {
 				$('table.data-table').each (function() {
-					var options = {
-						sPaginationType: 'full_numbers',
-						sDom: '<"table-top"lf<"clear">>rt<"table-bottom"ip<"clear">>',
-				        bLengthChange: true,
-				        iDisplayLength: 10,
-				        aLengthMenu: [10, 25, 100]
-					};
 
-					//--------------- No edit beyond this point unless you know what you're doing ---------------
+                    var options = {
+                        sPaginationType:'full_numbers',
+                        sDom:'<"table-top"lf<"clear">>rt<"table-bottom"ip<"clear">>',
+                        bLengthChange:true,
+                        iDisplayLength:10,
+                        aLengthMenu:[10, 25, 100],
+                        sScrollX: "100%"
+                    };
 
-					var _this = $(this);
-					var
-						columnNo = _this.find('th').size(),
-						addActions = _this.attr('add_actions'),
-						useCheckbox = _this.attr('use_checkbox'),
-						url = _this.attr('url'),
-						orderColumn = parseInt(_this.attr('order_column')),
-						orderColumnOrder = _this.attr('order_column_order');
+                    //--------------- No edit beyond this point unless you know what you're doing ---------------
 
-					_this.find('th').closest('tr').addClass('trth');
+                    var _this = $(this);
+                    var
+                        columnNo = _this.find('th').size(),
+                        addActions = _this.attr('add_actions'),
+                        useCheckbox = _this.attr('use_checkbox'),
+                        url = _this.attr('url'),
+                        orderColumn = parseInt(_this.attr('order_column')),
+                        orderColumnOrder = _this.attr('order_column_order');
 
-					//form the columns
-					var
-						columns = [],
-						diff = 0;
+                    _this.find('th').closest('tr').addClass('trth');
 
-					//add the checkboxes (if needed)
-					if (useCheckbox) {
+                    //form the columns
+                    var
+                        columns = [],
+                        diff = 0;
 
-						//add the th and the extra column (if needed)
-						_this.find('.trth').prepend('<th><input type="checkbox" class="check_all" /></th>');
-						if (!url) {
-							_this.find('tr:not(.trth)').prepend('<td></td>');
-						}
+                    //add the checkboxes (if needed)
+                    if (useCheckbox) {
 
-						//add the checkbox
-						columns.push({
-							sName: 'chk',
-							bSearchable: false,
-							bSortable: false,
-							fnRender: function(obj) {
-								return '<input type="checkbox" name="ids[]" value="' + obj.aData[1] + '" />';
-							}
-						});
+                        //add the th and the extra column (if needed)
+                        _this.find('.trth').prepend('<th><input type="checkbox" class="check_all" /></th>');
+                        if (!url) {
+                            _this.find('tr:not(.trth)').prepend('<td></td>');
+                        }
 
-						//remove the id
-						columns.push({
-							bVisible: false
-						});
+                        //add the checkbox
+                        columns.push({
+                            sName:'chk',
+                            bSearchable:false,
+                            bSortable:false,
+                            fnRender:function (obj) {
+                                return '<input type="checkbox" name="ids[]" value="' + obj.aData[1] + '" />';
+                            }
+                        });
 
-						//increment the difference
-						diff ++;
+                        //remove the id
+                        columns.push({
+                            bVisible:false
+                        });
 
-						//make the div's selectable
-						$(this).find('tr.odd input[type="checkbox"],tr.even input[type="checkbox"]').live('change',function(){
-							var tr = $(this).closest('tr');
+                        //increment the difference
+                        diff++;
 
-							tr.removeClass('selected');
-							if ($(this).is(':checked')) {
-								tr.addClass('selected');
-							}
-						});
-						$(this).find('tr.odd,tr.even').live('click',function(e){
-							if (!$(e.target).is('input[type="checkbox"]') && !$(e.target).is('a')) {
-								var
-									input = $(this).find('input[type="checkbox"]'),
-									tr = $(this);
+                        //make the div's selectable
+                        $(this).find('tr.odd input[type="checkbox"],tr.even input[type="checkbox"]').live('change', function () {
+                            var tr = $(this).closest('tr');
 
-								tr.removeClass('selected');
-								input.parent().removeClass('checked');
+                            tr.removeClass('selected');
+                            if ($(this).is(':checked')) {
+                                tr.addClass('selected');
+                            }
+                        });
+                        $(this).find('tr.odd,tr.even').live('click', function (e) {
+                            if (!$(e.target).is('input[type="checkbox"]') && !$(e.target).is('a')) {
+                                var
+                                    input = $(this).find('input[type="checkbox"]'),
+                                    tr = $(this);
 
-								if (input.is(':checked')) {
-									input.removeAttr('checked');
-								} else {
-									input.attr('checked','checked');
-									input.parent().addClass('checked');
-									tr.addClass('selected');
-								}
-							}
-						});
-						$(this).find('input[class="check_all"]').live('change',function() {
-							var
-								inputs = $(this).closest('table').find('tr.odd input[type="checkbox"],tr.even input[type="checkbox"]'),
-								trs = $(this).closest('table').find('tr.odd,tr.even');
+                                tr.removeClass('selected');
+                                input.parent().removeClass('checked');
 
-							trs.removeClass('selected');
-							inputs.parent().removeClass('checked');
+                                if (input.is(':checked')) {
+                                    input.removeAttr('checked');
+                                } else {
+                                    input.attr('checked', 'checked');
+                                    input.parent().addClass('checked');
+                                    tr.addClass('selected');
+                                }
+                            }
+                        });
+                        $(this).find('input[class="check_all"]').live('change', function () {
+                            var
+                                inputs = $(this).closest('table').find('tr.odd input[type="checkbox"],tr.even input[type="checkbox"]'),
+                                trs = $(this).closest('table').find('tr.odd,tr.even');
 
-							if (!$(this).is(':checked')) {
-								inputs.removeAttr('checked');
-							} else {
-								inputs.attr('checked','checked');
-								inputs.parent().addClass('checked');
-								trs.addClass('selected');
-							}
-						});
+                            trs.removeClass('selected');
+                            inputs.parent().removeClass('checked');
 
-						//add the callback for the options
-						options.fnDrawCallback = function() {
-							mbe.init.form.checkbox();
-				        };
-					}
+                            if (!$(this).is(':checked')) {
+                                inputs.removeAttr('checked');
+                            } else {
+                                inputs.attr('checked', 'checked');
+                                inputs.parent().addClass('checked');
+                                trs.addClass('selected');
+                            }
+                        });
 
-					//add the columns
-					for (i=0;i<columnNo-diff;i++) {
-						columns.push(null);
-					}
+                        //add the callback for the options
+                        options.fnDrawCallback = function () {
+                            mbe.init.form.checkbox();
+                        };
+                    }
 
-					//add the actions (if needed)
-					if (addActions) {
-						//add the th and the extra column (if needed)
-						_this.find('.trth').append('<th style="text-align: center">'+mbe.init.dataTable.expressionActions+'</th>');
-						if (!url) {
-							_this.find('tr:not(.trth)').append('<td></td>');
-						}
+                    //add the columns
+                    for (i = 0; i < columnNo - diff; i++) {
+                        columns.push(null);
+                    }
 
-						//add the actions column
-						columns.push({
-							sName: 'edit',
-							bSearchable: false,
-							bSortable: false,
-							fnRender: function(obj) {
-								var _url = mbe.init.dataTable.editUrl.replace('$ID$',obj.aData[1]);
-								return '<a href="' + _url + '" class="edit">' + mbe.init.dataTable.expressionEdit + '</a>';
-							}
-						});
-					}
+                    //add the actions (if needed)
+                    if (addActions) {
+                        //add the th and the extra column (if needed)
+                        _this.find('.trth').append('<th style="text-align: center">' + mbe.init.dataTable.expressionActions + '</th>');
+                        if (!url) {
+                            _this.find('tr:not(.trth)').append('<td></td>');
+                        }
 
-					if (columns) {
-						options.aoColumns = columns;
-					}
-					if (url) {
-						options.bProcessing = true;
-				        options.bServerSide = true;
-						options.sAjaxSource = url;
-					}
-					if (orderColumn) {
-						options.aaSorting = [[orderColumn+1, orderColumnOrder?orderColumnOrder:'desc']];
-					}
+                        //add the actions column
+                        columns.push({
+                            sName:'edit',
+                            bSearchable:false,
+                            bSortable:false,
+                            fnRender:function (obj) {
+                                var _url = mbe.init.dataTable.editUrl.replace('$ID$', obj.aData[1]);
+                                return '<a href="' + _url + '" class="edit">' + mbe.init.dataTable.expressionEdit + '</a>';
+                            }
+                        });
+                    }
 
-					//rewrite the server data
-					options.fnServerData = function ( url, data, callback, settings ) {
-						if (typeof data == 'object') {
-							data.push({
-								name: 'useCheckbox',
-								value: useCheckbox?1:0
-							});
-							data.push({
-								name: 'addActions',
-								value: addActions?1:0
-							});
-						}
-						settings.jqXHR = $.ajax( {
-							"url": url,
-							"data": data,
-							"success": function (json) {
-								if (json.aaData) {
-									if (useCheckbox || addActions) {
-										for (x in json.aaData) {
-											if (useCheckbox) {
-												json.aaData[x].unshift('');
-											}
-											if (addActions) {
-												json.aaData[x].push('');
-											}
-										}
-									}
-								}
-								$(settings.oInstance).trigger('xhr', settings);
-								callback( json );
-							},
-							"dataType": "json",
-							"cache": false,
-							"error": function (xhr, error, thrown) {
-								if ( error == "parsererror" ) {
-									alert( "DataTables warning: JSON data from server could not be parsed. "+
-										"This is caused by a JSON formatting error." );
-								}
-							}
-						} );
-					}
+                    if (columns) {
+                        options.aoColumns = columns;
+                    }
+                    if (url) {
+                        options.bProcessing = true;
+                        options.bServerSide = true;
+                        options.sAjaxSource = url;
+                    }
+                    if (orderColumn) {
+                        options.aaSorting = [
+                            [orderColumn + 1, orderColumnOrder ? orderColumnOrder : 'desc']
+                        ];
+                    }
 
-					//init the table
-					mbe.init.dataTable.vars[$(this).index()] = $(this).dataTable(options);
-				});
+                    //rewrite the server data
+                    options.fnServerData = function (url, data, callback, settings) {
+                        if (typeof data == 'object') {
+                            data.push({
+                                name:'useCheckbox',
+                                value:useCheckbox ? 1 : 0
+                            });
+                            data.push({
+                                name:'addActions',
+                                value:addActions ? 1 : 0
+                            });
+                        }
+                        settings.jqXHR = $.ajax({
+                            "url":url,
+                            "data":data,
+                            "success":function (json) {
+                                if (json.aaData) {
+                                    if (useCheckbox || addActions) {
+                                        for (x in json.aaData) {
+                                            if (useCheckbox) {
+                                                json.aaData[x].unshift('');
+                                            }
+                                            if (addActions) {
+                                                json.aaData[x].push('');
+                                            }
+                                        }
+                                    }
+                                }
+                                $(settings.oInstance).trigger('xhr', settings);
+                                callback(json);
+                            },
+                            "dataType":"json",
+                            "cache":false,
+                            "error":function (xhr, error, thrown) {
+                                if (error == "parsererror") {
+                                    alert("DataTables warning: JSON data from server could not be parsed. " +
+                                        "This is caused by a JSON formatting error.");
+                                }
+                            }
+                        });
+                    }
+
+                    //init the table
+                    mbe.init.dataTable.vars[$(this).index()] = $(this).dataTable(options);
+                });
 
 				mbe.init.form.select('.page .block .content .dataTables_wrapper .table-top select');
 			}
