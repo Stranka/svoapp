@@ -54,9 +54,7 @@
       <div class="block small">
         <div class="top"><h2><%= t(block.name) %></h2></div>
         <div class="content">
-          <table>
             <%= render :partial => "shared/blocks/article", :collection => read_article('Kundenmeinungen'), :as => :article %>
-          </table>    
         </div>
       </div>   
       
