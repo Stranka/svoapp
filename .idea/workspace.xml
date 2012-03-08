@@ -31,7 +31,7 @@
       <file leaf-file-name="de.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/locales/de.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="24" selection-start="739" selection-end="739" vertical-scroll-proportion="0.17465754">
+            <state line="24" column="6" selection-start="639" selection-end="639" vertical-scroll-proportion="0.11643836">
               <folding />
             </state>
           </provider>
@@ -731,7 +731,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/de.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="24" selection-start="739" selection-end="739" vertical-scroll-proportion="0.17465754">
+        <state line="24" column="6" selection-start="639" selection-end="639" vertical-scroll-proportion="0.11643836">
           <folding />
         </state>
       </provider>
