@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
                                            :products,:show_products_productclass, :product_detail,
                                            :baskets,:add_to_basket,:show_my_open_order,:checkout, :checkout_step_1,
                                            :productclasses,:click,
-                                           :menues,:click, :change_language, :change_theme
+                                           :menues,:click, :change_language, :change_theme,
                                            :customers,:new,:create,
                                            :news,:all_news,
                                            :user_sessions, :new,
