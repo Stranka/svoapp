@@ -46,6 +46,7 @@ module RailsNuke
     # HAS:20120307 I need a global variable for storing the theme's name.
     RailsNuke::Application.configure do
       config.theme = 'soft-red'
+      config.gridtype = 'block'
     end
 
   end

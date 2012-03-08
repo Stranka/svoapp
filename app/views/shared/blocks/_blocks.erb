@@ -43,7 +43,7 @@
       </div>   
       
     <% when 'referenzen' %>
-      <div class="block small">
+      <div class="block small closed">
         <div class="top"><h2><%= t(block.name) %></h2></div>
         <div class="content">
             <%= render :partial => "shared/blocks/article", :collection => read_article('Referenzen'), :as => :article %>
@@ -71,7 +71,7 @@
       </div>   
 
     <% when 'search' %>    
-      <div class="block small">
+      <div class="block small closed">
         <div class="top"><h2><%= t(block.name) %></a></h2></div>
         <div class="content">
           <%= render :partial => "shared/blocks/search" , :locals => { :mode => 'article' } %>
