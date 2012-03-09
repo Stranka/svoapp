@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  locale: MyString
+  key: MyString
+  value: MyString
+  interpolations: MyText
+  is_proc: false
+  auth_level: 1
+  auth_level_edit: 1
+
+two:
+  locale: MyString
+  key: MyString
+  value: MyString
+  interpolations: MyText
+  is_proc: false
+  auth_level: 1
+  auth_level_edit: 1

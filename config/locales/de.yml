@@ -324,6 +324,13 @@ de:
       customer: 'Kundenstamm'
       billingaddress: 'Rechnungsadresse'
       deliveryaddress: 'Lieferadresse'
+      basket: 'Warenkorb'
+      basketline: 'Produktzeile'
+      payment: 'Zahlungsbedingung'
+      shipment: 'Versandart'
+      tooltip: 'Tooltip'
+      translation: 'Übersetzung'
+
 
     attributes:
       article:
@@ -427,7 +434,14 @@ de:
         ontop: 'Sichtbar im oberen Menü'
         active: 'Sichtbar'
 
-
+      translation:
+        locale: 'Sprache'
+        key: 'zu übersetzen'
+        value: 'Übersetzung'
+        interpolations: 'Interpolations'
+        is_proc: 'Prozedur'
+        auth_level_edit: 'Berechtigung Ändern'
+        auth_level: 'Berechtigung Anzeigen'
 
 
 

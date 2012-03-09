@@ -15,6 +15,7 @@ gem "tabs_on_rails"
 gem 'ckeditor', '3.5.0'
 gem "paperclip", "~> 2.3"
 gem 'simple-tooltip'
+gem 'i18n-active_record'
 
 gem 'RedCloth', '4.2.3'
 
