@@ -1,11 +1,9 @@
 <% if @block.errors.any? %>
-  <div class="big-message success">
+  <div class="big-message error" xmlns="http://www.w3.org/1999/html">
     <h2><%= pluralize(@block.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
-    <ul>
     <% @block.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <p>&bull; <%= msg %></p>
     <% end %>
-    </ul>
     <div class="bg"></div>
     <div class="close"></div>
   </div>

@@ -1,11 +1,9 @@
 <% if @shipment.errors.any? %>
-  <div class="big-message success">
+  <div class="big-message error">
     <h2><%= pluralize(@shipment.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
-    <ul>
-      <% @shipment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+    <% @shipment.errors.full_messages.each do |msg| %>
+      <p>&bull; <%= msg %></p>
+    <% end %>
     <div class="bg"></div>
     <div class="close"></div>
   </div>

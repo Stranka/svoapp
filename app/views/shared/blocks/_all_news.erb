@@ -1,7 +1,5 @@
-<div class="title">
-  <% zahl = 1 + rand(14) %>
-   <%= l news.date %>
-</div>
-<div class="text">
-  <p><a class="image" href="#"><img src="/images/insert<%= zahl.to_s %>.jpg" width="40" height="40" /></a> <%= raw news.notice %></p>
-</div>
+<% zahl = 1 + rand(14) %>
+<img src="/images/insert<%= zahl.to_s %>.jpg" width="40" height="40" align="left"/>
+&nbsp;<br />
+<h3>&nbsp;&nbsp;<%= l news.date %></h3>
+<p> <%= raw news.notice %></p>

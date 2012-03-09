@@ -1,11 +1,9 @@
 <% if @customer.errors.any? %>
-  <div class="big-message success" xmlns="http://www.w3.org/1999/html">
+  <div class="big-message error" xmlns="http://www.w3.org/1999/html">
     <h2><%= pluralize(@customer.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
-    <ul>
-      <% @customer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+    <% @customer.errors.full_messages.each do |msg| %>
+      <p>&bull; <%= msg %></p>
+    <% end %>
     <div class="bg"></div>
     <div class="close"></div>
   </div>
