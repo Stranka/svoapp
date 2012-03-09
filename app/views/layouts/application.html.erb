@@ -73,23 +73,11 @@
           </div>
         </div>
       </div>
-
-      <div class="middle grid">
+      <div class="middle">
         <div class="wrapper">
-          <% if @config.block_left == true %>
-            <div class="column grid-<%=@config.block_left_width%>">
-              <%= render :partial => "shared/blocks/blocks", :collection => @lblocks, :as => :block %>
-            </div>
-          <% end %>
-          <div class="column grid-<%= 16 - @config.block_left_width - @config.block_right_width %>">
+          <div class="inner">
             <%= yield %>
           </div>
-          <% if @config.block_right == true %>
-            <div class="column grid-<%=@config.block_right_width%>">
-              <%= render :partial => "shared/blocks/blocks", :collection => @rblocks, :as => :block %>
-            </div>
-          <% end %>
-          <div class="clear"></div>
         </div>
       </div>
       <div class="footer">

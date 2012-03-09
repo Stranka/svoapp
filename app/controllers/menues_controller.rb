@@ -153,12 +153,12 @@ class MenuesController < ApplicationController
 
   def change_language
     I18n.locale = params[:language]
-    redirect_to home_path
+    redirect_to root_path
   end
 
   def change_theme
     RailsNuke::Application.config.theme = params[:theme]
-    redirect_to home_path
+    redirect_to root_path
   end
 
 end

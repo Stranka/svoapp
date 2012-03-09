@@ -51,7 +51,7 @@ private
   def check_authlevel
     if @auth_edit < 100
       flash[:notice] = t('access denied')
-      redirect_to home_path
+      redirect_to root_path
       return false      
     end
   end  

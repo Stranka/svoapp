@@ -1,12 +1,9 @@
 <% if local_assigns[:mode] == 'article' %>
   <%= form_tag('/articlesearch') do %>
-    <%= text_field_tag(:aquery) %>
-    <%= submit_tag (t('search')), :class => "button small" %>
+    <p><%= text_field_tag(:aquery) %> <%= submit_tag (t('search')), :class => "button small" %></p>
   <% end %>
 <% else %>
   <%= form_tag('/productsearch') do %>
-    <%= text_field_tag(:pquery) %>
-    <%= submit_tag (t('search')), :class => "button small" %>
+    <p><%= text_field_tag(:pquery) %> <%= submit_tag (t('search')), :class => "button small" %></p>
   <% end %>
 <% end %>
-<br />

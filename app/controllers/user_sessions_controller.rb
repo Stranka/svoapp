@@ -17,7 +17,7 @@ class UserSessionsController < ApplicationController
         flash[:notice] = t('Login successful!')
         check_basket
 #        redirect_back_or_default users_url
-        redirect_to(home_path)
+        redirect_to(root_path)
       else
         render :action => :new
       end
@@ -27,7 +27,7 @@ class UserSessionsController < ApplicationController
       current_user_session.destroy
       flash[:notice] = t('Logout successful!')
 #      redirect_back_or_default new_user_session_url
-      redirect_to(home_path)
+      redirect_to(root_path)
     end
 
 protected

@@ -2,87 +2,64 @@
 
   <% case block.blockid %>
      <% when 'menue' %>
-      <div class="block small">
-        <div class="top">
-          <h2><%= t(block.name) %></h2>
-        </div>
-        <div class="content">
-          <ul class="menu">
-            <%= render :partial => "shared/blocks/blockmenue", :locals => { :block => block }, :collection => read_menue, :as => :menue %>
-          </ul>
-        </div>
-      </div>           
+      <div class="boxed">
+        <h2><%= t(block.name) %></h2>
+        <ul class="menu">
+          <%= render :partial => "shared/blocks/blockmenue", :locals => { :block => block }, :collection => read_menue, :as => :menue %>
+        </ul>
+      </div>
        
     <% when 'login' %>
-    <div class="block small">
-      <div class="top">
-        <h2><%= t(block.name) %></h2>
-      </div>
-      <div class="content">
+    <div class="boxed">
+      <h2><%= t(block.name) %></h2>
         <%= current_user ? ( render :partial => "shared/blocks/blocklogout" ) : ( render :partial => "shared/blocks/blocklogin" ) %>
-      </div>
     </div>
 
     <% when 'productclass' %>
-    <div class="block small">
-      <div class="top"><h2><%= t(block.name) %></h2></div>
-      <div class="content">
-        <table>
+    <div class="boxed">
+      <h2><%= t(block.name) %></h2>
+      <table>
         <%= render :partial => "shared/blocks/productclass", :collection => read_productclass, :as => :productclass %>
-        </table>
+      </table>
       </div>
-      </div>   
-
 
     <% when 'news' %>
-      <div class="block small">
-        <div class="top"><h2><%= t(block.name) %></h2></div>
-        <div class="content">
-            <%= render :partial => "shared/blocks/news", :collection => read_block_news, :as => :news %>
-        </div>
-      </div>   
-      
-    <% when 'referenzen' %>
-      <div class="block small closed">
-        <div class="top"><h2><%= t(block.name) %></h2></div>
-        <div class="content">
-            <%= render :partial => "shared/blocks/article", :collection => read_article('Referenzen'), :as => :article %>
-        </div>
-      </div>   
-      
-    <% when 'kundenmeinungen' %>
-      <div class="block small">
-        <div class="top"><h2><%= t(block.name) %></h2></div>
-        <div class="content">
-            <%= render :partial => "shared/blocks/article", :collection => read_article('Kundenmeinungen'), :as => :article %>
-        </div>
-      </div>   
-      
-    <% when 'basket' %>
-      <div class="block small">
-        <div class="top"><h2><%= t(block.name) %></h2></div>
-        <div class="content">
-          <table>
-            <%= render :partial => "shared/blocks/basket", :object => read_basket(request.session_options[:id]), :as => :basket %>
-          </table>    
-        </div>
-      </div>   
+      <div class="boxed">
+        <h2><%= t(block.name) %></h2>
+        <%= render :partial => "shared/blocks/news", :collection => read_block_news, :as => :news %>
+      </div>
 
-    <% when 'search' %>    
-      <div class="block small closed">
-        <div class="top"><h2><%= t(block.name) %></a></h2></div>
-        <div class="content">
-          <%= render :partial => "shared/blocks/search" , :locals => { :mode => 'article' } %>
-        </div>
-      </div>   
-      
+    <% when 'referenzen' %>
+      <div class="boxed">
+        <h2><%= t(block.name) %></h2>
+        <%= render :partial => "shared/blocks/article", :collection => read_article('Referenzen'), :as => :article %>
+      </div>
+
+    <% when 'kundenmeinungen' %>
+      <div class="boxed">
+        <h2><%= t(block.name) %></h2>
+        <%= render :partial => "shared/blocks/article", :collection => read_article('Kundenmeinungen'), :as => :article %>
+      </div>
+
+    <% when 'basket' %>
+      <div class="boxed">
+        <h2><%= t(block.name) %></h2>
+        <table>
+          <%= render :partial => "shared/blocks/basket", :object => read_basket(request.session_options[:id]), :as => :basket %>
+        </table>
+      </div>
+
+    <% when 'search' %>
+      <div class="boxed">
+        <h2><%= t(block.name) %></a></h2>
+        <%= render :partial => "shared/blocks/search" , :locals => { :mode => 'article' } %>
+      </div>
+
     <% when 'productsearch' %>
-      <div class="block small">
-        <div class="top"><h2><%= t "productsearch" %></h2></div>
-        <div class="content">
-          <%= render :partial => "shared/blocks/search" , :locals => { :mode => 'product' } %>
-        </div>
-      </div>   
+      <div class="boxed">
+        <h2><%= t "productsearch" %></h2>
+        <%= render :partial => "shared/blocks/search" , :locals => { :mode => 'product' } %>
+      </div>
 
     <% when 'userblock1' %>
       <%= render :partial => "shared/userblocks/userblock_1", :collection => read_userblock_1, :as => :userblock %>

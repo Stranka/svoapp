@@ -149,7 +149,7 @@ require "uri"
       @search.each do |s|
         s.content = ActionController::Base.helpers.strip_links(s.content)   # erstzt die links im text
         s.auth_level_edit = s.content.scan(/(#{params[:aquery]})/i).size
-        s.content.gsub!(/(#{params[:aquery]})/i,'<span class="search_string">\\1</span>')
+        s.content.gsub!(/(#{params[:aquery]})/i,'<span class="button small">&nbsp;\\1&nbsp;</span>')
       end
       @search.sort! { |a,b| b.auth_level_edit <=> a.auth_level_edit }
 
