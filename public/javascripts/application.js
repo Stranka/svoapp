@@ -49,5 +49,6 @@ function menue_action_auswahl()
     $(document.getElementById("the_id")).hide()
     }
     };
+
 //</script>
 

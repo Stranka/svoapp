@@ -1,3 +1,35 @@
+<script type="text/javascript">
+
+$(document).ready(function() {
+  initTable();
+  tableActions();
+} );
+
+function initTable ()
+{
+  return $('#example').dataTable( {
+    "bRetrieve": true
+  } );
+}
+
+function tableActions ()
+{
+  var oTable = initTable();
+  // perform API operations with oTable
+}
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').dataTable( {
+            "oLanguage": {
+                "sUrl": "media/language/de_DE.txt"
+            }
+        } );
+    } );
+</script>
+
 <% if flash[:notice]%>
   <div class="big-message success">
     <h2><%= flash[:notice] %></h2>
@@ -11,8 +43,8 @@
     <h2><%= t('Administration') + ' ' + Block.human_name %></h2>
   </div>
   <div class="content">
-    <div class="dataTables_wrapper">
-      <table class="listing data-table">
+    <div class="dataTables_wrapper" >
+      <table id="example" class="listing data-table">
         <thead>
           <tr>
             <th><%= Block.human_attribute_name('name') %></th>
@@ -25,7 +57,7 @@
             <th><%= Block.human_attribute_name('auth_level_edit') %></th>
             <th><%= t('action') %></th>
           </tr>
-        </thead>  
+        </thead>
         <tbody>
         <% @blocks.each do |block| %>
           <tr>
@@ -50,3 +82,4 @@
     <%= link_to t('New ') + Block.human_name, new_block_path %>
   </div>
 </div>
+
