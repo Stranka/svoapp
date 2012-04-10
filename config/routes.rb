@@ -6,6 +6,8 @@ RailsNuke::Application.routes.draw do
              end
            end
 
+  resources :translations
+
   resources :errors
 
   resources :payments
