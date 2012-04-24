@@ -22,12 +22,15 @@ de:
   'Zahlungsarten': 'Zahlungsarten'
   'Kundenportal': 'Kundenportal'
   'Kontakt': 'Kontakt'
+<<<<<<< HEAD
   'CMS': 'CMS'
   'SAPmobile': 'SAPmobile'
   'CMS@mittenin.at': 'CMS@mittenin.at'
   'SAPmobile@mittenin.at': 'SAPmobile@mittenin.at'
   'Methode und Vorteile': 'Methode und Vorteile'
   'Produktlebenszyklus': 'Produktlebenszyklus'
+=======
+>>>>>>> 6639857167a70882f878b3a07041c4494531a3ed
 
 #Produktkatalog
   'Bücher': 'Bücher'
