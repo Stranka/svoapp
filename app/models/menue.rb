@@ -16,7 +16,9 @@ class Menue < ActiveRecord::Base
     case self.the_controller
       when 'articles'
         if self.the_action == 'index'
-#          errors.add(:the_action, '-> Darf nicht -index- sein')
+#          if @auth_edit < 50
+#            errors.add(:the_action, '-> Darf nicht -index- sein')
+#          end
         end
         return true
       when 'news'

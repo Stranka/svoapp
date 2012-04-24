@@ -1,5 +1,7 @@
 RailsNuke::Application.routes.draw do
 
+  resources :translations
+
   resources :tooltips do
              collection do
                get 'tooltip_content'
