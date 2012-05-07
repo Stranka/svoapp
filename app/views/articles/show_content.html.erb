@@ -10,27 +10,21 @@
   <div class="top">
     <h2><%= (@showarticle.name) %></h2>
   </div>
+
   <div class="content grid">
-    <div class="column grid-<%=16 - @config.block_right_width %>">
-      <% if @firstarticle.id == @showarticle.id and @config.topimage == true %>
-        <div class="column grid-16">
-          <%= render :partial => "shared/topimage" %>
-        </div>
-        <div class="clear"></div>
-      <% end %>
-      <% if @config.block_left == true %>
-        <div class="column grid-<%=@config.block_left_width%>">
-          <%= render :partial => "shared/blocks/blocks", :collection => @lblocks, :as => :block %>
-        </div>
-      <% end %>
-      <div class="column grid-<%= 16 - @config.block_left_width %>">
-        <div class="boxed">
-          <%= raw(@showarticle.content) %>
-          <% if params[:mode] == 'basket' %>
-            <%= link_to t('Back'), :back  %>
-          <% end %>
-        </div>
+    <% if @config.block_left == true %>
+      <div class="column grid-<%=@config.block_left_width%>">
+        <%= render :partial => "shared/blocks/blocks", :collection => @lblocks, :as => :block %>
       </div>
+    <% end %>
+    <div class="column grid-<%= 16 - @config.block_left_width - @config.block_right_width %>">
+      <% if @firstarticle.id == @showarticle.id and @config.topimage == true %>
+          <%= render :partial => "shared/topimage" %>
+      <% end %>
+        <%= raw(@showarticle.content) %>
+      <% if params[:mode] == 'basket' %>
+        <%= link_to t('Back'), :back  %>
+      <% end %>
     </div>
     <% if @config.block_right == true %>
       <div class="column grid-<%=@config.block_right_width%>">

@@ -1484,7 +1484,7 @@ div.radio.active.focus span.checked {
 	position: relative;
 	text-align: center;
 
-	margin: 0 0 80px 0;
+	margin: 0 0 60px 0;
 	padding: 0;
 }
 .page .header h2 {
@@ -2183,6 +2183,7 @@ div.radio.active.focus span.checked {
 .page .grid .grid-8 {
 	width: 48%;
 }
+
 .page .grid .grid-9 {
 	width: 54.25%;
 }
@@ -2375,21 +2376,21 @@ div.radio.active.focus span.checked {
 	text-decoration: none;
 }
 .page .block .content h1 {
-	font-size: 32px;
-	color: #5F7938;
-}
-.page .block .content h2 {
 	font-size: 28px;
 	color: #5F7938;
 }
-.page .block .content h3 {
+.page .block .content h2 {
 	font-size: 24px;
+	color: #5F7938;
 }
-.page .block .content h4 {
+.page .block .content h3 {
 	font-size: 20px;
 }
-.page .block .content h5 {
+.page .block .content h4 {
 	font-size: 16px;
+}
+.page .block .content h5 {
+	font-size: 14px;
 }
 .page .block .content h6 {
 	font-size: 12px;
@@ -3945,8 +3946,9 @@ div.radio.active.focus span.checked {
 
 }
 .page .block .content .column .boxed {
-    padding: 10px;
+    padding: 5px;
     background: #eee;
     margin-bottom: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
+
