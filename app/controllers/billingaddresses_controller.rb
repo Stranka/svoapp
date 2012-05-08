@@ -61,7 +61,7 @@ class BillingaddressesController < ApplicationController
 
     respond_to do |format|
       if @billingaddress.save
-        format.html { redirect_to(@billingaddress, :notice => Billingaddress.human_name + ' ' + t('was successfully created')) }
+        format.html { redirect_to(@billingaddress, :notice => Billingaddress.model_name.human + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @billingaddress, :status => :created, :location => @billingaddress }
       else
         format.html { render :action => "new" }
@@ -77,7 +77,7 @@ class BillingaddressesController < ApplicationController
 
     respond_to do |format|
       if @billingaddress.update_attributes(params[:billingaddress])
-        format.html { redirect_to(@billingaddress, :notice => Billingaddress.human_name + ' ' + t('was successfully updated')) }
+        format.html { redirect_to(@billingaddress, :notice => Billingaddress.model_name.human + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -53,7 +53,7 @@ class CustomersController < ApplicationController
       if @customer.save
         UserSessionsController::new
 
-        format.html { redirect_to(@customer, :notice => Customer.human_name + ' ' + t('was successfully created')) }
+        format.html { redirect_to(@customer, :notice => Customer.model_name.human + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @customer, :status => :created, :location => @customer }
       else
         format.html { render :action => "new" }
@@ -71,7 +71,7 @@ class CustomersController < ApplicationController
       if params[:xy][:mode] == 'basket'
         redirect_to(:controller => 'baskets', :action => 'checkout')
       else
-        redirect_to(@customer, :notice => Customer.human_name + ' ' + t('was successfully updated'))
+        redirect_to(@customer, :notice => Customer.model_name.human + ' ' + t('was successfully updated'))
       end
     else
       render :action => "edit"

@@ -1,5 +1,7 @@
 RailsNuke::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   resources :translations
 
   resources :tooltips do

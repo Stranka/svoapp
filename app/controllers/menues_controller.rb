@@ -67,7 +67,7 @@ class MenuesController < ApplicationController
     end
     respond_to do |format|
       if @menue.save
-        format.html { redirect_to(@menue, :notice => Menue.human_name + ' ' + t('was successfully created')) }
+        format.html { redirect_to(@menue, :notice => Menue.model_name.human + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @menue, :status => :created, :location => @menue }
       else
         @articles = Article.all
@@ -88,7 +88,7 @@ class MenuesController < ApplicationController
     end
     respond_to do |format|
       if @menue.update_attributes(params[:menue])
-        format.html { redirect_to(@menue, :notice => Menue.human_name + ' ' + t('was successfully updated')) }
+        format.html { redirect_to(@menue, :notice => Menue.model_name.human + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         @articles = Article.all

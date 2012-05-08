@@ -4,42 +4,14 @@
     <link rel="shortcut icon" href="/images/favicon.ico" />
     <title><%= @config.title %></title>
 
-    <%= stylesheet_link_tag ( @config.theme + '/templates/js/jwysiwyg/jquery.wysiwyg.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/js/fancybox/jquery.fancybox-1.3.4.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/js/jdpicker/jdpicker.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/js/visualize/css/visualize.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/js/fullcalendar/fullcalendar.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/css/datatable.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/css/style.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/css/' + RailsNuke::Application.config.theme + '.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/css/fonts.css' ), :media => :screen %>
-    <%= stylesheet_link_tag @printsheet, :media => :print %>
-    <%= stylesheet_link_tag("simple_tooltip") %>
+    <%= stylesheet_link_tag "application", :media => :screen %>
+    <%= stylesheet_link_tag "print", :media => :print %>
 
-    <%= javascript_include_tag :all %>
-    <%#= javascript_include_tag ( @config.theme + '/templates/js/jquery-1.6.4.min.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/wrappers.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jquery-ui-1.8.16.custom.min.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jquery.uniform/jquery.uniform.min.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jquery-css-transform.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jwysiwyg/jquery.wysiwyg.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jdpicker/jquery.jdpicker.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jquery.hotkeys.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/tap-or-click.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jquery.datatable/js/jquery.dataTables.min.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jquery-validation-1.8.1/jquery.validate.min.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jquery.detectmobilebrowser.js' ), :media => :screen %>
+    <%= javascript_include_tag "application" %>
 		<!--[if IE]>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/excanvas.js' ), :media => :screen %>
+    <%= javascript_include_tag "excanvas.js", :media => :screen %>
 		<![endif]-->
-    <%= javascript_include_tag ( @config.theme + '/templates/js/visualize/visualize.jQuery.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/visualize/jquery.visualize.tooltip.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/fancybox/jquery.fancybox-1.3.4.pack.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/fullcalendar/fullcalendar.min.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/main.js' ), :media => :screen %>
 
-    <%#=WICHTIG es muss sichergestellt sein, dass die rails.js nach der jquery.js geladen wird    %>
-    <%#=darum habe ich die rails.js in rails-3.0 umbenannt, weil sie sonst vor der jquery.js geladen werden würde    %>
     <%= csrf_meta_tag %>
   </head>
   <body class="bck-3">

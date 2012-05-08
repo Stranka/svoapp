@@ -11,13 +11,13 @@
 
 <div class="block">
   <div class="top">
-    <h2><%= t('Administration') + ' ' + Menue.human_name %></h2>
+    <h2><%= t('Administration') + ' ' + Menue.model_name.human %></h2>
   </div>
   <div class="content">
 
     <%= form_for(@menue, :html => {:name => 'menue'}) do |f| %>
         <fieldset class="login">
-          <legend><%= t(Menue.human_name) %></legend>
+          <legend><%= t(Menue.model_name.human) %></legend>
           <p><%= f.label :name %><br /><%= f.text_field :name %></p>
           <p><%= f.label :position %><br /><%= f.text_field :position %></p>
           <p><%= f.label :the_url %><br /><%= f.text_field :the_url %></p>

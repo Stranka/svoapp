@@ -8,7 +8,7 @@
 
 <div class="block">
   <div class="top">
-    <h2><%= t('Administration') + ' ' + Basket.human_name %></h2>
+    <h2><%= t('Administration') + ' ' + Basket.model_name.human %></h2>
   </div>
   <div class="content">
     <p align="right"><%= link_to t('Edit'), edit_basket_path(@basket) %> | <%= link_to t('Back'), baskets_path %></p>

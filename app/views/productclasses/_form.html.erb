@@ -12,14 +12,14 @@
 
 <div class="block">
   <div class="top">
-    <h2><%= t('Administration') + ' ' + Productclass.human_name %></h2>
+    <h2><%= t('Administration') + ' ' + Productclass.model_name.human %></h2>
 
     </div>
     <div class="content">
     <%= form_for(@productclass, :html => { :multipart => true }) do |f| %>
 
     <fieldset class="login">
-      <legend><%= Productclass.human_name %></legend>
+      <legend><%= Productclass.model_name.human %></legend>
       <p><%= f.label :name %><br /><%= f.text_field :name %></p>
       <p><%= f.label :parent_id %><br /><%#= collection_select('f',:parent_id, @prclasses, :id, :name, :include_blank => true, :prompt => t('please select')) %>
          <%= f.collection_select :parent_id, @prclasses, :id, :name, :include_blank => true, :prompt => t('please select') %></p>

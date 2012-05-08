@@ -443,9 +443,6 @@ de:
         auth_level_edit: 'Berechtigung Ändern'
         auth_level: 'Berechtigung Anzeigen'
 
-
-
-
   helpers:
     submit:
       create: "Hinzufügen %{model}"
@@ -464,4 +461,11 @@ de:
       not_confirmed: 'Account ist nicht überprüft'
       not_approved: 'Account ist nicht überprüft'
       no_authentication_details: 'Nicht alle nötigen Informationen'
+  ckeditor:
+    page_title: "CKEditor File Manager"
+    confirm_delete: "File löschen?"
+    buttons:
+      cancel: "Abbrechen"
+      upload: "Upload"
+      delete: "Löschen"
 

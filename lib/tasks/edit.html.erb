@@ -1,7 +1,7 @@
 <%= class_name %>
   <tr>
     <td class ="myTitle" width="100%" colspan="2">
-    <<%= raw("%") %>= t('Editing ') + <%= class_name %>.human_name %>
+    <<%= raw("%") %>= t('Editing ') + <%= class_name %>.model_name.human %>
     </td>
   </tr>
   <%%= render 'form' %>

@@ -60,7 +60,7 @@ class BlocksController < ApplicationController
 
     respond_to do |format|
       if @block.save
-        format.html { redirect_to(@block, :notice => Block.human_name + ' ' + t('was successfully created')) }
+        format.html { redirect_to(@block, :notice => Block.model_name.human + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @block, :status => :created, :location => @block }
       else
         format.html { render :action => "new" }
@@ -76,7 +76,7 @@ class BlocksController < ApplicationController
 
     respond_to do |format|
       if @block.update_attributes(params[:block])
-        format.html { redirect_to(@block, :notice => Block.human_name + ' ' + t('was successfully updated')) }
+        format.html { redirect_to(@block, :notice => Block.model_name.human + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

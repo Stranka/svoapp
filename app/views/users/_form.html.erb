@@ -12,13 +12,13 @@
 
 <div class="block">
   <div class="top">
-    <h2><%= t('Administration') + ' ' + User.human_name %> <i><%= @user.login %></i></h2>
+    <h2><%= t('Administration') + ' ' + User.model_name.human %> <i><%= @user.login %></i></h2>
   </div>
   <div class="content">
 
     <%= form_for(@user) do |f| %>
       <fieldset class="login">
-        <legend><%= t(User.human_name) %></legend>
+        <legend><%= t(User.model_name.human) %></legend>
           <p><%= f.label :login %><br /><%= f.text_field :login %></p>
           <p><%= f.label :firstname %><br /><%= f.text_field :firstname %></p>
           <p><%= f.label :lastname %><br /><%= f.text_field :lastname %></p>

@@ -71,7 +71,7 @@ require "uri"
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to(@article, :notice => Article.human_name + ' ' + t('was successfully created')) }
+        format.html { redirect_to(@article, :notice => Article.model_name.human + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @article, :status => :created, :location => @article }
       else
         format.html { render :action => "new" }
@@ -87,7 +87,7 @@ require "uri"
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
-        format.html { redirect_to(@article, :notice => Article.human_name + ' ' +  t('was successfully updated')) }
+        format.html { redirect_to(@article, :notice => Article.model_name.human + ' ' +  t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

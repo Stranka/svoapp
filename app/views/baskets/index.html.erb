@@ -8,7 +8,7 @@
 
 <div class="block">
   <div class="top">
-    <h2><%= t('Administration') + ' ' + Basket.human_name %></h2>
+    <h2><%= t('Administration') + ' ' + Basket.model_name.human %></h2>
   </div>
   <div class="content">
     <div class="dataTables_wrapper">
@@ -50,6 +50,6 @@
         </tbody>
       </table>
     </div>
-  <%= link_to t('New ') + Basket.human_name, new_basket_path %>
+  <%= link_to t('New ') + Basket.model_name.human, new_basket_path %>
   </div>
 </div>

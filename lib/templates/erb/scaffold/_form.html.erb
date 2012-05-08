@@ -1,4 +1,4 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%%= t('Administration') + ' ' + <%= class_name %>.human_name %></a></h2>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%%= t('Administration') + ' ' + <%= class_name %>.model_name.human %></a></h2>
 <div class="block" id="main">
 
   <%%= form_for(@<%= singular_table_name %>) do |f| %>
@@ -14,7 +14,7 @@
     <%% end %>
       
     <fieldset class="login">
-      <legend><%%= t(<%= class_name %>.human_name) %></legend>         
+      <legend><%%= t(<%= class_name %>.model_name.human) %></legend>
       <% for attribute in attributes -%>
       <p><%%= f.label :<%= attribute.name %> %> <%%= f.<%= attribute.field_type %> :<%= attribute.name %> %></p>
       <% end -%>

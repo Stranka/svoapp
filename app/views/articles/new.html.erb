@@ -1,5 +1,5 @@
 <div class="block">
-  <div class="top"><h2><%= t('Create ') + Article.human_name %> <i><%= @article.name %></i></h2></div>
+  <div class="top"><h2><%= t('Create ') + Article.model_name.human %> <i><%= @article.name %></i></h2></div>
   <div class="content">
     <p align ="right"><%= link_to t('Show'), @article %> | <%= link_to t('Back'), articles_path %></p>
     <%= render 'form' %>

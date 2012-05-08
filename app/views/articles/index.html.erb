@@ -9,7 +9,7 @@
 
 <div class="block" id="main">
 
-  <div class="top"><h2><%= t('Administration') + ' ' + Article.human_name %></h2></div>
+  <div class="top"><h2><%= t('Administration') + ' ' + Article.model_name.human %></h2></div>
     <div class="content">
       <div class="dataTables_wrapper">
         <table class="listing data-table">
@@ -32,7 +32,7 @@
         <% end %>
         </table>
       </div>
-      <p><%= link_to t('New ') + Article.human_name, new_article_path %></p>
+      <p><%= link_to t('New ') + Article.model_name.human, new_article_path %></p>
     </div>
   </div>
 </div>
