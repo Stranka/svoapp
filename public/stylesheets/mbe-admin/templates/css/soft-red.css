@@ -98,7 +98,8 @@
 
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a21f24', endColorstr='#8c191c');
 }
-.page.soft-red .block .content .button {
+.page.soft-red .block .content .button,
+.page.soft-red .button{
 	color: #ffe8e8;
 
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
@@ -110,12 +111,19 @@
 
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a72121', endColorstr='#8c1c1c');
 }
+
 .page.soft-red .block .content .button.focus span,
 .page.soft-red .block .content .button:focus span,
 .page.soft-red .block .content .button:hover span,
 .page.soft-red .block .content .button.hover span,
 .page.soft-red .block .content .button:active span,
-.page.soft-red .block .content .button.active span {
+.page.soft-red .block .content .button.active span,
+.page.soft-red .button.focus span,
+.page.soft-red .button:focus span,
+.page.soft-red .button:hover span,
+.page.soft-red .button.hover span,
+.page.soft-red .button:active span,
+.page.soft-red .button.active span{
 	background: -moz-linear-gradient(top, #8c1c1c, #a72121);
 	background: -o-linear-gradient(top, #8c1c1c, #a72121);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0,#8c1c1c), color-stop(1,#a72121));

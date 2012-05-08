@@ -157,7 +157,9 @@ class MenuesController < ApplicationController
   end
 
   def change_theme
-    RailsNuke::Application.config.theme = params[:theme]
+    # HAS: 20120508: Farbe fixiert
+    # RailsNuke::Application.config.theme = params[:theme]
+    RailsNuke::Application.config.theme = "soft-red"
     redirect_to root_path
   end
 
