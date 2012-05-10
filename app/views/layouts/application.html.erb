@@ -6,6 +6,15 @@
 
     <%= stylesheet_link_tag "application", :media => :screen %>
     <%= stylesheet_link_tag "print", :media => :print %>
+    <!--[if lte IE 8]>
+    <%= stylesheet_link_tag "ie" %>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <%= stylesheet_link_tag "ie-old" %>
+    <![endif]-->
+    <!--[if IE 9]>
+    <%= stylesheet_link_tag "ie9" %>
+    <![endif]-->
 
     <%= javascript_include_tag "application" %>
 		<!--[if IE]>

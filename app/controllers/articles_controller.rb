@@ -159,7 +159,13 @@ require "uri"
       flash[:notice] = t('please specify a searchstring')
     end
     render 'search_result'
+  end
 
+  def email
+    get_config
+    @article = Article.find(params[:id])
+    ArticleMailer.submission(@article, @config).deliver
+    render "article_mailer/submission", :layout => false
   end
 end
 

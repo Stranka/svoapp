@@ -27,6 +27,10 @@ gem 'i18n-active_record'
 
 gem 'RedCloth', '4.2.3'
 
+# HAS 20120508: Vertriebsemails
+gem 'premailer-rails3'
+gem 'nokogiri'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

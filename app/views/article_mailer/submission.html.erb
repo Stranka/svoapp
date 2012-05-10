@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <title><%= @config.title %></title>
+    <%= stylesheet_link_tag "application", :media => :screen %>
+    <%= javascript_include_tag "application" %>
+    <!--[if lte IE 8]>
+    <%= stylesheet_link_tag "ie" %>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <%= stylesheet_link_tag "ie-old" %>
+    <![endif]-->
+    <!--[if IE 9]>
+    <%= stylesheet_link_tag "ie9" %>
+    <![endif]-->
+  </head>
+  <body class="bck-3">
+    <div class="page soft-red liquid" style="width:100%; text-align:center">
+      <p>&nbsp;</p>
+      <div class="middle">
+        <div class="wrapper">
+            <div class="block">
+              <img src="http://mittenin.at/stylesheets/mbe-admin/images/logo.png" alt="Logo" style="margin:10px">
+              <div class="top" style="top:120px;">
+                <h2><%= @article.name %></h2>
+              </div>
+              <div class="content grid">
+                <%= raw(@article.content) %>
+              </div>
+              <div class="clear"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
