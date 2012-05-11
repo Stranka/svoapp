@@ -4,6 +4,6 @@ class ArticleMailer < ActionMailer::Base
   def submission(article, config)
     @article = article
     @config = config
-    mail(:to => "stefan.haslinger@mittenin.at", :subject => "Webapplikationsentwicklung durch MITTENIN.AT")
+    mail(:to => "stefan.haslinger@gmail.com", :subject => "Webapplikationsentwicklung durch MITTENIN.AT")
   end
 end
