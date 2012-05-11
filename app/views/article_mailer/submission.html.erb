@@ -3,35 +3,60 @@
   <head>
     <link rel="shortcut icon" href="/images/favicon.ico" />
     <title><%= @config.title %></title>
-    <%= stylesheet_link_tag "application", :media => :screen %>
-    <%= javascript_include_tag "application" %>
-    <!--[if lte IE 8]>
-    <%= stylesheet_link_tag "ie" %>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <%= stylesheet_link_tag "ie-old" %>
-    <![endif]-->
-    <!--[if IE 9]>
-    <%= stylesheet_link_tag "ie9" %>
-    <![endif]-->
   </head>
-  <body class="bck-3">
-    <div class="page soft-red liquid" style="width:100%; text-align:center">
-      <p>&nbsp;</p>
-      <div class="middle">
-        <div class="wrapper">
-            <div class="block">
-              <img src="http://mittenin.at/stylesheets/mbe-admin/images/logo.png" alt="Logo" style="margin:10px">
-              <div class="top" style="top:120px;">
-                <h2><%= @article.name %></h2>
-              </div>
-              <div class="content grid">
-                <%= raw(@article.content) %>
-              </div>
-              <div class="clear"></div>
-            </div>
-        </div>
-      </div>
-    </div>
+  <body style="background-image:url(/img/body-bck-3.gif);" >
+    <table border="0" cellspacing="0" cellpadding="0" border-spacing="0" style="table-layout: fixed; ">
+      <tr>
+        <td colspan=8 height="38"></td>
+      </tr>
+      <tr>
+        <td width="38" height="5"></td>
+        <td width="10"></td>
+        <td width="5" height="5" style="line-height:0px"><%= image_tag('/images/mailing/linksoben.png', :hspace => 0, :vspace => 0) %></td>
+        <td width="270" style="background:#e3e3e3;"></td>
+        <td width="100%" style="background:#e3e3e3;"></td>
+        <td width="5" height="5" style="line-height:0px"><%= image_tag('/images/mailing/rechtsoben.png', :hspace => 0, :vspace => 0) %></td>
+        <td width="10"></td>
+        <td width="38"></td>
+      </tr>
+      <tr>
+        <td height="100"></td>
+        <td width="10"><%= image_tag "/images/mailing/dot1.gif", :width => 10 %></td>
+        <td style="background:#e3e3e3;"></td>
+        <td width="172" style="background:#e3e3e3;"><img src="http://mittenin.at/stylesheets/mbe-admin/images/logo.png" alt="Logo" style="margin:10px"></td>
+        <td colspan="2" style="background:#e3e3e3;"></td>
+        <td colspan="2"></td>
+      </tr>
+      <tr>
+        <td height="70"></td>
+        <td width="285" colspan="3" style="line-height:2px; background-image:url('/images/mailing/mottomitte.png')">
+          <%= image_tag('/images/mailing/mottolinks.png', :hspace => 0, :vspace => 0) %></td>
+        <td colspan="2" style="line-height:2px; background-image:url('/images/mailing/mottomitte.png')">
+          <%= image_tag('/images/mailing/mottomitte.png', :hspace => 0, :vspace => 0) %></td>
+        <td style="line-height:2px"><%= image_tag('/images/mailing/mottorechts.png', :hspace => 0, :vspace => 0) %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td width="38">&nbsp; &nbsp;</td>
+        <td width="10">&nbsp; &nbsp;</td>
+        <td width="5" style="background:#e3e3e3"></td>
+        <td width="100%" colspan="2" style="background:#e3e3e3;">
+          <div style="margin:30px; font-family:'Trebuchet MS', Calibri, Ubuntu, Arial, sans-serif"><%= raw(@article.content) %></div>
+        </td>
+        <td width="5" style="background:#e3e3e3"></td>
+        <td width="10"></td>
+        <td width="38"></td>
+      </tr>
+      <tr>
+        <td height="5" colspan="2"></td>
+        <td style="background-image:url('/images/mailing/linksunten.png');"></td>
+        <td colspan="2" style="background:#e3e3e3;"></td>
+        <td style="background-image:url('/images/mailing/rechtsunten.png');"></td>
+        <td colspan="2""></td>
+      </tr>
+      <tr>
+        <td height="38" colspan="8"></td>
+      </tr>
+    </table>
   </body>
 </html>

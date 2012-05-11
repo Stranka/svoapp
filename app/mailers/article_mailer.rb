@@ -7,4 +7,3 @@ class ArticleMailer < ActionMailer::Base
     mail(:to => "stefan.haslinger@mittenin.at", :subject => "Webapplikationsentwicklung durch MITTENIN.AT")
   end
 end
-
