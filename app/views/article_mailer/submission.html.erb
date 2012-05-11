@@ -5,35 +5,39 @@
     <title><%= @config.title %></title>
   </head>
   <body style="background-image:url(http://mittenin.at/img/body-bck-3.gif);" bgcolor="#333" >
-    <table border="0" cellspacing="0" cellpadding="0" border-spacing="0" style="table-layout: fixed; ">
+    <table border="0" cellspacing="0" cellpadding="0" border-spacing="0" style="font-family:Trebuchet MS, Calibri, Ubuntu, Arial, sans-serif; table-layout: fixed;" >
       <tr>
-        <td colspan=8 height="38"></td>
+        <td colspan=5 height="38"></td>
       </tr>
       <tr>
         <td colspan="2">&nbsp; &nbsp;</td>
-        <td style="background:#e3e3e3;">
-          <img src="http://mittenin.at/stylesheets/mbe-admin/images/logo.png" alt="mittenin.at" style="margin:10px">
+        <td style="background:#e3e3e3;" height="70">
+          <p><br/>&nbsp; &nbsp;<img width="172" height="66" src="http://mittenin.at/stylesheets/mbe-admin/images/logo.png" alt="mittenin.at"><br/></p>
         </td>
-        <td style="background:#e3e3e3;"></td>
         <td colspan="2"></td>
       </tr>
       <tr>
         <td width="38" height="70"></td>
-        <td width="10" bgcolor="#961e1e"><%= image_tag('http://mittenin.at/images/mailing/mottolinks.png', :hspace => 0, :vspace => 0) %></td>
-        <td style="background-color:#961e1e; background-image:url('http://mittenin.at/images/mailing/mottomitte.png'); background-repeat:repeat-x;">
-          <h2><font face="Trebuchet MS', Calibri, Ubuntu, Arial, sans-serif"><%= @article.name %></h2></td>
-        <td width="10" bgcolor="#961e1e"><%= image_tag('http://mittenin.at/images/mailing/mottorechts.png', :hspace => 0, :vspace => 0) %></td>
+        <td width="10" bgcolor="#961e1e">
+          <%= image_tag('http://mittenin.at/images/mailing/mottolinks.png', :hspace => 0, :vspace => 0, :width => 10, :height => 70) %>
+        </td>
+        <td height="70" style="font-size:26px; color:#fff; background-color:#961e1e; background-image:url('http://mittenin.at/images/mailing/mottomitte.png'); background-repeat:repeat-x;">
+          &nbsp; &nbsp; &nbsp;<%= @article.name %></td>
+        <td width="10" bgcolor="#961e1e">
+          <%= image_tag('http://mittenin.at/images/mailing/mottorechts.png', :hspace => 0, :vspace => 0, :width => 10, :height => 70) %>
+        </td>
         <td bidth="38"></td>
       </tr>
       <tr>
         <td colspan="2"></td>
-        <td width="100%" colspan="2" style="background:#e3e3e3;">
-          <div style="margin:30px; font-family:'Trebuchet MS', Calibri, Ubuntu, Arial, sans-serif"><%= raw(@article.content) %></div>
+        <td width="100%" style="background:#e3e3e3;">
+            <div style="margin:20px; "><%= raw(@article.content) %></div>
+          </font>
         </td>
         <td colspan="2"></td>
       </tr>
       <tr>
-        <td height="38" colspan="8"></td>
+        <td height="38" colspan="5"></td>
       </tr>
     </table>
   </body>
