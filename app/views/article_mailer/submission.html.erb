@@ -10,52 +10,27 @@
         <td colspan=8 height="38"></td>
       </tr>
       <tr>
-        <td width="38" height="5"></td>
-        <td width="10"></td>
-        <td width="5" height="5" bgcolor="#e3e3e3" style="line-height:0px"><%= image_tag('http://mittenin.at/images/mailing/linksoben.png', :hspace => 0, :vspace => 0) %></td>
-        <td width="270" style="background:#e3e3e3;"></td>
-        <td width="100%" style="background:#e3e3e3;"></td>
-        <td width="5" height="5" bgcolor="#e3e3e3" style="line-height:0px"><%= image_tag('http://mittenin.at/images/mailing/rechtsoben.png', :hspace => 0, :vspace => 0) %></td>
-        <td width="10"></td>
-        <td width="38"></td>
-      </tr>
-      <tr>
-        <td height="100"></td>
-        <td width="10"><%= image_tag "http://mittenin.at/images/mailing/dot1.gif", :width => 10 %></td>
+        <td colspan="2">&nbsp; &nbsp;</td>
+        <td style="background:#e3e3e3;">
+          <img src="http://mittenin.at/stylesheets/mbe-admin/images/logo.png" alt="mittenin.at" style="margin:10px">
+        </td>
         <td style="background:#e3e3e3;"></td>
-        <td width="172" style="background:#e3e3e3;"><img src="http://mittenin.at/stylesheets/mbe-admin/images/logo.png" alt="Logo" style="margin:10px"></td>
-        <td colspan="2" style="background:#e3e3e3;"></td>
         <td colspan="2"></td>
       </tr>
       <tr>
-        <td height="70"></td>
-        <td width="285" bgcolor="#961e1e" colspan="3" style="line-height:0px; background-image:url('http://mittenin.at/images/mailing/mottomitte.png')">
-          <%= image_tag('http://mittenin.at/images/mailing/mottolinks.png', :hspace => 0, :vspace => 0) %></td>
-        <td colspan="2" style="background-color:#961e1e; line-height:0px; background-image:url('http://mittenin.at/images/mailing/mottomitte.png'); background-repeat:repeat-x;">
-          <%= image_tag('http://mittenin.at/images/mailing/mottomitte.png', :hspace => 0, :vspace => 0) %></td>
-        <td style="line-height:0px" bgcolor="#961e1e"><%= image_tag('http://mittenin.at/images/mailing/mottorechts.png', :hspace => 0, :vspace => 0) %></td>
-        <td></td>
+        <td width="38" height="70"></td>
+        <td width="10" bgcolor="#961e1e"><%= image_tag('http://mittenin.at/images/mailing/mottolinks.png', :hspace => 0, :vspace => 0) %></td>
+        <td style="background-color:#961e1e; background-image:url('http://mittenin.at/images/mailing/mottomitte.png'); background-repeat:repeat-x;">
+          <h2><font face="Trebuchet MS', Calibri, Ubuntu, Arial, sans-serif"><%= @article.name %></h2></td>
+        <td width="10" bgcolor="#961e1e"><%= image_tag('http://mittenin.at/images/mailing/mottorechts.png', :hspace => 0, :vspace => 0) %></td>
+        <td bidth="38"></td>
       </tr>
       <tr>
-        <td width="38">&nbsp; &nbsp;</td>
-        <td width="10">&nbsp; &nbsp;</td>
-        <td width="5" style="background:#e3e3e3"></td>
+        <td colspan="2"></td>
         <td width="100%" colspan="2" style="background:#e3e3e3;">
           <div style="margin:30px; font-family:'Trebuchet MS', Calibri, Ubuntu, Arial, sans-serif"><%= raw(@article.content) %></div>
         </td>
-        <td width="5" style="background:#e3e3e3"></td>
-        <td width="10"></td>
-        <td width="38"></td>
-      </tr>
-      <tr>
-        <td height="5" colspan="2"></td>
-        <td bgcolor="#e3e3e3" style="background-image:url('http://mittenin.at/images/mailing/linksunten.png');">
-          <%= image_tag "http://mittenin.at/images/mailing/dot1.gif", :width => 5 %></td>
-        <td colspan="2" style="background:#e3e3e3;"></td>
-        <td bgcolor="#e3e3e3" style="background-image:url('http://mittenin.at/images/mailing/rechtsunten.png');">
-          <%= image_tag "http://mittenin.at/images/mailing/dot1.gif", :width => 5 %>
-        </td>
-        <td colspan="2""></td>
+        <td colspan="2"></td>
       </tr>
       <tr>
         <td height="38" colspan="8"></td>
