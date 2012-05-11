@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27872ea7-ce8f-46b3-b777-4fd92f78a2f0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environment.rb" afterPath="$PROJECT_DIR$/config/environment.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/article_mailer/submission.html.erb" afterPath="$PROJECT_DIR$/app/views/article_mailer/submission.html.erb" />
     </list>
     <ignored path="RailsNuke.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,19 +28,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="submission.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="submission.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/article_mailer/submission.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="90" selection-start="2759" selection-end="2759" vertical-scroll-proportion="-9.642858">
+            <state line="34" column="43" selection-start="2034" selection-end="2034" vertical-scroll-proportion="0.24444444">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="environment.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="environment.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/environment.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="36" selection-start="261" selection-end="261" vertical-scroll-proportion="0.20477815">
+            <state line="10" column="36" selection-start="261" selection-end="261" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -123,8 +123,8 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/mailers/article_mailer.rb" />
         <option value="$PROJECT_DIR$/app/views/article_mailer/submission.old.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/article_mailer/submission.html.erb" />
         <option value="$PROJECT_DIR$/config/environment.rb" />
+        <option value="$PROJECT_DIR$/app/views/article_mailer/submission.html.erb" />
       </list>
     </option>
   </component>
@@ -765,16 +765,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/article_mailer/submission.html.erb">
+    <entry file="file://$PROJECT_DIR$/config/environment.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="90" selection-start="2759" selection-end="2759" vertical-scroll-proportion="-9.642858">
+        <state line="10" column="36" selection-start="261" selection-end="261" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/environment.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/article_mailer/submission.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="36" selection-start="261" selection-end="261" vertical-scroll-proportion="0.20477815">
+        <state line="34" column="43" selection-start="2034" selection-end="2034" vertical-scroll-proportion="0.24444444">
           <folding />
         </state>
       </provider>
