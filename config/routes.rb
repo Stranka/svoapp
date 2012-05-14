@@ -66,6 +66,7 @@ RailsNuke::Application.routes.draw do
     member do
       get 'permalink'
       get 'show_content'
+      post 'send_email'
     end
   end
 
