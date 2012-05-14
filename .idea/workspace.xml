@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27872ea7-ce8f-46b3-b777-4fd92f78a2f0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/articles_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/articles_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mailers/article_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/article_mailer.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/article_mailer/submission.html.erb" afterPath="$PROJECT_DIR$/app/views/article_mailer/submission.html.erb" />
     </list>
     <ignored path="RailsNuke.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,10 +37,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="article_mailer.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="article_mailer.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/mailers/article_mailer.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="36" selection-start="270" selection-end="270" vertical-scroll-proportion="0.16382253">
+            <state line="10" column="26" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="submission.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/article_mailer/submission.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="49" selection-start="1784" selection-end="1784" vertical-scroll-proportion="0.5709178">
               <folding />
             </state>
           </provider>
@@ -121,11 +129,11 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/article_mailer/submission.old.html.erb" />
         <option value="$PROJECT_DIR$/config/environment.rb" />
-        <option value="$PROJECT_DIR$/app/views/article_mailer/submission.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/articles/email.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/articles_controller.rb" />
         <option value="$PROJECT_DIR$/app/mailers/article_mailer.rb" />
+        <option value="$PROJECT_DIR$/app/views/article_mailer/submission.html.erb" />
       </list>
     </option>
   </component>
@@ -228,6 +236,10 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -243,7 +255,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mailers" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="article_mailer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RailsNuke" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="railsnuke" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -730,13 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/article_mailer/submission.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="32" selection-start="0" selection-end="2086" vertical-scroll-proportion="0.42908224">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/articles/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="26" selection-start="903" selection-end="903" vertical-scroll-proportion="0.3802817">
@@ -767,7 +790,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/mailers/article_mailer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="36" selection-start="270" selection-end="270" vertical-scroll-proportion="0.16382253">
+        <state line="10" column="26" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/article_mailer/submission.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="49" selection-start="1784" selection-end="1784" vertical-scroll-proportion="0.5709178">
           <folding />
         </state>
       </provider>
