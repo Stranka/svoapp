@@ -25,7 +25,6 @@ class ApplicationController < ActionController::Base
 #  redirect_to :controller => "errors", :action => "show_error_page"
 #  }
 
-
   def get_config
     @config = ActiveRecord::Base::Configuration.first
     @ebene_productclass = -1
@@ -74,63 +73,61 @@ class ApplicationController < ActionController::Base
   end
 
 #  private
-    def current_user_session
-      logger.debug "ApplicationController::current_user_session"
-      return @current_user_session if defined?(@current_user_session)
-      @current_user_session = UserSession.find
-    end
+  def current_user_session
+    logger.debug "ApplicationController::current_user_session"
+    return @current_user_session if defined?(@current_user_session)
+    @current_user_session = UserSession.find
+  end
 
-    def current_user
-      logger.debug "ApplicationController::current_user"
-      return @current_user if defined?(@current_user)
-      @current_user = current_user_session && current_user_session.user
-    end
+  def current_user
+    logger.debug "ApplicationController::current_user"
+    return @current_user if defined?(@current_user)
+    @current_user = current_user_session && current_user_session.user
+  end
 
-    def require_user
-      logger.debug "ApplicationController::require_user"
-      unless current_user
-        store_location
-        flash[:notice] = "You must be logged in to access this page"
-        redirect_to new_user_session_url
-        return false
-      end
+  def require_user
+    logger.debug "ApplicationController::require_user"
+    unless current_user
+      store_location
+      flash[:notice] = "You must be logged in to access this page"
+      redirect_to new_user_session_url
+      return false
     end
+  end
 
-    def require_no_user
-      logger.debug "ApplicationController::require_no_user"
-      if current_user
-        store_location
-        flash[:notice] = "You must be logged out to access this page"
-        redirect_to account_url
-        return false
-      end
+  def require_no_user
+    logger.debug "ApplicationController::require_no_user"
+    if current_user
+      store_location
+      flash[:notice] = "You must be logged out to access this page"
+      redirect_to account_url
+      return false
     end
+  end
 
-    def store_location
-      # HAS: 20120508: Rails 3.2
-      # session[:return_to] = request.request_uri
-      session[:return_to] = request.url
-    end
+  def store_location
+    # HAS: 20120508: Rails 3.2
+    # session[:return_to] = request.request_uri
+    session[:return_to] = request.url
+  end
 
-    def redirect_back_or_default(default)
-      redirect_to(session[:return_to] || default)
-      session[:return_to] = nil
-    end
+  def redirect_back_or_default(default)
+    redirect_to(session[:return_to] || default)
+    session[:return_to] = nil
+  end
 
-    # get all actions for specified controller
-    def get_all_actions(cont)
-      c= Module.const_get(cont.to_s.pluralize.capitalize + "Controller")
-      c.public_instance_methods(false).reject{ |action| ['rescue_action'].include?(action) }
-    end
+  # get all actions for specified controller
+  def get_all_actions(cont)
+    c= Module.const_get(cont.to_s.pluralize.capitalize + "Controller")
+    c.public_instance_methods(false).reject{ |action| ['rescue_action'].include?(action) }
+  end
 
-    def set_locale
-      I18n.locale = params[:locale] || I18n.default_locale
-    end
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
 
-    def default_url_options(options={})
-      logger.debug "default_url_options is passed options: #{options.inspect}\n"
-      { :locale => I18n.locale }
-    end
-
+  def default_url_options(options={})
+    logger.debug "default_url_options is passed options: #{options.inspect}\n"
+    { :locale => I18n.locale }
+  end
 end
-
