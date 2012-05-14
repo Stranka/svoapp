@@ -170,7 +170,9 @@ require "uri"
     get_config
     @recipient = params[:recipient]
     @article = Article.find(params[:id])
-    ArticleMailer.submission(@article, @config, @recipient).deliver
+    if @current_user.email
+      ArticleMailer.submission(@article, @config, @recipient, @current_user.email).deliver
+    end
     render "article_mailer/submission", :layout => false
   end
 end
