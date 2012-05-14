@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27872ea7-ce8f-46b3-b777-4fd92f78a2f0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/articles_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/articles_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mailers/article_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/article_mailer.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/article_mailer/submission.html.erb" afterPath="$PROJECT_DIR$/app/views/article_mailer/submission.html.erb" />
     </list>
     <ignored path="RailsNuke.iws" />
@@ -32,15 +28,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="article_mailer.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/mailers/article_mailer.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="19" selection-start="665" selection-end="665" vertical-scroll-proportion="0.45051193">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="articles_helper.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/helpers/articles_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -50,10 +37,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="submission.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="submission.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/article_mailer/submission.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="58" selection-start="1548" selection-end="1548" vertical-scroll-proportion="-13.740741">
+            <state line="28" column="31" selection-start="1521" selection-end="1521" vertical-scroll-proportion="0.4421931">
               <folding />
             </state>
           </provider>
@@ -145,8 +132,8 @@
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
         <option value="$PROJECT_DIR$/app/helpers/articles_helper.rb" />
-        <option value="$PROJECT_DIR$/app/views/article_mailer/submission.html.erb" />
         <option value="$PROJECT_DIR$/app/mailers/article_mailer.rb" />
+        <option value="$PROJECT_DIR$/app/views/article_mailer/submission.html.erb" />
       </list>
     </option>
   </component>
@@ -844,9 +831,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/article_mailer/submission.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/mailers/article_mailer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="58" selection-start="1548" selection-end="1548" vertical-scroll-proportion="-13.740741">
+        <state line="25" column="24" selection-start="683" selection-end="683" vertical-scroll-proportion="0.51194537">
           <folding />
         </state>
       </provider>
@@ -858,9 +845,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/mailers/article_mailer.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/article_mailer/submission.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="19" selection-start="665" selection-end="665" vertical-scroll-proportion="0.45051193">
+        <state line="28" column="31" selection-start="1521" selection-end="1521" vertical-scroll-proportion="0.4421931">
           <folding />
         </state>
       </provider>
