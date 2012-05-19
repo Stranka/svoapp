@@ -88,7 +88,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to(@product, :notice => Product.human_name + ' ' + t('was successfully created')) }
+        format.html { redirect_to(@product, :notice => Product.model_name.human + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @product, :status => :created, :location => @product }
       else
         format.html { render :action => "new" }
@@ -122,7 +122,7 @@ class ProductsController < ApplicationController
 
       if @product.update_attributes(params[:product])
         @product.update_attribute(:price, params[:product][:price].tr('.','').tr(',','.'))
-        format.html { redirect_to(@product, :notice => Product.human_name + ' ' + t('was successfully updated')) }
+        format.html { redirect_to(@product, :notice => Product.model_name.human + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

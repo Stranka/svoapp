@@ -40,7 +40,7 @@ function tableActions ()
 
 <div class="block">
   <div class="top">
-    <h2><%= t('Administration') + ' ' + Block.human_name %></h2>
+    <h2><%= t('Administration') + ' ' + Block.model_name.human %></h2>
   </div>
   <div class="content">
     <div class="dataTables_wrapper" >
@@ -79,7 +79,7 @@ function tableActions ()
         </tbody>
       </table>
     </div>
-    <%= link_to t('New ') + Block.human_name, new_block_path %>
+    <%= link_to t('New ') + Block.model_name.human, new_block_path %>
   </div>
 </div>
 

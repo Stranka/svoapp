@@ -1,4 +1,4 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Billingaddress.human_name %></a></h2>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Billingaddress.model_name.human %></a></h2>
 <div class="block" id="main">
 
   <table>
@@ -12,7 +12,7 @@
 
     <thead>
       <tr>
-        <th class="table-head" colspan="9"><%= t('Listing ') + Billingaddress.human_name %></th>
+        <th class="table-head" colspan="9"><%= t('Listing ') + Billingaddress.model_name.human %></th>
       </tr>
       <tr>
                 <th><%= Billingaddress.human_attribute_name('street') %></th>
@@ -49,7 +49,7 @@
     <tfoot>
       <tr class="linemain">
         <th colspan="9">
-          <%= link_to t('New ') + Billingaddress.human_name, new_billingaddress_path %>
+          <%= link_to t('New ') + Billingaddress.model_name.human, new_billingaddress_path %>
         </th>
       </tr>
     </tfoot>

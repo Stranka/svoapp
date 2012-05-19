@@ -8,7 +8,7 @@
 
 <div class="block">
   <div class="top">
-    <h2><%= t('Show my open ') + ' ' + Basket.human_name %></h2>
+    <h2><%= t('Show my open ') + ' ' + Basket.model_name.human %></h2>
   </div>
   <div class="content">
     <h1><%= image_tag(@shop_cart, :border=>0, :alt =>'shopping cart') %> <%= t('shopping cart for ') %>  

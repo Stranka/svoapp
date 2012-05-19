@@ -11,12 +11,12 @@
 
 <div class="block">
   <div class="top">
-    <h2><%= t('Administration') + ' ' + Productclass.human_name %></h2>
+    <h2><%= t('Administration') + ' ' + Productclass.model_name.human %></h2>
   </div>
   <div class="content">
     <%= form_for(@product, :html => { :multipart => true }) do |f| %>
     <fieldset class="login">
-      <legend><%= Productclass.human_name %></legend>
+      <legend><%= Productclass.model_name.human %></legend>
       <p><%= f.label :shorttext %><br /><%= f.text_field :shorttext %></p>
       <p><%= f.label :description %><br /><%= f.text_area :description %></p>
       <p><%= f.label :producer %><br /><%= f.text_field :producer %></p>

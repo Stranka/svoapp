@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 
 
   def get_config
-    @config = Configuration.first
+    @config = ActiveRecord::Base::Configuration.first
     @ebene_productclass = -1
     @ebene_menue = -1
     @config.theme.nil? ? @config.theme = "gray" : true
@@ -107,7 +107,9 @@ class ApplicationController < ActionController::Base
     end
 
     def store_location
-      session[:return_to] = request.request_uri
+      # HAS: 20120508: Rails 3.2
+      # session[:return_to] = request.request_uri
+      session[:return_to] = request.url
     end
 
     def redirect_back_or_default(default)

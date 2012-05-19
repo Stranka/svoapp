@@ -8,7 +8,7 @@
 
 <div class="block">
   <div class="top">
-    <h2><%= t('Administration') + ' ' + Block.human_name %> <i><%= @block.name %></i></h2>
+    <h2><%= t('Administration') + ' ' + Block.model_name.human %> <i><%= @block.name %></i></h2>
   </div>
   <div class="content">
     <p align="right"><%= link_to t('Edit'), edit_block_path(@block) %> | <%= link_to t('Back'), blocks_path %></p>

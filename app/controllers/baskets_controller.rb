@@ -61,7 +61,7 @@ class BasketsController < ApplicationController
 
     respond_to do |format|
       if @basket.save
-        format.html { redirect_to(@basket, :notice => Basket.human_name + ' ' + t('was successfully created')) }
+        format.html { redirect_to(@basket, :notice => Basket.model_name.human + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @basket, :status => :created, :location => @basket }
       else
         format.html { render :action => "new" }
@@ -77,7 +77,7 @@ class BasketsController < ApplicationController
 
     respond_to do |format|
       if @basket.update_attributes(params[:basket])
-        format.html { redirect_to(@basket, :notice => Basket.human_name + ' ' + t('was successfully updated')) }
+        format.html { redirect_to(@basket, :notice => Basket.model_name.human + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -1,93 +1,59 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
   <head>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
     <title><%= @config.title %></title>
 
-    <%= stylesheet_link_tag ( @config.theme + '/templates/js/jwysiwyg/jquery.wysiwyg.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/js/fancybox/jquery.fancybox-1.3.4.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/js/jdpicker/jdpicker.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/js/visualize/css/visualize.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/js/fullcalendar/fullcalendar.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/css/datatable.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/css/style.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/css/' + RailsNuke::Application.config.theme + '.css' ), :media => :screen %>
-    <%= stylesheet_link_tag ( @config.theme + '/templates/css/fonts.css' ), :media => :screen %>
-    <%= stylesheet_link_tag @printsheet, :media => :print %>
-    <%= stylesheet_link_tag("simple_tooltip") %>
+    <%= stylesheet_link_tag "application", :media => :screen %>
+    <%= stylesheet_link_tag "print", :media => :print %>
+    <!--[if lte IE 8]>
+    <%= stylesheet_link_tag "ie" %>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <%= stylesheet_link_tag "ie-old" %>
+    <![endif]-->
+    <!--[if IE 9]>
+    <%= stylesheet_link_tag "ie9" %>
+    <![endif]-->
 
-    <%= javascript_include_tag :all %>
-    <%#= javascript_include_tag ( @config.theme + '/templates/js/jquery-1.6.4.min.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/wrappers.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jquery-ui-1.8.16.custom.min.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jquery.uniform/jquery.uniform.min.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jquery-css-transform.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jwysiwyg/jquery.wysiwyg.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jdpicker/jquery.jdpicker.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jquery.hotkeys.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/tap-or-click.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jquery.datatable/js/jquery.dataTables.min.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jquery-validation-1.8.1/jquery.validate.min.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/jquery.detectmobilebrowser.js' ), :media => :screen %>
+    <%= javascript_include_tag "application" %>
 		<!--[if IE]>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/excanvas.js' ), :media => :screen %>
+    <%= javascript_include_tag "excanvas.js", :media => :screen %>
 		<![endif]-->
-    <%= javascript_include_tag ( @config.theme + '/templates/js/visualize/visualize.jQuery.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/visualize/jquery.visualize.tooltip.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/fancybox/jquery.fancybox-1.3.4.pack.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/fullcalendar/fullcalendar.min.js' ), :media => :screen %>
-    <%= javascript_include_tag ( @config.theme + '/templates/js/main.js' ), :media => :screen %>
 
-    <%#=WICHTIG es muss sichergestellt sein, dass die rails.js nach der jquery.js geladen wird    %>
-    <%#=darum habe ich die rails.js in rails-3.0 umbenannt, weil sie sonst vor der jquery.js geladen werden würde    %>
     <%= csrf_meta_tag %>
   </head>
   <body class="bck-3">
-
     <div class="page <%= RailsNuke::Application.config.theme %> liquid" style="width:<%=@config.pagewidth%>%; text-align:'center'">
-    
       <div class="header" align=<%= @config.position_logo %>>
         <div class="wrapper">
-          <div class="inner">
-            <h2 id="branding"><img src="<%=@logo %>" alt="Logo" style="margin:10px"></h1>
-            <ul class="main-menu">
-              <%= render :partial => "shared/menue", :collection => @menue_top, :as => :menue %>
-              <li><%= link_to_function(image_tag("print.png", :style => "vertical-align:middle", :border => 0, :alt => t('print'), :title => t('print')), "javascript:print()") %></li>
-              <li><a href="/">Thema</a>
-                <ul>
-                  <li><%= link_to "Rot", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-red'}, html_options={:class => 'user-menu-link'}  %></li>
-                  <li><%= link_to "Orange", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'crimson-orange'}, html_options={:class => 'user-menu-link'}  %></li>
-                  <li><%= link_to "Grün", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-green'}, html_options={:class => 'user-menu-link'}  %></li>
-                  <li><%= link_to "Blau", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-blue'}, html_options={:class => 'user-menu-link'}  %></li>
-                  <li><%= link_to "Purpur", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-purple'}, html_options={:class => 'user-menu-link'}  %></li>
-                  <li><%= link_to "Gelb", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-yellow'}, html_options={:class => 'user-menu-link'}  %></li>
-                  <li><%= link_to "Grau", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'blue-gray'}, html_options={:class => 'user-menu-link'}  %></li>
-                </ul>
-              </li>
-            </ul>
-            <!--
-            <ul class="secondary-menu">
-              <li><%= link_to (image_tag('/images/at.gif', :style => "padding-left:10px; padding-top:20px; padding-right:10px")), url_options={:controller => 'menues', :action => 'change_language', :language => 'de'} %></li>
-              <li><%= link_to (image_tag('/images/en.gif', :style => "padding-left:10px; padding-top:20px; padding-right:10px")), url_options={:controller => 'menues', :action => 'change_language', :language => 'en'} %></li>
-            </ul>
-            -->
-          </div>
+          <h2 id="branding"><img src="<%=@logo %>" alt="Logo" style="margin:10px"></h1>
+          <ul class="main-menu">
+            <%= render :partial => "shared/menue", :collection => @menue_top, :as => :menue %>
+            <li><%= link_to_function(image_tag("print.png", :style => "vertical-align:middle", :border => 0, :alt => t('print'), :title => t('print')), "javascript:print()") %></li>
+            <!--<li><a href="/">Thema</a>
+              <ul>
+                <li><%= link_to "Rot", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-red'}, html_options={:class => 'user-menu-link'}  %></li>
+                <li><%= link_to "Orange", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'crimson-orange'}, html_options={:class => 'user-menu-link'}  %></li>
+                <li><%= link_to "Grün", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-green'}, html_options={:class => 'user-menu-link'}  %></li>
+                <li><%= link_to "Blau", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-blue'}, html_options={:class => 'user-menu-link'}  %></li>
+                <li><%= link_to "Purpur", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-purple'}, html_options={:class => 'user-menu-link'}  %></li>
+                <li><%= link_to "Gelb", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-yellow'}, html_options={:class => 'user-menu-link'}  %></li>
+                <li><%= link_to "Grau", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'blue-gray'}, html_options={:class => 'user-menu-link'}  %></li>
+              </ul>
+            </li>-->
+          </ul>
+          <ul class="secondary-menu">
+            <!--<li><%= link_to (image_tag('/images/at.gif', :style => "padding-left:10px; padding-top:20px; padding-right:10px")), url_options={:controller => 'menues', :action => 'change_language', :language => 'de'} %></li>
+            <li><%= link_to (image_tag('/images/en.gif', :style => "padding-left:10px; padding-top:20px; padding-right:10px")), url_options={:controller => 'menues', :action => 'change_language', :language => 'en'} %></li>-->
+          </ul>
         </div>
       </div>
       <div class="middle">
         <div class="wrapper">
-          <div class="inner">
-            <%= yield %>
-          </div>
-        </div>
-      </div>
-      <div class="footer">
-        <div class="wrapper">
-          <div class="inner">
-            <%= render :partial => "shared/footer" %>
-          </div>
+          <%= yield %>
         </div>
       </div>
     </div>
   </body>
 </html>
-

@@ -11,7 +11,7 @@
 
 <div class="block">
   <div class="top">
-    <h2><%= t('Editing') + ' ' + Customer.human_name %> <i><%=  @customer.login %></i></h2>
+    <h2><%= t('Editing') + ' ' + Customer.model_name.human %> <i><%=  @customer.login %></i></h2>
   </div>
   <div class="content">
     <p align="right"><%= link_to t('Show'), @customer %> | <%= link_to t('Back'), customers_path %></p>
@@ -28,7 +28,7 @@
           <% end %>
 
       <fieldset class="login">
-        <legend><%= Customer.human_name %></legend>
+        <legend><%= Customer.model_name.human %></legend>
 
         <p><%= f.label :login %><br /><%= f.text_field :login %></p>
         <p><%= f.label :email %><br /><%= f.text_field :email %></p>
@@ -42,7 +42,7 @@
       </fieldset>
 
       <fieldset class="login">
-        <legend><%= Billingaddress.human_name %></legend>
+        <legend><%= Billingaddress.model_name.human %></legend>
         <%= f.fields_for :billingaddress do |a| %>
           <p><%= a.hidden_field :address_type, :value => "Rechnungsadresse" %><%= a.label :street %><br /><%= a.text_field :street %></p>
           <p><%= a.label :zipcode %><br /><%= a.text_field :zipcode %></p>
@@ -54,7 +54,7 @@
       </fieldset>
 
       <fieldset class="login">
-        <legend><%= Deliveryaddress.human_name %></legend>
+        <legend><%= Deliveryaddress.model_name.human %></legend>
         <%= f.fields_for :deliveryaddress do |a| %>
           <p><%= a.hidden_field :address_type, :value => "Lieferadresse" %><%= a.label :street %><br /><%= a.text_field :street %></p>
           <p><%= a.label :zipcode %><br /><%= a.text_field :zipcode %></p>

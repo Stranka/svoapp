@@ -1,4 +1,4 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Billingaddress.human_name %></a></h2>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Billingaddress.model_name.human %></a></h2>
 <div class="block" id="main">
 
   <%= form_for(@billingaddress) do |f| %>
@@ -12,7 +12,7 @@
     <% end %>
       
     <fieldset class="login">
-      <legend><%= t(Billingaddress.human_name) %></legend>         
+      <legend><%= t(Billingaddress.model_name.human) %></legend>
             <p><%= f.label :street %> <%= f.text_field :street %></p>
             <p><%= f.label :city %> <%= f.text_field :city %></p>
             <p><%= f.label :zipcode %> <%= f.text_field :zipcode %></p>

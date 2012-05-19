@@ -8,7 +8,7 @@
 
 <div class="block">
   <div class="top">
-    <h2><%= t('Administration') + ' ' + Payment.human_name %></h2>
+    <h2><%= t('Administration') + ' ' + Payment.model_name.human %></h2>
   </div>
   <div class="content">
     <div class="dataTables_wrapper">
@@ -40,6 +40,6 @@
         </tbody>
       </table>
     </div>
-    <p><%= link_to t('New ') + Payment.human_name, new_payment_path %></p>
+    <p><%= link_to t('New ') + Payment.model_name.human, new_payment_path %></p>
   </div>
 </div>

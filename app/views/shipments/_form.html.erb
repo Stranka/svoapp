@@ -11,12 +11,12 @@
 
 <div class="block">
   <div class="top">
-    <h2><%= t('Administration') + ' ' + Shipment.human_name %></h2>
+    <h2><%= t('Administration') + ' ' + Shipment.model_name.human %></h2>
   </div>
   <div class="content">
     <%= form_for(@shipment) do |f| %>
       <fieldset class="login">
-        <legend><%= t(Shipment.human_name) %></legend>
+        <legend><%= t(Shipment.model_name.human) %></legend>
           <p><%= f.label :name %><br /><%= f.text_field :name %></p>
           <p><%= f.label :weight_max %><br /><%= f.text_field :weight_max %></p>
           <p><%= f.label :lenght_max %><br /><%= f.text_field :lenght_max %></p>

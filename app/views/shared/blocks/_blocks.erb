@@ -10,10 +10,10 @@
       </div>
        
     <% when 'login' %>
-    <div class="boxed">
-      <h2><%= t(block.name) %></h2>
+    <fieldset>
+      <legend><%= t(block.name) %></legend>
         <%= current_user ? ( render :partial => "shared/blocks/blocklogout" ) : ( render :partial => "shared/blocks/blocklogin" ) %>
-    </div>
+    </fieldset>
 
     <% when 'productclass' %>
     <div class="boxed">
@@ -24,22 +24,22 @@
       </div>
 
     <% when 'news' %>
-      <div class="boxed">
-        <h2><%= t(block.name) %></h2>
+      <fieldset>
+        <legend><%= t(block.name) %></legend>
         <%= render :partial => "shared/blocks/news", :collection => read_block_news, :as => :news %>
-      </div>
+      </fieldset>
 
     <% when 'referenzen' %>
-      <div class="boxed">
-        <h2><%= t(block.name) %></h2>
+      <fieldset>
+        <legend><%= t(block.name) %></legend>
         <%= render :partial => "shared/blocks/article", :collection => read_article('Referenzen'), :as => :article %>
-      </div>
+      </fieldset>
 
     <% when 'kundenmeinungen' %>
-      <div class="boxed">
-        <h2><%= t(block.name) %></h2>
+      <fieldset>
+        <legend><%= t(block.name) %></legend>
         <%= render :partial => "shared/blocks/article", :collection => read_article('Kundenmeinungen'), :as => :article %>
-      </div>
+      </fieldset>
 
     <% when 'basket' %>
       <div class="boxed">
@@ -50,10 +50,10 @@
       </div>
 
     <% when 'search' %>
-      <div class="boxed">
-        <h2><%= t(block.name) %></a></h2>
+      <fieldset>
+        <legend><%= t(block.name) %></a></legend>
         <%= render :partial => "shared/blocks/search" , :locals => { :mode => 'article' } %>
-      </div>
+      </fieldset>
 
     <% when 'productsearch' %>
       <div class="boxed">

@@ -65,7 +65,7 @@ class TooltipsController < ApplicationController
 
     respond_to do |format|
       if @tooltip.save
-        format.html { redirect_to(@tooltip, :notice => Tooltip.human_name + ' ' + t('was successfully created')) }
+        format.html { redirect_to(@tooltip, :notice => Tooltip.model_name.human + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @tooltip, :status => :created, :location => @tooltip }
       else
         format.html { render :action => "new" }
@@ -81,7 +81,7 @@ class TooltipsController < ApplicationController
 
     respond_to do |format|
       if @tooltip.update_attributes(params[:tooltip])
-        format.html { redirect_to(@tooltip, :notice => Tooltip.human_name + ' ' + t('was successfully updated')) }
+        format.html { redirect_to(@tooltip, :notice => Tooltip.model_name.human + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

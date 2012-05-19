@@ -6,7 +6,7 @@ class ConfigurationsController < ApplicationController
   
   
   def index
-    @configurations = Configuration.all
+    @configurations = ActiveRecord::Base::Configuration.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +17,7 @@ class ConfigurationsController < ApplicationController
   # GET /configurations/1
   # GET /configurations/1.xml
   def show
-    @configuration = Configuration.find(params[:id])
+    @configuration = ActiveRecord::Base::Configuration.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,18 +27,18 @@ class ConfigurationsController < ApplicationController
 
   # GET /configurations/1/edit
   def edit
-    @configuration = Configuration.find(params[:id])
+    @configuration = ActiveRecord::Base::Configuration.find(params[:id])
     @articles = Article.find(:all)
   end
 
   # PUT /configurations/1
   # PUT /configurations/1.xml
   def update
-    @configuration = Configuration.find(params[:id])
+    @configuration = ActiveRecord::Base::Configuration.find(params[:id])
 
     respond_to do |format|
       if @configuration.update_attributes(params[:configuration])
-        format.html { redirect_to(@configuration, :notice => Configuration.human_name + ' ' + t('was successfully updated')) }
+        format.html { redirect_to(@configuration, :notice => ActiveRecord::Base::Configuration.model_name.human + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

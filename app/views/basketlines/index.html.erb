@@ -1,6 +1,6 @@
   <tr>
     <td class ="myTitle" width="100%" colspan="9">
-      <%= t('Listing ') + Basketline.human_name %>
+      <%= t('Listing ') + Basketline.model_name.human %>
     </td>
   </tr>
 
@@ -44,7 +44,7 @@
 
   <tr class="linemain">
     <td colspan="9">
-      <%= link_to t('New ') + Basketline.human_name', new_basketline_path %>
+      <%= link_to t('New ') + Basketline.model_name.human', new_basketline_path %>
     </td>
   </tr>
 

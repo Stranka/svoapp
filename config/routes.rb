@@ -1,5 +1,7 @@
 RailsNuke::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   resources :translations
 
   resources :tooltips do
@@ -91,6 +93,7 @@ RailsNuke::Application.routes.draw do
   match 'articlesearch' => "articles#search_all"
   match 'productsearch' => "products#search_all"
 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -99,7 +102,7 @@ RailsNuke::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+     match 'mail/:id' => 'articles#email', :as => :email
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
@@ -146,6 +149,5 @@ RailsNuke::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-
 end
 

@@ -71,7 +71,7 @@ require "uri"
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to(@article, :notice => Article.human_name + ' ' + t('was successfully created')) }
+        format.html { redirect_to(@article, :notice => Article.model_name.human + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @article, :status => :created, :location => @article }
       else
         format.html { render :action => "new" }
@@ -87,7 +87,7 @@ require "uri"
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
-        format.html { redirect_to(@article, :notice => Article.human_name + ' ' +  t('was successfully updated')) }
+        format.html { redirect_to(@article, :notice => Article.model_name.human + ' ' +  t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -159,7 +159,14 @@ require "uri"
       flash[:notice] = t('please specify a searchstring')
     end
     render 'search_result'
+  end
 
+  def email
+    get_config
+debugger
+    @article = Article.find(params[:id])
+    ArticleMailer.submission(@article, @config).deliver
+    render "article_mailer/submission", :layout => false
   end
 end
 

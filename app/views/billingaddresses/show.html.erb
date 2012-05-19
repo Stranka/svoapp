@@ -1,4 +1,4 @@
-<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Billingaddress.human_name %></a></h2>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Billingaddress.model_name.human %></a></h2>
 
 <%= notice %>
 
@@ -6,7 +6,7 @@
   <table>
     <thead>
       <tr>
-        <th class="table-head" colspan="2"><%= t('Show ') + Billingaddress.human_name %></th>
+        <th class="table-head" colspan="2"><%= t('Show ') + Billingaddress.model_name.human %></th>
       </tr>
       <tr>
         <th><%= t('Key')%></th>
