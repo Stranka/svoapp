@@ -1,54 +1,43 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="2">
-      <%= t('Show ') + Payment.human_name %>
-    </td>
-  </tr>
-  <tr class="linemain">
-    <td colspan="2">
-      <%= notice %>
-    </td>
-  </tr>
+<% if flash[:notice]%>
+  <div class="big-message success" xmlns="http://www.w3.org/1999/html">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-      <%= Payment.human_attribute_name('name') %>
-    </td>
-    <td>
-      <%= @payment.name %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-      <%= Payment.human_attribute_name('cost') %>
-    </td>
-    <td>
-      <%= @payment.cost %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-      <%= Payment.human_attribute_name('auth_level') %>
-    </td>
-    <td>
-      <%= @payment.auth_level %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-      <%= Payment.human_attribute_name('auth_level_edit') %>
-    </td>
-    <td>
-      <%= @payment.auth_level_edit %>
-    </td>
-  </tr>
-
-  <tr class="linemain">
-    <td colspan="2">
-  <%= link_to t('Edit'), edit_payment_path(@payment) %> |
-  <%= link_to t('Back'), payments_path %>
-    </td>
-  </tr>
-
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Payment.model_name.human %><i><%= @payment.name %></i></h2>
+  </div>
+  <div class="content">
+    <p align="right"><%= link_to t('Edit'), edit_payment_path(@payment) %> | <%= link_to t('Back'), payments_path %></p>
+    <table class="listing">
+      <thead>
+        <tr>
+          <th><%= t('Key')%></th>
+          <th><%= t('Value')%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Payment.human_attribute_name('name') %></td>
+          <td><%= @payment.name %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Payment.human_attribute_name('cost') %></td>
+          <td><%= @payment.cost %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Payment.human_attribute_name('auth_level') %></td>
+          <td><%= @payment.auth_level %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Payment.human_attribute_name('auth_level_edit') %></td>
+          <td><%= @payment.auth_level_edit %></td>
+        </tr>
+      </tbody>
+    </table>
+    <p><%= link_to t('Edit'), edit_payment_path(@payment) %> | <%= link_to t('Back'), payments_path %></p>
+  </div>
+</div>

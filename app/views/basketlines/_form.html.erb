@@ -4,12 +4,9 @@
       <% if @basketline.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@basketline.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
-
-          <ul>
           <% @basketline.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+            <p>&bull; <%= msg %></p>
           <% end %>
-          </ul>
         </div>
       <% end %>
     </td>

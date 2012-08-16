@@ -1,35 +1,25 @@
-<tr class="linemain">
-  <td colspan="2">
-    <%%= form_for(@<%= singular_table_name %>) do |f| %>
-      <%% if @<%= singular_table_name %>.errors.any? %>
-        <div id="error_explanation">
-          <h2><%%= pluralize(@<%= singular_table_name %>.errors.count, t('error')) %> <%%= t('error_explanation') %></h2>
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%%= t('Administration') + ' ' + <%= class_name %>.model_name.human %></a></h2>
+<div class="block" id="main">
 
-          <ul>
-          <%% @<%= singular_table_name %>.errors.full_messages.each do |msg| %>
-            <li><%%= msg %></li>
-          <%% end %>
-          </ul>
-        </div>
-      <%% end %>
-    </td>
-  </tr>
-
-<% for attribute in attributes -%>
-  <tr class= "line<%%= cycle('1', '2') %>">
-    <td>
-        <%%= f.label :<%= attribute.name %> %>
-    </td>
-    <td>
-        <%%= f.<%= attribute.field_type %> :<%= attribute.name %> %>
-    </td>
-  </tr>
-    <% end -%>
-  <tr>
-    <td></td>
-    <td>
-      <%%= f.submit %>
-    </td>
-  </tr>
+  <%%= form_for(@<%= singular_table_name %>) do |f| %>
+    <%% if @<%= singular_table_name %>.errors.any? %>
+      <div id="error_explanation">
+        <h2><%%= pluralize(@<%= singular_table_name %>.errors.count, t('error')) %> <%%= t('error_explanation') %></h2>
+        <ul>
+        <%% @<%= singular_table_name %>.errors.full_messages.each do |msg| %>
+          <li><%%= msg %></li>
+        <%% end %>
+        </ul>
+      </div>
     <%% end %>
+      
+    <fieldset class="login">
+      <legend><%%= t(<%= class_name %>.model_name.human) %></legend>
+      <% for attribute in attributes -%>
+      <p><%%= f.label :<%= attribute.name %> %> <%%= f.<%= attribute.field_type %> :<%= attribute.name %> %></p>
+      <% end -%>
+      <%%= f.submit %>
+    </fieldset>
+  <%% end %>
+</div>   
 

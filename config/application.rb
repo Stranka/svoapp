@@ -1,7 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require './lib/mysql_utf8'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
@@ -42,6 +41,22 @@ module RailsNuke
 
     I18n.default_locale = "de"
     I18n.load_path += Dir.glob("config/locales/de.yml")
+
+    # HAS:20120307 I need a global variable for storing the theme's name.
+    RailsNuke::Application.configure do
+      config.theme = 'soft-red'
+      config.gridtype = 'block'
+    end
+
+    # HAS: 20120508: Rails 3.2
+    # Enable the asset pipeline
+    config.assets.enabled = true
+    # Version of your assets, change this if you want to expire all your assets
+    config.assets.version = '1.0'
+
+    # HAS: 20120417: Für CKEditor
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+
 
   end
 end

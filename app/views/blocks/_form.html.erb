@@ -1,91 +1,32 @@
-<tr class="linemain">
-  <td colspan="2">
-    <%= form_for(@block) do |f| %>
-      <% if @block.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@block.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
-
-          <ul>
-          <% @block.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-    </td>
-  </tr>
-
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :name %>
-    </td>
-    <td>
-        <%= f.text_field :name %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :headerline %>
-    </td>
-    <td>
-        <%= f.text_field :headerline %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :position %>
-    </td>
-    <td>
-        <%= f.select :position, Block::POSITION %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :fieldorder %>
-    </td>
-    <td>
-        <%= f.text_field :fieldorder %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :blockid %>
-    </td>
-    <td>
-        <%= f.select :blockid, Block::BLOCKID %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :active %>
-    </td>
-    <td>
-        <%= f.check_box :active %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :auth_level %>
-    </td>
-    <td>
-        <%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %>
-    </td>
-  </tr>
-
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :auth_level_edit %>
-    </td>
-    <td>
-        <%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %>
-    </td>
-  </tr>
-
-      <tr>
-    <td></td>
-    <td>
-      <%= f.submit %>
-    </td>
-  </tr>
+<% if @block.errors.any? %>
+  <div class="big-message error" xmlns="http://www.w3.org/1999/html">
+    <h2><%= pluralize(@block.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
+    <% @block.errors.full_messages.each do |msg| %>
+      <p>&bull; <%= msg %></p>
     <% end %>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Block.model_name.human %> <i><%= @block.name %></i></h2>
+  </div>
+  <div class="content">
+
+  <%= form_for(@block) do |f| %>
+      
+    <fieldset class="login">
+      <legend><%= t(Block.model_name.human) %></legend>
+            <p><%= f.label :name %><br /><%= f.text_field :name %></p>
+            <p><%= f.label :headerline %><br /><%= f.text_field :headerline %></p>
+            <p><%= f.label :position %><br /><%= f.select :position, Block::POSITION %></p>
+            <p><%= f.label :fieldorder %><br /><%= f.text_field :fieldorder %></p>
+            <p><%= f.label :blockid %><br /> <%= f.select :blockid, Block::BLOCKID %></p>
+            <p><%= f.label :active %>&nbsp; <%= f.check_box :active %></p>
+            <p><%= f.label :auth_level %><br /><%= f.text_field :auth_level %></p>
+            <p><%= f.label :auth_level_edit %><br /><%= f.text_field :auth_level_edit %></p>
+            <p><%= f.submit %></p>
+    </fieldset>
+  <% end %>

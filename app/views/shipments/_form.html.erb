@@ -1,74 +1,28 @@
-<tr class="linemain">
-  <td colspan="2">
-    <%= form_for(@shipment) do |f| %>
-      <% if @shipment.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@shipment.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
-
-          <ul>
-          <% @shipment.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-    </td>
-  </tr>
-
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :name %>
-    </td>
-    <td>
-        <%= f.text_field :name %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :weight_max %>
-    </td>
-    <td>
-        <%= f.number_field :weight_max, options = {:size => 10, :min => '0', :max => '99999'} %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :lenght_max %>
-    </td>
-    <td>
-        <%= f.number_field :lenght_max, options = {:size => 10, :min => '0', :max => '99999'} %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :scale_id %>
-    </td>
-    <td>
-        <%= f.text_field :scale_id %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :auth_level %>
-    </td>
-    <td>
-        <%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %>
-    </td>
-  </tr>
-
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :auth_level_edit %>
-    </td>
-    <td>
-        <%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %>
-    </td>
-  </tr>
-      <tr>
-    <td></td>
-    <td>
-      <%= f.submit %>
-    </td>
-  </tr>
+<% if @shipment.errors.any? %>
+  <div class="big-message error">
+    <h2><%= pluralize(@shipment.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
+    <% @shipment.errors.full_messages.each do |msg| %>
+      <p>&bull; <%= msg %></p>
     <% end %>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Shipment.model_name.human %></h2>
+  </div>
+  <div class="content">
+    <%= form_for(@shipment) do |f| %>
+      <fieldset class="login">
+        <legend><%= t(Shipment.model_name.human) %></legend>
+          <p><%= f.label :name %><br /><%= f.text_field :name %></p>
+          <p><%= f.label :weight_max %><br /><%= f.text_field :weight_max %></p>
+          <p><%= f.label :lenght_max %><br /><%= f.text_field :lenght_max %></p>
+          <p><%= f.label :scale_id %><br /><%= f.text_field :scale_id %></p>
+          <p><%= f.label :auth_level %><br /><%= f.text_field :auth_level %></p>
+          <p><%= f.label :auth_level_edit %><br /><%= f.text_field :auth_level_edit %></p>
+          <p><%= f.submit %></p>
+      </fieldset>
+    <% end %>

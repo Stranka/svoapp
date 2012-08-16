@@ -1,0 +1,57 @@
+<h2><a href="#" id="toggle-main" style="cursor: pointer; " class="visible">&nbsp;<%= t('Administration') + ' ' + Billingaddress.model_name.human %></a></h2>
+<div class="block" id="main">
+
+  <table>
+    <% if flash[:notice]%>
+      <tr class="lineerror">
+        <td colspan="5">
+          <%= flash[:notice] %>
+        </td>
+      </tr>
+    <% end %>
+
+    <thead>
+      <tr>
+        <th class="table-head" colspan="9"><%= t('Listing ') + Billingaddress.model_name.human %></th>
+      </tr>
+      <tr>
+                <th><%= Billingaddress.human_attribute_name('street') %></th>
+                <th><%= Billingaddress.human_attribute_name('city') %></th>
+                <th><%= Billingaddress.human_attribute_name('zipcode') %></th>
+                <th><%= Billingaddress.human_attribute_name('country') %></th>
+                <th><%= Billingaddress.human_attribute_name('telnr') %></th>
+                <th><%= Billingaddress.human_attribute_name('mobile') %></th>
+                <th><%= Billingaddress.human_attribute_name('address_type') %></th>
+                <th><%= Billingaddress.human_attribute_name('user_id') %></th>
+                <th><%= t('action') %></th>
+      </tr>
+    </thead>  
+
+    <tbody>
+    <% @billingaddresses.each do |billingaddress| %>
+      <tr class="<%= cycle('odd', '') %>">
+          <td><%= billingaddress.street %></td>
+          <td><%= billingaddress.city %></td>
+          <td><%= billingaddress.zipcode %></td>
+          <td><%= billingaddress.country %></td>
+          <td><%= billingaddress.telnr %></td>
+          <td><%= billingaddress.mobile %></td>
+          <td><%= billingaddress.address_type %></td>
+          <td><%= billingaddress.user_id %></td>
+          <td align="right"><nobr>
+          <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), billingaddress %>
+          <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_billingaddress_path(billingaddress) %>
+          <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), billingaddress, :confirm => t('Are you sure?'), :method => :delete %>
+        </nobr></td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+      <tr class="linemain">
+        <th colspan="9">
+          <%= link_to t('New ') + Billingaddress.model_name.human, new_billingaddress_path %>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

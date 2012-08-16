@@ -71,7 +71,7 @@ require "uri"
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to(@article, :notice => Article.human_name + ' ' + t('was successfully created')) }
+        format.html { redirect_to(@article, :notice => Article.model_name.human + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @article, :status => :created, :location => @article }
       else
         format.html { render :action => "new" }
@@ -87,7 +87,7 @@ require "uri"
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
-        format.html { redirect_to(@article, :notice => Article.human_name + ' ' +  t('was successfully updated')) }
+        format.html { redirect_to(@article, :notice => Article.model_name.human + ' ' +  t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -149,17 +149,31 @@ require "uri"
       @search.each do |s|
         s.content = ActionController::Base.helpers.strip_links(s.content)   # erstzt die links im text
         s.auth_level_edit = s.content.scan(/(#{params[:aquery]})/i).size
-        s.content.gsub!(/(#{params[:aquery]})/i,'<span class="search_string">\\1</span>')
+        s.content.gsub!(/(#{params[:aquery]})/i,'<span class="button small">&nbsp;\\1&nbsp;</span>')
       end
       @search.sort! { |a,b| b.auth_level_edit <=> a.auth_level_edit }
-
 
     else
       @search = Article.find(:all, :conditions => ['name = ?', 'xhnfgdthdasFGHFCBYJSXFSADF'])
       flash[:notice] = t('please specify a searchstring')
     end
     render 'search_result'
+  end
 
+  def email
+    get_config
+    @article = Article.find(params[:id])
+    render :layout => false
+  end
+
+  def send_email
+    get_config
+    @recipient = params[:recipient]
+    @article = Article.find(params[:id])
+    if @current_user.email
+      ArticleMailer.submission(@article, @config, @recipient, @current_user.email).deliver
+    end
+    render "article_mailer/submission", :layout => false
   end
 end
 

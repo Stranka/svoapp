@@ -1,0 +1,30 @@
+<% if @translation.errors.any? %>
+  <div class="big-message error" xmlns="http://www.w3.org/1999/html">
+    <h2><%= pluralize(@translation.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
+    <% @translation.errors.full_messages.each do |msg| %>
+      <p>&bull; <%= msg %></p>
+    <% end %>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
+
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Translation.model_name.human %> <i><%= @translation.key %></i></h2>
+  </div>
+  <div class="content">
+  <%= form_for(@translation) do |f| %>
+    <fieldset class="login">
+      <legend><%= Translation.model_name.human %></legend>
+            <p><%= f.label :locale %><br /> <%= f.text_field :locale %></p>
+            <p><%= f.label :key %><br /> <%= f.text_field :key %></p>
+            <p><%= f.label :value %><br /> <%= f.text_field :value %></p>
+            <p><%= f.label :interpolations %> <br /><%= f.text_area :interpolations %></p>
+            <p><%= f.label :is_proc %> <br /><%= f.check_box :is_proc %></p>
+            <p><%= f.label :auth_level %> <br /><%= f.text_field :auth_level %></p>
+            <p><%= f.label :auth_level_edit %><br /> <%= f.text_field :auth_level_edit %></p>
+            <%= f.submit %>
+    </fieldset>
+  <% end %>
+

@@ -1,60 +1,43 @@
-
-<% if @user_view %>
-
-  <%= raw(@tooltip.content_to_html) %>
-  <p><br/><%= link_to "Go Back", request.referer %></p>
-
-<% else %>
-
-  <tr>
-    <td class ="myTitle" width="100%" colspan="2">
-      <%= t('Show ') + Shipment.human_name %>
-    </td>
-  </tr>
-  <tr class="linemain">
-    <td colspan="2">
-      <%= notice %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-      <%= Tooltip.human_attribute_name('title') %>
-    </td>
-    <td>
-      <%= @tooltip.title %>
-    </td>
-  </tr>
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-      <%= Tooltip.human_attribute_name('content') %>
-    </td>
-    <td>
-      <%= raw(@tooltip.content_to_html) %>
-    </td>
-  </tr>
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-      <%= Tooltip.human_attribute_name('markup') %>
-    </td>
-    <td>
-      <%= @tooltip.markup %>
-    </td>
-  </tr>
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-      <%= Tooltip.human_attribute_name('locale') %>
-    </td>
-    <td>
-      <%= @tooltip.locale %>
-    </td>
-  </tr>
-  <tr class="linemain">
-    <td colspan="2">
-  <%= link_to t('Edit'), edit_tooltip_path(@tooltip) %> |
-  <%= link_to t('Back'), tooltips_path %>
-    </td>
-  </tr>
-
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
 <% end %>
 
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Tooltip.model_name.human %> <i><%= @tooltip.title %></i></h2>
+  </div>
+  <div class="content">
+    <table class="listing">
+      <thead>
+        <tr>
+          <th><%= t('Key')%></th>
+          <th><%= t('Value')%></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Tooltip.human_attribute_name('title') %></td>
+          <td><%= @tooltip.title %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Tooltip.human_attribute_name('content') %></td>
+          <td><%= @tooltip.content %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Tooltip.human_attribute_name('markup') %></td>
+          <td><%= @tooltip.markup %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Tooltip.human_attribute_name('locale') %></td>
+          <td><%= @tooltip.locale %></td>
+        </tr>
+      </tbody>
+    </table>
+    <p><%= link_to t('Edit'), edit_tooltip_path(@tooltip) %> | <%= link_to t('Back'), tooltips_path %></p>
+  </div>
+</div>

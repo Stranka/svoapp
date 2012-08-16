@@ -1,6 +1,7 @@
 de:
 
 #Menues
+  'test': 'ich bin ein ganz furchtbar langer menüeintrag'
   'Home': 'Start'
   'Impressum': 'Impressum'
   'Applikationen': 'Applikationen'
@@ -21,6 +22,12 @@ de:
   'Zahlungsarten': 'Zahlungsarten'
   'Kundenportal': 'Kundenportal'
   'Kontakt': 'Kontakt'
+  'CMS': 'CMS'
+  'SAPmobile': 'SAPmobile'
+  'CMS@mittenin.at': 'CMS@mittenin.at'
+  'SAPmobile@mittenin.at': 'SAPmobile@mittenin.at'
+  'Methode und Vorteile': 'Methode und Vorteile'
+  'Produktlebenszyklus': 'Produktlebenszyklus'
 
 #Produktkatalog
   'Bücher': 'Bücher'
@@ -32,6 +39,9 @@ de:
   'Action': 'Action'
   'Horror': 'Horror'
   'VHS': 'VHS'
+  'Picture': 'Bild'
+  'Description': 'Beschreibung'
+  'General': 'Allgemein'
 
 #Blocks
   'Menü': 'Menü'
@@ -44,6 +54,8 @@ de:
   'Anmeldeinformationen': 'Anmeldeinformationen'
   'Seitennavigation': 'Seitennavigation'
   'Was sich bei uns tut': 'Was sich bei uns tut'
+  'Herzlich Willkommen' : 'Herzlich Willkommen'
+  'welcome': 'Willkommen'
   'Was unsere Kunden sagen': 'Was unsere Kunden sagen'
   'Einige unserer Kunden': 'Einige unserer Kunden'
   'Unser Angebot': 'Unser Angebot'
@@ -79,6 +91,8 @@ de:
   'New Customer': 'Neuer Kunde'
   'Editing Customer': 'Ändern Kunde'
   'Show Customer': 'Details zu Kunde'
+  'Key': 'Schlüssel'
+  'Value': 'Wert'
 
   'access denied': 'Fehlende Berechtigung.'
   'Sorry': 'Leider nein'
@@ -113,7 +127,8 @@ de:
   'expertmode': 'Expertenmodus'
   'usermode': 'Normalmodus'
   'no datasheet available': 'Kein Datenblatt vorhanden'
-  'search': 'Suche starten'
+  'search': 'Suche'
+  'productsearch': 'Produktsuche'
   'please specify a searchstring': 'Bitte einen Suchstring eingeben'
   'search_result': 'Suchergebnis'
   'hide': 'Schließen'
@@ -309,6 +324,13 @@ de:
       customer: 'Kundenstamm'
       billingaddress: 'Rechnungsadresse'
       deliveryaddress: 'Lieferadresse'
+      basket: 'Warenkorb'
+      basketline: 'Produktzeile'
+      payment: 'Zahlungsbedingung'
+      shipment: 'Versandart'
+      tooltip: 'Tooltip'
+      translation: 'Übersetzung'
+
 
     attributes:
       article:
@@ -412,10 +434,14 @@ de:
         ontop: 'Sichtbar im oberen Menü'
         active: 'Sichtbar'
 
-
-
-
-
+      translation:
+        locale: 'Sprache'
+        key: 'zu übersetzen'
+        value: 'Übersetzung'
+        interpolations: 'Interpolations'
+        is_proc: 'Prozedur'
+        auth_level_edit: 'Berechtigung Ändern'
+        auth_level: 'Berechtigung Anzeigen'
 
   helpers:
     submit:
@@ -435,4 +461,11 @@ de:
       not_confirmed: 'Account ist nicht überprüft'
       not_approved: 'Account ist nicht überprüft'
       no_authentication_details: 'Nicht alle nötigen Informationen'
+  ckeditor:
+    page_title: "CKEditor File Manager"
+    confirm_delete: "File löschen?"
+    buttons:
+      cancel: "Abbrechen"
+      upload: "Upload"
+      delete: "Löschen"
 

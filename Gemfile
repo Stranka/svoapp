@@ -1,22 +1,44 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem 'rails', '3.2.2'
+
+gem 'jquery-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql', :require => 'mysql'
+gem 'mysql2'
 gem 'i18n'
 gem 'authlogic'
 gem 'acts_as_tree'
 gem 'acts_as_list'
 gem 'amount_field_rails3', :require => 'amount_field'
 gem "tabs_on_rails"
-gem 'ckeditor', '3.5.0'
-gem "paperclip", "~> 2.3"
+
+# HAS 20120508: Rails 3.2
+# gem 'ckeditor', '3.5.0'
+# gem "paperclip", "~> 2.3"
+gem "paperclip", "~> 2.7" # Bildupload
+gem "ckeditor", "3.7.0.rc3" # WYSIWYG-Editor
+
+
 gem 'simple-tooltip'
+gem 'i18n-active_record'
 
 gem 'RedCloth', '4.2.3'
+
+# HAS 20120508: Vertriebsemails
+gem 'premailer-rails3'
+gem 'nokogiri'
+
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+
+  gem 'therubyracer'  # Javascript - Engine
+
+  gem 'uglifier', '>= 1.0.3'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'

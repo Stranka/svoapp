@@ -1,41 +1,11 @@
+<%= form_for @user_session, :url => {:controller => 'user_sessions', :action => "create"} do |f| %>
+  <table>
+    <tr><td><%= f.label :login %></td><td><%= f.text_field :login , :size => 20 %></td></tr>
+    <tr><td><%= f.label :password %></td><td><%= f.password_field :password, :size => 20 %></td></tr>
+    <tr><td></td><td><%= f.submit t('login'), :class => "button small"%></td></tr>
+  </table>
 
-  <%= form_for @user_session, :url => {:controller => 'user_sessions', :action => "create"} do |f| %>
-
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-      <%= link_to (image_tag('/images/at.gif')), :controller => 'menues', :action => 'change_language', :language => 'de' %>
-      <%= link_to (image_tag('/images/en.gif')), :controller => 'menues', :action => 'change_language', :language => 'en' %>
-      &nbsp;<%= t('Sprache wählen') %>
-    </td>
-  </tr>
-
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :login %>
-    </td>
-  </tr>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.text_field :login , :size => 20 %>
-    </td>
-  </tr>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :password %>
-    </td>
-  </tr>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.password_field :password, :size => 20 %>
-    </td>
-  </tr>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-      <%= f.submit t('login') %>
-      <% if @config.shop_active == true %>
-        <%= link_to t('New Customer'), :controller => :customers, :action => :new%>
-      <% end %>
-    </td>
-  </tr>
-    <% end %>
-
+  <% if @config.shop_active == true %>
+    &nbsp; &nbsp; <%= link_to t('New Customer'), { :controller => :customers, :action => :new } %>
+  <% end %>
+<% end %>

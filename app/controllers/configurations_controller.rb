@@ -6,7 +6,7 @@ class ConfigurationsController < ApplicationController
   
   
   def index
-    @configurations = Configuration.all
+    @configurations = ActiveRecord::Base::Configuration.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +17,7 @@ class ConfigurationsController < ApplicationController
   # GET /configurations/1
   # GET /configurations/1.xml
   def show
-    @configuration = Configuration.find(params[:id])
+    @configuration = ActiveRecord::Base::Configuration.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,48 +25,20 @@ class ConfigurationsController < ApplicationController
     end
   end
 
-  # GET /configurations/new
-  # GET /configurations/new.xml
-  def new
-    @configuration = Configuration.new
-    @articles = Article.find(:all)
-    
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @configuration }
-    end
-  end
-
   # GET /configurations/1/edit
   def edit
-    @configuration = Configuration.find(params[:id])
+    @configuration = ActiveRecord::Base::Configuration.find(params[:id])
     @articles = Article.find(:all)
-  end
-
-  # POST /configurations
-  # POST /configurations.xml
-  def create
-    @configuration = Configuration.new(params[:configuration])
-
-    respond_to do |format|
-      if @configuration.save
-        format.html { redirect_to(@configuration, :notice => Configuration.human_name + ' ' + t('was successfully created')) }
-        format.xml  { render :xml => @configuration, :status => :created, :location => @configuration }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @configuration.errors, :status => :unprocessable_entity }
-      end
-    end
   end
 
   # PUT /configurations/1
   # PUT /configurations/1.xml
   def update
-    @configuration = Configuration.find(params[:id])
+    @configuration = ActiveRecord::Base::Configuration.find(params[:id])
 
     respond_to do |format|
       if @configuration.update_attributes(params[:configuration])
-        format.html { redirect_to(@configuration, :notice => Configuration.human_name + ' ' + t('was successfully updated')) }
+        format.html { redirect_to(@configuration, :notice => ActiveRecord::Base::Configuration.model_name.human + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -74,24 +46,12 @@ class ConfigurationsController < ApplicationController
       end
     end
   end
-
-  # DELETE /configurations/1
-  # DELETE /configurations/1.xml
-  def destroy
-    @configuration = Configuration.find(params[:id])
-    @configuration.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(configurations_url) }
-      format.xml  { head :ok }
-    end
-  end
   
 private
   def check_authlevel
     if @auth_edit < 100
       flash[:notice] = t('access denied')
-      redirect_to home_path
+      redirect_to root_path
       return false      
     end
   end  

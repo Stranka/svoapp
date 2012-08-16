@@ -1,14 +1,4 @@
-
-  <tr>
-    <td class ="myTitle" width="100%" colspan="2">
-      <%= t('Editing ') + Menue.human_name %>
-    </td>
-  </tr>
   <%= render 'form' %>
-  <tr class="linemain">
-    <td colspan="2">
-      <%= link_to t('Show'), @menue %> |
-      <%= link_to t('Back'), menues_path %>
-    </td>
-  </tr>
-
+  <p><%= link_to t('Show'), @menue %> | <%= link_to t('Back'), menues_path %></p>
+  </div>
+</div>

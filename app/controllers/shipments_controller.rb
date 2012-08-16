@@ -60,7 +60,7 @@ class ShipmentsController < ApplicationController
 
     respond_to do |format|
       if @shipment.save
-        format.html { redirect_to(@shipment, :notice => Shipment.human_name + ' ' + t('was successfully created')) }
+        format.html { redirect_to(@shipment, :notice => Shipment.model_name.human + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @shipment, :status => :created, :location => @shipment }
       else
         format.html { render :action => "new" }
@@ -76,7 +76,7 @@ class ShipmentsController < ApplicationController
 
     respond_to do |format|
       if @shipment.update_attributes(params[:shipment])
-        format.html { redirect_to(@shipment, :notice => Shipment.human_name + ' ' + t('was successfully updated')) }
+        format.html { redirect_to(@shipment, :notice => Shipment.model_name.human + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

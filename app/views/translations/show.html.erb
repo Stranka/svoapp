@@ -1,0 +1,57 @@
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
+
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Translation.model_name.human %> <i><%= @translation.key %></i></h2>
+  </div>
+  <div class="content">
+    <p align="right"><%= link_to t('Edit'), edit_translation_path(@translation) %> | <%= link_to t('Back'), translations_path %></p>
+    <table class="listing">
+      <thead>
+        <tr>
+          <th><%= t('Key')%></th>
+          <th><%= t('Value')%></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Translation.human_attribute_name('locale') %></td>
+          <td><%= @translation.locale %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Translation.human_attribute_name('key') %></td>
+          <td><%= @translation.key %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Translation.human_attribute_name('value') %></td>
+          <td><%= @translation.value %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Translation.human_attribute_name('interpolations') %></td>
+          <td><%= @translation.interpolations %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Translation.human_attribute_name('is_proc') %></td>
+          <td><%= @translation.is_proc %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Translation.human_attribute_name('auth_level') %></td>
+          <td><%= @translation.auth_level %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Translation.human_attribute_name('auth_level_edit') %></td>
+          <td><%= @translation.auth_level_edit %></td>
+        </tr>
+      </tbody>
+    </table>
+  <p><%= link_to t('Edit'), edit_translation_path(@translation) %> | <%= link_to t('Back'), translations_path %></p>
+  </div>
+</div>
+

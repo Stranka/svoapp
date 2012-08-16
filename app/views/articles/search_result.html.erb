@@ -1,43 +1,41 @@
-<% if @config.show_title == true %>
-  <tr>
-    <td class ="myTitle" width="100%">
-	    <%= t('search_result') %>
-    </td>
-  </tr>
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
 <% end %>
 
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="5">
-        <%= flash[:notice] %> '<%= params[:aquery] %>'
-      </td>
-    </tr>
-  <% else %>
+<div class="block">
+  <div class="top">
+    <h2><%= @search.count %> <%= t('searchstring')%> '<%= params[:aquery] %>'</h2>
+  </div>
+  <div class="content">
 
-  <tr class="lineheader">
+    <% if flash[:notice]%>
+      <%= flash[:notice] %> '<%= params[:aquery] %>'
 
-    <td><%= t('searchstring')%> '<%= params[:aquery] %>'</td>
-  </tr>
-
-<% @search.each do |search| %>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td><a href="#" onclick="$('#article_content<%= search.id %>').show('slow');"><%= search.name %> (<%= search.auth_level_edit %>)</a></td>
-  </tr>
-  <tr id='article_content<%= search.id %>' style="display:none;" class= "line<%= cycle('1', '2') %>">
-    <td>
-      <div class="search_result">
-        <a href="#" onclick="$('#article_content<%= search.id %>').hide();"><%= t('hide')%></a>
-        <%= raw(search.content) %>
-        <a href="#" onclick="$('#article_content<%= search.id %>').hide();"><%= t('hide')%></a>
+    <% else %>
+      <div class="vertical-tabs">
+        <div class="tab-list">
+          <ul>
+            <% @search.each_with_index do |search,i | %>
+              <% if i==0 %>
+                <li class="active">
+              <% else %>
+                <li>
+              <% end %>
+                <a href="tab<%= i %>"><%= search.name %> (<%= search.auth_level_edit %>)</a></li>
+            <% end %>
+          </ul>
+        </div>
+        <% @search.each_with_index do |search,i | %>
+          <div id="tab<%= i %>" class="right-tab">
+               <%= raw(search.content) %>
+          </div>
+        <% end %>
+        <div class="clear">&nbsp;</div>
       </div>
-    </td>
-  </tr>
-<% end %>
-
-  <tr class="linemain">
-    <td>
-	   &nbsp;
-    </td>
-  </tr>
-<% end %>
-
+    <% end %>
+  </div>
+</div>

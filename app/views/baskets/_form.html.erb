@@ -1,111 +1,33 @@
-<tr class="linemain">
-  <td colspan="2">
-    <%= form_for(@basket) do |f| %>
-      <% if @basket.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@basket.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
-
-          <ul>
-          <% @basket.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-    </td>
-  </tr>
-
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :session_id %>
-    </td>
-    <td>
-        <%= f.text_field :session_id %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :customer_id %>
-    </td>
-    <td>
-        <%= f.text_field :customer_id %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :status %>
-    </td>
-    <td>
-        <%= f.text_field :status %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :shipmentterms %>
-    </td>
-    <td>
-        <%= f.text_field :shipmentterms %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :paymentterms %>
-    </td>
-    <td>
-        <%= f.text_field :paymentterms %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :order_number %>
-    </td>
-    <td>
-        <%= f.text_field :order_number %>
-    </td>
-  </tr>
-      <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-        <%= f.label :store %>
-    </td>
-    <td>
-        <%= f.text_field :store %>
-    </td>
-  </tr>
-      <tr>
-    <td></td>
-    <td>
-      <%= f.submit %>
-    </td>
-  </tr>
+<% if @basket.errors.any? %>
+  <div class="big-message success" xmlns="http://www.w3.org/1999/html">
+    <h2><%= pluralize(@basket.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
+    <% @basket.errors.full_messages.each do |msg| %>
+      <p>&bull; <%= msg %></p>
     <% end %>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Basket.model_name.human %></h2>
+  </div>
+  <div class="content">
 
-  <tr class= "line<%= cycle('1', '2') %>">
-  <td colspan="2">
-  <table class="content">
-  <tr class="lineheader">
-    <td><%= Product.human_attribute_name('shorttext') %></td>
-    <td><%= Basketline.human_attribute_name('quantity') %></td>
-    <td><%= Basketline.human_attribute_name('value') %></td>
-    <td><%= Basketline.human_attribute_name('price') %></td>
-    <td><%= Basketline.human_attribute_name('tax_percentage') %></td>
-    <td><%= Basketline.human_attribute_name('producer_number') %></td>
-    <td><%= Basketline.human_attribute_name('weight') %></td>
-  </tr>
+    <%= form_for(@basket) do |f| %>
 
-  <% @basket.basketlines.each do |basketline| %>
-    <tr class= "line<%= cycle('1', '2') %>">
-      <td><%= basketline.product.shorttext %></td>
-      <td><%= basketline.quantity %></td>
-      <td><%= basketline.value %></td>
-      <td><%= basketline.price %></td>
-      <td><%= basketline.tax_percentage %></td>
-      <td><%= basketline.producer_number %></td>
-      <td><%= basketline.weight %></td>
-    </tr>
+    <fieldset class="login">
+      <legend><%= t(Basket.model_name.human) %></legend>
 
-  <% end %>
-  </table>
-  </td>
-  </tr>
-
+      <p><%= f.label :session_id %><br /><%= f.text_field :session_id %></p>
+      <p><%= f.label :customer_id %><br /><%= f.text_field :customer_id %></p>
+      <p><%= f.label :status %><br /><%= f.text_field :status %></p>
+      <p><%= f.label :shipmentterms %><br /><%= f.text_field :shipmentterms %></p>
+      <p><%= f.label :paymentterms %><br /><%= f.text_field :paymentterms %></p>
+      <p><%= f.label :order_number %><br /><%= f.text_field :order_number %></p>
+      <p><%= f.label :store %><br /><%= f.text_field :store %></p>
+      <p><%= f.submit %></p>
+      <br/>&nbsp;<br/>
+    </fieldset>
+    <% end %>

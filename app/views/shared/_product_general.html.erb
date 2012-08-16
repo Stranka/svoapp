@@ -1,7 +1,11 @@
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td width="5%"><%= image_tag (product.assets[0].image.url(:description)) %></td>
+  <tr class= "<%= cycle('', 'even') %>">
+    <td width="5%">
+      <% if product.assets[0] %>
+          <%= image_tag product.assets[0].image.url(:description), html_options = {:style => "vertical-align:middle"} %>
+      <% end %>
+    </td>
     <td width ="35%">
-      <%= product.shorttext %></br></br>
+      <h1><%= product.shorttext %></h1>
       <%= truncate(raw(product.description), :length => 200) %>
     </td>
     <% if product.special_price > 0 and product.special_price < product.price %>

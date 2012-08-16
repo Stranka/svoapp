@@ -1,62 +1,59 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="5">
-      <% if params[:pquery] == '' or params[:pquery] == nil %>
-        <% if @products.first != nil %>
-	        <%= t('Listing Catagory ') + t(@products.first.productclass.name) %>
-	      <% else %>
-          <%= t('Listing ') + Product.human_name %>
-	      <% end %>
-	    <% else %>
-	      <%= flash[:notice] %>
-	      <% flash[:notice] = nil %>
-	    <% end %>
-    </td>
-  </tr>
-  <% if params[:pquery] == '' or params[:pquery] == nil %>
-    <% if flash[:notice]%>
-      <tr class="lineerror">
-        <td colspan="5">
-          <%= flash[:notice] %>
-          <% flash[:notice] = nil %>
-        </td>
-      </tr>
-    <% end %>
-  <% end %>
-
-  <tr class="lineheader">
-
-    <td><%= Product.human_attribute_name('image_url') %></td>
-    <td><%= Product.human_attribute_name('shorttext') %></td>
-    <td><%= Product.human_attribute_name('price') %></td>
-    <td><%= Product.human_attribute_name('quantity') %></td>
-    <td></td>
-  </tr>
-
-<% @products.each do |product| %>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <% anzahl = 0 %>
-    <% product.assets.each do |asset| %>
-      <% anzahl += 1 %>
-      <% if anzahl < 2 %>
-        <td width="5%"><%= link_to (image_tag (asset.image.url(:small))), :controller => 'products', :action => 'product_detail', :id => product.id %></td>
-      <% end %>
-    <% end %>
-    <td width ="35%">
-      <%= link_to (product.shorttext), :controller => 'products', :action => 'product_detail', :id => product.id %></br></br>
-      <%= truncate(raw(product.description), :length => 200) %>
-    </td>
-    <% if product.special_price > 0 and product.special_price < product.price %>
-      <td><span style="text-decoration: line-through;"><%= number_to_currency(product.price) %></span></br>
-      <%= number_to_currency(product.special_price) %></td>
-    <% else %>
-      <td><%= number_to_currency(product.price) %></td>
-    <% end %>
-      <td>
-      <%= form_for product, :url => {:controller => 'baskets', :action => 'add_to_basket', :id => product.id} do |p| %>
-   	  <%= number_field(:basketline, :quantity, options = {:size => 5, :value => '1', :min => '1', :max => '99', :class => "basket_input"})%></td>
-      <%= p.hidden_field(:product_id, :value => product.id)%>
-      <td><%= image_submit_tag("/images/bestellen.png") %></td>
-    <% end %>
-  </tr>
+<% if flash[:notice] %>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
 <% end %>
 
+<div class="block">
+  <div class="top">
+    <% if params[:pquery] == '' or params[:pquery] == nil %>
+      <h2><%= t('Listing Category ') + t(@productclass.name) %></h2>
+    <% else %>
+      <h2><%= flash[:notice] %></h2>
+      <% flash[:notice] = nil %>
+    <% end %>
+  </div>
+  <div class="content">
+    <table class="listing">
+      <thead>
+      <tr>
+        <th><%= Product.human_attribute_name('image_url') %></th>
+        <th><%= Product.human_attribute_name('shorttext') %></th>
+        <th><%= Product.human_attribute_name('price') %></th>
+        <th><%= Product.human_attribute_name('quantity') %></th>
+        <th></td>
+      </tr>
+      </thead>
+
+    <% @products.each do |product| %>
+      <tr class= "<%= cycle('', 'even') %>">
+        <% anzahl = 0 %>
+        <% product.assets.each do |asset| %>
+          <% anzahl += 1 %>
+          <% if anzahl < 2 %>
+            <td width="5%"><%= link_to (image_tag (asset.image.url(:small)), html_options = {:style => "vertical-align:middle"}), :controller => 'products', :action => 'product_detail', :id => product.id %></td>
+          <% end %>
+        <% end %>
+        <td width ="35%">
+          <%= link_to (product.shorttext), :controller => 'products', :action => 'product_detail', :id => product.id %></br></br>
+          <%= truncate(raw(product.description), :length => 200) %>
+        </td>
+        <% if product.special_price > 0 and product.special_price < product.price %>
+          <td><span style="text-decoration: line-through;"><%= number_to_currency(product.price) %></span></br>
+          <%= number_to_currency(product.special_price) %></td>
+        <% else %>
+          <td><%= number_to_currency(product.price) %></td>
+        <% end %>
+          <td>
+          <%= form_for product, :url => {:controller => 'baskets', :action => 'add_to_basket', :id => product.id} do |p| %>
+          <%= number_field(:basketline, :quantity, options = {:size => 5, :value => '1', :min => '1', :max => '99', :class => "basket_input"})%></td>
+          <%= p.hidden_field(:product_id, :value => product.id)%>
+          <td><%= image_submit_tag("/images/bestellen.png") %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>

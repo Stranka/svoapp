@@ -1,5 +1,9 @@
 RailsNuke::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
+  resources :translations
+
   resources :tooltips do
              collection do
                get 'tooltip_content'
@@ -62,6 +66,7 @@ RailsNuke::Application.routes.draw do
     member do
       get 'permalink'
       get 'show_content'
+      post 'send_email'
     end
   end
 
@@ -73,6 +78,7 @@ RailsNuke::Application.routes.draw do
       get 'up'
       get 'down'
       get 'change_language'
+      get 'change_theme'
     end
   end
 
@@ -85,9 +91,9 @@ RailsNuke::Application.routes.draw do
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
 
-  match 'home' => "articles#showme", :as => :home
   match 'articlesearch' => "articles#search_all"
   match 'productsearch' => "products#search_all"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -97,7 +103,7 @@ RailsNuke::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+     match 'mail/:id' => 'articles#email', :as => :email
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
@@ -139,11 +145,10 @@ RailsNuke::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
-  root :to => "articles#showme"
+  root :to => "articles#show_content", :id => 9
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-
 end
 

@@ -1,0 +1,536 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- mbeAdmin - v1.510 - admin theme made by mbe.ro -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<!-- <base href='http://your_domain/' /> --> <!-- Use this only if you need it -->
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+		<!-- No Cache -->
+		<meta http-equiv="PRAGMA" content="NO-CACHE"/>
+		<meta http-equiv="Expires" content="Mon, 04 Dec 1999 21:29:02 GMT"/>
+
+		<!-- End No Cache -->
+
+		<title>mbeAdmin - Dashboard</title>
+
+		<!-- SEO -->
+		<meta http-equiv="Content-Language" content="en" />
+
+
+		<meta name="description" content="Mbe Admin is a clean admin interface focused on user experience and user interface. After using it, the users won’t be able to go back to anything else." />
+		<meta name="keywords" content="admin, admin panel, clean, cms, css3, customizable, fixed, jquery, liquid, modern, professional, resizable, widgets" />
+
+		<!-- Change this to whatever you want -->
+		<meta name="author" content="http://mbe.ro" />
+		<meta name="robots" content="index,follow" />
+		<meta name="revisit-after" content="2 days" />
+		<meta name="googlebot" content="index, follow, archive" />
+
+		<meta name="msnbot" content="index, follow" />
+		<!-- End SEO -->
+
+		<style type="text/css" media="all">
+			@import url("http://fonts.googleapis.com/css?family=Lato:400,700,400italic|PT+Sans+Narrow:400,700");
+
+			@import url("js/jwysiwyg/jquery.wysiwyg.css");
+			@import url("js/fancybox/jquery.fancybox-1.3.4.css");
+			@import url("js/jdpicker/jdpicker.css");
+			@import url("js/visualize/css/visualize.css");
+			@import url("js/fullcalendar/fullcalendar.css");
+			@import url("css/datatable.css");
+
+			@import url("css/style.css");
+
+			@import url("css/crimson-orange.css");
+			@import url("css/soft-blue.css");
+			@import url("css/soft-red.css");
+			@import url("css/soft-purple.css");
+			@import url("css/soft-yellow.css");
+			@import url("css/blue-gray.css");
+		</style>
+
+		<!--[if lte IE 8]>
+			<link rel="stylesheet" type="text/css" href="css/ie.css" />
+		<![endif]-->
+		<!--[if lt IE 8]>
+			<link rel="stylesheet" type="text/css" href="css/ie-old.css" />
+		<![endif]-->
+		<!--[if IE 9]>
+			<link rel="stylesheet" type="text/css" href="css/ie9.css" />
+		<![endif]-->
+
+		<!-- Icons -->
+		<link href="ico/favicon.ico" rel="icon" type="image/ico" />
+		<link href="ico/favicon.ico" rel="shortcut icon" type="image/ico" />
+		<link href="ico/speed-dial.png" rel="apple-touch-icon" type="image/png" />
+		<link href="ico/speed-dial.png" rel="icon" type="image/png" />
+		<link href="ico/apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed" type="image/png" />
+		<!-- End Icons -->
+
+	</head>
+	<body>
+		<div class="page">
+			<div class="header">
+
+				<h2>
+					<a href="dashboard.html">
+						<img src="img/_black-logo.png" alt="Logo" />
+					</a>
+				</h2>
+
+				<ul class="main-menu">
+					<li><a href="dashboard.html">Dashboard</a></li>
+					<li><a href="texting.html">Texting &amp; Grouping</a></li>
+					<li><a href="forms.html">Forms &amp; Messages</a></li>
+					<li><a href="data.html">Data</a></li>
+					<li><a href="grid.html">Grid</a></li>
+					<li><a href="calendar.html">Calendar</a></li>
+				</ul>
+
+				<ul class="secondary-menu">
+					<li>
+						<a href="" class="user-menu-link">
+							<img src="img/header-menu-user.png" alt="" />
+							<span class="number">25</span>
+						</a>
+						<div class="user-menu">
+							<div class="details">
+								<div class="image">
+									&nbsp;
+								</div>
+								<div class="info">
+									<h3><a href="">User name</a></h3>
+									<ul>
+										<li class="email"><a href="">mail@mail.com</a></li>
+										<li><a href="">Private messages (2)</a></li>
+									</ul>
+								</div>
+							</div>
+							<ul class="menu">
+								<li><a href="#">Change my Account Information</a></li>
+								<li><a href="#">Edit My Profile</a></li>
+								<li><a href="index.html">Logout</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="" class="search-menu-link"><img src="img/header-menu-search.png" alt="" /></a>
+						<div class="search-menu">
+							<div class="details">
+								<label for="header-search-input">Search</label>
+								<input type="text" value="" id="header-search-input" />
+								<img class="loader" src="img/ajax-loader.gif" alt="" />
+							</div>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+
+			<div class="middle grid">
+				<div class="column grid-5">
+
+					<div class="block small">
+
+						<div class="top">
+							<h2>Sidebar menu</h2>
+
+							<ul>
+								<li><a href="">Find all items</a></li>
+								<li><a href="">Sort items</a></li>
+							</ul>
+						</div>
+
+						<div class="content">
+
+							<ul class="menu">
+								<li><a href="">Link number 1</a></li>
+								<li><a href="" class="selected">Link number 2</a></li>
+								<li><a href="">Link number 3</a></li>
+								<li><a href="">Link number 4</a></li>
+							</ul>
+
+						</div>
+
+					</div>
+
+					<div class="block small ">
+
+						<div class="top">
+							<h2>Text sidebar</h2>
+						</div>
+
+						<div class="content">
+
+							<h4>H4 Heading</h4>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+
+						</div>
+
+					</div>
+
+				</div>
+				<div class="column grid-11">
+
+					<div class="block small closed">
+
+						<div class="top">
+							<h2>Changes in the new admin</h2>
+						</div>
+
+						<div class="content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis leo vel odio pharetra egestas. Ut mattis lorem fringilla libero porttitor iaculis. Donec a tellus odio, in volutpat massa. Mauris nec dolor eget mauris tristique mattis nec sit amet felis. In dictum nunc in erat mattis dignissim. </p>
+
+							<ol>
+								<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+								<li>Nunc quis leo vel odio pharetra egestas.</li>
+								<li>Ut mattis lorem fringilla libero porttitor iaculis.</li>
+							</ol>
+
+						</div> <!-- End Block Content -->
+
+					</div> <!-- End Block -->
+
+					<div class="block no-top">
+
+						<div class="content">
+							<ul class="shortcuts">
+								<li>
+									<a href="#">
+										<span class="image"><img src="img/icons/Home.png" alt="Home" /></span>
+										<span class="title">Home</span>
+										<small>This is where you go home.</small>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<span class="image"><img src="img/icons/List.png" alt="Tasks" /></span>
+										<span class="title">Tasks</span>
+										<small>View the current tasks.</small>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<span class="image"><img src="img/icons/Speech-Bubble.png" alt="Comments" /></span>
+										<span class="title">Comments</span>
+										<small>What new comments have appeared.</small>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<span class="image"><img src="img/icons/Address-book.png" alt="Address Book" /></span>
+										<span class="title">Address Book</span>
+										<small>Lorem ipsum dolor sit amet.</small>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<span class="image"><img src="img/icons/Person-group.png" alt="Users" /></span>
+										<span class="title">Users</span>
+										<small>Lorem ipsum dolor sit amet.</small>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<span class="image"><img src="img/icons/Piechart.png" alt="Statistics" /></span>
+										<span class="title">Statistics</span>
+										<small>Lorem ipsum dolor sit amet.</small>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<span class="image"><img src="img/icons/Folder.png" alt="File Manager" /></span>
+										<span class="title">File Manager</span>
+										<small>Lorem ipsum dolor sit amet.</small>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<span class="image"><img src="img/icons/Database.png" alt="phpMyAdmin" /></span>
+										<span class="title">phpMyAdmin</span>
+										<small>Lorem ipsum dolor sit amet.</small>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<span class="image"><img src="img/icons/Config.png" alt="Settings" /></span>
+										<span class="title">Settings</span>
+										<small>Lorem ipsum dolor sit amet.</small>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<span class="image"><img src="img/icons/X.png" alt="Logout" /></span>
+										<span class="title">Logout</span>
+										<small>Lorem ipsum dolor sit amet.</small>
+									</a>
+								</li>
+							</ul>
+
+						</div> <!-- End Block Content -->
+
+					</div> <!-- End Block -->
+
+				</div> <!-- End Column -->
+
+				<div class="clear">&nbsp;</div>
+
+				<div class="column grid-16">
+
+					<div class="block">
+
+						<div class="top">
+
+							<h2>Charts</h2>
+
+						</div> <!-- End Block Top -->
+
+						<div class="content grid">
+
+							<div class="column grid-8">
+
+								<p>Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+
+								<h2>Line Charts</h2>
+
+								<table class="stats" rel="line" width="100%" cellpadding="0" cellspacing="0" style="display:none">
+
+									<thead>
+										<tr>
+											<td>&nbsp;</td>
+											<th scope="col">01.03</th>
+											<th scope="col">02.03</th>
+											<th scope="col">03.03</th>
+											<th scope="col">04.03</th>
+											<th scope="col">05.03</th>
+											<th scope="col">06.03</th>
+											<th scope="col">07.03</th>
+											<th scope="col">08.03</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr>
+											<th scope="row">Page views</th>
+											<td>50</td>
+											<td>90</td>
+											<td>40</td>
+											<td>120</td>
+											<td>180</td>
+											<td>280</td>
+											<td>320</td>
+											<td>220</td>
+										</tr>
+
+										<tr>
+											<th scope="row">Unique visitors</th>
+											<td>30</td>
+											<td>50</td>
+											<td>15</td>
+											<td>90</td>
+											<td>140</td>
+											<td>160</td>
+											<td>230</td>
+											<td>170</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<h2>Bar Charts</h2>
+
+								<table class="stats" rel="bar" width="100%" cellpadding="0" cellspacing="0" style="display:none">
+
+									<thead>
+										<tr>
+											<td>&nbsp;</td>
+											<th scope="col">01.03</th>
+											<th scope="col">02.03</th>
+											<th scope="col">03.03</th>
+											<th scope="col">04.03</th>
+											<th scope="col">05.03</th>
+											<th scope="col">06.03</th>
+											<th scope="col">07.03</th>
+											<th scope="col">08.03</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr>
+											<th scope="row">Page views</th>
+											<td>50</td>
+											<td>90</td>
+											<td>40</td>
+											<td>120</td>
+											<td>180</td>
+											<td>280</td>
+											<td>320</td>
+											<td>220</td>
+										</tr>
+
+										<tr>
+											<th scope="row">Unique visitors</th>
+											<td>30</td>
+											<td>50</td>
+											<td>15</td>
+											<td>90</td>
+											<td>140</td>
+											<td>160</td>
+											<td>230</td>
+											<td>170</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<p>Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+							</div>
+
+
+							<div class="column grid-8">
+
+								<p>Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+
+								<h2>Pie Charts</h2>
+
+								<table class="stats" rel="pie" width="100%" cellpadding="0" cellspacing="0" style="display:none">
+
+									<thead>
+										<tr>
+											<td>&nbsp;</td>
+											<th scope="col">01.03</th>
+											<th scope="col">02.03</th>
+											<th scope="col">03.03</th>
+											<th scope="col">04.03</th>
+											<th scope="col">05.03</th>
+											<th scope="col">06.03</th>
+											<th scope="col">07.03</th>
+											<th scope="col">08.03</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr>
+											<th scope="row">Page views</th>
+											<td>50</td>
+											<td>90</td>
+											<td>40</td>
+											<td>120</td>
+											<td>180</td>
+											<td>280</td>
+											<td>320</td>
+											<td>220</td>
+										</tr>
+
+										<tr>
+											<th scope="row">Unique visitors</th>
+											<td>30</td>
+											<td>50</td>
+											<td>15</td>
+											<td>90</td>
+											<td>140</td>
+											<td>160</td>
+											<td>230</td>
+											<td>170</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<h2>Area Charts</h2>
+
+								<table class="stats" rel="area" width="100%" cellpadding="0" cellspacing="0" style="display:none">
+
+									<thead>
+										<tr>
+											<td>&nbsp;</td>
+											<th scope="col">01.03</th>
+											<th scope="col">02.03</th>
+											<th scope="col">03.03</th>
+											<th scope="col">04.03</th>
+											<th scope="col">05.03</th>
+											<th scope="col">06.03</th>
+											<th scope="col">07.03</th>
+											<th scope="col">08.03</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr>
+											<th scope="row">Page views</th>
+											<td>50</td>
+											<td>90</td>
+											<td>40</td>
+											<td>120</td>
+											<td>180</td>
+											<td>280</td>
+											<td>320</td>
+											<td>220</td>
+										</tr>
+
+										<tr>
+											<th scope="row">Unique visitors</th>
+											<td>30</td>
+											<td>50</td>
+											<td>15</td>
+											<td>90</td>
+											<td>140</td>
+											<td>160</td>
+											<td>230</td>
+											<td>170</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<p>Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+
+							</div> <!-- End Column -->
+							<div class="clear">&nbsp;</div>
+
+						</div> <!-- End Block Content -->
+
+					</div> <!-- End Block -->
+
+				</div> <!-- End Column -->
+
+				<div class="clear">&nbsp;</div>
+
+			</div> <!-- Middle -->
+
+			<div class="footer">
+				<div class="left">
+					Mbe Admin v1.51
+				</div>
+				<div class="right">
+					<a href="http://www.mbe.ro">powered by mbe.ro</a>
+				</div>
+			</div> <!-- Footer -->
+		</div>
+
+		<script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+		<script type="text/javascript" src="js/wrappers.js"></script>
+
+
+		<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+		<script type="text/javascript" src="js/jquery.uniform/jquery.uniform.min.js"></script>
+		<script type="text/javascript" src="js/jquery-css-transform.js"></script>
+		<script type="text/javascript" src="js/rotate3Di.js"></script>
+		<script type="text/javascript" src="js/jwysiwyg/jquery.wysiwyg.js"></script>
+		<script type="text/javascript" src="js/jdpicker/jquery.jdpicker.js"></script>
+		<script type="text/javascript" src="js/jquery.hotkeys.js"></script>
+		<script type="text/javascript" src="js/tap-or-click.js"></script>
+		<script type="text/javascript" src="js/jquery.datatable/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="js/jquery-validation-1.8.1/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="js/jquery.detectmobilebrowser.js"></script>
+
+		<!--[if IE]>
+			<script type="text/javascript" src="js/excanvas.js"></script>
+		<![endif]-->
+
+		<script type="text/javascript" src="js/visualize/visualize.jQuery.js"></script>
+		<script type="text/javascript" src="js/visualize/jquery.visualize.tooltip.js"></script>
+		<script type="text/javascript" src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+		<script type="text/javascript" src="js/fullcalendar/fullcalendar.min.js"></script>
+
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>

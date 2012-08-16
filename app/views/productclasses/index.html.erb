@@ -1,44 +1,53 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="4">
-	     <%= t('Listing ') + Productclass.human_name %>
-    </td>
-  </tr>
-
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="4">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
-  <% end %>
-
-  <tr class="lineheader">
-
-    <td><%= Productclass.human_attribute_name('name') %></td>
-    <td><%= Productclass.human_attribute_name('parent') %></td>
-    <td><%= Productclass.human_attribute_name('image_url') %></td>
-    <td><%= t 'action' %></td>
-  </tr>
-
-<% @productclasses.each do |productclass| %>
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td><%= productclass.name %></td>
-    <% if productclass.parent %>
-      <td><%= productclass.parent.name %></td>
-    <% else %>
-      <td></td>
-    <% end %>
-    <td><%= productclass.picture %></td>
-    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), productclass %>
-    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_productclass_path(productclass) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), productclass, :confirm => t('Are you sure?'), :method => :delete %></td>
-  </tr>
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
 <% end %>
 
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Productclass.model_name.human %></h2>
+  </div>
+  <div class="content">
+    <div class="dataTables_wrapper">
+      <table class="listing data-table">
+        <thead>
+          <tr>
+                    <th><%= Productclass.human_attribute_name('name') %></th>
+                    <th><%= Productclass.human_attribute_name('parent_id') %></th>
+                    <th><%= Productclass.human_attribute_name('picture') %></th>
+                    <th><%= Productclass.human_attribute_name('url') %></th>
+                    <th><%= Productclass.human_attribute_name('position') %></th>
+                    <th><%= Productclass.human_attribute_name('ancestry') %></th>
+                    <th><%= Productclass.human_attribute_name('auth_level') %></th>
+                    <th><%= Productclass.human_attribute_name('auth_level_edit') %></th>
+                    <th><%= t('action') %></th>
+          </tr>
+        </thead>
 
-  <tr class="linemain">
-    <td colspan="4">
-	<%= link_to t('New ') + Productclass.human_name, new_productclass_path %>
-    </td>
-  </tr>
-
+        <tbody>
+          <% @productclasses.each do |productclass| %>
+            <tr class="<%= cycle('odd', '') %>">
+                <td><%= productclass.name %></td>
+                <td><%= productclass.parent_id %></td>
+                <td><%= productclass.picture %></td>
+                <td><%= productclass.url %></td>
+                <td><%= productclass.position %></td>
+                <td><%= productclass.ancestry %></td>
+                <td><%= productclass.auth_level %></td>
+                <td><%= productclass.auth_level_edit %></td>
+                <td align="right"><nobr>
+                <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), productclass %>
+                <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_productclass_path(productclass) %>
+                <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), productclass, :confirm => t('Are you sure?'), :method => :delete %>
+              </nobr></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <p><%= link_to t('New ') + Productclass.model_name.human, new_productclass_path %></p>
+  </div>
+</div>

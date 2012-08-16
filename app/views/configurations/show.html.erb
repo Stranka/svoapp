@@ -1,152 +1,86 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="2">
-      <%= t('Show ') + Configuration.human_name %>
-    </td>
-  </tr>
-  <tr class="linemain">
-    <td colspan="2">
-      <%= notice %>
-    </td>
-  </tr>
+<% if flash[:notice]%>
+    <div class="big-message success" xmlns="http://www.w3.org/1999/html">
+      <h2><%= flash[:notice] %></h2>
+      <div class="bg"></div>
+      <div class="close"></div>
+    </div>
+<% end %>
 
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-  	 <%= Configuration.human_attribute_name('theme') %>
-    </td>
-    <td>
-  	<%= @configuration.theme %>
-    </td>
-  </tr>
+<div class="block">
+  <div class="top">
+    <h2><%= t('Anzeige Konfiguration') %></h2>
+  </div>
 
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-  	 <%= Configuration.human_attribute_name('title') %>
-    </td>
-    <td>
-  	<%= @configuration.title %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-  	 <%= Configuration.human_attribute_name('block_left') %>
-    </td>
-    <td>
-  	<%= @configuration.block_left %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-  	 <%= Configuration.human_attribute_name('block_left_width') %>
-    </td>
-    <td>
-  	<%= @configuration.block_left_width %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-  	 <%= Configuration.human_attribute_name('block_right') %>
-    </td>
-    <td>
-  	<%= @configuration.block_right %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-  	 <%= Configuration.human_attribute_name('block_right_width') %>
-    </td>
-    <td>
-  	<%= @configuration.block_right_width %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-  	<%= Configuration.human_attribute_name('pagewidth') %>
-    </td>
-    <td>
-  	<%= @configuration.pagewidth %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-  	 <%= Configuration.human_attribute_name('block_headerline') %>
-    </td>
-    <td>
-  	<%= @configuration.block_headerline %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-  	 <%= Configuration.human_attribute_name('position_logo') %>
-    </td>
-    <td>
-  	<%= @configuration.position_logo %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-  	 <%= Configuration.human_attribute_name('topimage') %>
-    </td>
-    <td>
-  	<%= @configuration.topimage %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-  	 <%= Configuration.human_attribute_name('show_title') %>
-    </td>
-    <td>
-  	<%= @configuration.show_title %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-      <%= Configuration.human_attribute_name('manage_tree') %>
-    </td>
-    <td>
-    <%= @configuration.manage_tree %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-      <%= Configuration.human_attribute_name('shop_active') %>
-    </td>
-    <td>
-    <%= @configuration.shop_active %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-      <%= Configuration.human_attribute_name('articles_name') %>
-    </td>
-    <td>
-    <%= @configuration.articles_name %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-  	 <%= Configuration.human_attribute_name('copyright') %>
-    </td>
-    <td>
-  	<%= @configuration.copyright %>
-    </td>
-  </tr>
-  <tr class="linemain">
-    <td colspan="2">
-	<%= link_to t('Edit'), edit_configuration_path(@configuration) %> |
-	<%= link_to t('Back'), configurations_path %>
-    </td>
-  </tr>
-
+  <div class="content">
+      <table class="listing">
+        <thead>
+        <tr>
+          <th><%= t('Key')%></th>
+          <th><%= t('Value')%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Configuration.human_attribute_name('theme') %></td>
+          <td><%= @configuration.theme %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Configuration.human_attribute_name('title') %></td>
+          <td><%= @configuration.title %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Configuration.human_attribute_name('block_left') %></td>
+          <td><%= @configuration.block_left %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td><%= Configuration.human_attribute_name('block_left_width') %></td>
+          <td><%= @configuration.block_left_width %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td><%= Configuration.human_attribute_name('block_right') %></td>
+          <td><%= @configuration.block_right %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td><%= Configuration.human_attribute_name('block_right_width') %></td>
+          <td><%= @configuration.block_right_width %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td><%= Configuration.human_attribute_name('pagewidth') %></td>
+          <td><%= @configuration.pagewidth %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td><%= Configuration.human_attribute_name('block_headerline') %></td>
+          <td><%= @configuration.block_headerline %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td><%= Configuration.human_attribute_name('position_logo') %></td>
+          <td><%= @configuration.position_logo %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td><%= Configuration.human_attribute_name('topimage') %></td>
+          <td><%= @configuration.topimage %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td><%= Configuration.human_attribute_name('show_title') %></td>
+          <td><%= @configuration.show_title %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td><%= Configuration.human_attribute_name('manage_tree') %></td>
+          <td><%= @configuration.manage_tree %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td><%= Configuration.human_attribute_name('shop_active') %></td>
+          <td><%= @configuration.shop_active %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td><%= Configuration.human_attribute_name('articles_name') %></td>
+          <td><%= @configuration.articles_name %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="20%"><%= Configuration.human_attribute_name('copyright') %></td>
+          <td><%= @configuration.copyright %></td>
+        </tr>
+      </table>
+    <p><%= link_to t('Edit'), edit_configuration_path(@configuration) %> | <%= link_to t('Back'), configurations_path %></p>
+   </div>
+</div>

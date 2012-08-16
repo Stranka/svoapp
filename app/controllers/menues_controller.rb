@@ -2,7 +2,7 @@ class MenuesController < ApplicationController
   # GET /menues
   # GET /menues.xml
   def index
-    @menues = Menue.find(:all, :conditions => ['auth_level <= ?', @auth_show])
+    @menues = Menue.where("auth_level <= ?", @auth_show).order("parent_id", "position")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -67,7 +67,7 @@ class MenuesController < ApplicationController
     end
     respond_to do |format|
       if @menue.save
-        format.html { redirect_to(@menue, :notice => Menue.human_name + ' ' + t('was successfully created')) }
+        format.html { redirect_to(@menue, :notice => Menue.model_name.human + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @menue, :status => :created, :location => @menue }
       else
         @articles = Article.all
@@ -88,7 +88,7 @@ class MenuesController < ApplicationController
     end
     respond_to do |format|
       if @menue.update_attributes(params[:menue])
-        format.html { redirect_to(@menue, :notice => Menue.human_name + ' ' + t('was successfully updated')) }
+        format.html { redirect_to(@menue, :notice => Menue.model_name.human + ' ' + t('was successfully updated')) }
         format.xml  { head :ok }
       else
         @articles = Article.all
@@ -153,7 +153,14 @@ class MenuesController < ApplicationController
 
   def change_language
     I18n.locale = params[:language]
-    redirect_to home_path
+    redirect_to root_path
+  end
+
+  def change_theme
+    # HAS: 20120508: Farbe fixiert
+    # RailsNuke::Application.config.theme = params[:theme]
+    RailsNuke::Application.config.theme = "soft-red"
+    redirect_to root_path
   end
 
 end

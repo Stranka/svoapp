@@ -1,40 +1,26 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="2">
-	     <%= t('upload files')%>
-    </td>
-  </tr>
+<% if flash[:notice] %>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="5">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
-  <% end %>
-  <% if params[:picture] != '' and params[:type] == 'image' %>
-    <tr class= "line<%= cycle('1', '2') %>">
-      <td>
-      </td>
-      <td>
-        <%= image_tag(params[:picture],:height => '150') %>
-      </td>
-    </tr>
-  <% end %>
 
-  <tr class= "line<%= cycle('1', '2') %>">
-    <td>
-    <%= form_tag('', :multipart => true ) %>
-        <%= t('file') %>
-    </td>
-    <td>
-        <%= file_field_tag(:image_file, :style => "width: 30em") %>
-    </td>
-  </tr>
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + t('pictures') %></h2>
+  </div>
 
-  <tr>
-    <td></td>
-    <td>
-      <%= submit_tag (t('create')) %>
-    </td>
-  </tr>
+  <div class="content">
+    <h1><%= t('upload files')%></h1>
 
+      <% if params[:picture] != '' and params[:type] == 'image' %>
+          <p><%= image_tag(params[:picture],:height => '150') %></p>
+      <% end %>
+
+      <p><%= form_tag('', :multipart => true ) %> <%= t('file') %></p>
+      <p><%= file_field_tag(:image_file, :style => "width: 30em") %></p>
+      <p><%= submit_tag (t('create')) %></p>
+  </div>
+</div>

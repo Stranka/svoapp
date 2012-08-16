@@ -1,49 +1,55 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="8">
-      <%= t('Listing ') + Basket.human_name %>
-    </td>
-  </tr>
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-  <% if flash[:notice]%>
-    <tr class="lineerror">
-      <td colspan="8">
-        <%= flash[:notice] %>
-      </td>
-    </tr>
-  <% end %>
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Basket.model_name.human %></h2>
+  </div>
+  <div class="content">
+    <div class="dataTables_wrapper">
+      <table class="listing data-table">
+        <thead>
+          <tr>
+            <th><%= Basket.human_attribute_name('session_id') %></th>
+            <th><%= Basket.human_attribute_name('customer_id') %></th>
+            <th><%= Basket.human_attribute_name('status') %></th>
+            <th><%= Basket.human_attribute_name('shipmentterms') %></th>
+            <th><%= Basket.human_attribute_name('paymentterms') %></th>
+            <th><%= Basket.human_attribute_name('order_number') %></th>
+            <th><%= Basket.human_attribute_name('store') %></th>
+            <th><%= Basket.human_attribute_name('auth_level') %></th>
+            <th><%= Basket.human_attribute_name('auth_level_edit') %></th>
+            <th><%= t('action') %></th>
+          </tr>
+        </thead>
 
-  <tr class="lineheader">
-    <td><%= Basket.human_attribute_name('session_id') %></td>
-    <td><%= Basket.human_attribute_name('customer_id') %></td>
-    <td><%= Basket.human_attribute_name('status') %></td>
-    <td><%= Basket.human_attribute_name('shipmentterms') %></td>
-    <td><%= Basket.human_attribute_name('paymentterms') %></td>
-    <td><%= Basket.human_attribute_name('order_number') %></td>
-    <td><%= Basket.human_attribute_name('store') %></td>
-    <td><%= t('action') %></td>
-  </tr>
-
-  <% @baskets.each do |basket| %>
-    <tr class= "line<%= cycle('1', '2') %>">
-      <td><%= basket.session_id %></td>
-      <td><%= basket.customer_id %></td>
-      <td><%= basket.status %></td>
-      <td><%= basket.shipmentterms %></td>
-      <td><%= basket.paymentterms %></td>
-      <td><%= basket.order_number %></td>
-      <td><%= basket.store %></td>
-      <td align="right">
-        <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), basket %>
-        <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_basket_path(basket) %>
-        <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), basket, :confirm => t('Are you sure?'), :method => :delete %>
-      </td>
-    </tr>
-  <% end %>
-
-  <tr class="linemain">
-    <td colspan="8">
-      <%#= link_to t('New ') + Basket.human_name, new_basket_path %>
-      &nbsp;
-    </td>
-  </tr>
-
+        <tbody>
+        <% @baskets.each do |basket| %>
+          <tr class="<%= cycle('odd', '') %>">
+            <td><%= basket.session_id %></td>
+            <td><%= basket.customer_id %></td>
+            <td><%= basket.status %></td>
+            <td><%= basket.shipmentterms %></td>
+            <td><%= basket.paymentterms %></td>
+            <td><%= basket.order_number %></td>
+            <td><%= basket.store %></td>
+            <td><%= basket.auth_level %></td>
+            <td><%= basket.auth_level_edit %></td>
+            <td align="right"><nobr>
+              <%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), basket %>
+              <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_basket_path(basket) %>
+              <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), basket, :confirm => t('Are you sure?'), :method => :delete %>
+            </nobr></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <%= link_to t('New ') + Basket.model_name.human, new_basket_path %>
+  </div>
+</div>

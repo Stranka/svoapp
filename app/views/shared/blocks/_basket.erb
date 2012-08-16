@@ -1,32 +1,16 @@
-
-    <tr class= "line2">
-      <td>
-        <table width="100%" class="content">
-          <tr class= "line1">
-            <td>
-              <%= t ('Article in basket') %>
-            </td>
-            <td>
-              <%= basket.basketlines.count %>
-            </td>
-          </tr>
-          <tr class= "line2">
-            <td>
-              <%= t ('value') %>
-            </td>
-            <td>
-              <%= number_to_currency(basket.basketlines.sum(:value)) %>
-            </td>
-          </tr>
-          <% if basket.basketlines.count > 0 %>
-            <tr class= "line1">
-              <td colspan="2">
-                <%= link_to t('My Order'), :controller => 'baskets', :action => 'show_my_open_order' %> /
-                <%= link_to t('Checkout'), :controller => 'baskets', :action => 'checkout' %>
-              </td>
-            </tr>
-          <% end %>
-        </table>
-      </td>
-    </tr>
-
+<tr>
+  <td><%= t ('Article in basket') %></td>
+  <td>    <%= basket.basketlines.count %></td>
+</tr>
+<tr class="odd">
+  <td><%= t ('value') %></td>
+  <td><%= number_to_currency(basket.basketlines.sum(:value)) %></td>
+</tr>
+<% if basket.basketlines.count > 0 %>
+  <tr>
+    <td colspan="2">
+      <%= link_to t('My Order'), :controller => 'baskets', :action => 'show_my_open_order' %> |
+      <%= link_to t('Checkout'), :controller => 'baskets', :action => 'checkout' %>
+    </td>
+  </tr>
+<% end %>

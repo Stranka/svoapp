@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
                                            :products,:show_products_productclass, :product_detail,
                                            :baskets,:add_to_basket,:show_my_open_order,:checkout, :checkout_step_1,
                                            :productclasses,:click,
-                                           :menues,:click, :change_language,
+                                           :menues,:click, :change_language, :change_theme,
                                            :customers,:new,:create,
                                            :news,:all_news,
                                            :user_sessions, :new,
@@ -25,9 +25,8 @@ class ApplicationController < ActionController::Base
 #  redirect_to :controller => "errors", :action => "show_error_page"
 #  }
 
-
   def get_config
-    @config = Configuration.find(:first)
+    @config = ActiveRecord::Base::Configuration.first
     @ebene_productclass = -1
     @ebene_menue = -1
     @config.theme.nil? ? @config.theme = "gray" : true
@@ -43,7 +42,7 @@ class ApplicationController < ActionController::Base
     @shop_cart = @imagepath + 'shop_cart.gif'
     @picture_size = 2048000
     @CO = ['', 'articles', 'baskets', 'blocks', 'configurations', 'menues', 'news', 'pictures', 'productclasses', 'products',
-               'shipments', 'users', 'payments', 'tooltips']
+               'shipments', 'users', 'payments', 'tooltips', 'translations']
   end
 
 # setzt den authorisationlevel
@@ -61,7 +60,7 @@ class ApplicationController < ActionController::Base
 
     @lblocks = Block.find(:all, :conditions => ['position = ? and active = ? and auth_level <= ? ', 'links', true, @auth_show], :order => "fieldorder")
     @rblocks = Block.find(:all, :conditions => ['position = ? and active = ? and auth_level <= ?', 'rechts', true, @auth_show], :order => "fieldorder")
-    @menue_top = Menue.find(:all, :conditions => ['ontop = ? and active = ? and auth_level <= ?', true, true, @auth_show], :order => 'position')
+    @menue_top = Menue.find(:all, :conditions => ['ontop = ? and active = ? and auth_level <= ? and parent_id = ? ', true, true, @auth_show, 0], :order => 'position')
 
     @firstarticle = Article.find(:first, :conditions => {:id => @config.articles_name})
     if @firstarticle == nil
@@ -74,61 +73,61 @@ class ApplicationController < ActionController::Base
   end
 
 #  private
-    def current_user_session
-      logger.debug "ApplicationController::current_user_session"
-      return @current_user_session if defined?(@current_user_session)
-      @current_user_session = UserSession.find
-    end
+  def current_user_session
+    logger.debug "ApplicationController::current_user_session"
+    return @current_user_session if defined?(@current_user_session)
+    @current_user_session = UserSession.find
+  end
 
-    def current_user
-      logger.debug "ApplicationController::current_user"
-      return @current_user if defined?(@current_user)
-      @current_user = current_user_session && current_user_session.user
-    end
+  def current_user
+    logger.debug "ApplicationController::current_user"
+    return @current_user if defined?(@current_user)
+    @current_user = current_user_session && current_user_session.user
+  end
 
-    def require_user
-      logger.debug "ApplicationController::require_user"
-      unless current_user
-        store_location
-        flash[:notice] = "You must be logged in to access this page"
-        redirect_to new_user_session_url
-        return false
-      end
+  def require_user
+    logger.debug "ApplicationController::require_user"
+    unless current_user
+      store_location
+      flash[:notice] = "You must be logged in to access this page"
+      redirect_to new_user_session_url
+      return false
     end
+  end
 
-    def require_no_user
-      logger.debug "ApplicationController::require_no_user"
-      if current_user
-        store_location
-        flash[:notice] = "You must be logged out to access this page"
-        redirect_to account_url
-        return false
-      end
+  def require_no_user
+    logger.debug "ApplicationController::require_no_user"
+    if current_user
+      store_location
+      flash[:notice] = "You must be logged out to access this page"
+      redirect_to account_url
+      return false
     end
+  end
 
-    def store_location
-      session[:return_to] = request.request_uri
-    end
+  def store_location
+    # HAS: 20120508: Rails 3.2
+    # session[:return_to] = request.request_uri
+    session[:return_to] = request.url
+  end
 
-    def redirect_back_or_default(default)
-      redirect_to(session[:return_to] || default)
-      session[:return_to] = nil
-    end
+  def redirect_back_or_default(default)
+    redirect_to(session[:return_to] || default)
+    session[:return_to] = nil
+  end
 
-    # get all actions for specified controller
-    def get_all_actions(cont)
-      c= Module.const_get(cont.to_s.pluralize.capitalize + "Controller")
-      c.public_instance_methods(false).reject{ |action| ['rescue_action'].include?(action) }
-    end
+  # get all actions for specified controller
+  def get_all_actions(cont)
+    c= Module.const_get(cont.to_s.pluralize.capitalize + "Controller")
+    c.public_instance_methods(false).reject{ |action| ['rescue_action'].include?(action) }
+  end
 
-    def set_locale
-      I18n.locale = params[:locale] || I18n.default_locale
-    end
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
 
-    def default_url_options(options={})
-      logger.debug "default_url_options is passed options: #{options.inspect}\n"
-      { :locale => I18n.locale }
-    end
-
+  def default_url_options(options={})
+    logger.debug "default_url_options is passed options: #{options.inspect}\n"
+    { :locale => I18n.locale }
+  end
 end
-

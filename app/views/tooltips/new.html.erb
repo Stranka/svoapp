@@ -1,14 +1,5 @@
-
-  <tr>
-    <td class ="myTitle" width="100%" colspan="2">
-      <%= t('New ') + Tooltip.human_name %>
-    </td>
-  </tr>
-<%= render 'form' %>
-
-  <tr class="linemain">
-    <td colspan="2">
-      <%= link_to t('Back'), tooltips_path %>
-    </td>
-  </tr>
+    <%= render 'form' %>
+    <p><%= link_to t('Back'), tooltips_path %></p>
+  </div>
+</div>
 

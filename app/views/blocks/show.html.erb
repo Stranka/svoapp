@@ -1,90 +1,60 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="2">
-      <%= t('Show ') + Block.human_name %>
-    </td>
-  </tr>
-  <tr class="linemain">
-    <td colspan="2">
-      <%= notice %>
-    </td>
-  </tr>
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-  	 <%= Block.human_attribute_name('name') %>
-    </td>
-    <td>
-  	<%= @block.name %>
-    </td>
-  </tr>
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + Block.model_name.human %> <i><%= @block.name %></i></h2>
+  </div>
+  <div class="content">
+    <p align="right"><%= link_to t('Edit'), edit_block_path(@block) %> | <%= link_to t('Back'), blocks_path %></p>
+    <table class="listing">
+      <thead>
+        <tr>
+          <th><%= t('Key')%></th>
+          <th><%= t('Value')%></th>
+        </tr>
+      </thead>
 
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-  	 <%= Block.human_attribute_name('headerline') %>
-    </td>
-    <td>
-  	<%= @block.headerline %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-  	 <%= Block.human_attribute_name('position') %>
-    </td>
-    <td>
-  	<%= @block.position %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-  	 <%= Block.human_attribute_name('fieldorder') %>
-    </td>
-    <td>
-  	<%= @block.fieldorder %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-  	 <%= Block.human_attribute_name('blockid') %>
-    </td>
-    <td>
-  	<%= @block.blockid %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-  	 <%= Block.human_attribute_name('active') %>
-    </td>
-    <td>
-  	<%= @block.active %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-      <%= Block.human_attribute_name('auth_level') %>
-    </td>
-    <td>
-    <%= @block.auth_level %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td>
-      <%= Block.human_attribute_name('auth_level_edit') %>
-    </td>
-    <td>
-    <%= @block.auth_level_edit %>
-    </td>
-  </tr>
-
-  <tr class="linemain">
-    <td colspan="2">
-	<%= link_to t('Edit'), edit_block_path(@block) %> |
-	<%= link_to t('Back'), blocks_path %>
-    </td>
-  </tr>
-
+      <tbody>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Block.human_attribute_name('name') %></td>
+          <td><%= @block.name %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Block.human_attribute_name('headerline') %></td>
+          <td><%= @block.headerline %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Block.human_attribute_name('position') %></td>
+          <td><%= @block.position %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Block.human_attribute_name('fieldorder') %></td>
+          <td><%= @block.fieldorder %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Block.human_attribute_name('blockid') %></td>
+          <td><%= @block.blockid %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Block.human_attribute_name('active') %></td>
+          <td><%= @block.active %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Block.human_attribute_name('auth_level') %></td>
+          <td><%= @block.auth_level %></td>
+        </tr>
+        <tr class="<%= cycle('', 'even') %>">
+          <td width="30%"><%= Block.human_attribute_name('auth_level_edit') %></td>
+          <td><%= @block.auth_level_edit %></td>
+        </tr>
+      </tbody>
+    </table>
+  <p><%= link_to t('Edit'), edit_block_path(@block) %> | <%= link_to t('Back'), blocks_path %></p>
+  </div>
+</div>

@@ -1,8 +1,7 @@
 class CustomersController < ApplicationController
 
   def index
-    @customer = Customer.find(current_user.id)
-
+    @customers = Customer.find(:all, :conditions => ['auth_level <= ?', @auth_show])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
@@ -24,7 +23,6 @@ class CustomersController < ApplicationController
   end
 
   def new
-
     @customer = Customer.new
     @customer.build_billingaddress
     @customer.build_deliveryaddress
@@ -33,7 +31,6 @@ class CustomersController < ApplicationController
 
   # GET /customers/1/edit
   def edit
-
     @customer = Customer.find(params[:id])
     if @customer
     else
@@ -56,7 +53,7 @@ class CustomersController < ApplicationController
       if @customer.save
         UserSessionsController::new
 
-        format.html { redirect_to(@customer, :notice => Customer.human_name + ' ' + t('was successfully created')) }
+        format.html { redirect_to(@customer, :notice => Customer.model_name.human + ' ' + t('was successfully created')) }
         format.xml  { render :xml => @customer, :status => :created, :location => @customer }
       else
         format.html { render :action => "new" }
@@ -74,7 +71,7 @@ class CustomersController < ApplicationController
       if params[:xy][:mode] == 'basket'
         redirect_to(:controller => 'baskets', :action => 'checkout')
       else
-        redirect_to(@customer, :notice => Customer.human_name + ' ' + t('was successfully updated'))
+        redirect_to(@customer, :notice => Customer.model_name.human + ' ' + t('was successfully updated'))
       end
     else
       render :action => "edit"

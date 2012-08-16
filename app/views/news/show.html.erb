@@ -1,72 +1,76 @@
-  <tr>
-    <td class ="myTitle" width="100%" colspan="2">
-      <%= t('Show ') + News.human_name %>
-    </td>
-  </tr>
-  <tr class="linemain">
-    <td colspan="2">
-      <%= notice %>
-    </td>
-  </tr>
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
 
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-  	 <%= News.human_attribute_name('title') %>
-    </td>
-    <td>
-  	<%= @news.title %>
-    </td>
-  </tr>
+<div class="block">
+  <div class="top">
+    <h2><%= t('Administration') + ' ' + News.model_name.human %></a> <i><%= @news.title %></i></h2>
+  </div>
+  <div class="content">
+    <p align="right"><%= link_to t('Edit'), edit_news_path(@news) %> | <%= link_to t('Back'), news_index_path %></p>
+    <table class="listing">
+      <thead>
+        <tr>
+          <th><%= t('Key')%></th>
+          <th><%= t('Value')%></th>
+        </tr>
+      </thead>
 
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-  	 <%= News.human_attribute_name('date') %>
-    </td>
-    <td>
-  	<%= @news.date %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-  	 <%= News.human_attribute_name('notice') %>
-    </td>
-    <td>
-  	<%= @news.notice %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-  	 <%= News.human_attribute_name('format') %>
-    </td>
-    <td>
-  	<%= @news.format %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-  	 <%= News.human_attribute_name('auth_level') %>
-    </td>
-    <td>
-  	<%= @news.auth_level %>
-    </td>
-  </tr>
-
-  <tr class="line<%= cycle('1', '2') %>">
-    <td width="20%">
-  	 <%= News.human_attribute_name('auth_level_edit') %>
-    </td>
-    <td>
-  	<%= @news.auth_level_edit %>
-    </td>
-  </tr>
-
-  <tr class="linemain">
-    <td colspan="2">
-	<%= link_to t('Edit'), edit_news_path(@news) %> |
-	<%= link_to t('Back'), news_index_path %>
-    </td>
-  </tr>
-
+      <tbody>
+            <tr class="line<%= cycle('1', '2') %>">
+          <td width="30%">
+            <%= News.human_attribute_name('title') %>
+          </td>
+          <td>
+            <%= @news.title %>
+          </td>
+        </tr>
+            <tr class="line<%= cycle('1', '2') %>">
+          <td width="30%">
+            <%= News.human_attribute_name('date') %>
+          </td>
+          <td>
+            <%= @news.date %>
+          </td>
+        </tr>
+            <tr class="line<%= cycle('1', '2') %>">
+          <td width="30%">
+            <%= News.human_attribute_name('notice') %>
+          </td>
+          <td>
+            <%= @news.notice %>
+          </td>
+        </tr>
+            <tr class="line<%= cycle('1', '2') %>">
+          <td width="30%">
+            <%= News.human_attribute_name('format') %>
+          </td>
+          <td>
+            <%= @news.format %>
+          </td>
+        </tr>
+            <tr class="line<%= cycle('1', '2') %>">
+          <td width="30%">
+            <%= News.human_attribute_name('auth_level') %>
+          </td>
+          <td>
+            <%= @news.auth_level %>
+          </td>
+        </tr>
+            <tr class="line<%= cycle('1', '2') %>">
+          <td width="30%">
+            <%= News.human_attribute_name('auth_level_edit') %>
+          </td>
+          <td>
+            <%= @news.auth_level_edit %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><%= link_to t('Edit'), edit_news_path(@news) %> | <%= link_to t('Back'), news_index_path %></p>
+  </div>
+</div>

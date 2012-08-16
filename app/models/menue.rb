@@ -6,7 +6,7 @@ class Menue < ActiveRecord::Base
   acts_as_tree :order => "position"
   acts_as_list :scope => :parent_id
 
-  AC_ARTICLE = ['show_content', 'showme']
+  AC_ARTICLE = ['show_content', 'index']
   AC_NEWS = ['all_news', 'index']
   AC_REST = ['index']
 
@@ -16,7 +16,9 @@ class Menue < ActiveRecord::Base
     case self.the_controller
       when 'articles'
         if self.the_action == 'index'
-          errors.add(:the_action, '-> Darf nicht -index- sein')
+#          if @auth_edit < 50
+#            errors.add(:the_action, '-> Darf nicht -index- sein')
+#          end
         end
         return true
       when 'news'
