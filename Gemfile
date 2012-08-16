@@ -23,7 +23,6 @@ gem "ckeditor", "3.7.0.rc3" # WYSIWYG-Editor
 
 
 gem 'simple-tooltip'
-gem 'i18n-active_record'
 
 gem 'RedCloth', '4.2.3'
 
