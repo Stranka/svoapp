@@ -15,6 +15,10 @@ gem 'acts_as_list'
 gem 'amount_field_rails3', :require => 'amount_field'
 gem "tabs_on_rails"
 
+gem 'i18n-active_record',
+    :git => 'git://github.com/svenfuchs/i18n-active_record.git',
+    :require => 'i18n/active_record'
+
 # HAS 20120508: Rails 3.2
 # gem 'ckeditor', '3.5.0'
 # gem "paperclip", "~> 2.3"
