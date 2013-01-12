@@ -19,6 +19,8 @@ de:
   'Produkte': 'Produkte'
   'Versandart': 'Versandart'
   'Zahlungsarten': 'Zahlungsarten'
+  'Kundenportal': 'Kundenportal'
+  'Kontakt': 'Kontakt'
 
 #Produktkatalog
   'Bücher': 'Bücher'
@@ -147,7 +149,10 @@ de:
     abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
     month_names: [~, Jänner, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
     abbr_month_names: [~, Jän, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
-    order: [ :day, :month, :year ]
+    order:
+      :day
+      :month
+      :year
 
   time:
     formats:
@@ -258,9 +263,6 @@ de:
           one:    "Konnte %{model} nicht speichern: ein Fehler."
           other:  "Konnte %{model} nicht speichern: %{count} Fehler."
         body: "Bitte überprüfen Sie die folgenden Felder:"
-
-
-
 
 
   activerecord:
