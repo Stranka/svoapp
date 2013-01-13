@@ -31,9 +31,9 @@
     <td><%= block.fieldorder %></td>
     <td><%= block.blockid %></td>
     <td><%= block.active %></td>
-    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), block %>
+    <td align="right"><nobr><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), block %>
     <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_block_path(block) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), block, :confirm => t('Are you sure?'), :method => :delete %></td>
+    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), block, :confirm => t('Are you sure?'), :method => :delete %></nobr></td>
   </tr>
 <% end %>
 

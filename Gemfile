@@ -1,19 +1,21 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem 'rails', '3.0.19'
+#gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql', :require => 'mysql'
 gem 'i18n'
-gem 'authlogic'
+#gem 'authlogic'
+gem "authlogic", :git => "git://github.com/binarylogic/authlogic.git"
 gem 'acts_as_tree'
 gem 'acts_as_list'
 gem 'amount_field_rails3', :require => 'amount_field'
 gem "tabs_on_rails"
 gem 'ckeditor', '3.5.0'
-gem "paperclip", "~> 2.3"
+gem "paperclip", "~> 3.0"
 gem 'simple-tooltip'
 
 gem 'RedCloth', '4.2.3'
@@ -26,7 +28,7 @@ gem 'RedCloth', '4.2.3'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
- gem 'ruby-debug19', :require => 'ruby-debug'
+# gem 'ruby-debug19', :require => 'ruby-debug'
 # gem 'linecache19'
 
 # Bundle the extra gems:

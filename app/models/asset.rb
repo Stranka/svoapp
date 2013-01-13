@@ -12,5 +12,9 @@ class Asset < ActiveRecord::Base
 	                    :thumb => '50x50',
 	                    :small => '100x100>' }
 
+  validates :image, :attachment_presence => true,
+#  :attachment_content_type => { :content_type => "image/jpg" },
+  :attachment_size => { :less_than=> 1.megabytes }
+  
 end
 

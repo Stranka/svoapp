@@ -37,10 +37,12 @@
     <% end %>
     <td><%= menue.ontop %></td>
     <td><%= menue.active %></td>
-    <td align="right"><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), menue %>
+    
+    <td align="right"><nobr><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), menue %>
     <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_menue_path(menue) %>
-    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), menue, :confirm => t('Are you sure?'), :method => :delete %></td>
-  </tr>
+    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), menue, :confirm => t('Are you sure?'), :method => :delete %></nobr></td>
+    
+    </tr>
 <% end %>
 
 
