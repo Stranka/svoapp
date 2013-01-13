@@ -1,34 +1,4 @@
-<script type="text/javascript">
 
-$(document).ready(function() {
-  initTable();
-  tableActions();
-} );
-
-function initTable ()
-{
-  return $('#example').dataTable( {
-    "bRetrieve": true
-  } );
-}
-
-function tableActions ()
-{
-  var oTable = initTable();
-  // perform API operations with oTable
-}
-
-</script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#example').dataTable( {
-            "oLanguage": {
-                "sUrl": "media/language/de_DE.txt"
-            }
-        } );
-    } );
-</script>
 
 <% if flash[:notice]%>
   <div class="big-message success">
@@ -44,7 +14,7 @@ function tableActions ()
   </div>
   <div class="content">
     <div class="dataTables_wrapper" >
-      <table id="example" class="listing data-table">
+      <table class="listing data-table">
         <thead>
           <tr>
             <th><%= Block.human_attribute_name('name') %></th>
