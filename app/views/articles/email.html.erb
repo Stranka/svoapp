@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+  <link rel="shortcut icon" href="http://mittenin.at/images/favicon.ico" />
+  <title><%= @config.title %></title>
+</head>
+<body style="background-image:url(http://mittenin.at/img/body-bck-3.gif);" bgcolor="#333" >
+<table border="0" cellspacing="0" cellpadding="0" style="font-family:Trebuchet MS, Calibri, Ubuntu, Arial, sans-serif; table-layout: fixed;" >
+  <tr>
+    <td width="38" height="38"></td>
+    <td width="10" height="38"></td>
+    <td width="1000" height="38"></td>
+    <td width="10" height="38"></td>
+    <td width="38" height="38"></td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp; &nbsp;</td>
+    <td width="1000" style="background:#e3e3e3; width=1000px;" height="70">
+      <p><br/>&nbsp; &nbsp;<img width="172" height="66" src="http://mittenin.at/stylesheets/mbe-admin/images/logo.png" alt="mittenin.at"><br/></p>
+    </td>
+    <td colspan="2"></td>
+  </tr>
+  <tr>
+    <td width="38" height="70"></td>
+    <td width="10" bgcolor="#961e1e">
+      <%= image_tag('http://mittenin.at/images/mailing/mottolinks.png', :hspace => 0, :vspace => 0, :width => 10, :height => 70) %>
+    </td>
+    <td height="70" width="1000" style="font-size:26px; color:#fff; background-color:#961e1e; background-image:url('http://mittenin.at/images/mailing/mottomitte.png'); background-repeat:repeat-x;">
+      &nbsp; &nbsp; &nbsp;<%= @article.name %></td>
+    <td width="10" bgcolor="#961e1e">
+      <%= image_tag('http://mittenin.at/images/mailing/mottorechts.png', :hspace => 0, :vspace => 0, :width => 10, :height => 70) %>
+    </td>
+    <td bidth="38"></td>
+  </tr>
+  <tr>
+    <td colspan="2"></td>
+    <td width="1000" style="background:#e3e3e3;">
+      <%= raw(@article.content) %>
+      </font>
+    </td>
+    <td colspan="2"></td>
+  </tr>
+  <tr>
+    <td height="38" colspan="5"></td>
+  </tr>
+</table>
+
+<%= form_tag :send_email_article do %>
+  <table cellpadding=10>
+    <tr>
+      <td width="22" height="38"></td>
+      <td bgcolor="#e3e3e3"><%= label_tag "Empfänger" %> <%= email_field_tag :recipient %> <%= submit_tag "Senden" %></td>
+    </tr>
+  </table>
+<% end %>
+<p>&nbsp;</p>
+
+</body>
+</html>

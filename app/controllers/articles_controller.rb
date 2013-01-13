@@ -153,7 +153,6 @@ require "uri"
       end
       @search.sort! { |a,b| b.auth_level_edit <=> a.auth_level_edit }
 
-
     else
       @search = Article.find(:all, :conditions => ['name = ?', 'xhnfgdthdasFGHFCBYJSXFSADF'])
       flash[:notice] = t('please specify a searchstring')
@@ -163,9 +162,21 @@ require "uri"
 
   def email
     get_config
-debugger
+
     @article = Article.find(params[:id])
     ArticleMailer.submission(@article, @config).deliver
+
+    @article = Article.find(params[:id])
+    render :layout => false
+  end
+
+  def send_email
+    get_config
+    @recipient = params[:recipient]
+    @article = Article.find(params[:id])
+    if @current_user.email
+      ArticleMailer.submission(@article, @config, @recipient, @current_user.email).deliver
+    end
     render "article_mailer/submission", :layout => false
   end
 end
