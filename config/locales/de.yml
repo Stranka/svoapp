@@ -165,9 +165,9 @@ de:
     month_names: [~, Jänner, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
     abbr_month_names: [~, Jän, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
     order:
-      :day
-      :month
-      :year
+      - :day
+      - :month
+      - :year
 
   time:
     formats:

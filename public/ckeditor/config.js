@@ -49,9 +49,12 @@ CKEDITOR.editorConfig = function( config )
 
     /* Extra plugins */
     // works only with en, ru, uk locales
-    config.extraPlugins = "embed,attachment";
+    //config.extraPlugins = "embed,attachment";
 
     /* Toolbars */
+
+    /* HAS: 20130212 Wir wollen den vollen Toolbar */
+    /* config.toolbar = 'Easy'; */
     config.toolbar = 'Easy';
 
     config.toolbar_Easy =

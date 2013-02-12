@@ -52,9 +52,6 @@ mbe = {
 		var _events = mbe.presentation.getEvents(); //the presentation events
 		mbe.init.calendar(_events);
 
-		//init the fancybox
-		mbe.init.fancybox();
-
 		//init the graph
 		mbe.init.graph.ready();
 
@@ -71,29 +68,11 @@ mbe = {
 				top.location.href = location.href;
 			}
 		}
-
-		//detect iphone / ipod
-		if (mbe.agent.iphone()) {
-			if ($('div.page').hasClass('login')) {
-				mbe.mobile.iphone.loginReady();
-			} else {
-				mbe.mobile.iphone.ready();
-			}
-
-
-			//restrict running in an iframe/frame
-			if (window != top) {
-				top.location.href = location.href;
-			}
-		}
 	},
 
 	agent: {
 		ipad: function () {
 			return navigator.userAgent.indexOf('iPad')>=0;
-		},
-		iphone: function () {
-			return jQuery.browser.mobile;
 		},
 		nameAgent: function() {
 			if (mbe.agent.iphone()) {
@@ -121,7 +100,6 @@ mbe = {
 				mbe.init.form.radio();
 				mbe.init.form.file();
 				mbe.init.form.fieldset();
-				mbe.init.form.wysiwyg();
 				mbe.init.form.date();
 			},
 			validation: function(id) {
@@ -168,31 +146,13 @@ mbe = {
 			fieldset: function() {
 				$('.page .block .content fieldset p:last').addClass('last');
 			},
-			wysiwyg: function() {
-				if(!mbe.agent.ipad() && !mbe.agent.iphone()){
-					$('textarea.wysiwyg').wysiwyg();
-				}
 
-			},
 			date: function() {
 				$('input.date').jdPicker();
 			}
 		},
 		message: {
 			small: function() {
-
-				if (mbe.agent.iphone()) {
-					$('.message ').bind('tapOrClick',function(e){
-						e.preventDefault();
-
-						$(this).closest('.message').fadeTo(mbe.animationSpeed, 0).slideUp(mbe.animationSpeed, function(){
-							if (mbe.mobile.scroll) {
-								mbe.mobile.scroll.refresh();
-							}
-						});
-
-					});
-				}
 
 				//init small message close
 				$('.message span.close').remove();
@@ -228,20 +188,6 @@ mbe = {
 			},
 			big: function() {
 				//init small message close
-
-				if (mbe.agent.iphone()) {
-					$('.big-message ').bind('tapOrClick',function(e){
-						e.preventDefault();
-
-						$(this).closest('.big-message').fadeTo(mbe.animationSpeed, 0).slideUp(mbe.animationSpeed, function(){
-							if (mbe.mobile.scroll) {
-								mbe.mobile.scroll.refresh();
-							}
-						});
-
-					});
-				}
-
 
 				$('.big-message span.close').remove();
 				$('.big-message span.bg').remove();
@@ -799,18 +745,6 @@ mbe = {
 
 				mbe.init.form.select('.page .block .content .dataTables_wrapper .table-top select');
 			}
-		},
-		fancybox: function() {
-			$('a.fancybox').fancybox({
-				centerOnScroll: true,
-				onStart:function(items,index,opts) {
-					var obj = $(items[index]).parent();
-					if (obj.hasClass('drag_sort')) {
-						obj.removeClass('drag_sort');
-						return false;
-					}
-				}
-			});
 		},
 		imageList: function() {
 			//image hover
@@ -1517,11 +1451,7 @@ mbe = {
 				if (!shouldContinue) {
 					e.preventDefault();
 
-					if (mbe.agent.iphone()) {
-						$(this).find('.message').hide();
-					} else {
-						$(this).find('.message').remove();
-					}
+					
 					$(this).prepend('<div class="message error">Do not leave the fields empty</div>');
 
 					mbe.init.message.small();

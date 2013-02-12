@@ -1,5 +1,3 @@
-<%#= javascript_include_tag "/javascripts/ckeditor/ckeditor.js" %>
-<%= javascript_include_tag "ckeditor/init" %>
 <%= form_for(@article) do |f| %>
   <% if @article.errors.any? %>
     <div id="error_explanation">
@@ -11,8 +9,8 @@
   <% end %>
 
   <p><%= f.label :name %><br /><%= f.text_field :name %></p>
-  <p id="cktextarea"><%= f.cktext_area :content, :toolbar=>'Full', :width=>'100%', :height=>'500px' %></p>
+  <p><%= f.cktext_area :content, :width=>'100%', :height=>'500px', :ckeditor => {:language => "de"} %></p>
   <p><%= f.label :auth_level %><br /><%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %></p>
   <p><%= f.label :auth_level_edit %><br /><%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %></p>
   <p><%= f.submit %></p>
-<% end %>
+<% end %> 
