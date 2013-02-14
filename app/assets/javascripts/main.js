@@ -52,6 +52,9 @@ mbe = {
 		var _events = mbe.presentation.getEvents(); //the presentation events
 		mbe.init.calendar(_events);
 
+		//init the fancybox
+		mbe.init.fancybox();
+
 		//init the graph
 		mbe.init.graph.ready();
 
@@ -68,11 +71,29 @@ mbe = {
 				top.location.href = location.href;
 			}
 		}
+
+		//detect iphone / ipod
+		if (mbe.agent.iphone()) {
+			if ($('div.page').hasClass('login')) {
+				mbe.mobile.iphone.loginReady();
+			} else {
+				mbe.mobile.iphone.ready();
+			}
+
+
+			//restrict running in an iframe/frame
+			if (window != top) {
+				top.location.href = location.href;
+			}
+		}
 	},
 
 	agent: {
 		ipad: function () {
 			return navigator.userAgent.indexOf('iPad')>=0;
+		},
+		iphone: function () {
+			return jQuery.browser.mobile;
 		},
 		nameAgent: function() {
 			if (mbe.agent.iphone()) {
@@ -100,6 +121,7 @@ mbe = {
 				mbe.init.form.radio();
 				mbe.init.form.file();
 				mbe.init.form.fieldset();
+				mbe.init.form.wysiwyg();
 				mbe.init.form.date();
 			},
 			validation: function(id) {
@@ -146,13 +168,31 @@ mbe = {
 			fieldset: function() {
 				$('.page .block .content fieldset p:last').addClass('last');
 			},
+			wysiwyg: function() {
+				if(!mbe.agent.ipad() && !mbe.agent.iphone()){
+					$('textarea.wysiwyg').wysiwyg();
+				}
 
+			},
 			date: function() {
 				$('input.date').jdPicker();
 			}
 		},
 		message: {
 			small: function() {
+
+				if (mbe.agent.iphone()) {
+					$('.message ').bind('tapOrClick',function(e){
+						e.preventDefault();
+
+						$(this).closest('.message').fadeTo(mbe.animationSpeed, 0).slideUp(mbe.animationSpeed, function(){
+							if (mbe.mobile.scroll) {
+								mbe.mobile.scroll.refresh();
+							}
+						});
+
+					});
+				}
 
 				//init small message close
 				$('.message span.close').remove();
@@ -188,6 +228,20 @@ mbe = {
 			},
 			big: function() {
 				//init small message close
+
+				if (mbe.agent.iphone()) {
+					$('.big-message ').bind('tapOrClick',function(e){
+						e.preventDefault();
+
+						$(this).closest('.big-message').fadeTo(mbe.animationSpeed, 0).slideUp(mbe.animationSpeed, function(){
+							if (mbe.mobile.scroll) {
+								mbe.mobile.scroll.refresh();
+							}
+						});
+
+					});
+				}
+
 
 				$('.big-message span.close').remove();
 				$('.big-message span.bg').remove();
@@ -553,198 +607,206 @@ mbe = {
 			expressionActions: 'Actions',
 			ready: function() {
 				$('table.data-table').each (function() {
+					var options = {
+						sPaginationType: 'full_numbers',
+						sDom: '<"table-top"lf<"clear">>rt<"table-bottom"ip<"clear">>',
+				        bLengthChange: true,
+				        iDisplayLength: 10,
+				        aLengthMenu: [10, 25, 100]
+					};
 
-                    var options = {
-                        sPaginationType:'full_numbers',
-                        sDom:'<"table-top"lf<"clear">>rt<"table-bottom"ip<"clear">>',
-                        bLengthChange:true,
-                        iDisplayLength:10,
-                        aLengthMenu:[10, 25, 100],
-                        sScrollX: "100%"
-                    };
+					//--------------- No edit beyond this point unless you know what you're doing ---------------
 
-                    //--------------- No edit beyond this point unless you know what you're doing ---------------
+					var _this = $(this);
+					var
+						columnNo = _this.find('th').size(),
+						addActions = _this.attr('add_actions'),
+						useCheckbox = _this.attr('use_checkbox'),
+						url = _this.attr('url'),
+						orderColumn = parseInt(_this.attr('order_column')),
+						orderColumnOrder = _this.attr('order_column_order');
 
-                    var _this = $(this);
-                    var
-                        columnNo = _this.find('th').size(),
-                        addActions = _this.attr('add_actions'),
-                        useCheckbox = _this.attr('use_checkbox'),
-                        url = _this.attr('url'),
-                        orderColumn = parseInt(_this.attr('order_column')),
-                        orderColumnOrder = _this.attr('order_column_order');
+					_this.find('th').closest('tr').addClass('trth');
 
-                    _this.find('th').closest('tr').addClass('trth');
+					//form the columns
+					var
+						columns = [],
+						diff = 0;
 
-                    //form the columns
-                    var
-                        columns = [],
-                        diff = 0;
+					//add the checkboxes (if needed)
+					if (useCheckbox) {
 
-                    //add the checkboxes (if needed)
-                    if (useCheckbox) {
+						//add the th and the extra column (if needed)
+						_this.find('.trth').prepend('<th><input type="checkbox" class="check_all" /></th>');
+						if (!url) {
+							_this.find('tr:not(.trth)').prepend('<td></td>');
+						}
 
-                        //add the th and the extra column (if needed)
-                        _this.find('.trth').prepend('<th><input type="checkbox" class="check_all" /></th>');
-                        if (!url) {
-                            _this.find('tr:not(.trth)').prepend('<td></td>');
-                        }
+						//add the checkbox
+						columns.push({
+							sName: 'chk',
+							bSearchable: false,
+							bSortable: false,
+							fnRender: function(obj) {
+								return '<input type="checkbox" name="ids[]" value="' + obj.aData[1] + '" />';
+							}
+						});
 
-                        //add the checkbox
-                        columns.push({
-                            sName:'chk',
-                            bSearchable:false,
-                            bSortable:false,
-                            fnRender:function (obj) {
-                                return '<input type="checkbox" name="ids[]" value="' + obj.aData[1] + '" />';
-                            }
-                        });
+						//remove the id
+						columns.push({
+							bVisible: false
+						});
 
-                        //remove the id
-                        columns.push({
-                            bVisible:false
-                        });
+						//increment the difference
+						diff ++;
 
-                        //increment the difference
-                        diff++;
+						//make the div's selectable
+						$(this).find('tr.odd input[type="checkbox"],tr.even input[type="checkbox"]').live('change',function(){
+							var tr = $(this).closest('tr');
 
-                        //make the div's selectable
-                        $(this).find('tr.odd input[type="checkbox"],tr.even input[type="checkbox"]').live('change', function () {
-                            var tr = $(this).closest('tr');
+							tr.removeClass('selected');
+							if ($(this).is(':checked')) {
+								tr.addClass('selected');
+							}
+						});
+						$(this).find('tr.odd,tr.even').live('click',function(e){
+							if (!$(e.target).is('input[type="checkbox"]') && !$(e.target).is('a')) {
+								var
+									input = $(this).find('input[type="checkbox"]'),
+									tr = $(this);
 
-                            tr.removeClass('selected');
-                            if ($(this).is(':checked')) {
-                                tr.addClass('selected');
-                            }
-                        });
-                        $(this).find('tr.odd,tr.even').live('click', function (e) {
-                            if (!$(e.target).is('input[type="checkbox"]') && !$(e.target).is('a')) {
-                                var
-                                    input = $(this).find('input[type="checkbox"]'),
-                                    tr = $(this);
+								tr.removeClass('selected');
+								input.parent().removeClass('checked');
 
-                                tr.removeClass('selected');
-                                input.parent().removeClass('checked');
+								if (input.is(':checked')) {
+									input.removeAttr('checked');
+								} else {
+									input.attr('checked','checked');
+									input.parent().addClass('checked');
+									tr.addClass('selected');
+								}
+							}
+						});
+						$(this).find('input[class="check_all"]').live('change',function() {
+							var
+								inputs = $(this).closest('table').find('tr.odd input[type="checkbox"],tr.even input[type="checkbox"]'),
+								trs = $(this).closest('table').find('tr.odd,tr.even');
 
-                                if (input.is(':checked')) {
-                                    input.removeAttr('checked');
-                                } else {
-                                    input.attr('checked', 'checked');
-                                    input.parent().addClass('checked');
-                                    tr.addClass('selected');
-                                }
-                            }
-                        });
-                        $(this).find('input[class="check_all"]').live('change', function () {
-                            var
-                                inputs = $(this).closest('table').find('tr.odd input[type="checkbox"],tr.even input[type="checkbox"]'),
-                                trs = $(this).closest('table').find('tr.odd,tr.even');
+							trs.removeClass('selected');
+							inputs.parent().removeClass('checked');
 
-                            trs.removeClass('selected');
-                            inputs.parent().removeClass('checked');
+							if (!$(this).is(':checked')) {
+								inputs.removeAttr('checked');
+							} else {
+								inputs.attr('checked','checked');
+								inputs.parent().addClass('checked');
+								trs.addClass('selected');
+							}
+						});
 
-                            if (!$(this).is(':checked')) {
-                                inputs.removeAttr('checked');
-                            } else {
-                                inputs.attr('checked', 'checked');
-                                inputs.parent().addClass('checked');
-                                trs.addClass('selected');
-                            }
-                        });
+						//add the callback for the options
+						options.fnDrawCallback = function() {
+							mbe.init.form.checkbox();
+				        };
+					}
 
-                        //add the callback for the options
-                        options.fnDrawCallback = function () {
-                            mbe.init.form.checkbox();
-                        };
-                    }
+					//add the columns
+					for (i=0;i<columnNo-diff;i++) {
+						columns.push(null);
+					}
 
-                    //add the columns
-                    for (i = 0; i < columnNo - diff; i++) {
-                        columns.push(null);
-                    }
+					//add the actions (if needed)
+					if (addActions) {
+						//add the th and the extra column (if needed)
+						_this.find('.trth').append('<th style="text-align: center">'+mbe.init.dataTable.expressionActions+'</th>');
+						if (!url) {
+							_this.find('tr:not(.trth)').append('<td></td>');
+						}
 
-                    //add the actions (if needed)
-                    if (addActions) {
-                        //add the th and the extra column (if needed)
-                        _this.find('.trth').append('<th style="text-align: center">' + mbe.init.dataTable.expressionActions + '</th>');
-                        if (!url) {
-                            _this.find('tr:not(.trth)').append('<td></td>');
-                        }
+						//add the actions column
+						columns.push({
+							sName: 'edit',
+							bSearchable: false,
+							bSortable: false,
+							fnRender: function(obj) {
+								var _url = mbe.init.dataTable.editUrl.replace('$ID$',obj.aData[1]);
+								return '<a href="' + _url + '" class="edit">' + mbe.init.dataTable.expressionEdit + '</a>';
+							}
+						});
+					}
 
-                        //add the actions column
-                        columns.push({
-                            sName:'edit',
-                            bSearchable:false,
-                            bSortable:false,
-                            fnRender:function (obj) {
-                                var _url = mbe.init.dataTable.editUrl.replace('$ID$', obj.aData[1]);
-                                return '<a href="' + _url + '" class="edit">' + mbe.init.dataTable.expressionEdit + '</a>';
-                            }
-                        });
-                    }
+					if (columns) {
+						options.aoColumns = columns;
+					}
+					if (url) {
+						options.bProcessing = true;
+				        options.bServerSide = true;
+						options.sAjaxSource = url;
+					}
+					if (orderColumn) {
+						options.aaSorting = [[orderColumn+1, orderColumnOrder?orderColumnOrder:'desc']];
+					}
 
-                    if (columns) {
-                        options.aoColumns = columns;
-                    }
-                    if (url) {
-                        options.bProcessing = true;
-                        options.bServerSide = true;
-                        options.sAjaxSource = url;
-                    }
-                    if (orderColumn) {
-                        options.aaSorting = [
-                            [orderColumn + 1, orderColumnOrder ? orderColumnOrder : 'desc']
-                        ];
-                    }
+					//rewrite the server data
+					options.fnServerData = function ( url, data, callback, settings ) {
+						if (typeof data == 'object') {
+							data.push({
+								name: 'useCheckbox',
+								value: useCheckbox?1:0
+							});
+							data.push({
+								name: 'addActions',
+								value: addActions?1:0
+							});
+						}
+						settings.jqXHR = $.ajax( {
+							"url": url,
+							"data": data,
+							"success": function (json) {
+								if (json.aaData) {
+									if (useCheckbox || addActions) {
+										for (x in json.aaData) {
+											if (useCheckbox) {
+												json.aaData[x].unshift('');
+											}
+											if (addActions) {
+												json.aaData[x].push('');
+											}
+										}
+									}
+								}
+								$(settings.oInstance).trigger('xhr', settings);
+								callback( json );
+							},
+							"dataType": "json",
+							"cache": false,
+							"error": function (xhr, error, thrown) {
+								if ( error == "parsererror" ) {
+									alert( "DataTables warning: JSON data from server could not be parsed. "+
+										"This is caused by a JSON formatting error." );
+								}
+							}
+						} );
+					}
 
-                    //rewrite the server data
-                    options.fnServerData = function (url, data, callback, settings) {
-                        if (typeof data == 'object') {
-                            data.push({
-                                name:'useCheckbox',
-                                value:useCheckbox ? 1 : 0
-                            });
-                            data.push({
-                                name:'addActions',
-                                value:addActions ? 1 : 0
-                            });
-                        }
-                        settings.jqXHR = $.ajax({
-                            "url":url,
-                            "data":data,
-                            "success":function (json) {
-                                if (json.aaData) {
-                                    if (useCheckbox || addActions) {
-                                        for (x in json.aaData) {
-                                            if (useCheckbox) {
-                                                json.aaData[x].unshift('');
-                                            }
-                                            if (addActions) {
-                                                json.aaData[x].push('');
-                                            }
-                                        }
-                                    }
-                                }
-                                $(settings.oInstance).trigger('xhr', settings);
-                                callback(json);
-                            },
-                            "dataType":"json",
-                            "cache":false,
-                            "error":function (xhr, error, thrown) {
-                                if (error == "parsererror") {
-                                    alert("DataTables warning: JSON data from server could not be parsed. " +
-                                        "This is caused by a JSON formatting error.");
-                                }
-                            }
-                        });
-                    }
-
-                    //init the table
-                    mbe.init.dataTable.vars[$(this).index()] = $(this).dataTable(options);
-                });
+					//init the table
+					mbe.init.dataTable.vars[$(this).index()] = $(this).dataTable(options);
+				});
 
 				mbe.init.form.select('.page .block .content .dataTables_wrapper .table-top select');
 			}
+		},
+		fancybox: function() {
+			$('a.fancybox').fancybox({
+				centerOnScroll: true,
+				onStart:function(items,index,opts) {
+					var obj = $(items[index]).parent();
+					if (obj.hasClass('drag_sort')) {
+						obj.removeClass('drag_sort');
+						return false;
+					}
+				}
+			});
 		},
 		imageList: function() {
 			//image hover
@@ -1451,7 +1513,11 @@ mbe = {
 				if (!shouldContinue) {
 					e.preventDefault();
 
-					
+					if (mbe.agent.iphone()) {
+						$(this).find('.message').hide();
+					} else {
+						$(this).find('.message').remove();
+					}
 					$(this).prepend('<div class="message error">Do not leave the fields empty</div>');
 
 					mbe.init.message.small();
