@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-require 'rdiscount'
+#require 'rdiscount'
 require 'RedCloth'
 
 class Tooltip < ActiveRecord::Base
