@@ -9,12 +9,18 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require jdpicker
- *= require visualize
- *= require datatable
- *= require style
- *= require soft-red
- *= require fonts
+ *= require mbe-admin/jwysiwyg/jquery.wysiwyg
+ *= require mbe-admin/fancybox/jquery.fancybox
+ *= require mbe-admin/jdpicker/jdpicker
+ *= require mbe-admin/jdpicker/jdpicker
+ *= require mbe-admin/jquery.uniform/css/uniform.default
+ *= require mbe-admin/visualize/css/visualize
+ *= require mbe-admin/datatable
+ *= require mbe-admin/style
+ *= require mbe-admin/soft-red
+ *= require mbe-admin/fonts
+ *= require mbe-admin/fullcalendar/fullcalendar
  *= require simple_tooltip
- *= require fullcalendar
- */
+ *= require mbe-admin/mittenin_overrides
+ *= require mbe-admin/mittenin_soft-red_overrides
+*/

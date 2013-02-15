@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
   <head>
-    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <title><%= @config.title %></title>
 
     <%= stylesheet_link_tag "application", :media => :screen %>
     <%= stylesheet_link_tag "print", :media => :print %>
     <!--[if lte IE 8]>
-    <%= stylesheet_link_tag "ie" %>
+    <%= stylesheet_link_tag "mbe-admin/ie" %>
     <![endif]-->
     <!--[if lt IE 8]>
-    <%= stylesheet_link_tag "ie-old" %>
+    <%= stylesheet_link_tag "mbe-admin/ie-old" %>
     <![endif]-->
     <!--[if IE 9]>
-    <%= stylesheet_link_tag "ie9" %>
+    <%= stylesheet_link_tag "mbe-admin/ie9" %>
     <![endif]-->
 
     <%= javascript_include_tag "application" %>
@@ -31,21 +31,6 @@
           <ul class="main-menu">
             <%= render :partial => "shared/menue", :collection => @menue_top, :as => :menue %>
             <li><%= link_to_function(image_tag("print.png", :style => "vertical-align:middle", :border => 0, :alt => t('print'), :title => t('print')), "javascript:print()") %></li>
-            <!--<li><a href="/">Thema</a>
-              <ul>
-                <li><%= link_to "Rot", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-red'}, html_options={:class => 'user-menu-link'}  %></li>
-                <li><%= link_to "Orange", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'crimson-orange'}, html_options={:class => 'user-menu-link'}  %></li>
-                <li><%= link_to "Grün", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-green'}, html_options={:class => 'user-menu-link'}  %></li>
-                <li><%= link_to "Blau", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-blue'}, html_options={:class => 'user-menu-link'}  %></li>
-                <li><%= link_to "Purpur", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-purple'}, html_options={:class => 'user-menu-link'}  %></li>
-                <li><%= link_to "Gelb", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'soft-yellow'}, html_options={:class => 'user-menu-link'}  %></li>
-                <li><%= link_to "Grau", url_options={:controller => 'menues', :action => 'change_theme', :theme => 'blue-gray'}, html_options={:class => 'user-menu-link'}  %></li>
-              </ul>
-            </li>-->
-          </ul>
-          <ul class="secondary-menu">
-            <!--<li><%= link_to (image_tag('/images/at.gif', :style => "padding-left:10px; padding-top:20px; padding-right:10px")), url_options={:controller => 'menues', :action => 'change_language', :language => 'de'} %></li>
-            <li><%= link_to (image_tag('/images/en.gif', :style => "padding-left:10px; padding-top:20px; padding-right:10px")), url_options={:controller => 'menues', :action => 'change_language', :language => 'en'} %></li>-->
           </ul>
         </div>
       </div>

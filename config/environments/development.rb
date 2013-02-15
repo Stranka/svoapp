@@ -11,10 +11,6 @@ RailsNuke::Application.configure do
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
-
-  # HAS: 20120508: Umstellung auf Rails 3.2
-  # config.action_view.debug_rjs             = true
-
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
@@ -29,8 +25,7 @@ RailsNuke::Application.configure do
   # HAS: 20120508: Rails 3.2
   # Do not compress assets
   config.assets.compress = false
+  
   # Expands the lines which load the assets
-  #config.assets.debug = true
-
+  config.assets.debug = true
 end
-

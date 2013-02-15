@@ -32,7 +32,11 @@ class ApplicationController < ActionController::Base
     @config.theme.nil? ? @config.theme = "gray" : true
     @stylesheet = @config.theme + '/nuke.css'
     @printsheet = @config.theme + '/print.css'
-    @imagepath = '/stylesheets/' + @config.theme + '/images/'
+
+    # HAS: 20130215 Bilder haben in stylesheets nichts zu suchen
+    # @imagepath = '/stylesheets/' + @config.theme  + '/images/'
+    @imagepath = '/assets/' + @config.theme + '/'
+
     @logo = @imagepath + 'logo.png'
     @plus = @imagepath +  'plus.png'
     @minus = @imagepath + 'minus.png'

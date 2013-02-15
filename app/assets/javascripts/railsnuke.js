@@ -7,7 +7,6 @@ $(function(){
         8000);
 });
 
-//<script type="text/javascript">
 function menue_action_auswahl()
 {
     var co = document.menue.menue_the_controller;
@@ -44,4 +43,3 @@ function menue_action_auswahl()
         $(document.getElementById("the_id")).hide()
     }
 };
-//</script>
