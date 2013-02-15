@@ -7,18 +7,18 @@
     <%= stylesheet_link_tag "application", :media => :screen %>
     <%= stylesheet_link_tag "print", :media => :print %>
     <!--[if lte IE 8]>
-    <%= stylesheet_link_tag "mbe-admin/ie" %>
+      <%= stylesheet_link_tag "mbe-admin/ie" %>
     <![endif]-->
-    <!--[if lt IE 8]>
+      <!--[if lt IE 8]>
     <%= stylesheet_link_tag "mbe-admin/ie-old" %>
     <![endif]-->
     <!--[if IE 9]>
-    <%= stylesheet_link_tag "mbe-admin/ie9" %>
+      <%= stylesheet_link_tag "mbe-admin/ie9" %>
     <![endif]-->
 
     <%= javascript_include_tag "application" %>
 		<!--[if IE]>
-    <%= javascript_include_tag "excanvas.js", :media => :screen %>
+      <%= javascript_include_tag "excanvas.js", :media => :screen %>
 		<![endif]-->
 
     <%= csrf_meta_tag %>
