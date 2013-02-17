@@ -16,6 +16,8 @@ gem "tabs_on_rails"
 gem "paperclip", "~> 2.7" # Bildupload
 gem "ckeditor", "3.7.0.rc3" # WYSIWYG-Editor
 
+gem "truncate_html"         # Für truncate_html
+
 # HAS 20130212: auskommentiert wegen Installationsproblem 64 Bit.
 # gem 'simple-tooltip'
 gem 'RedCloth'

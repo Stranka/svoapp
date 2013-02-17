@@ -137,6 +137,6 @@ body {
     border-radius: 10px;
 }
 
-div.button span {
+div.button span, div.selector span {
   background-image: none;
 }

@@ -3,7 +3,7 @@
 	color: #ffe8e8;
 
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
-
+  height:auto;
 	background-color: #a72121;
 	background: -moz-linear-gradient(top, #a72121, #8c1c1c);
 	background: -o-linear-gradient(top, #a72121, #8c1c1c);

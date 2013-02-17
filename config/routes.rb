@@ -59,7 +59,11 @@ RailsNuke::Application.routes.draw do
     member do
       get 'permalink'
       get 'show_content'
+      get 'show_blogpost'
       post 'send_email'
+    end
+    collection do
+      get 'index_blogposts'
     end
   end
 

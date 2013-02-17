@@ -6,11 +6,9 @@ class Menue < ActiveRecord::Base
   acts_as_tree :order => "position"
   acts_as_list :scope => :parent_id
 
-  AC_ARTICLE = ['show_content', 'index']
+  AC_ARTICLE = ['show_content', 'index', 'index_blogposts']
   AC_NEWS = ['all_news', 'index']
   AC_REST = ['index']
-
-
 
   def check_controller?
     case self.the_controller

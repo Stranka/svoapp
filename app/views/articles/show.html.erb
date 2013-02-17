@@ -43,6 +43,10 @@
             <td width="30%"><%= Article.human_attribute_name('auth_level_edit') %></td>
             <td><%= @article.auth_level_edit %></td>
           </tr>
+          <tr class="<%= cycle('', 'even') %>">
+            <td width="30%"><%= Article.human_attribute_name('usage') %></td>
+            <td><%= @article.usage %></td>
+          </tr>
         </tbody>
       </table>
     </div>

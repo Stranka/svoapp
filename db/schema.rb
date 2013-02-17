@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120309172124) do
+ActiveRecord::Schema.define(:version => 20130217145011) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20120309172124) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "auth_level_edit", :default => 0, :null => false
+    t.string   "usage"
   end
 
   create_table "assets", :force => true do |t|

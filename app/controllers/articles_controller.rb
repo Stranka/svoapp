@@ -12,6 +12,10 @@ require "uri"
     end
   end
 
+  def index_blogposts
+    @blogposts = Article.order("updated_at DESC").find_all_by_usage("blog")
+  end
+
   # GET /articles/1
   # GET /articles/1.xml
   def show
@@ -21,6 +25,10 @@ require "uri"
       flash[:notice] = t('access denied')
       redirect_to(:action => 'index')
     end
+  end
+
+  def show_blogpost
+    @blogpost = Article.where(id: params[:id], usage: "blog").first
   end
 
   # GET /articles/1

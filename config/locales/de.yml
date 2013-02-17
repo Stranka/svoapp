@@ -339,6 +339,7 @@ de:
         content: 'Inhalt'
         auth_level_edit: 'Berechtigung Ändern'
         auth_level: 'Berechtigung Anzeigen'
+        usage: 'Verwendung'
 
       product:
         shorttext: 'Kurztext'

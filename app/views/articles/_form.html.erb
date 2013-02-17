@@ -12,5 +12,6 @@
   <p><%= f.cktext_area :content, :width=>'100%', :height=>'500px', :ckeditor => {:language => "de"} %></p>
   <p><%= f.label :auth_level %><br /><%= f.number_field :auth_level, options = {:size => 5, :min => '0', :max => '100'} %></p>
   <p><%= f.label :auth_level_edit %><br /><%= f.number_field :auth_level_edit, options = {:size => 5, :min => '0', :max => '100'} %></p>
+  <p><%= f.label :usage %><br /><%= f.select :usage, Article::USAGE %></p>
   <p><%= f.submit %></p>
 <% end %> 

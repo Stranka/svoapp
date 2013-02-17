@@ -1,0 +1,22 @@
+<% if flash[:notice]%>
+  <div class="big-message success">
+    <h2><%= flash[:notice] %></h2>
+    <div class="bg"></div>
+    <div class="close"></div>
+  </div>
+<% end %>
+
+<% @blogposts.each do |blogpost| %>
+  <div class="block">
+    <div class="top">
+      <h2><%= (blogpost.name) %></h2>
+    </div>
+    <div class="content grid">
+      <div class="column grid-<%= 16 %>">
+        <%= raw(truncate_html(blogpost.content, :length => 750)) %>
+        <%= button_to "Weiter lesen", show_blogpost_article_path(blogpost), method: :get %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+<% end %>
