@@ -87,22 +87,40 @@ ActiveRecord::Schema.define(:version => 20130217145011) do
   end
 
   create_table "ckeditor_assets", :force => true do |t|
-    t.string   "data_file_name",                                 :null => false
+    t.string   "data_file_name",                  :null => false
     t.string   "data_content_type"
     t.integer  "data_file_size"
     t.integer  "assetable_id"
     t.string   "assetable_type",    :limit => 30
-    t.string   "type",              :limit => 25
-    t.string   "guid",              :limit => 10
-    t.integer  "locale",            :limit => 1,  :default => 0
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "type",              :limit => 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "fk_assetable"
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_assetable_type"
-  add_index "ckeditor_assets", ["user_id"], :name => "fk_user"
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "configparams", :force => true do |t|
+    t.boolean  "block_left"
+    t.integer  "block_left_width"
+    t.boolean  "block_right"
+    t.integer  "block_right_width"
+    t.integer  "pagewidth"
+    t.boolean  "block_headerline"
+    t.string   "position_logo"
+    t.boolean  "topimage"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "articles_name"
+    t.boolean  "manage_tree",       :default => false
+    t.boolean  "shop_active",       :default => false
+    t.string   "theme"
+    t.string   "title"
+    t.boolean  "show_title",        :default => false
+    t.string   "copyright"
+  end
 
   create_table "configurations", :force => true do |t|
     t.boolean  "block_left"
