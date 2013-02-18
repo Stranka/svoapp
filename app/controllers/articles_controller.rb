@@ -123,6 +123,8 @@ require "uri"
   # GET /articles/1
   # GET /articles/1.xml
   def show_content
+    ActiveRecord::SessionStore::Session.delete_all(["updated_at < ?", 24.hours.ago])
+    Tree.delete_all(["updated_at < ?", 24.hours.ago])
     @showarticle = Article.find(:first, :conditions => ['id = ? and auth_level <= ?', params[:id], @auth_show])
     if @showarticle == nil
       @showarticle = Article.new
