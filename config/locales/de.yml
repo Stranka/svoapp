@@ -1,5 +1,4 @@
 de:
-
 #Menues
   'test': 'ich bin ein ganz furchtbar langer menüeintrag'
   'Home': 'Start'
@@ -470,4 +469,3 @@ de:
       cancel: "Abbrechen"
       upload: "Upload"
       delete: "Löschen"
-

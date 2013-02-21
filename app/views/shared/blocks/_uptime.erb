@@ -1,0 +1,7 @@
+<% upsince = Time.new(2010, 10, 24, 13, 21, 01) %> <% diff = Time.now() - upsince %>
+<p>
+	Unsere Server hatten keine ungeplante Downtime seit <nobr><%= l upsince, format: :long_all %></nobr>, also seit<br/>  
+	<strong>
+		<%= diff.div(86400) %> Tage(n) <%= (diff.remainder(86400)/3600).to_i %> Stunde(n) <%= (diff.remainder(3600)/60).to_i %> Minute(n) <%= diff.remainder(60).to_i %> Sekunde(n).
+	</strong>
+</p>

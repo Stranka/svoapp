@@ -29,6 +29,13 @@
         <%= render :partial => "shared/blocks/news", :collection => read_block_news, :as => :news %>
       </fieldset>
 
+
+    <% when 'uptime' %>
+      <fieldset>
+        <legend><%= t(block.name) %></legend>
+        <%= render :partial => "shared/blocks/uptime" %>
+      </fieldset>      
+
     <% when 'customers' %>
       <fieldset>
         <legend><%= t(block.name) %></legend>
