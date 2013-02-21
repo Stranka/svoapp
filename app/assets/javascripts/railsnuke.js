@@ -7,6 +7,15 @@ $(function(){
         8000);
 });
 
+$(function(){
+    $('.logo img:gt(0)').hide();
+    setInterval(function(){
+            $('.logo :first-child').fadeOut(3000)
+                .next('img').fadeIn(3000)
+                .end().appendTo('.logo');},
+        4000);
+});
+
 function menue_action_auswahl()
 {
     var co = document.menue.menue_the_controller;

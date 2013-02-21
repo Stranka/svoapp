@@ -4,7 +4,7 @@ class Block < ActiveRecord::Base
   validates_presence_of :name, :position, :fieldorder, :blockid
 
   BLOCKID = ['menue','login', 'productclass', 'news', 'referenzen', 'kundenmeinungen', 'basket', 'search',
-             'productsearch',
+             'productsearch', 'customers',
              'userblock1', 'userblock2', 'userblock3', 'userblock4', 'userblock5', 'userblock6',
              'userblock7', 'userblock8', 'userblock9']
 
