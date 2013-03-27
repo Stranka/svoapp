@@ -23,7 +23,7 @@ gem "truncate_html"         # Für truncate_html
 gem 'RedCloth'
 
 # HAS 20120508: Vertriebsemails
-gem 'premailer-rails3'
+gem 'premailer-rails'
 gem 'nokogiri'
 
 group :assets do
