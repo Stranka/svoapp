@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
                                            :tootips, :tooltip_content]
 
   before_filter :set_locale
+  before_filter :domain_redirect
 
   helper_method :current_user_session, :current_user
 
@@ -133,5 +134,12 @@ class ApplicationController < ActionController::Base
   def default_url_options(options={})
     logger.debug "default_url_options is passed options: #{options.inspect}\n"
     { :locale => I18n.locale }
+  end
+
+  def domain_redirect
+    unless (request.domain == 'mittenin.at'  && request.subdomain == 'www') || request.domain == 'localhost'
+      new_url = 'http://www.mittenin.at' + request.path
+      redirect_to new_url, :status => 301
+    end
   end
 end
