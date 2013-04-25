@@ -32,6 +32,14 @@
             <td><%= @article.name %></td>
           </tr>
           <tr class="<%= cycle('', 'even') %>">
+            <td width="30%"><%= Article.human_attribute_name('meta_tag_title') %></td>
+            <td><%= @article.meta_tag_title %></td>
+          </tr>
+          <tr class="<%= cycle('', 'even') %>">
+            <td width="30%"><%= Article.human_attribute_name('meta_tag_keywords') %></td>
+            <td><%= @article.meta_tag_keywords %></td>
+          </tr>
+          <tr class="<%= cycle('', 'even') %>">
             <td width="30%"><%= Article.human_attribute_name('format') %></td>
             <td><%= @article.format %></td>
           </tr>

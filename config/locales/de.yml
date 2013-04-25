@@ -340,6 +340,8 @@ de:
         auth_level_edit: 'Berechtigung Ändern'
         auth_level: 'Berechtigung Anzeigen'
         usage: 'Verwendung'
+        meta_tag_title: 'Meta-Tag Description'
+        meta_tag_keywords: 'Meta-Tag Keywords'
 
       product:
         shorttext: 'Kurztext'

@@ -22,6 +22,10 @@
 		<![endif]-->
 
     <%= csrf_meta_tag %>
+    <meta name="keywords" content="<%= yield :keywords %>" />
+    <meta name="description" content="<%= yield :meta_tag_description %>" />
+
+
   </head>
   <body class="bck-3">
     <div class="page <%= RailsNuke::Application.config.theme %> liquid" style="width:<%=@config.pagewidth%>%; text-align:'center'">

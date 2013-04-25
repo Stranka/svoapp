@@ -1,3 +1,6 @@
+<% content_for :keywords, @showarticle.meta_tag_keywords -%>
+<% content_for :meta_tag_description, @showarticle.meta_tag_title -%>
+
 <% if flash[:notice]%>
   <div class="big-message success">
     <h2><%= flash[:notice] %></h2>
