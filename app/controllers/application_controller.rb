@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :get_config
   before_filter :get_blocks
-  before_filter :require_user, :except => [:articles,:showme,:show_content,:permalink,:search_all, :index_blogposts, :show_blogpost
+  before_filter :require_user, :except => [:articles,:showme,:show_content,:permalink,:search_all, :index_blogposts, :show_blogpost,
                                            :products,:show_products_productclass, :product_detail,
                                            :baskets,:add_to_basket,:show_my_open_order,:checkout, :checkout_step_1,
                                            :productclasses,:click,
