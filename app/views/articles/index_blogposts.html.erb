@@ -6,17 +6,33 @@
   </div>
 <% end %>
 
-<% @blogposts.each do |blogpost| %>
-  <div class="block">
-    <div class="top">
-      <h2><%= (blogpost.name) %></h2>
-    </div>
-    <div class="content grid">
-      <div class="column grid-<%= 16 %>">
-        <%= raw(truncate_html(blogpost.content, :length => 750)) %>
-        <%= button_to "Weiter lesen", show_blogpost_article_path(blogpost), method: :get %>
-      </div>
-      <div class="clear"></div>
-    </div>
+
+<div class="block">
+  <div class="top">
+    <h2>Blog</h2>
   </div>
-<% end %>
+  <div class="content grid">
+    <% if @config.block_left == true %>
+      <div class="column grid-<%=@config.block_left_width%>">
+        <%= render :partial => "shared/blocks/blocks", :collection => @lblocks, :as => :block %>
+      </div>
+    <% end %>
+    <div class="column grid-<%= 16 - @config.block_left_width - @config.block_right_width %>">
+
+      <% @blogposts.each do |blogpost| %>
+        <h1><%= (blogpost.name) %></h1>
+        <%= raw(truncate_html(blogpost.content, :length => 1500)) %>
+        <%= button_to "Weiter lesen", show_blogpost_article_path(blogpost), method: :get %>
+        <p>&nbsp;</p>
+        <hr>
+      <% end %>
+
+    </div>
+    <% if @config.block_right == true %>
+      <div class="column grid-<%=@config.block_right_width%>">
+        <%= render :partial => "shared/blocks/blocks", :collection => @rblocks, :as => :block %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>
