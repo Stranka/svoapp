@@ -1,5 +1,5 @@
 <% if @menue.errors.any? %>
-    <div class="big-message error" xmlns="http://www.w3.org/1999/html">
+    <div class="message error" xmlns="http://www.w3.org/1999/html">
       <h2><%= pluralize(@menue.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
       <% @menue.errors.full_messages.each do |msg| %>
         <p>&bull; <%= msg %></p>

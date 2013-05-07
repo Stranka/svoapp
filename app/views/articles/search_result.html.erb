@@ -1,20 +1,10 @@
-<% if flash[:notice]%>
-  <div class="big-message success">
-    <h2><%= flash[:notice] %></h2>
-    <div class="bg"></div>
-    <div class="close"></div>
-  </div>
-<% end %>
-
 <div class="block">
   <div class="top">
     <h2><%= @search.count %> <%= t('searchstring')%> '<%= params[:aquery] %>'</h2>
   </div>
   <div class="content">
-
-    <% if flash[:notice]%>
-      <%= flash[:notice] %> '<%= params[:aquery] %>'
-
+    <% if flash[:notice] %>
+      <div class="message success"><%= flash[:notice]  %>'<%= params[:aquery] %>'</div>
     <% else %>
       <div class="vertical-tabs">
         <div class="tab-list">

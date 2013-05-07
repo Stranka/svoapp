@@ -1,19 +1,19 @@
-<% if @news.errors.any? %>
-  <div class="big-message error">
-    <h2><%= pluralize(@news.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
-    <% @news.errors.full_messages.each do |msg| %>
-      <p>&bull; <%= msg %></p>
-    <% end %>
-    <div class="bg"></div>
-    <div class="close"></div>
-  </div>
-<% end %>
-
 <div class="block">
   <div class="top">
     <h2><%= t('Administration') + ' ' + News.model_name.human %></h2>
   </div>
   <div class="content">
+    <% if @news.errors.any? %>
+      <div class="message error">
+        <h2><%= pluralize(@news.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
+        <ul>
+          <% @news.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <%= form_for(@news) do |f| %>
       <fieldset class="login">
         <legend><%= t(News.model_name.human) %></legend>

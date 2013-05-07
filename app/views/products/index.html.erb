@@ -1,16 +1,12 @@
-<% if flash[:notice]%>
-  <div class="big-message success">
-    <h2><%= flash[:notice] %></h2>
-    <div class="bg"></div>
-    <div class="close"></div>
-  </div>
-<% end %>
-
 <div class="block">
   <div class="top">
     <h2><%= t('Administration') + ' ' + Product.model_name.human %></h2>
   </div>
   <div class="content">
+    <% if flash[:notice] %>
+      <div class="message success"><%= flash[:notice] %></div>
+    <% end %>
+
     <div class="dataTables_wrapper">
       <table class="listing data-table">
         <thead>
@@ -23,8 +19,8 @@
             <th><%= Product.human_attribute_name('weight') %></th>
             <th><%= t('action') %></th>
           </tr>
-        </thead>  
-    
+        </thead>
+
         <tbody>
         <% @products.each do |product| %>
           <tr class="<%= cycle('odd', '') %>">

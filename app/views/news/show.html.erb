@@ -1,16 +1,12 @@
-<% if flash[:notice]%>
-  <div class="big-message success">
-    <h2><%= flash[:notice] %></h2>
-    <div class="bg"></div>
-    <div class="close"></div>
-  </div>
-<% end %>
-
 <div class="block">
   <div class="top">
     <h2><%= t('Administration') + ' ' + News.model_name.human %></a> <i><%= @news.title %></i></h2>
   </div>
   <div class="content">
+    <% if flash[:notice] %>
+      <div class="message success"><%= flash[:notice] %></div>
+    <% end %>
+
     <p align="right"><%= link_to t('Edit'), edit_news_path(@news) %> | <%= link_to t('Back'), news_index_path %></p>
     <table class="listing">
       <thead>

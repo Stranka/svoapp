@@ -1,5 +1,5 @@
 <% if @productclass.errors.any? %>
-  <div class="big-message error">
+  <div class="message error">
     <h2><%= pluralize(@productclass.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
     <% @productclass.errors.full_messages.each do |msg| %>
       <p>&bull; <%= msg %></p>

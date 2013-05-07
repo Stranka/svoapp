@@ -1,17 +1,13 @@
-<% if flash[:notice]%>
-  <div class="big-message success">
-    <h2><%= flash[:notice] %></h2>
-    <div class="bg"></div>
-    <div class="close"></div>
-  </div>
-<% end %>
-
 <div class="block">
   <div class="top">
     <h2><%= t('Administration') + ' ' + User.model_name.human %> <i><%= @user.login %></i></h2>
   </div>
 
   <div class="content">
+    <% if flash[:notice] %>
+      <div class="message success"><%= flash[:notice] %></div>
+    <% end %>
+
     <p align="right"><%= link_to t('Edit'), edit_user_path(@user) %> | <%= link_to t('Back'), users_path %></p>
     <table class="listing">
       <thead>

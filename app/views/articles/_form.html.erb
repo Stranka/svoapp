@@ -1,10 +1,12 @@
 <%= form_for(@article) do |f| %>
   <% if @article.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="message error">
       <h2><%= pluralize(@article.errors.count, t('error'))%> <%= t('error_explanation') %></h2>
-      <% @article.errors.full_messages.each do |msg| %>
-        <p>&bull; <%= msg %></p>
-      <% end %>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
 

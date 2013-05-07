@@ -1,21 +1,14 @@
-<% if flash[:notice] %>
-  <div class="big-message success">
-    <h2><%= flash[:notice] %></h2>
-    <div class="bg"></div>
-    <div class="close"></div>
-  </div>
-<% end %>
-
 <div class="block">
   <div class="top">
     <% if params[:pquery] == '' or params[:pquery] == nil %>
       <h2><%= t('Listing Category ') + t(@productclass.name) %></h2>
-    <% else %>
-      <h2><%= flash[:notice] %></h2>
-      <% flash[:notice] = nil %>
     <% end %>
   </div>
   <div class="content">
+    <% if flash[:notice] %>
+      <div class="message success"><%= flash[:notice] %></div>
+    <% end %>
+
     <table class="listing">
       <thead>
       <tr>

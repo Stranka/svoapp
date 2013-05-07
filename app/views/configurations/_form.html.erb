@@ -1,5 +1,5 @@
 <% if @configuration.errors.any? %>
-    <div class="big-message error">
+    <div class="message error">
       <h2><%= pluralize(@configuration.errors.count, t('error')) %> <%= t('error_explanation') %></h2>
       <% @configuration.errors.full_messages.each do |msg| %>
         <p>&bull; <%= msg %></p>

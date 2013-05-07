@@ -1,16 +1,12 @@
-<% if flash[:notice]%>
-  <div class="big-message success">
-    <h2><%= flash[:notice] %></h2>
-    <div class="bg"></div>
-    <div class="close"></div>
-  </div>
-<% end %>
-
 <div class="block">
   <div class="top">
     <h2><%= t('Administration') + ' ' + Basket.model_name.human %></h2>
   </div>
   <div class="content">
+    <% if flash[:notice] %>
+      <div class="message success"><%= flash[:notice] %></div>
+    <% end %>
+
     <p align="right"><%= link_to t('Edit'), edit_basket_path(@basket) %> | <%= link_to t('Back'), baskets_path %></p>
 
     <table class="listing">
@@ -55,7 +51,7 @@
         <td width="30%"><%= Basket.human_attribute_name('store') %></td>
         <td><%= @basket.store %></td>
       </tr>
-    </table>        
+    </table>
 
     <table class="listing">
       <thead>

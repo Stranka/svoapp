@@ -1,16 +1,12 @@
-<% if flash[:notice]%>
-  <div class="big-message success" xmlns="http://www.w3.org/1999/html">
-    <h2><%= flash[:notice] %></h2>
-    <div class="bg"></div>
-    <div class="close"></div>
-  </div>
-<% end %>
-
 <div class="block">
   <div class="top">
     <h2><%= t('Show ') + Product.model_name.human %> <i><%= @product.shorttext %></i></h2>
   </div>
   <div class="content">
+    <% if flash[:notice] %>
+      <div class="message success"><%= flash[:notice] %></div>
+    <% end %>
+
     <div class="vertical-tabs">
       <div class="tab-list">
         <ul>

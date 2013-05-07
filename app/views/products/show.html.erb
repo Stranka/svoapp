@@ -1,16 +1,12 @@
-<% if flash[:notice]%>
-  <div class="big-message success">
-    <h2><%= flash[:notice] %></h2>
-    <div class="bg"></div>
-    <div class="close"></div>
-  </div>
-<% end %>
-
 <div class="block">
   <div class="top">
     <h2><%= t('Administration') + ' ' + Product.model_name.human %></h2>
   </div>
   <div class="content">
+    <% if flash[:notice] %>
+      <div class="message success"><%= flash[:notice] %></div>
+    <% end %>
+
     <p align="right"><%= link_to t('Edit'), edit_product_path(@product) %> | <%= link_to t('Back'), products_path %></p>
     <table class="listing">
       <thead>
@@ -19,7 +15,7 @@
           <th><%= t('Value')%></th>
         </tr>
       </thead>
-    
+
       <tbody>
         <tr class="<%= cycle('', 'even') %>">
           <td width="30%"><%= Product.human_attribute_name('shorttext') %></td>
@@ -117,4 +113,4 @@
     </table>
     <p><%= link_to t('Edit'), edit_product_path(@product) %> | <%= link_to t('Back'), products_path %></p>
   </div>
-</div>  
+</div>
