@@ -7,6 +7,23 @@
       <div class="message success"><%= flash[:notice] %></div>
     <% end %>
 
+    <td><%= menue.ontop %></td>
+    <td><%= menue.active %></td>
+
+    <td align="right"><nobr><%= link_to image_tag("show.png", :border=>0, :alt => t('show'), :title => t('show')), menue %>
+    <%= link_to image_tag("edit.png", :border=>0, :alt => t('edit'), :title => t('edit')), edit_menue_path(menue) %>
+    <%= link_to image_tag("delete.png", :border=>0, :alt => t('delete'), :title => t('delete')), menue, :confirm => t('Are you sure?'), :method => :delete %></nobr></td>
+
+    </tr>
+<% end %>
+
+
+  <tr class="linemain">
+    <td colspan="8">
+  <%= link_to t('New ') + Menue.human_name, new_menue_path %>
+    </td>
+  </tr>
+
     <div class="dataTables_wrapper">
       <table class="listing data-table">
         <thead>

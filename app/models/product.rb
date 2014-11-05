@@ -6,11 +6,11 @@ class Product < ActiveRecord::Base
                     :styles => { :preview => { :geometry => '85',  :format => :png } }
 
   attr_accessor :delete_sheet
+  
   before_validation { sheet.clear if delete_sheet == '1' }
 
-
-	validates_attachment_size :image, :less_than=> 2.megabytes
 	validates_attachment_size :sheet, :less_than=> 2.megabytes
+
 
   validates_presence_of :shorttext, :productclass_id, :price, :tax_percentage
 
