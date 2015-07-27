@@ -30,8 +30,11 @@
 
     function checkConnection() {
       alert('1111');
-      var networkState = navigator.network.connection.type;
 
+      var networkState = navigator.connection.type;
+      
+      alert(networkState);
+      
       var states = {};
       states[Connection.UNKNOWN]    = 'Unknown connection';
       states[Connection.ETHERNET]    = 'Ethernet connection';
@@ -40,7 +43,7 @@
       states[Connection.CELL_3G]    = 'Cell 3G connection';
       states[Connection.CELL_4G]    = 'Cell 4G connection';
       states[Connection.NONE]       = 'No network connection';
-      alert(networkState);
+
     	if (networkState == Connection.NONE) {
     	  alert('Keine Internetverbindung');
     	  //window.location="local/index.html";
