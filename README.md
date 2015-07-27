@@ -1,2 +1,2 @@
 # svoapp
-App for our soccer-team sv-olbendorf.at
+Phonegap-App for our soccer-team http://sv-olbendorf.at
