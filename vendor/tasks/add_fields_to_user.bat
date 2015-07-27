@@ -1,1 +1,0 @@
-rails generate migration add_fields_to_user title:string wwwadress:string taxnumber:string customernumber:string customergroup_id:integer

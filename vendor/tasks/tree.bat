@@ -1,1 +1,0 @@
-rails generate model trees session_id:string model:string model_id:integer ancestry:string

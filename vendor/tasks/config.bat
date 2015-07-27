@@ -1,2 +1,0 @@
-rails generate scaffold configuration block_left:boolean block_left_width:integer block_right:boolean block_right_width:integer pagewidth:integer block_headerline:boolean position_logo:string topimage:boolean
-  

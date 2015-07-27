@@ -1,5 +1,0 @@
-
-rake db:migrate
-rake db:fixtures:load                   #wenn einzelnes => rake db:fixtures:load FIXTURES=menues.yml
-# Damit ist ein User: admin Passwort: test123 angelegt
-

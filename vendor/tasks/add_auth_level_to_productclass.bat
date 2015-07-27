@@ -1,2 +1,0 @@
-rails generate migration add_auth_level_to_baske auth_level:integer auth_level_edit:integer
-

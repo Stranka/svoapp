@@ -1,6 +1,0 @@
-class Customer < User
-
-
-
-end
-

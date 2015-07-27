@@ -1,1 +1,0 @@
-rails generate scaffold Address street:string city:string zipcode:string country:string telnr:string mobile:string addressable_id:integer addressable_type:string address_type:string

@@ -1,2 +1,0 @@
-rails generate migration add_shop_active_to_configuration shop_active:boolean
-

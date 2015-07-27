@@ -1,2 +1,0 @@
-rails generate migration add_show_title_to_configuration show_title:boolean
-
