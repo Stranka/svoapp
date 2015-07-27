@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="at.sv-olbendorf.mobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://sv-olbendorf.at">
+<widget id="at.sv-olbendorf.mobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://www.sv-olbendorf.at">
     <name>SVO Mobile</name>
     <description>
         Applikation des Sportvereines SV-Olbendorf
