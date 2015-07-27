@@ -28,7 +28,7 @@
     <gap:plugin name="org.apache.cordova.console" />
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.dialogs" />
-    <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
+    <gap:plugin name="org.apache.cordova.network-information" version="1.0.1" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
    
     <icon src="icon.png" />
