@@ -29,7 +29,7 @@
     }
 
     function checkConnection_0212() {
-      alert('0212');
+//      alert('0212');
     var networkState = navigator.connection.type;
 
     var states = {};
@@ -41,7 +41,7 @@
     states[Connection.CELL_4G]  = 'Cell 4G connection';
     states[Connection.CELL]     = 'Cell generic connection';
     states[Connection.NONE]     = 'No network connection';
-          alert(networkState);
+//          alert(networkState);
       if (networkState == Connection.NONE) {
         alert('Keine Internetverbindung');
         //window.location="local/index.html";
