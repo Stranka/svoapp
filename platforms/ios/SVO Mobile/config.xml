@@ -1,5 +1,24 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="at.sv-olbendorf.mobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://www.sv-olbendorf.at">
+    <preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="BackupWebStorage" value="cloud" />
+    <preference name="DisallowOverscroll" value="false" />
+    <preference name="EnableViewportScale" value="false" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="GapBetweenPages" value="0" />
+    <preference name="PageLength" value="0" />
+    <preference name="PaginationBreakingMode" value="page" />
+    <preference name="PaginationMode" value="unpaginated" />
+    <feature name="LocalStorage">
+        <param name="ios-package" value="CDVLocalStorage" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="ios-package" value="CDVConnection" />
+    </feature>
+    <allow-intent href="itms:*" />
+    <allow-intent href="itms-apps:*" />
     <name>SVO Mobile</name>
     <description>
         Applikation des Sportvereines SV-Olbendorf
@@ -16,7 +35,7 @@
     <preference name="webviewbounce" value="true" />
     <preference name="prerendered-icon" value="true" />
     <preference name="OpenAllWhitelistURLsInWebView:" value="YES" />
-    <preference name="stay-in-webview" value="true" /> 
+    <preference name="stay-in-webview" value="true" />
     <preference name="ios-statusbarstyle" value="black-opaque" />
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
@@ -26,9 +45,7 @@
     <preference name="android-minSdkVersion" value="10" />
     <preference name="android-installLocation" value="auto" />
     <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
-   
     <icon src="icon.png" />
-    
     <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/res/screen/android/screen-mdpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="www/res/screen/android/screen-hdpi-portrait.png" />
@@ -41,10 +58,9 @@
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
-    <access uri="*" subdomains="true" />
-    <access origin="tel:*" launch-external="yes" />
-    <access origin="mailto:*" launch-external="yes" />    
-    <plugin name="cordova-plugin-whitelist" version="1" />
+    <access subdomains="true" uri="*" />
+    <access launch-external="yes" origin="tel:*" />
+    <access launch-external="yes" origin="mailto:*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -53,16 +69,4 @@
     <allow-intent href="geo:*" />
     <allow-navigation href="http://www.sv-olbendorf.at/*" />
     <allow-navigation href="http://192.168.2.101:3001/*" />
-    <platform name="android">
-        <access origin="sms:*" launch-external="yes" />
-        <access origin="tel:*" launch-external="yes" />
-        <access origin="mailto:*" launch-external="yes" />      
-        <allow-intent href="market:*" />
-    </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-    </platform>
-    <engine name="ios" spec="^3.8.0" />
-    
 </widget>
