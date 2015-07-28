@@ -23,12 +23,10 @@
     // Cordova is loaded and it is now safe to make calls Cordova methods
     //
     function onDeviceReady() {
-//      window.location="http://www.sv-olbendorf.at/mobiles/starting_point";
+      window.location="http://www.sv-olbendorf.at/mobiles/starting_point";
 //        blinker();
-      setTimeout(function(){
-        console.log('after time');
-        checkConnection();
-      }, 5000); 
+//        checkConnection();
+ 
 
     }
 
