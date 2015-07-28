@@ -25,15 +25,18 @@
     function onDeviceReady() {
 //      window.location="http://www.sv-olbendorf.at/mobiles/starting_point";
 //        blinker();
+      setTimeout(function(){
+        console.log('after time');
         checkConnection();
+      }, 5000); 
+
     }
 
     function checkConnection() {
       alert('OHNE');
       console.log('OHNE');
-      setTimeout(function(){
-        var networkState = navigator.network.connection.type;
-      }, 5000);      
+     
+      var networkState = navigator.network.connection.type;
 console.log(networkState);
       var states = {};
       states[Connection.UNKNOWN]    = 'Unknown connection';
