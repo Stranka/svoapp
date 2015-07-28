@@ -30,7 +30,9 @@
 
     function checkConnection() {
       alert('OHNE');
-      var networkState = navigator.network.connection.type;
+      setTimeout(function(){
+        var networkState = navigator.network.connection.type;
+      }, 5000);      
 
       var states = {};
       states[Connection.UNKNOWN]    = 'Unknown connection';
