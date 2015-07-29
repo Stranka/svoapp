@@ -29,7 +29,7 @@
     <preference name="phonegap-version"       value="3.3.0" />
     
     <icon src="icon.png" />
-    
+    <feature name="http://api.phonegap.com/1.0/network"/>
     <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
     <gap:platform name="android" />   
        
