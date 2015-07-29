@@ -27,6 +27,7 @@
     <preference name="android-installLocation" value="auto" />
     
     <preference name="phonegap-version"       value="3.7.0" />
+    <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
     
     <icon src="icon.png" />
        
@@ -45,6 +46,7 @@
     <access origin="tel:*" launch-external="yes" />
     <access origin="mailto:*" launch-external="yes" />    
     <plugin name="cordova-plugin-whitelist" version="1" />
+    <plugin name="org.apache.cordova.network-information" version="0.2.12" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
