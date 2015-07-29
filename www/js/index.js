@@ -23,12 +23,8 @@
     // Cordova is loaded and it is now safe to make calls Cordova methods
     //
     function onDeviceReady() {
-//      window.location="http://www.sv-olbendorf.at/mobiles/starting_point";
-//        blinker();
         checkConnection();
- 
-
-    }
+     }
 
     function checkConnection() {
      
@@ -43,7 +39,7 @@
       states[Connection.NONE]       = 'No network connection';
     	
     	if (networkState == Connection.NONE) {
-    	  alert('Keine Internetverbindung');
+
 navigator.notification.alert(
     'Keine Internetverbindung',  // message
     alertDismissed,         // callback
@@ -57,8 +53,9 @@ navigator.notification.alert(
     }
 
 function alertDismissed() {
-    $('.loading').fadeOut(500);
-    $('.no_connection').fadeIn(500);
+  $(document.getElementById("loading")).hide();
+  $(document.getElementById("no_connection")).sow();
+
 }
 
 
