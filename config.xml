@@ -26,6 +26,8 @@
     <preference name="android-minSdkVersion" value="10" />
     <preference name="android-installLocation" value="auto" />
 
+    <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
+    
     <icon src="icon.png" />
        
    <access origin="*" />
