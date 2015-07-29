@@ -40,13 +40,14 @@
     	
     	if (networkState == Connection.NONE) {
 
-      navigator.notification.alert(
-          'Keine Internetverbindung',  // message
-          alertDismissed,         // callback
-          'Verbindung',            // title
-          'Done'                  // buttonName
-      );    	  
-
+navigator.notification.alert(
+    'Keine Internetverbindung',  // message
+    alertDismissed,         // callback
+    'Verbindung',            // title
+    'Done'                  // buttonName
+);    	  
+    	    $(document.getElementById("loading")).hide();
+  $(document.getElementById("no_connection")).sow();
     	  //window.location="local/index.html";
        	} else {
     	  window.location="http://www.sv-olbendorf.at/mobiles/starting_point";
@@ -54,8 +55,8 @@
     }
 
 function alertDismissed() {
-  $(document.getElementById("loading")).hide();
-  $(document.getElementById("no_connection")).show();
+//  $(document.getElementById("loading")).hide();
+//  $(document.getElementById("no_connection")).sow();
 
 }
 
