@@ -26,9 +26,6 @@
     <preference name="android-minSdkVersion" value="10" />
     <preference name="android-installLocation" value="auto" />
     
-    <preference name="phonegap-version"       value="3.7.0" />
-    <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
-    
     <icon src="icon.png" />
        
     <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
