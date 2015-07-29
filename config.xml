@@ -1,71 +1,48 @@
-<?xml version='1.0' encoding='utf-8'?>
-<widget id="at.sv-olbendorf.mobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://www.sv-olbendorf.at">
+<?xml version="1.0" encoding="UTF-8"?>
+  <widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "at.sv-olbendorf.mobile"
+    versionCode=""
+    version   = "0.8.0">
     <name>SVO Mobile</name>
-    <description>
-        Applikation des Sportvereines SV-Olbendorf
-    </description>
-    <author email="michael.stranka@gmail.com" href="http://www.michael-stranka.at">
-        Michael Stranka
-    </author>
-    <content src="index.html" />
-    <preference name="EnableViewportScale" value="true" />
-    <preference name="permissions" value="none" />
+    <description>Phonegap App des Sportvereines Olbendorf </description>
+    <author href="http://www.mittenin.at" email="michael.stranka@mittenin.at">Michael Stranka</author>
+    <preference name="phonegap-version" value="3.7.0" />
     <preference name="orientation" value="default" />
-    <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="false" />
+    <preference name="target-device" value="handset" />
     <preference name="webviewbounce" value="true" />
     <preference name="prerendered-icon" value="true" />
-    <preference name="OpenAllWhitelistURLsInWebView:" value="YES" />
-    <preference name="stay-in-webview" value="true" /> 
-    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="stay-in-webview" value="true" />
+    <preference name="ios-statusbarstyle" value="default" />
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
     <preference name="show-splash-screen-spinner" value="true" />
     <preference name="auto-hide-splash-screen" value="true" />
-    <preference name="disable-cursor" value="false" />
-    <preference name="android-minSdkVersion" value="10" />
+    <preference name="EnableViewportScale" value="true" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="BackupWebStorage" value="cloud" />
+    <preference name="TopActivityIndicator" value="gray" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+    <preference name="HideKeyboardFormAccessoryBar" value="false" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="android-minSdkVersion" value="9" />
+    <preference name="android-maxSdkVersion" value="9" />
+    <preference name="android-targetSdkVersion" value="16" />
     <preference name="android-installLocation" value="auto" />
-
-    <gap:plugin name="org.apache.cordova.console" />
-    <gap:plugin name="org.apache.cordova.device" />
-    <gap:plugin name="org.apache.cordova.dialogs" />
-    <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
-    
-    <icon src="icon.png" />
-       
-    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/res/screen/android/screen-mdpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="www/res/screen/android/screen-hdpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="www/res/screen/android/screen-xhdpi-portrait.png" />
-    <gap:splash gap:platform="ios" height="480" src="www/res/screen/ios/screen-iphone-portrait.png" width="320" />
-    <gap:splash gap:platform="ios" height="960" src="www/res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
-    <gap:splash gap:platform="ios" height="1136" src="www/res/screen/ios/screen-iphone-portrait-568h-2x.png" width="640" />
-    <gap:splash gap:platform="ios" height="1024" src="www/res/screen/ios/screen-ipad-portrait.png" width="768" />
-    <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
-    <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
-    <access origin="*" />
-    <access uri="*" subdomains="true" />
-    <access origin="tel:*" launch-external="yes" />
-    <access origin="mailto:*" launch-external="yes" />    
-    <plugin name="cordova-plugin-whitelist" version="1" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
-    <allow-navigation href="http://www.sv-olbendorf.at/*" />
-    <allow-navigation href="http://192.168.2.101:3001/*" />
-    <platform name="android">
-        <access origin="sms:*" launch-external="yes" />
-        <access origin="tel:*" launch-external="yes" />
-        <access origin="mailto:*" launch-external="yes" />      
-        <allow-intent href="market:*" />
-    </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-    </platform>
-    <engine name="ios" spec="^3.8.0" />
-    
-</widget>
+    <preference name="SplashScreenDelay" value="5000" />
+    <preference name="ErrorUrl" value=""/>
+    <preference name="BackgroundColor" value="0x000000"/>
+    <preference name="KeepRunning" value="true"/>
+    <preference name="DisallowOverscroll" value="false"/>
+    <preference name="LoadingDialog" value=","/> 
+    <preference name="LoadUrlTimeoutValue" value="20000" />
+    <preference name="disable-cursor" value="false" />
+    <gap:platform name="ios" />
+    <gap:platform name="android" />
+    <gap:platform name="winphone" />
+    <feature name="http://api.phonegap.com/1.0/network"/>
+    <gap:plugin name="org.apache.cordova.network-information"  />
+    <access origin="http://www.sv-olbendorf.at" subdomains="true"  />
+  </widget>
