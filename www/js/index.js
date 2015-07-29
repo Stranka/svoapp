@@ -31,7 +31,6 @@
     }
 
     function checkConnection() {
-      alert('OHNE');
      
       var networkState = navigator.connection.type;
       var states = {};
@@ -42,21 +41,24 @@
       states[Connection.CELL_3G]    = 'Cell 3G connection';
       states[Connection.CELL_4G]    = 'Cell 4G connection';
       states[Connection.NONE]       = 'No network connection';
-      
-      alert(networkState);
     	
     	if (networkState == Connection.NONE) {
     	  alert('Keine Internetverbindung');
+navigator.notification.alert(
+    'Keine Internetverbindung',  // message
+    alertDismissed,         // callback
+    'Verbindung',            // title
+    'Done'                  // buttonName
+);    	  
     	  //window.location="local/index.html";
        	} else {
     	  window.location="http://www.sv-olbendorf.at/mobiles/starting_point";
       }
     }
 
-
-function blinker() {
-    $('.blink_me').fadeOut(500);
-    $('.blink_me').fadeIn(500);
+function alertDismissed() {
+    $('.loading').fadeOut(500);
+    $('.no_connection').fadeIn(500);
 }
 
-setInterval(blinker, 1000);
+
