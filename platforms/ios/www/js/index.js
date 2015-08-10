@@ -24,7 +24,6 @@
     // Cordova is loaded and it is now safe to make calls Cordova methods
     //
     function onDeviceReady() {
-      alert('OK');
         window.location.href = "http://192.168.2.101:3001/mobiles";
      }
 
