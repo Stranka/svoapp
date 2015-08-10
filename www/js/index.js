@@ -51,7 +51,7 @@
 
     	  //window.location="local/index.html";
        	} else {
-    	  window.location="http://www.sv-olbendorf.at/mobile";
+    	  window.location="http://www.sv-olbendorf.at/mobiles";
       }
     }
 
