@@ -19,7 +19,7 @@
     // Wait for Cordova to load
     //
 
-    window.location = "http://192.168.2.101:3001/mobiles"; 
+//    window.location = "http://192.168.2.101:3001/mobiles"; 
     document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is loaded and it is now safe to make calls Cordova methods
@@ -48,10 +48,10 @@
           'Verbindung',            // title
           'Done'                  // buttonName
       );    	  
-
+alert('OK');
     	  //window.location="local/index.html";
        	} else {
-    	  window.location="http://www.sv-olbendorf.at/mobiles";
+    	  window.location="http://192.168.2.101:3001/mobiles";
       }
     }
 
