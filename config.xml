@@ -29,6 +29,9 @@
     <preference name="android-minSdkVersion" value="10" />
     <preference name="android-installLocation" value="auto" />
     <preference name="phonegap-version" value="cli-5.1.1" />
+
+    <preference name="CROSSWALK_ANDROID_COMMANDLINE" value="--no-default-browser-check" />
+    <preference name="CROSSWALK_ANDROID_COMMANDLINE" value="--disable-pull-to-refresh-effect" />
     
     <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
     <gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
