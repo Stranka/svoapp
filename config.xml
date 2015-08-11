@@ -39,11 +39,11 @@
     
     <icon src="icon.png" />
        
-   <access origin="*" />
+    <access origin="*" />
     <access uri="*" subdomains="true" />
     <access origin="tel:*" launch-external="yes" />
     <access origin="mailto:*" launch-external="yes" />    
-    <plugin name="cordova-plugin-whitelist" version="1" />
+   
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -54,10 +54,11 @@
     <allow-navigation href="http://192.168.2.101:3001/*" />
     <allow-navigation href="http://www.wikipedia.org/*" />
     <platform name="android">
-        <access origin="sms:*" launch-external="yes" />
-        <access origin="tel:*" launch-external="yes" />
-        <access origin="mailto:*" launch-external="yes" />      
-        <allow-intent href="market:*" />
+      <access origin="*" />
+      <access origin="sms:*" launch-external="yes" />
+      <access origin="tel:*" launch-external="yes" />
+      <access origin="mailto:*" launch-external="yes" />      
+      <allow-intent href="market:*" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
