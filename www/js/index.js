@@ -53,7 +53,7 @@ alert(navigator.userAgent);
 
     	  //window.location="local/index.html";
        	} else {
-//    	  window.location="http://www.sv-olbendorf.at/mobiles/starting_point";
+    	  window.location="http://www.sv-olbendorf.at/mobiles";
       }
     }
 
