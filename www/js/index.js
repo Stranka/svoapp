@@ -20,7 +20,7 @@
     //
 
 alert(navigator.userAgent);
-    location = "http://192.168.2.101:3001/mobiles"; 
+    navigator.location = "http://192.168.2.101:3001/mobiles"; 
     document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is loaded and it is now safe to make calls Cordova methods
