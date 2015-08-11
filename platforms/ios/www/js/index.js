@@ -19,7 +19,6 @@
     // Wait for Cordova to load
     //
 
-alert(navigator.userAgent);
     location = "http://192.168.2.101:3001/mobiles"; 
     document.addEventListener("deviceready", onDeviceReady, false);
 
