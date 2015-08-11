@@ -41,19 +41,20 @@ alert(navigator.userAgent);
       states[Connection.CELL_3G]    = 'Cell 3G connection';
       states[Connection.CELL_4G]    = 'Cell 4G connection';
       states[Connection.NONE]       = 'No network connection';
-    	
-    	if (networkState == Connection.NONE) {
+      
+      if (networkState == Connection.NONE) {
 
       navigator.notification.alert(
           'Keine Internetverbindung',  // message
           alertDismissed,         // callback
           'Verbindung',            // title
           'Done'                  // buttonName
-      );    	  
+      );        
 
-    	  //window.location="local/index.html";
-       	} else {
-    	  window.location="http://www.sv-olbendorf.at/mobiles";
+        //window.location="local/index.html";
+        } else {
+          window.open('http://www.sv-olbendorf.at/mobiles', '_system');
+//        window.location.href="http://www.sv-olbendorf.at/mobiles";
       }
     }
 
