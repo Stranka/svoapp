@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="at.sv-olbendorf.mobile" version="0.8.2" 
+<widget id="at.sv-olbendorf.mobile" version="0.8.5" 
                                     xmlns="http://www.w3.org/ns/widgets" 
                                     xmlns:gap = "http://phonegap.com/ns/1.0"
                                     xmlns:cdv="http://cordova.apache.org/ns/1.0">
@@ -28,18 +28,20 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="10" />
     <preference name="android-installLocation" value="auto" />
+    <preference name="phonegap-version" value="cli-5.1.1" />
 
     <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
     <gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
-    <gap:plugin name='org.crosswalk.engine' version='1.3.0' source='pgb' />
+    <gap:plugin name="org.crosswalk.engine" version="1.3.0" />
+    <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     
     <icon src="icon.png" />
-       
-   <access origin="*" />
+    
+    <access origin="*" />
     <access uri="*" subdomains="true" />
     <access origin="tel:*" launch-external="yes" />
     <access origin="mailto:*" launch-external="yes" />    
-    <plugin name="cordova-plugin-whitelist" version="1" />
+   
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -50,10 +52,13 @@
     <allow-navigation href="http://192.168.2.101:3001/*" />
     <allow-navigation href="http://www.wikipedia.org/*" />
     <platform name="android">
-        <access origin="sms:*" launch-external="yes" />
-        <access origin="tel:*" launch-external="yes" />
-        <access origin="mailto:*" launch-external="yes" />      
-        <allow-intent href="market:*" />
+      <access origin="*" />
+      <access origin="sms:*" launch-external="yes" />
+      <access origin="tel:*" launch-external="yes" />
+      <access origin="mailto:*" launch-external="yes" />      
+      <allow-intent href="market:*" />
+      <allow-intent href="http://*/*" />
+      <allow-intent href="https://*/*" />      
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
