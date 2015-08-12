@@ -53,7 +53,7 @@ alert(navigator.userAgent);
 
         //window.location="local/index.html";
         } else {
-          window.open('http://www.sv-olbendorf.at/mobiles', '_self', 'location=no');
+//          window.open('http://www.sv-olbendorf.at/mobiles', '_self', 'location=no');
 //        window.location.href="http://www.sv-olbendorf.at/mobiles";
       }
     }
