@@ -28,7 +28,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'" />
     <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="css/themes/jquery.mobile.structure-1.4.5.min.css" />
-    <link rel="stylesheet" href="css/themes/svo.css" />
+    <link rel="stylesheet" href="css/themes/svo.min.css" />
     <script src="js/jquery-1.11.3.min.js"></script> 
     <script src="js/jquery.mobile.custom.min.js"></script>
 
@@ -47,17 +47,34 @@
       </br></br></br>
         <h1 id="loading" style="text-align: center">Loading....</h1>
 
-  <p>link test<br /><br />
-  <a href="#" onclick="window.open('http://www.wikipedia.org','_self','location=no')">Wikipedia (webview)</a><br /><br />
-  <a href="#" onclick="window.open('http://www.wikipedia.org','_blank','location=no')">Wikipedia (inAppBrowser)</a><br /><br />
-  <a href="#" onclick="window.open('http://www.wikipedia.org','_system','location=no')">Wikipedia (mobile browser)</a><br /><br />
-  </p>
-  <p>button test<br /><br />
-  <button type="button" onclick="window.open('http://www.wikipedia.org','_self','location=yes')">Wikipedia (webview)</button><br /><br />
-  <button type="button" onclick="window.open('http://www.wikipedia.org','_blank','location=yes')">Wikipedia (inAppBrowser)</button><br /><br />
-  <button type="button" onclick="window.open('http://www.wikipedia.org','_system','location=yes')">Wikipedia (mobile browser)</button><br /><br />  
-  </p>
 
+        <div class="ui-grid-a" id="online">
+          <div class="ui-block-a" style="text-align: center">
+             <a href="http://www.sv-olbendorf.at/mobiles/kampf" data-ajax="false"><img src="img/ball.png"></a></br>Kampf
+          </div>
+          <div class="ui-block-b" style="text-align: center">
+             <a href="http://www.sv-olbendorf.at/mobiles/reserve" data-ajax="false"><img src="img/pokal.png"></a></br>Reserve
+          </div>
+
+          <div class="ui-block-a" style="text-align: center">
+            </br>
+            <a href="http://www.sv-olbendorf.at/mobiles/nachwuchs" data-ajax="false"><img src="img/schuh.png"></a></br>Nachwuchs
+          </div>
+          <div class="ui-block-b" style="text-align: center">
+            </br>
+             <a href="http://www.sv-olbendorf.at/mobiles/list_categories" data-ajax="false"><img src="img/trillerpfeife.png"></a></br>Bilder
+          </div>
+
+          <div class="ui-block-a" style="text-align: center">
+            </br>
+            <a href="http://www.sv-olbendorf.at/mobiles/events" data-ajax="false"><img src="img/spielfeld.png"></a></br>Termine
+          </div>
+          <div class="ui-block-b" style="text-align: center">
+            </br>
+             <a href="http://www.sv-olbendorf.at/mobiles/members" data-ajax="false"><img src="img/trikot.png"></a></br>Mitglieder
+          </div>   
+    
+      </div>
         <h3 id="no_connection" style="text-align: center; display: none">Diese App benötigt eine Internetverbindung</h3>
       </div>
 
