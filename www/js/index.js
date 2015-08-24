@@ -27,7 +27,6 @@
     // Cordova is loaded and it is now safe to make calls Cordova methods
     //
     function onDeviceReady() {
-alert(navigator.userAgent);
         checkConnection();
      }
 
@@ -55,7 +54,7 @@ alert(navigator.userAgent);
         //window.location="local/index.html";
         } else {
 //          window.open('http://www.sv-olbendorf.at/mobiles', '_self', 'location=no');
-//        window.location.href="http://www.sv-olbendorf.at/mobiles";
+        window.location.href="http://www.sv-olbendorf.at/mobiles";
       }
     }
 
