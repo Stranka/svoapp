@@ -18,7 +18,7 @@
  */
     // Wait for Cordova to load
     //
-    window.location = "http://192.168.2.101:3001/mobiles"; 
+//    window.location = "http://192.168.2.101:3001/mobiles"; 
 //    window.location.href="http://www.sv-olbendorf.at/mobiles";
 //    document.addEventListener("deviceready", onDeviceReady, false);
 //    document.addEventListener("offline", onOffline, false);
@@ -50,8 +50,8 @@
 
         //window.location="local/index.html";
       } else {
-//        window.open('http://www.sv-olbendorf.at/mobiles', '_self', 'location=no');
-        window.location.href="http://www.sv-olbendorf.at/mobiles";
+        window.open('http://www.sv-olbendorf.at/mobiles', '_self', 'location=no');
+//        window.location.href="http://www.sv-olbendorf.at/mobiles";
       }
     }
 
