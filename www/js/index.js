@@ -18,9 +18,9 @@
  */
     // Wait for Cordova to load
     //
-//    window.location = "http://192.168.2.101:3001/mobiles"; 
+    window.location = "http://192.168.2.101:3001/mobiles"; 
 //    window.location.href="http://www.sv-olbendorf.at/mobiles";
-    document.addEventListener("deviceready", onDeviceReady, false);
+//    document.addEventListener("deviceready", onDeviceReady, false);
 //    document.addEventListener("offline", onOffline, false);
 //    document.addEventListener("online", onOnline, false);
     // Cordova is loaded and it is now safe to make calls Cordova methods
