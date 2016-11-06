@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="at.sv-olbendorf.mobile" version="1.0.8"
+<widget id="at.sv-olbendorf.mobile" version="1.1.0"
                                     xmlns="http://www.w3.org/ns/widgets"
                                     xmlns:gap = "http://phonegap.com/ns/1.0"
                                     xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>SVO Mobile</name>
+    <name>SVO Mobile (1.1.0)</name>
     <description>
         Applikation des Sportvereines SV-Olbendorf
     </description>
