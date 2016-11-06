@@ -18,8 +18,8 @@
  */
     // Wait for Cordova to load
     //
-//    window.location = "http://192.168.2.101:3001/mobiles"; 
-    window.location.href="http://www.sv-olbendorf.at/mobiles";
+    window.location = "http://192.168.2.101:3001/mobiles";
+//    window.location.href="http://www.sv-olbendorf.at/mobiles";
 //    document.addEventListener("deviceready", onDeviceReady, false);
 //    document.addEventListener("offline", onOffline, false);
 //    document.addEventListener("online", onOnline, false);
@@ -29,7 +29,7 @@
         checkConnection();
      }
 
-    function checkConnection() {   
+    function checkConnection() {
       var networkState = navigator.connection.type;
       var states = {};
       states[Connection.UNKNOWN]    = 'Unknown connection';
@@ -39,14 +39,14 @@
       states[Connection.CELL_3G]    = 'Cell 3G connection';
       states[Connection.CELL_4G]    = 'Cell 4G connection';
       states[Connection.NONE]       = 'No network connection';
-      
+
       if (networkState == Connection.NONE) {
         navigator.notification.alert(
           'Keine Internetverbindung',  // message
           alertDismissed,         // callback
           'Verbindung',            // title
           'Done'                  // buttonName
-        );        
+        );
 
         //window.location="local/index.html";
       } else {
@@ -60,5 +60,3 @@ function alertDismissed() {
   $(document.getElementById("no_connection")).show();
 
 }
-
-
