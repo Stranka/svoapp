@@ -30,6 +30,8 @@
     <preference name="android-installLocation" value="auto" />
     <preference name="phonegap-version" value="cli-6.3.0" />
     <preference name="xwalkVersion" value="14+" />
+    <preference name="BackgroundColor" value="0xFFFF0000" />
+    <preference name="xwalkCommandLine" value="--enable-pull-to-refresh-effect" />
 
     <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" source='npm' />
     <gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" source='npm' />
