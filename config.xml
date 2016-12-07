@@ -33,10 +33,8 @@
 
     <plugin name="cordova-plugin-crosswalk-webview" spec="2.1.0" />
     <plugin name="cordova-plugin-whitelist" spec="1.3.0" />
-    <plugin name="cordova-plugin-dialogs" />
-    <plugin name="cordova-plugin-network-information" />
-
-    <plugin name="cordova.plugin.camera" />
+    <plugin name="org.apache.cordova.dialogs" spec="0.2.10" />
+    <plugin name="org.apache.cordova.network-information" spec="0.2.12" />
 
     <icon src="icon.png" />
 
