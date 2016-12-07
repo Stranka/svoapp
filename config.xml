@@ -37,12 +37,6 @@
     <plugin name="org.apache.cordova.network-information" spec="0.2.12" />
 
     <plugin name="cordova-plugin-camera" />
-    <plugin name="cordova-plugin-media-capture" />
-    <plugin name="cordova-plugin-file" />
-    <plugin name="cordova-plugin-file-transfer" />
-    <plugin name="cordova-plugin-geolocation" />
-    <plugin name="cordova-plugin-inappbrowser" />
-    <plugin name="cordova-plugin-media" />
 
     <icon src="icon_localhost.png" />
 
