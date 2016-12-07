@@ -36,6 +36,12 @@
     <plugin name="org.apache.cordova.dialogs" spec="0.2.10" />
     <plugin name="org.apache.cordova.network-information" spec="0.2.12" />
 
+    <plugin name="org.apache.cordova.camera" />
+    <plugin name="org.apache.cordova.media-capture" />
+    <plugin name="org.apache.cordova.file" />
+    <plugin name="org.apache.cordova.media" />
+    <plugin name="org.apache.cordova.device" />
+
     <icon src="icon.png" />
 
     <access origin="*" />
