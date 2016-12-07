@@ -18,7 +18,7 @@
  */
     // Wait for Cordova to load
     //
-    window.location = "http://192.168.2.101:3000/mobiles";
+    window.location.href = "http://192.168.2.101:3000/mobiles";
 //    window.location.href="http://www.sv-olbendorf.at/mobiles";
 //    document.addEventListener("deviceready", onDeviceReady, false);
 //    document.addEventListener("offline", onOffline, false);
